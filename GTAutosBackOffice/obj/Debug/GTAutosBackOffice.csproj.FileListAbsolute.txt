@@ -1,0 +1,9 @@
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe.config
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.pdb
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csprojAssemblyReference.cache
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.Properties.Resources.resources
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.GenerateResource.cache
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
+C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
