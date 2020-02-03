@@ -4,3 +4,8 @@ C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosClasses\obj
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+C:\Users\nick\Desktop\Agile Team\gt-autos-ltd\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+C:\Users\nick\Desktop\Agile Team\gt-autos-ltd\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+C:\Users\nick\Desktop\Agile Team\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+C:\Users\nick\Desktop\Agile Team\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+C:\Users\nick\Desktop\Agile Team\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
