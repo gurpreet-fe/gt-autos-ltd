@@ -16,3 +16,11 @@ D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GT
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe.config
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.pdb
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csprojAssemblyReference.cache
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.Properties.Resources.resources
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.GenerateResource.cache
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
+H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb

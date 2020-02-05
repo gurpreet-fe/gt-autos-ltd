@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTAutosClasses", "GTAutosClasses\GTAutosClasses.csproj", "{79720609-462E-4E61-850D-DA8F745EE4F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTAutosTesting", "GTAutosTesting\GTAutosTesting.csproj", "{4505E9F1-3357-4CEC-AAF4-6F5AC188C8ED}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GTAutosFrontOffice", "GTAutosFrontOffice", "{B91B42AD-11E3-4EC0-B21B-C682E32AEA84}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GTAutosFrontOffice", "GTAutosFrontOffice\", "{B91B42AD-11E3-4EC0-B21B-C682E32AEA84}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52941"
