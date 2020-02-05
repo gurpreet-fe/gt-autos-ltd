@@ -1,0 +1,16 @@
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\obj\Debug\GTAutosTesting.csprojAssemblyReference.cache
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\obj\Debug\GTAutosTesting.csproj.CoreCompileInputs.cache
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\GTAutosTesting.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\GTAutosTesting.pdb
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\GTAutosClasses.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\GTAutosClasses.pdb
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\obj\Debug\GTAutosTesting.csproj.CopyComplete
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\obj\Debug\GTAutosTesting.dll
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosTesting\obj\Debug\GTAutosTesting.pdb
