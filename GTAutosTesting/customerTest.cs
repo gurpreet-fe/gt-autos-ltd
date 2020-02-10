@@ -7,6 +7,32 @@ namespace GTAutosTesting
     [TestClass]
     public class CustomerTest
     {
+
+        [TestMethod]
+        public void TestFindCustomerIDOK()
+        {
+            Customer aCustomer = new Customer();
+            Boolean Found = false;
+            Int32 CustomerID = 1;
+            Found = aCustomer.Find(CustomerID);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestFindCustomerNoFound()
+        {
+            Customer aCustomer = new Customer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerID = 1;
+            Found = aCustomer.Find(CustomerID);
+            if (aCustomer.CustomerID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -33,6 +59,21 @@ namespace GTAutosTesting
             DateTime TestData = DateTime.Now.Date;
             aCustomer.DateAdded = TestData;
             Assert.AreEqual(aCustomer.DateAdded, TestData);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            Customer aCustomer = new Customer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerID = 1;
+            Found = aCustomer.Find(CustomerID);
+            if (aCustomer.DateAdded != Convert.ToDateTime("31/01/1900"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -93,7 +134,7 @@ namespace GTAutosTesting
         public void CustomerDOBOK()
         {
             Customer aCustomer = new Customer();
-            DateTime TestData = DateTime.Now;
+            DateTime TestData = Convert.ToDateTime("31/01/1900");
             aCustomer.CustomerDOB = TestData;
             Assert.AreEqual(aCustomer.CustomerDOB, TestData);
         }
