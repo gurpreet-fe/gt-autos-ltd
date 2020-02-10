@@ -16,3 +16,12 @@ H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\07-02-2020\GTAutosBackOffi
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\07-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\07-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\07-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe.config
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.pdb
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csprojAssemblyReference.cache
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.Properties.Resources.resources
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.GenerateResource.cache
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\10-02-2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
