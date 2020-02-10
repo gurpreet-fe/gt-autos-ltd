@@ -32,7 +32,7 @@ namespace GTAutosTesting
             Customer aCustomer = new Customer();
             DateTime TestData = DateTime.Now.Date;
             aCustomer.DateAdded = TestData;
-            Assert.AreEqual(aCustomer.Active, TestData);
+            Assert.AreEqual(aCustomer.DateAdded, TestData);
         }
 
         [TestMethod]
@@ -53,6 +53,7 @@ namespace GTAutosTesting
             Assert.AreEqual(aCustomer.CustomerPassword, TestData);
         }
 
+        [TestMethod]
         public void CustomerEmailOK()
         {
             Customer aCustomer = new Customer();
@@ -88,6 +89,7 @@ namespace GTAutosTesting
             Assert.AreEqual(aCustomer.CustomerPhoneNumber, TestData);
         }
 
+        [TestMethod]
         public void CustomerDOBOK()
         {
             Customer aCustomer = new Customer();
