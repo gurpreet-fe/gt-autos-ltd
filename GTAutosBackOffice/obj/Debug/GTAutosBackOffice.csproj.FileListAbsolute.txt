@@ -7,3 +7,12 @@ C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe.config
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.pdb
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csprojAssemblyReference.cache
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.Properties.Resources.resources
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.GenerateResource.cache
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
+H:\Documents\Agile\10 02 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
