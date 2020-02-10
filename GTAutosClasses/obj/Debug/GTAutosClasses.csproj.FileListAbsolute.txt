@@ -6,7 +6,6 @@ C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosClasses\obj
 C:\Users\p2444523\source\repos\GT Autos Ltd Management System\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\bin\Debug\GTAutosClasses.dll
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
-D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
@@ -15,3 +14,4 @@ H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\bin\Debug\GTAut
 H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
 H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 H:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+D:\Work\Year_2\S2\IMAT_2207\Project\03-02-20 Work\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache

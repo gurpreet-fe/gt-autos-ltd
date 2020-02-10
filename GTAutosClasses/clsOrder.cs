@@ -15,6 +15,7 @@ namespace GTAutosClasses
         public string ServiceID { get; set; }
         public double OrderPrice { get; set; }
         public string OrderStatus { get; set; }
+        public int PaymentID { get; set; }
         public bool Completed { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using GTAutosClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
 namespace GTAutosTesting
 {
     [TestClass]
@@ -54,6 +55,7 @@ namespace GTAutosTesting
             //test to see that the 2 values are the same.
             Assert.AreEqual(anOrder.CarID, TestData);
         }
+
 
         [TestMethod]
         public void DateOfOrderPropertyOK()
@@ -119,5 +121,18 @@ namespace GTAutosTesting
             //test to see that the 2 values are the same.
             Assert.AreEqual(anOrder.Completed, TestData);
         }
+        [TestMethod]
+        public void PaymentID()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //creates some test data that is assigned to a variable.
+            int TestData = 0;
+            //assigns the data to the property.
+            anOrder.PaymentID = TestData;
+            //test to see that the 2 values are the same.
+            Assert.AreEqual(anOrder.PaymentID, TestData);
+        }
+
     }
 }
