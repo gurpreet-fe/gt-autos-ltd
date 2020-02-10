@@ -12,7 +12,6 @@ namespace GTAutosTesting
         {
             clsOffice AnOffice = new clsOffice();
             Assert.IsNotNull(AnOffice);
-
         }
     }
 }
