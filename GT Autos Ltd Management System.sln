@@ -7,9 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTAutosClasses", "GTAutosCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTAutosTesting", "GTAutosTesting\GTAutosTesting.csproj", "{4505E9F1-3357-4CEC-AAF4-6F5AC188C8ED}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GTAutosFrontOffice", "GTAutosFrontOffice", "{B91B42AD-11E3-4EC0-B21B-C682E32AEA84}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GTAutosFrontOffice", "GTAutosFrontOffice\", "{B91B42AD-11E3-4EC0-B21B-C682E32AEA84}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{79720609-462e-4e61-850d-da8f745ee4f6}|GTAutosClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52941"
 		Debug.AspNetCompiler.PhysicalPath = "GTAutosFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52941\"
