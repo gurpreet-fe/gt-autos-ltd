@@ -7,6 +7,7 @@ namespace GTAutosClasses
         private Int32 mCustomerID;
         private DateTime mDateAdded;
         private string mTown;
+        private string mPostCode;
 
         public bool Active { get; set; }
         
