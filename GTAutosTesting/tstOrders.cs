@@ -134,5 +134,20 @@ namespace GTAutosTesting
             Assert.AreEqual(anOrder.PaymentID, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //creates some test data that is assigned to a variable.
+            int OrderNo = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderNo);
+            //test to see that the result is correct
+            Assert.IsTrue(Found);
+        }
+
     }
 }
