@@ -63,6 +63,7 @@ public partial class AnOrder : System.Web.UI.Page
     {
         ClsOrder AnOrder = new ClsOrder();
         AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
+        AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
         Session["AnOrder"] = AnOrder;
         Response.Redirect("OrderViewer.aspx");
     }
