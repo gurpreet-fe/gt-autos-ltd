@@ -34,3 +34,9 @@ H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\piece of shit\GTAutosClass
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\piece of shit\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\piece of shit\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\piece of shit\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+H:\Documents\Agile\12 02 2020\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+H:\Documents\Agile\12 02 2020\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
