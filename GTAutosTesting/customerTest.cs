@@ -70,7 +70,8 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.Active != true) {
+            if (aCustomer.Active != true)
+            {
                 OK = false;
             }
             Assert.IsTrue = OK;
@@ -119,11 +120,11 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerPassword != "qwertyuiop")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue(OK);
-        
+
         }
 
         [TestMethod]
@@ -144,9 +145,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerEmail != "testymctester@testemail.com")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -168,9 +169,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerFirstName != "Testy")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -192,9 +193,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerLastName != "McTester")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -216,9 +217,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerPhoneNumber != "01234 567890")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -264,9 +265,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.AddressNo != 21)
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -278,7 +279,7 @@ namespace GTAutosTesting
             aCustomer.CountyNo = TestData;
             Assert.AreEqual(aCustomer.CountyNo, TestData);
         }
-        
+
         [TestMethod]
         public void CustomerCountyNoFound()
         {
@@ -288,9 +289,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CountyNo != 21)
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -312,9 +313,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.HouseNo != "1B")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -336,9 +337,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.PostCode != "AA1 1AA")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -359,9 +360,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.PostCode != "AA1 1AA")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -382,9 +383,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.Town != "Test Town")
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 
@@ -405,9 +406,9 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.Town != false)
-                {
-                    OK = false;
-                }
+            {
+                OK = false;
+            }
             Assert.IsTrue = OK;
         }
 

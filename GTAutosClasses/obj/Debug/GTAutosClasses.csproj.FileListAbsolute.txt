@@ -40,3 +40,8 @@ H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAsse
 H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 H:\Documents\Agile\12 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\bin\Debug\GTAutosClasses.pdb

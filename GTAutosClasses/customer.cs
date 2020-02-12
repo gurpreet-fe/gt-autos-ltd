@@ -21,8 +21,8 @@ namespace GTAutosClasses
         private DateTime mCustomerDOB;
         private Boolean mMarketing;
 
-         public bool Find(int customerID)
-         {
+        public bool Find(int customerID)
+        {
             mActive = true;
             mCustomerID = 1;
             mDateAdded = Convert.ToDateTime("12/02/2020");
@@ -41,7 +41,7 @@ namespace GTAutosClasses
             mCustomerDOB = Convert.ToDateTime("01/01/1900");
             mMarketing = false;
             return true;
-         }
+        }
 
         public bool Active
         {
@@ -53,9 +53,9 @@ namespace GTAutosClasses
             {
                 mActive = value;
             }
-        }       
-        
-        public DateTime DateAdded 
+        }
+
+        public DateTime DateAdded
         {
             get
             {
@@ -66,7 +66,7 @@ namespace GTAutosClasses
                 mDateAdded = value;
             }
         }
-        public Int32 AddressNo 
+        public Int32 AddressNo
         {
             get
             {
@@ -113,9 +113,9 @@ namespace GTAutosClasses
                 mPostcode = value;
             }
         }
-        
+
         public string Street
-        { 
+        {
             get
             {
                 return mStreet;
@@ -125,7 +125,7 @@ namespace GTAutosClasses
                 mStreet = value;
             }
         }
-        
+
         public string Town
         {
             get
@@ -137,7 +137,7 @@ namespace GTAutosClasses
                 mTown = value;
             }
         }
-       
+
 
         public Int32 CustomerID
         {
@@ -152,7 +152,7 @@ namespace GTAutosClasses
         }
 
         public string CustomerFirstName
-        { 
+        {
             get
             {
                 return mCustomerFirstName;
@@ -186,7 +186,7 @@ namespace GTAutosClasses
             }
         }
 
-        public string CustomerPassword 
+        public string CustomerPassword
         {
             get
             {
@@ -233,5 +233,6 @@ namespace GTAutosClasses
                 mMarketing = value;
             }
         }
+    }
                 
 }

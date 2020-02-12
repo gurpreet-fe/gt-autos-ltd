@@ -17,5 +17,10 @@ namespace GTAutosClasses
         public string OrderStatus { get; set; }
         public int PaymentID { get; set; }
         public bool Completed { get; set; }
+
+        public bool Find(int orderNo)
+        {
+            return true;
+        }
     }
 }
