@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCar.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="ClsOrder.cs" />
+    <Compile Include="clsRequest.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
