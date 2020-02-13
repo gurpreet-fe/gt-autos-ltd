@@ -11,7 +11,7 @@ public partial class AnOrder : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       //GTAutosClasses.ClsOrder
+     
     }
 
     protected void TxtOrderID_TextChanged(object sender, EventArgs e)

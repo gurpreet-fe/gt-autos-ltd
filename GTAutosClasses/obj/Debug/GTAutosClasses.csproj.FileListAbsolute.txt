@@ -45,3 +45,8 @@ H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\obj\Debug\GTAutosCla
 H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
 H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\bin\Debug\GTAutosClasses.dll
 H:\Work\Year_2\S2\IMAT_2207\Project\12-02-20\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+H:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+H:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+H:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+H:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+H:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\obj\Debug\GTAutosClasses.pdb

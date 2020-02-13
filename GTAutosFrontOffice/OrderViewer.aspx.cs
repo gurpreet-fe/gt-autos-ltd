@@ -12,8 +12,8 @@ public partial class _Default : System.Web.UI.Page
     {
         ClsOrder AnOrder = new ClsOrder();
         AnOrder = (ClsOrder)Session["AnOrder"];
-        Response.Write(AnOrder.OrderID + "</br>)");
-        Response.Write(AnOrder.CustomerID + "</br>");
+        Response.Write("OrderID: " + AnOrder.OrderID +   "</br>");
+        Response.Write("CustomerID: " + AnOrder.CustomerID  + "</br>");
 
     }
 }

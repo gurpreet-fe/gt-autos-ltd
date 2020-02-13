@@ -8,7 +8,18 @@ namespace GTAutosClasses
 {
     public class ClsOrder
     {
-        public int OrderID { get; set; }
+        private int iOrderID;
+        public int OrderID 
+        {
+            get 
+            {
+                return iOrderID;
+            }
+            set
+            {
+                iOrderID = value;
+            }
+        }
         public int CustomerID { get; set; }
         public int CarID { get; set; }
         public DateTime DateOfOrder { get; set; }
@@ -18,8 +29,9 @@ namespace GTAutosClasses
         public int PaymentID { get; set; }
         public bool Completed { get; set; }
 
-        public bool Find(int orderNo)
+        public bool Find(int OrderID)
         {
+            iOrderID = 1;
             return true;
         }
     }
