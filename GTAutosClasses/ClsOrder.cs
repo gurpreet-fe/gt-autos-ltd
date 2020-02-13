@@ -8,30 +8,126 @@ namespace GTAutosClasses
 {
     public class ClsOrder
     {
-        private int iOrderID;
+        private int pOrderID;
+        private int pCustomerID;
+        private String pCardID;
+        private int pPaymentID;
+        private DateTime pDateOfOrder;
+        private String pServiceID;
+        private double pOrderPrice;
+        private String pOrderStatus;
+        private Boolean pCompleted;
         public int OrderID 
         {
             get 
             {
-                return iOrderID;
+                return pOrderID;
             }
             set
             {
-                iOrderID = value;
+                pOrderID = value;
             }
         }
-        public int CustomerID { get; set; }
-        public int CarID { get; set; }
-        public DateTime DateOfOrder { get; set; }
-        public string ServiceID { get; set; }
-        public double OrderPrice { get; set; }
-        public string OrderStatus { get; set; }
-        public int PaymentID { get; set; }
-        public bool Completed { get; set; }
+        public int CustomerID 
+        { 
+            get 
+            {
+                return pCustomerID;
+            } 
+            set 
+            {
+                pCustomerID = value;
+            } 
+        }
+        public String CarID 
+        { 
+            get 
+            {
+                return pCardID;
+            }
+            set
+            {
+                pCardID = value;
+            } 
+        }
+        public DateTime DateOfOrder 
+        {
+            get 
+            {
+                return pDateOfOrder;          
+            } 
+            set 
+            {
+                pDateOfOrder = value;   
+            } 
+        }
+        public String ServiceID 
+        {
+            get 
+            {
+                return pServiceID;
+            } 
+            set 
+            {
+                pServiceID = value;       
+            } 
+        }
+        public double OrderPrice 
+        {
+            get 
+            {
+                return pOrderPrice;
+            } 
+            set 
+            {
+                pOrderPrice = value;
+            } 
+        }
+        public String OrderStatus 
+        {
+            get 
+            {
+                return pOrderStatus;
+            }
+            set 
+            {
+                pOrderStatus = value;
+            } 
+        }
+        public int PaymentID 
+        {
+            get 
+            {
+                return pPaymentID;
+            } 
+            set 
+            {
+                pPaymentID = value;
+            } 
+        }
+        public bool Completed 
+        {
+            get 
+            {
+                return pCompleted;
+            } 
+            set 
+            {
+                pCompleted = value;   
+            } 
+        }
 
         public bool Find(int OrderID)
         {
-            iOrderID = 1;
+            pOrderID = 1;
+            pCustomerID = 1;
+            pCardID = "MP04XTT";
+            pPaymentID = 1;
+            pDateOfOrder = DateTime.Now.Date;
+            pServiceID = "MOT";
+            pOrderPrice = 20.5;
+            pOrderStatus = "Completed";
+            pCompleted = true;
             return true;
         }
     }
