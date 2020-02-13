@@ -135,18 +135,38 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void FindMethodOk()
+        public void FindMethodOK()
         {
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //boolean variable to store the result of the validation.
             Boolean Found = false;
             //creates some test data that is assigned to a variable.
-            int OrderNo = 1;
+            int OrderID = 1;
             //assigns the data to the property.
-            Found = anOrder.Find(OrderNo);
+            Found = anOrder.Find(OrderID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestOrderIDFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.OrderID != 1) {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
     }
 }
