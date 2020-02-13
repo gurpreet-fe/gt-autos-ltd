@@ -23,7 +23,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            int TestData = 0;
+            int TestData = 1;
             //assigns the data to the property.
             anOrder.OrderID = TestData;
             //test to see that the 2 values are the same.
@@ -36,7 +36,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            int TestData = 0;
+            int TestData = 1;
             //assigns the data to the property.
             anOrder.CustomerID = TestData;
             //test to see that the 2 values are the same.
@@ -49,7 +49,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            int TestData = 0;
+            String TestData = "MT04TTX";
             //assigns the data to the property.
             anOrder.CarID = TestData;
             //test to see that the 2 values are the same.
@@ -76,7 +76,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            string TestData = "MOT";
+            String TestData = "MOT";
             //assigns the data to the property.
             anOrder.ServiceID = TestData;
             //test to see that the 2 values are the same.
@@ -102,7 +102,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            string TestData = "Pending";
+            String TestData = "Pending";
             //assigns the data to the property.
             anOrder.OrderStatus = TestData;
             //test to see that the 2 values are the same.
@@ -122,12 +122,12 @@ namespace GTAutosTesting
             Assert.AreEqual(anOrder.Completed, TestData);
         }
         [TestMethod]
-        public void PaymentID()
+        public void PaymentIDPropertyOK()
         {
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            int TestData = 0;
+            int TestData = 1;
             //assigns the data to the property.
             anOrder.PaymentID = TestData;
             //test to see that the 2 values are the same.
@@ -168,5 +168,174 @@ namespace GTAutosTesting
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.CustomerID != 1)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCarIDFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.CarID != "MP04XTT")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPaymentIDFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.PaymentID != 1)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateOfOrderFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.DateOfOrder != Convert.ToDateTime(DateTime.Now.Date))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestServiceIDFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.ServiceID != "MOT")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderPriceFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.OrderPrice != 20.5)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderStatusFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.OrderStatus != "Completed")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCompletedFound()
+        {
+            //Creates a new instance of the Order class
+            ClsOrder anOrder = new ClsOrder();
+            //boolean variable to store the result of the validation.
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            //creates some test data that is assigned to a variable.
+            int OrderID = 1;
+            //assigns the data to the property.
+            Found = anOrder.Find(OrderID);
+            if (anOrder.Completed != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
     }
 }
