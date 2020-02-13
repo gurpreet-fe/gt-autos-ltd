@@ -119,16 +119,40 @@ namespace GTAutosClasses
 
         public bool Find(int OrderID)
         {
-            pOrderID = 1;
-            pCustomerID = 1;
-            pCardID = "MP04XTT";
-            pPaymentID = 1;
-            pDateOfOrder = DateTime.Now.Date;
-            pServiceID = "MOT";
-            pOrderPrice = 20.5;
-            pOrderStatus = "Completed";
-            pCompleted = true;
-            return true;
+            //pOrderID = 1;
+            //pCustomerID = 1;
+            //pCardID = "MP04XTT";
+            //pPaymentID = 1;
+            //pDateOfOrder = DateTime.Now.Date;
+            //pServiceID = "MOT";
+            //pOrderPrice = 20.5;
+            //pOrderStatus = "Completed";
+            //pCompleted = true;
+            //return true;
+            // Create a new database connection instance.
+            clsDataConnection DB = new clsDataConnection();
+            // Add the parameter for the Order ID to search for.
+            DB.AddParameter("@OrderID", OrderID);
+            // Execute the stored procedure
+            DB.Execute("dbo.tblOrders_FilterByOrderID");
+            // If one record is found (there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                pOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                pCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                pCardID = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
+                pPaymentID = Convert.ToInt32(DB.DataTable.Rows[0]["PaymentID"]);
+                DateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
+                pServiceID = Convert.ToString(DB.DataTable.Rows[0]["ServiceID"]);
+                pOrderPrice = Convert.ToDouble(DB.DataTable.Rows[0]["OrderPrice"]);
+                pOrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
+                pCompleted = Convert.ToBoolean(DB.DataTable.Rows[0]["Completed"]);
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
         }
     }
 }
