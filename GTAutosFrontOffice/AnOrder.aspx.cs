@@ -73,4 +73,30 @@ public partial class AnOrder : System.Web.UI.Page
     {
        
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        ClsOrder AnOrder = new ClsOrder();
+        // variable to store the primary key
+        Int32 OrderID;
+        // Variable to store result of the find operation.
+        Boolean Found = false;
+        // Get the primary key entered by the user
+        OrderID = Convert.ToInt32(TxtOrderID.Text);
+        // Find the record
+        Found = AnOrder.Find(OrderID);
+        // If found
+        if (Found == true)
+        {
+            txtCustomerID.Text = AnOrder.CustomerID.ToString();
+            txtCar.Text = AnOrder.CarID.ToString();
+            DropDownPayment.Text = AnOrder.PaymentID.ToString();
+            DropDownDates.Text = AnOrder.DateOfOrder.ToOADate().ToString();
+            DropDownServices.Text = AnOrder.ServiceID;
+            txtPrice.Text = AnOrder.OrderPrice.ToString();
+            txtOrderStatus.Text = AnOrder.OrderStatus;
+            CheckBoxCompleted.Checked = AnOrder.Completed;
+        }
+
+    }
 }
