@@ -11,6 +11,7 @@
         <div>
             OrderID
             <asp:TextBox ID="TxtOrderID" runat="server" OnTextChanged="TxtOrderID_TextChanged"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             CustomerID <asp:TextBox ID="txtCustomerID" runat="server" OnTextChanged="TxtCustomerID_TextChanged"></asp:TextBox>
             <br />

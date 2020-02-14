@@ -8,14 +8,14 @@ namespace GTAutosClasses
 {
     public class ClsOrder
     {
-        private int pOrderID;
-        private int pCustomerID;
-        private String pCardID;
-        private int pPaymentID;
+        private Int32 pOrderID;
+        private Int32 pCustomerID;
+        private string pCarID;
+        private Int32 pPaymentID;
         private DateTime pDateOfOrder;
-        private String pServiceID;
+        private string pServiceID;
         private double pOrderPrice;
-        private String pOrderStatus;
+        private string pOrderStatus;
         private Boolean pCompleted;
         public int OrderID 
         {
@@ -39,15 +39,15 @@ namespace GTAutosClasses
                 pCustomerID = value;
             } 
         }
-        public String CarID 
+        public string CarID 
         { 
             get 
             {
-                return pCardID;
+                return pCarID;
             }
             set
             {
-                pCardID = value;
+                pCarID = value;
             } 
         }
         public DateTime DateOfOrder 
@@ -61,7 +61,7 @@ namespace GTAutosClasses
                 pDateOfOrder = value;   
             } 
         }
-        public String ServiceID 
+        public string ServiceID 
         {
             get 
             {
@@ -83,7 +83,7 @@ namespace GTAutosClasses
                 pOrderPrice = value;
             } 
         }
-        public String OrderStatus 
+        public string OrderStatus 
         {
             get 
             {
@@ -134,15 +134,15 @@ namespace GTAutosClasses
             // Add the parameter for the Order ID to search for.
             DB.AddParameter("@OrderID", OrderID);
             // Execute the stored procedure
-            DB.Execute("dbo.tblOrders_FilterByOrderID");
+            DB.Execute("sproc_tblOrders_FilterByOrderID");
             // If one record is found (there should be either one or zero)
             if (DB.Count == 1)
             {
                 pOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
                 pCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
-                pCardID = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
+                pCarID = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
                 pPaymentID = Convert.ToInt32(DB.DataTable.Rows[0]["PaymentID"]);
-                DateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
+                pDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
                 pServiceID = Convert.ToString(DB.DataTable.Rows[0]["ServiceID"]);
                 pOrderPrice = Convert.ToDouble(DB.DataTable.Rows[0]["OrderPrice"]);
                 pOrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);

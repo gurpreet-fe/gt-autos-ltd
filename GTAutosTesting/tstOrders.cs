@@ -182,7 +182,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.CustomerID != 7)
+            if (anOrder.CustomerID != 1)
             {
                 OK = false;
             }
@@ -203,7 +203,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.CarID != "MP04XTT")
+            if (anOrder.CarID != "MP04TTX")
             {
                 OK = false;
             }
@@ -224,7 +224,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.PaymentID != 7)
+            if (anOrder.PaymentID != 1)
             {
                 OK = false;
             }
@@ -245,7 +245,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.DateOfOrder != Convert.ToDateTime(DateTime.Now.Date))
+            if (anOrder.DateOfOrder != Convert.ToDateTime("13/02/2020"))
             {
                 OK = false;
             }
@@ -287,7 +287,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.OrderPrice != 20.5)
+            if (anOrder.OrderPrice != 5000)
             {
                 OK = false;
             }
@@ -308,7 +308,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.OrderStatus != "Completed")
+            if (anOrder.OrderStatus != "Pending")
             {
                 OK = false;
             }
@@ -329,7 +329,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.Completed != true)
+            if (anOrder.Completed != false)
             {
                 OK = false;
             }
