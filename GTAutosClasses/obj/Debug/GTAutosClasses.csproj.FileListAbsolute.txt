@@ -55,3 +55,9 @@ F:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\bin\Debug\GTAut
 F:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\obj\Debug\GTAutosClasses.csprojResolveAssemblyReference.cache
 F:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 F:\Work\Year_2\S2\IMAT_2207\Project\13-02-20-Work\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+H:\Documents\Agile\17 02 2020\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+H:\Documents\Agile\17 02 2020\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+H:\Documents\Agile\17 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+H:\Documents\Agile\17 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+H:\Documents\Agile\17 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+H:\Documents\Agile\17 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
