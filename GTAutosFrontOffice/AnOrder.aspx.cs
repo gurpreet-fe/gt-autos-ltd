@@ -97,6 +97,10 @@ public partial class AnOrder : System.Web.UI.Page
             txtOrderStatus.Text = AnOrder.OrderStatus;
             CheckBoxCompleted.Checked = AnOrder.Completed;
         }
+        else
+        {
+            Response.Redirect("OrderError.aspx");
+        }
 
     }
 }
