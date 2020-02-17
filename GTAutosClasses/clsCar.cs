@@ -2,7 +2,7 @@
 {
     public class clsCar
     {
-        public int NumberPlate { get; set; }
+        public string NumberPlate { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
         public string Colour { get; set; }

@@ -7,7 +7,7 @@ namespace GTAutosClasses
         public int RequestId { get; set; }
         public string SellerName { get; set; }
         public string SellerEmail { get; set; }
-        public int SellerPhoneNum { get; set; }
+        public String SellerPhoneNum { get; set; }
         public string SellerAddress { get; set; }
         public int NumberPlate { get; set; }
         public string Make { get; set; }
