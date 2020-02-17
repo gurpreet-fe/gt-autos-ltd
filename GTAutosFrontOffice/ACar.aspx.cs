@@ -16,7 +16,7 @@ public partial class ACar : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         clsCar car = new clsCar();
-        car.NumberPlate = Convert.ToInt32(txtNumberPlate.Text);
+        car.NumberPlate = txtNumberPlate.Text;
         car.Make = txtMake.Text;
         car.Model = txtMake.Text;
         car.Colour = txtMake.Text;
