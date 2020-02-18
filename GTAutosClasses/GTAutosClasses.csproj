@@ -61,6 +61,7 @@
     <Compile Include="ClsOrder.cs" />
     <Compile Include="clsRequest.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="OfficeClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
