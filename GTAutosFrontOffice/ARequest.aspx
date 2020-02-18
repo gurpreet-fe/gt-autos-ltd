@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
     <p>
+        Request ID<asp:TextBox ID="txtRequestID" runat="server" style="margin-left: 98px"></asp:TextBox>
+        </p>
+        <p>
         Name<asp:TextBox ID="txtName" runat="server" style="margin-left: 129px"></asp:TextBox>
         </p>
     <p>
@@ -34,13 +37,25 @@
         Colour<asp:TextBox ID="txtColour" runat="server" style="margin-left: 124px"></asp:TextBox>
         </p>
     <p>
-        Description<asp:TextBox ID="txtDescription" runat="server" style="margin-left: 99px"></asp:TextBox>
+        Description<asp:TextBox ID="txtDescription" runat="server" style="margin-left: 95px"></asp:TextBox>
         </p>
     <p>
         Price
         <asp:TextBox ID="txtPrice" runat="server" style="margin-left: 129px"></asp:TextBox>
     </p>
-        <asp:CheckBox ID="Active" runat="server" />
+        <p>
+            Date of Request<asp:TextBox ID="txtDateOfRequest" runat="server" style="margin-left: 65px"></asp:TextBox>
+    </p>
+        <p>
+            Date of Purchase<asp:TextBox ID="txtDateOfPurchased" runat="server" style="margin-left: 57px"></asp:TextBox>
+    </p>
+        <p>
+            Purhcased<asp:TextBox ID="txtPurchased" runat="server" style="margin-left: 96px"></asp:TextBox>
+    </p>
+        <p>
+            Request<asp:TextBox ID="txtRequest" runat="server" style="margin-left: 109px"></asp:TextBox>
+    </p>
+        <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="Active_CheckedChanged" />
         <br />
         <asp:Button ID="Button1" runat="server" Text="Ok" OnClick="Button1_Click" />
         <asp:Button ID="Button2" runat="server" Text="Cancel" />

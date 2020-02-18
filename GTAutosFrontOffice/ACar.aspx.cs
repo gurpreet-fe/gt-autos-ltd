@@ -21,7 +21,7 @@ public partial class ACar : System.Web.UI.Page
         car.Model = txtMake.Text;
         car.Colour = txtMake.Text;
         car.Description = txtMake.Text;
-        car.Price = Convert.ToInt32(txtPrice.Text);
+        car.Price = Convert.ToDouble(txtPrice.Text);
         car.Sold = Convert.ToBoolean(txtSold.Text);
         car.OfficeCode = Convert.ToInt32(txtPrice.Text);
 

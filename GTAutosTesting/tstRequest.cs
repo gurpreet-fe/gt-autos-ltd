@@ -32,7 +32,7 @@ namespace GTAutosTesting
         public void SellerPhoneNumOk()
         {
             clsRequest req = new clsRequest();
-            int TestData = 123456789;
+            String TestData = "123456789";
             req.SellerPhoneNum = TestData;
             Assert.AreEqual(req.SellerPhoneNum, TestData);
         }
@@ -46,7 +46,7 @@ namespace GTAutosTesting
         public void NumberPlateOk()
         {
             clsRequest req = new clsRequest();
-            int TestData = 12345678;
+            String TestData = "ABCD 1234";
             req.NumberPlate = TestData;
             Assert.AreEqual(req.NumberPlate, TestData);
         }

@@ -18,7 +18,7 @@ namespace GTAutosTesting
         public void NumberPlatePropertyOK()
         {
             clsCar car = new clsCar();
-            int TestData = 12345678;
+            string TestData = "ABCD 1234";
             car.NumberPlate = TestData;
             Assert.AreEqual(car.NumberPlate, TestData);
         }
