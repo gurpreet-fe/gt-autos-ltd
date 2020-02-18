@@ -16,17 +16,28 @@ public partial class ARequest : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         clsRequest req = new clsRequest();
+        req.RequestId = Convert.ToInt32(txtRequestID.Text);
         req.SellerName = txtName.Text;
         req.SellerPhoneNum = txtPhoneNum.Text;
         req.SellerEmail = txtEmail.Text;
         req.SellerAddress = txtAddress.Text;
-        req.NumberPlate = Convert.ToInt32(txtNumberPlate.Text);
+        req.NumberPlate = txtNumberPlate.Text;
         req.Make = txtMake.Text;
         req.Model = txtModel.Text;
         req.Colour = txtName.Text;
         req.Description = txtDescription.Text;
-        req.Price = Convert.ToInt32(txtPrice.Text);
+        req.Price = Convert.ToDouble(txtPrice.Text);
+        req.DateOfPurchased = Convert.ToDateTime(txtDateOfPurchased.Text);
+        req.DateOfRequest = Convert.ToDateTime(txtDateOfRequest.Text);
+        req.Request = Convert.ToBoolean(txtRequest.Text);
+        req.Purchased = Convert.ToBoolean(txtPurchased);
+
         Session["ARequest"] = req;
         Response.Redirect("RequestViewer.aspx");
+    }
+
+    protected void Active_CheckedChanged(object sender, EventArgs e)
+    {
+
     }
 }
