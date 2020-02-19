@@ -121,6 +121,135 @@ namespace GTAutosTesting
             Assert.AreEqual(AnAddress.PhoneNumber, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Int32 OfficeCode = 1;
+            Found = AnOffice.Find(OfficeCode);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestOfficeCodeFound()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.OfficeCode != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestInspectionDateFound()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.InspectionDate != Convert.ToDateTime("19/02/2020"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAddressLine1Found()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.AddressLine1 != "Test Street")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAddressLine2Found()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.AddressLine2 != "Test Street 2")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCityFound()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.City != "Test City")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.PostCode != "XXX XXX")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPhoneNumberFound()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.PhoneNumber != "XXXXXXXXXXX")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestIsActiveFound()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OfficeCode = 21;
+            Found = AnOffice.Find(OfficeCode);
+            if (AnOffice.IsActive != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
 
 
 
