@@ -66,3 +66,9 @@ C:\Users\nick\Desktop\Aglie Team\gt-autos-ltd\GTAutosClasses\bin\Debug\GTAutosCl
 C:\Users\nick\Desktop\Aglie Team\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
 C:\Users\nick\Desktop\Aglie Team\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 C:\Users\nick\Desktop\Aglie Team\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+H:\Documents\Agile\21 02 2020\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+H:\Documents\Agile\21 02 2020\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb

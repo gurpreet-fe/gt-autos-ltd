@@ -123,5 +123,14 @@ namespace GTAutosTesting
             req.DateOfPurchased = TestData;
             Assert.AreEqual(req.DateOfPurchased, TestData);
         }
+
+        public void FindMethodOK()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            Assert.IsTrue(Found);
+        }
     }
 }
