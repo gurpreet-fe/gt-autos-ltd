@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customerTest.cs" />
     <Compile Include="OfficeTesting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstCar.cs" />
