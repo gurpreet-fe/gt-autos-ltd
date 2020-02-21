@@ -13,7 +13,7 @@ namespace GTAutosTesting
             clsCar car = new clsCar();
             Assert.IsNotNull(car);
         }
-        //GO OVER THIS AT THE END
+        
         [TestMethod]
         public void NumberPlatePropertyOK()
         {
@@ -91,25 +91,132 @@ namespace GTAutosTesting
         {
             clsCar car = new clsCar();
             Boolean Found = false;
-            String NumberPlate = "ASDE 1234";
+            String NumberPlate = "TestNumberPlate";
             Found = car.Find(NumberPlate);
             Assert.IsTrue(Found);
         }
 
         [TestMethod]
-        public void TestNumberPlateFound()
+        public void TestNumberPlateNoFound()
         {
             clsCar car = new clsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "ASDE 1234";
+            String NumberPlate = "TestNumberPlate";
             Found = car.Find(NumberPlate);
-            if (car.NumberPlate != "ASDF 1234")
+            if (car.NumberPlate != "TestNumberPlate")
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestMakeNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.Make != "TestMake")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestModelNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.Model != "TestModel")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestColourNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.Colour != "TestColour")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDescriptionNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.Description != "TestDescription")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.Price != 100.50)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSoldNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.Sold != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOfficeCodeNoFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "TestNumberPlate";
+            Found = car.Find(NumberPlate);
+            if (car.OfficeCode != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
 
     }
 }

@@ -15,6 +15,7 @@ namespace GTAutosTesting
             req.RequestId = TestData;
             Assert.AreEqual(req.RequestId, TestData);
         }
+        [TestMethod]
         public void SellerNameOk()
         {
             clsRequest req = new clsRequest();
@@ -22,6 +23,7 @@ namespace GTAutosTesting
             req.SellerName = TestData;
             Assert.AreEqual(req.SellerName, TestData);
         }
+        [TestMethod]
         public void SellerEmailOk()
         {
             clsRequest req = new clsRequest();
@@ -29,6 +31,7 @@ namespace GTAutosTesting
             req.SellerEmail = TestData;
             Assert.AreEqual(req.SellerEmail, TestData);
         }
+        [TestMethod]
         public void SellerPhoneNumOk()
         {
             clsRequest req = new clsRequest();
@@ -36,6 +39,7 @@ namespace GTAutosTesting
             req.SellerPhoneNum = TestData;
             Assert.AreEqual(req.SellerPhoneNum, TestData);
         }
+        [TestMethod]
         public void SellerAddressOk()
         {
             clsRequest req = new clsRequest();
@@ -43,6 +47,7 @@ namespace GTAutosTesting
             req.SellerAddress = TestData;
             Assert.AreEqual(req.SellerAddress, TestData);
         }
+        [TestMethod]
         public void NumberPlateOk()
         {
             clsRequest req = new clsRequest();
@@ -50,6 +55,7 @@ namespace GTAutosTesting
             req.NumberPlate = TestData;
             Assert.AreEqual(req.NumberPlate, TestData);
         }
+        [TestMethod]
         public void MakePropertyOK()
         {
             clsRequest req = new clsRequest();
@@ -93,6 +99,7 @@ namespace GTAutosTesting
             req.Price = TestData;
             Assert.AreEqual(req.Price, TestData);
         }
+        [TestMethod]
         public void DateOfRequestOk()
         {
             clsRequest req = new clsRequest();
@@ -100,6 +107,7 @@ namespace GTAutosTesting
             req.DateOfRequest = TestData;
             Assert.AreEqual(req.DateOfRequest, TestData);
         }
+        [TestMethod]
         public void RequestOk()
         {
             clsRequest req = new clsRequest();
@@ -107,7 +115,8 @@ namespace GTAutosTesting
             req.Request = TestData;
             Assert.AreEqual(req.Request, TestData);
         }
-
+        
+        [TestMethod]
         public void PurchasedOk()
         {
             clsRequest req = new clsRequest();
@@ -115,7 +124,7 @@ namespace GTAutosTesting
             req.Purchased = TestData;
             Assert.AreEqual(req.Purchased, TestData);
         }
-
+        [TestMethod]
         public void DateOfPurchasedOk()
         {
             clsRequest req = new clsRequest();
@@ -123,7 +132,7 @@ namespace GTAutosTesting
             req.DateOfPurchased = TestData;
             Assert.AreEqual(req.DateOfPurchased, TestData);
         }
-
+        [TestMethod]
         public void FindMethodOK()
         {
             clsRequest req = new clsRequest();
@@ -131,6 +140,231 @@ namespace GTAutosTesting
             Int32 RequestID = 1;
             Found = req.Find(RequestID);
             Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestRequestIDNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.RequestId != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSellerNameNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.SellerName != "TestName")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSellerEmailNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.SellerEmail != "TestEmail")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSellerPhoneNumNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.SellerPhoneNum != 1234567891011)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSellerAddressNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.SellerAddress != "TestAddress")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestNumberPlateNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.NumberPlate != "TestNumberPlate")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestMakeNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Make != "TestMake")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestModelNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Model != "TestModel")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestColourNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Colour != "TestColour")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDescriptionNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Description != "TestDescription")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Price != 100.50)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateOfRequestNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.DateOfRequest != Convert.ToDateTime("2/21/2020"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateOfPurchasedNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.DateOfPurchased != Convert.ToDateTime("2/21/2020"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPurchasedNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Purchased != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestRequestNoFound()
+        {
+            clsRequest req = new clsRequest();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 RequestID = 1;
+            Found = req.Find(RequestID);
+            if (req.Request != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }
