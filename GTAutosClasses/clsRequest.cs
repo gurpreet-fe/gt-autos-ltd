@@ -4,20 +4,216 @@ namespace GTAutosClasses
 {
     public class clsRequest
     {
-        public int RequestId { get; set; }
-        public String SellerName { get; set; }
-        public String SellerEmail { get; set; }
-        public String SellerPhoneNum { get; set; }
-        public String SellerAddress { get; set; }
-        public String NumberPlate { get; set; }
-        public String Make { get; set; }
-        public String Model { get; set; }
-        public String Colour { get; set; }
-        public String Description { get; set; }
-        public double Price { get; set; }
-        public DateTime DateOfRequest { get; set; }
-        public DateTime DateOfPurchased { get; set; }
-        public bool Purchased { get; set; }
-        public bool Request { get; set; }
+        private int mRequestId;
+        public int RequestId
+        { get
+            {
+                return mRequestId;
+                
+            }
+            set
+            {
+                mRequestId = value;
+            }
+        }
+
+        private String mSellerName;
+        public String SellerName
+        {
+            get
+            {
+                return mSellerName;
+
+            }
+            set
+            {
+                mSellerName = value;
+            }
+        }
+
+        private String mSellerEmail;
+        public String SellerEmail
+        {
+            get
+            {
+                return mSellerEmail;
+
+            }
+            set
+            {
+                mSellerEmail = value;
+            }
+        }
+
+        private String mSellerPhoneNum;
+        public String SellerPhoneNum
+        {
+            get
+            {
+                return mSellerPhoneNum;
+
+            }
+            set
+            {
+                mSellerPhoneNum = value;
+            }
+        }
+
+        private String mSellerAddress;
+        public String SellerAddress
+        {
+            get
+            {
+                return mSellerAddress;
+
+            }
+            set
+            {
+                mSellerAddress = value;
+            }
+        }
+
+        private String mNumberPlate;
+        public String NumberPlate
+        {
+            get
+            {
+                return mNumberPlate;
+
+            }
+            set
+            {
+                mNumberPlate = value;
+            }
+        }
+
+        private String mMake;
+        public String Make
+        {
+            get
+            {
+                return mMake;
+
+            }
+            set
+            {
+                mMake = value;
+            }
+        }
+
+        private String mModel;
+        public String Model
+        {
+            get
+            {
+                return mModel;
+
+            }
+            set
+            {
+                mModel = value;
+            }
+        }
+
+        private String mColour;
+        public String Colour
+        {
+            get
+            {
+                return mColour;
+
+            }
+            set
+            {
+                mColour = value;
+            }
+        }
+
+        private String mDescription;
+        public String Description
+        {
+            get
+            {
+                return mDescription;
+
+            }
+            set
+            {
+                mDescription = value;
+            }
+        }
+        private Double mPrice;
+        public double Price
+        {
+            get
+            {
+                return mPrice;
+
+            }
+            set
+            {
+                mPrice = value;
+            }
+        }
+
+        private DateTime mDateOfRequest;
+        public DateTime DateOfRequest
+        {
+            get
+            {
+                return mDateOfRequest;
+
+            }
+            set
+            {
+                mDateOfRequest = value;
+            }
+        }
+
+        private DateTime mDateOfPurchased;
+        public DateTime DateOfPurchased
+        {
+            get
+            {
+                return mDateOfPurchased;
+
+            }
+            set
+            {
+                mDateOfPurchased = value;
+            }
+        }
+        private Boolean mPurchased;
+        public Boolean Purchased
+        {
+            get
+            {
+                return mPurchased;
+
+            }
+            set
+            {
+                mPurchased = value;
+            }
+        }
+        private Boolean mRequest;
+        public Boolean Request
+        {
+            get
+            {
+                return mRequest;
+
+            }
+            set
+            {
+                mRequest = value;
+            }
+        }
+
+
+        public Boolean Find(int requestID)
+        {
+            return true;
+        }
     }
 }

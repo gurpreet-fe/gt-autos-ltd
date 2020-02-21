@@ -85,5 +85,31 @@ namespace GTAutosTesting
             car.OfficeCode = TestData;
             Assert.AreEqual(car.OfficeCode, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            String NumberPlate = "ASDE 1234";
+            Found = car.Find(NumberPlate);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestNumberPlateFound()
+        {
+            clsCar car = new clsCar();
+            Boolean Found = false;
+            Boolean OK = true;
+            String NumberPlate = "ASDE 1234";
+            Found = car.Find(NumberPlate);
+            if (car.NumberPlate != "ASDF 1234")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }
