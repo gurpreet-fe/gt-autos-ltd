@@ -2,7 +2,7 @@
 
 namespace GTAutosClasses
 {
-    public class Customer
+    public class ClsCustomer
     {
         private Int32 mCustomerID;
         private DateTime mDateAdded;

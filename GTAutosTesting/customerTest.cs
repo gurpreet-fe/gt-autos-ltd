@@ -5,20 +5,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class CustomerTest
+    public class ClsCustomerTest
     {
 
         [TestMethod]
         public void InstanceOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Assert.IsNotNull(aCustomer);
         }
 
         [TestMethod]
         public void FindMethod()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
@@ -28,7 +28,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void TestFindCustomerIDFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -43,7 +43,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerIDPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Int32 TestData = 1;
             aCustomer.CustomerID = TestData;
             Assert.AreEqual(aCustomer.CustomerID, TestData);
@@ -53,7 +53,7 @@ namespace GTAutosTesting
         public void ActivePropertyOK()
         {
             //new instance of class
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             //Test data to assign
             Boolean TestData = true;
             //assign data to property
@@ -65,7 +65,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void TestActiveFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -74,13 +74,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void DateAddedPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             DateTime TestData = DateTime.Now.Date;
             aCustomer.DateAdded = TestData;
             Assert.AreEqual(aCustomer.DateAdded, TestData);
@@ -89,7 +89,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void TestDateAddedFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -104,7 +104,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerPasswordPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "asdfghjkl";
             char PasswordChar = '*';
             aCustomer.CustomerPassword = TestData;
@@ -114,7 +114,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerPasswordFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -130,7 +130,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerEmailOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "jimbob.morrison@outlook.com";
             aCustomer.CustomerEmail = TestData;
             Assert.AreEqual(aCustomer.CustomerEmail, TestData);
@@ -139,7 +139,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerEmailFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -148,13 +148,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void CustomerFirstNameOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "Jimbo";
             aCustomer.CustomerFirstName = TestData;
             Assert.AreEqual(aCustomer.CustomerFirstName, TestData);
@@ -163,7 +163,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerFirstNameFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -172,13 +172,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void CustomerLastNameOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "Morrison";
             aCustomer.CustomerLastName = TestData;
             Assert.AreEqual(aCustomer.CustomerLastName, TestData);
@@ -187,7 +187,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerLastNameFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -196,13 +196,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void CustomerPhoneNumberOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "07690409231";
             aCustomer.CustomerPhoneNumber = TestData;
             Assert.AreEqual(aCustomer.CustomerPhoneNumber, TestData);
@@ -211,7 +211,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerPhoneNumberFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -220,13 +220,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void CustomerDOBOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             DateTime TestData = Convert.ToDateTime("31/01/1900");
             aCustomer.CustomerDOB = TestData;
             Assert.AreEqual(aCustomer.CustomerDOB, TestData);
@@ -235,7 +235,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerDOBFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -250,7 +250,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void AddressNumberPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Int32 TestData = 1;
             aCustomer.AddressNo = TestData;
             Assert.AreEqual(aCustomer.AddressNo, TestData);
@@ -259,7 +259,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerAddressNoFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -268,13 +268,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void CountyNoPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Int32 TestData = 1;
             aCustomer.CountyNo = TestData;
             Assert.AreEqual(aCustomer.CountyNo, TestData);
@@ -283,7 +283,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerCountyNoFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -292,13 +292,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void HouseNoPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "21A";
             aCustomer.HouseNo = TestData;
             Assert.AreEqual(aCustomer.HouseNo, TestData);
@@ -307,7 +307,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerHouseNoFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -316,13 +316,13 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void PostCodePropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "LE1 7PT";
             aCustomer.PostCode = TestData;
             Assert.AreEqual(aCustomer.PostCode, TestData);
@@ -331,7 +331,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerPostCodeFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -340,44 +340,44 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void StreetPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "West Street";
             aCustomer.Street = TestData;
             Assert.AreEqual(aCustomer.Street, TestData);
         }
 
-        public void CustomerPostCodeFound()
+        public void CustomerStreetFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.PostCode != "AA1 1AA")
+            if (aCustomer.Street != "Test Street")
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void TownPropertyOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             string TestData = "Leicester";
             aCustomer.Town = TestData;
             Assert.AreEqual(aCustomer.Town, TestData);
         }
 
-        public void CustomerPostCodeFound()
+        public void CustomerTownFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
@@ -386,30 +386,30 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void MarketingOK()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean TestData = false;
             aCustomer.Marketing = TestData;
             Assert.AreEqual(aCustomer.Marketing, TestData);
         }
 
-        public void CustomerPostCodeFound()
+        public void MarketingFound()
         {
-            Customer aCustomer = new Customer();
+            ClsCustomer aCustomer = new ClsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.Town != false)
+            if (aCustomer.Marketing != false)
             {
                 OK = false;
             }
-            Assert.IsTrue = OK;
+            Assert.IsTrue(OK);
         }
 
 
