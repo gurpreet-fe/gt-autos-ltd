@@ -110,19 +110,46 @@ namespace GTAutosClasses
             }
         }
 
+        //public bool Find(int OfficeCode)
+        //{
+        //    mOfficeCode = 21;
+        //    mInspectionDate = Convert.ToDateTime("19/02/2020");
+        //    mAddressLine1 = "Test Street";
+        //    mAddressLine2 = "Test Street 2";
+        //    mCity = "Test City";
+        //    mPostCode = "XXX XXX";
+        //    mPhoneNumber = "XXXXXXXXXXX";
+        //    mIsActive = true;
+
+        //    return true;
+            
+        //}
+
+
         public bool Find(int OfficeCode)
         {
-            mOfficeCode = 21;
-            mInspectionDate = Convert.ToDateTime("19/02/2020");
-            mAddressLine1 = "Test Street";
-            mAddressLine2 = "Test Street 2";
-            mCity = "Test City";
-            mPostCode = "XXX XXX";
-            mPhoneNumber = "XXXXXXXXXXX";
-            mIsActive = true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OfficeCode", OfficeCode);
+            DB.Execute("sproc_tblOffice_FilterByOfficeCode");
+            if (DB.Count == 1)
+            {
+                mOfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
+                mAddressLine1 = Convert.ToString(DB.DataTable.Rows[0]["AddressLine1"]);
+                mAddressLine2 = Convert.ToString(DB.DataTable.Rows[0]["AddressLine2"]);
+                mCity = Convert.ToString(DB.DataTable.Rows[0]["City"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mIsActive = Convert.ToBoolean(DB.DataTable.Rows[0]["IsActive"]);
+                mInspectionDate = Convert.ToDateTime(DB.DataTable.Rows[0]["InspectionDate"]);
 
-            return true;
-            
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+
+
+
     }
 }
