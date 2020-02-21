@@ -72,3 +72,9 @@ H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAsse
 H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 H:\Documents\Agile\21 02 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
