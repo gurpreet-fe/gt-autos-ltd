@@ -105,7 +105,14 @@ namespace GTAutosClasses
 
         public bool Find(string numberPlate)
         {
-            mNumberPlate = "ASDE 1234";
+            mNumberPlate = "TestNumberPlate";
+            mModel = "TestModel";
+            mMake = "TestMicra";
+            mColour = "TestColour";
+            mDescription = "TestDescription";
+            mPrice = 100.50;
+            mSold = true;
+            mOfficeCode = 1;
             return true;
         }
     }

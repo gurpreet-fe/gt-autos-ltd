@@ -213,6 +213,21 @@ namespace GTAutosClasses
 
         public Boolean Find(int requestID)
         {
+            mRequestId = 1;
+            mSellerName = "TestName";
+            mSellerEmail = "TestEmail";
+            mSellerPhoneNum = ;
+            mSellerAddress = "TestAddress";
+            mNumberPlate = "TestNumberPlate";
+            mMake = "TestMake";
+            mModel = "TestModel";
+            mColour = "TestColour";
+            mDescription = "TestDescription";
+            mPrice = 100.50;
+            mDateOfRequest = Convert.ToDateTime("2/21/2020");
+            mDateOfPurchased = Convert.ToDateTime("2/21/2020");
+            mPurchased = true;
+            mRequest = true;
             return true;
         }
     }
