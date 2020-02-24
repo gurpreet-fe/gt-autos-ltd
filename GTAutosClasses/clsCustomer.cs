@@ -2,18 +2,14 @@
 
 namespace GTAutosClasses
 {
-    public class ClsCustomer
+    public class clsCustomer
     {
+        private Boolean mActive;
         private Int32 mCustomerID;
         private DateTime mDateAdded;
         private String mCustomerPassword;
-        private Boolean mActive;
-        private Int32 mAddressNo;
-        private Int32 mCountyNo;
-        private String mHouseNo;
+        private String mAddress;
         private String mPostcode;
-        private String mStreet;
-        private String mTown;
         private String mCustomerFirstName;
         private String mCustomerLastName;
         private String mCustomerPhoneNumber;
@@ -23,24 +19,33 @@ namespace GTAutosClasses
 
         public bool Find(int customerID)
         {
-            mActive = true;
-            mCustomerID = 1;
-            mDateAdded = Convert.ToDateTime("12/02/2020");
-            mCustomerPassword = "qwertyuiop";
-            mActive = true;
-            mAddressNo = 21;
-            mCountyNo = 21;
-            mHouseNo = "1B";
-            mPostcode = "AA1 1AA";
-            mStreet = "Test Street";
-            mTown = "Test Town";
-            mCustomerFirstName = "Testy";
-            mCustomerLastName = "McTester";
-            mCustomerPhoneNumber = "01234567890";
-            mCustomerEmail = "testymctester@testemail.com";
-            mCustomerDOB = Convert.ToDateTime("01/01/1900");
-            mMarketing = false;
-            return true;
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerID", CustomerID);
+            DB.Execute("sproc_tblCustomer_FilterByCustomerID");
+            if(DB.Count == 1)
+            {
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mPostcode = Convert.ToString(DB.DataTable.Rows[0]["Postcode"]);
+                mCustomerFirstName = Convert.ToString(DB.DataTable.Rows[0]["CustomerFirstName"]);
+                mCustomerLastName = Convert.ToString(DB.DataTable.Rows[0]["CustomerLastName"]);
+                mCustomerPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
+                mCustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mMarketing = Convert.ToBoolean(DB.DataTable.Rows[0]["OptInMarketing"]);
+                //if all criteria matches
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+            
         }
 
         public bool Active
@@ -66,39 +71,15 @@ namespace GTAutosClasses
                 mDateAdded = value;
             }
         }
-        public Int32 AddressNo
+        public String Address
         {
             get
             {
-                return mAddressNo;
+                return mAddress;
             }
             set
             {
-                mAddressNo = value;
-            }
-        }
-
-        public Int32 CountyNo
-        {
-            get
-            {
-                return mCountyNo;
-            }
-            set
-            {
-                mCountyNo = value;
-            }
-        }
-
-        public string HouseNo
-        {
-            get
-            {
-                return mHouseNo;
-            }
-            set
-            {
-                mHouseNo = value;
+                mAddress = value;
             }
         }
 
@@ -113,31 +94,6 @@ namespace GTAutosClasses
                 mPostcode = value;
             }
         }
-
-        public string Street
-        {
-            get
-            {
-                return mStreet;
-            }
-            set
-            {
-                mStreet = value;
-            }
-        }
-
-        public string Town
-        {
-            get
-            {
-                return mTown;
-            }
-            set
-            {
-                mTown = value;
-            }
-        }
-
 
         public Int32 CustomerID
         {
