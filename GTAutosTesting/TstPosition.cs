@@ -68,5 +68,106 @@ namespace GTAutosTesting
             Assert.AreEqual(position.Salary, TestData);
         }
 
+
+
+        [TestMethod]
+        public void TestPositionIdNotFound()
+        {
+
+            // Create an instance of the class we want to create
+            ClsPosition position = new ClsPosition();
+            // Boolean variable to store the result of the search
+            bool Found = false;
+            // Boolean variable to record if data is OK (assume it is)
+            bool OK = true;
+            // Create some test data to use with the method
+            int PositionId = 13;
+            // Invoke the method
+            Found = position.Find(PositionId);
+            // Check the staff name
+            if (position.PositionId != 13)
+            {
+                OK = false;
+            }
+            // Test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+
+        [TestMethod]
+        public void TestPositionNameNotFound()
+        {
+
+            // Create an instance of the class we want to create
+            ClsPosition position = new ClsPosition();
+            // Boolean variable to store the result of the search
+            bool Found = false;
+            // Boolean variable to record if data is OK (assume it is)
+            bool OK = true;
+            // Create some test data to use with the method
+            string Name = "Software Engineer";
+            // Invoke the method
+            Found = position.Find(PositionName);
+            // Check the staff name
+            if (position.PositionName != "Software Engineer")
+            {
+                OK = false;
+            }
+            // Test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestDescriptionNotFound()
+        {
+
+            // Create an instance of the class we want to create
+            ClsPosition position = new ClsPosition();
+            // Boolean variable to store the result of the search
+            bool Found = false;
+            // Boolean variable to record if data is OK (assume it is)
+            bool OK = true;
+            // Create some test data to use with the method
+            string Desctiption = "Develops software solutions";
+            // Invoke the method
+            Found = position.Find(Description);
+            // Check the staff name
+            if (position.Description != "Develops software solutions")
+            {
+                OK = false;
+            }
+            // Test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestSalaryNotFound()
+        {
+
+            // Create an instance of the class we want to create
+            ClsPosition position = new ClsPosition();
+            // Boolean variable to store the result of the search
+            bool Found = false;
+            // Boolean variable to record if data is OK (assume it is)
+            bool OK = true;
+            // Create some test data to use with the method
+            int Salary = 50000;
+            // Invoke the method
+            Found = position.Find(Salary);
+            // Check the staff name
+            if (position.Salary!= 50000)
+            {
+                OK = false;
+            }
+            // Test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+
+
     }
 }

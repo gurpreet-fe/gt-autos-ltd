@@ -42,3 +42,12 @@ H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosBackOff
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
 H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe.config
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.pdb
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csprojAssemblyReference.cache
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.Properties.Resources.resources
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.GenerateResource.cache
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
