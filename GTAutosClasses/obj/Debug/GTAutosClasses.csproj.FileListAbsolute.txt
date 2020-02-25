@@ -81,3 +81,7 @@ H:\Documents\Visual Studio 2017\Projects\gt-autos-ltd\21-02-2020b\GTAutosClasses
 C:\Users\Gurpreet\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
 C:\Users\Gurpreet\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 C:\Users\Gurpreet\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+C:\Users\p2444523\Source\Repos\gt-autos-ltd\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
