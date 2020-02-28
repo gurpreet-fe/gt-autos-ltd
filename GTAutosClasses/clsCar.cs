@@ -2,7 +2,7 @@
 
 namespace GTAutosClasses
 {
-    public class clsCar
+    public class ClsCar
     {
         private String mNumberPlate;
         public string NumberPlate
@@ -103,6 +103,8 @@ namespace GTAutosClasses
             }
         }
 
+
+        //find method
         public bool Find(string NumberPlate)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -127,5 +129,19 @@ namespace GTAutosClasses
                 return false;
             }
         }
+        
+
+        //validation
+        public string Valid(string Make,
+                            string Model,
+                            string Description,
+                            string Colour,
+                            string Price,
+                            string Sold,
+                            string OfficeCode)
+        {
+            return "";
+        }
+       
     }
 }

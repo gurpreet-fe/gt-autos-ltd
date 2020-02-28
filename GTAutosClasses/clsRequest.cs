@@ -2,7 +2,7 @@
 
 namespace GTAutosClasses
 {
-    public class clsRequest
+    public class ClsRequest
     {
         private int mRequestId;
         public int RequestId
@@ -211,7 +211,7 @@ namespace GTAutosClasses
             }
         }
 
-
+        //find method
         public bool Find(Int32 RequestId)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -240,6 +240,12 @@ namespace GTAutosClasses
             {
                 return false;
             }
+        }
+
+        //validation
+        public string Valid(string sellerName, string sellerEmail, string sellerPhoneNum, string sellerAddress, string numberPlate, string make, string model, string colour, string description, string price, string dateOfPurchased, string dateOfRequest, string request)
+        {
+            return "";
         }
     }
 }
