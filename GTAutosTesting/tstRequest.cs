@@ -5,61 +5,79 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstRequest
+    public class TstRequest
     {
+        //good test data
+        //create some test data to pass to the method
+        string SellerName = "TestName";
+        string SellerEmail = "TestEmail";
+        string SellerPhoneNum = "TestPhoneNum";
+        string SellerAddress = "TestAddress";
+        string NumberPlate = "TestNumberPlate";
+        string Make = "TestMake";
+        string Model = "TestModel";
+        string Colour = "TestColour";
+        string Description = "TestDescription";
+        string Price = 100.00.ToString();
+        string DateOfPurchased = DateTime.Now.Date.ToString();
+        string DateOfRequest = DateTime.Now.Date.ToString();
+        string Purchased = true.ToString();
+        string Request = true.ToString();
+
+        //test instances
         [TestMethod]
-        public void InstanceOk()
+        public void InstanceOK()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             int TestData = 0;
             req.RequestId = TestData;
             Assert.AreEqual(req.RequestId, TestData);
         }
         [TestMethod]
-        public void SellerNameOk()
+        public void SellerNameOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "Jhon Barton";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestName";
             req.SellerName = TestData;
             Assert.AreEqual(req.SellerName, TestData);
         }
         [TestMethod]
-        public void SellerEmailOk()
+        public void SellerEmailOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "JhonB@hotmail.com";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestEmail";
             req.SellerEmail = TestData;
             Assert.AreEqual(req.SellerEmail, TestData);
         }
         [TestMethod]
-        public void SellerPhoneNumOk()
+        public void SellerPhoneNumOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "123456789";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestPhoneNum";
             req.SellerPhoneNum = TestData;
             Assert.AreEqual(req.SellerPhoneNum, TestData);
         }
         [TestMethod]
-        public void SellerAddressOk()
+        public void SellerAddressOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "47 Mount Road";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestAddress";
             req.SellerAddress = TestData;
             Assert.AreEqual(req.SellerAddress, TestData);
         }
         [TestMethod]
-        public void NumberPlateOk()
+        public void NumberPlateOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "ABCD 1234";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestNumberPlate";
             req.NumberPlate = TestData;
             Assert.AreEqual(req.NumberPlate, TestData);
         }
         [TestMethod]
         public void MakePropertyOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "Nissan";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestMake";
             req.Make = TestData;
             Assert.AreEqual(req.Make, TestData);
         }
@@ -67,8 +85,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void ModelPropertyOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "micra";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestModel";
             req.Model = TestData;
             Assert.AreEqual(req.Model, TestData);
         }
@@ -76,8 +94,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void ColourPropertyOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "blue";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestColour";
             req.Colour = TestData;
             Assert.AreEqual(req.Colour, TestData);
         }
@@ -85,8 +103,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void DescriptionPropertyOK()
         {
-            clsRequest req = new clsRequest();
-            String TestData = "a four wheeler that is blue and ..";
+            ClsRequest req = new ClsRequest();
+            String TestData = "TestDescription";
             req.Description = TestData;
             Assert.AreEqual(req.Description, TestData);
         }
@@ -94,48 +112,50 @@ namespace GTAutosTesting
         [TestMethod]
         public void PricePropertyOK()
         {
-            clsRequest req = new clsRequest();
-            Double TestData = 10.00;
+            ClsRequest req = new ClsRequest();
+            Double TestData = 100.00;
             req.Price = TestData;
             Assert.AreEqual(req.Price, TestData);
         }
         [TestMethod]
-        public void DateOfRequestOk()
+        public void DateOfRequestOK()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             DateTime TestData = DateTime.Now.Date;
             req.DateOfRequest = TestData;
             Assert.AreEqual(req.DateOfRequest, TestData);
         }
         [TestMethod]
-        public void RequestOk()
+        public void RequestOK()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean TestData = true;
             req.Request = TestData;
             Assert.AreEqual(req.Request, TestData);
         }
         
         [TestMethod]
-        public void PurchasedOk()
+        public void PurchasedOK()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean TestData = true;
             req.Purchased = TestData;
             Assert.AreEqual(req.Purchased, TestData);
         }
         [TestMethod]
-        public void DateOfPurchasedOk()
+        public void DateOfPurchasedOK()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             DateTime TestData = DateTime.Now.Date;
             req.DateOfPurchased = TestData;
             Assert.AreEqual(req.DateOfPurchased, TestData);
         }
+
+        //test find method
         [TestMethod]
         public void FindMethodOK()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Int32 RequestID = 1;
             Found = req.Find(RequestID);
@@ -143,9 +163,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestRequestIDNoFound()
+        public void TestRequestIDFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -158,9 +178,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestSellerNameNoFound()
+        public void TestSellerNameFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -173,9 +193,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestSellerEmailNoFound()
+        public void TestSellerEmailFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -188,14 +208,14 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestSellerPhoneNumNoFound()
+        public void TestSellerPhoneNumFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
             Found = req.Find(RequestID);
-            if (req.SellerPhoneNum != "1234567891011")
+            if (req.SellerPhoneNum != "TestPhoneNum")
             {
                 OK = false;
             }
@@ -203,9 +223,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestSellerAddressNoFound()
+        public void TestSellerAddressFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -218,9 +238,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestNumberPlateNoFound()
+        public void TestNumberPlateFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -233,9 +253,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestMakeNoFound()
+        public void TestMakeFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -248,9 +268,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestModelNoFound()
+        public void TestModelFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -263,9 +283,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestColourNoFound()
+        public void TestColourFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -278,9 +298,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestDescriptionNoFound()
+        public void TestDescriptionFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -293,14 +313,14 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestPriceNoFound()
+        public void TestPriceFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
             Found = req.Find(RequestID);
-            if (req.Price != 100.50)
+            if (req.Price != 100.00)
             {
                 OK = false;
             }
@@ -308,9 +328,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestDateOfRequestNoFound()
+        public void TestDateOfRequestFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -323,9 +343,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestDateOfPurchasedNoFound()
+        public void TestDateOfPurchasedFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -338,9 +358,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestPurchasedNoFound()
+        public void TestPurchasedFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -353,9 +373,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestRequestNoFound()
+        public void TestRequestFound()
         {
-            clsRequest req = new clsRequest();
+            ClsRequest req = new ClsRequest();
             Boolean Found = false;
             Boolean OK = true;
             Int32 RequestID = 1;
@@ -365,6 +385,17 @@ namespace GTAutosTesting
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+
+
+        //test valid
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            ClsRequest req = new ClsRequest();
+            String Error = "";
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Colour, Description, Price, DateOfPurchased, DateOfRequest, Request);
+            Assert.AreEqual(Error, "");
         }
     }
 }

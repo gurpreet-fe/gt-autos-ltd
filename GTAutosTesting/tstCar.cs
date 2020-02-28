@@ -5,20 +5,32 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstCar
+    public class TstCar
     {
+
+        //good test data
+        //create some test data to pass to the method
+        String Make = "TestMake";
+        String Model = "TestModel";
+        String Description = "TestDescription";
+        String Colour = "TestColour";
+        String Price = 100.00.ToString();
+        String Sold = true.ToString();
+        String OfficeCode = 1.ToString();
+
+        //test instances
         [TestMethod]
         public void InstanceOk()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Assert.IsNotNull(car);
         }
-        
+
         [TestMethod]
         public void NumberPlatePropertyOK()
         {
-            clsCar car = new clsCar();
-            string TestData = "ABCD 1234";
+            ClsCar car = new ClsCar();
+            string TestData = "TestNumberPlate";
             car.NumberPlate = TestData;
             Assert.AreEqual(car.NumberPlate, TestData);
         }
@@ -26,8 +38,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void MakePropertyOK()
         {
-            clsCar car = new clsCar();
-            String TestData = "Nissan";
+            ClsCar car = new ClsCar();
+            String TestData = "TestMake";
             car.Make = TestData;
             Assert.AreEqual(car.Make, TestData);
         }
@@ -35,8 +47,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void ModelPropertyOK()
         {
-            clsCar car = new clsCar();
-            String TestData = "micra";
+            ClsCar car = new ClsCar();
+            String TestData = "TestModel";
             car.Model = TestData;
             Assert.AreEqual(car.Model, TestData);
         }
@@ -44,8 +56,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void ColourPropertyOK()
         {
-            clsCar car = new clsCar();
-            String TestData = "blue";
+            ClsCar car = new ClsCar();
+            String TestData = "TestColour";
             car.Colour = TestData;
             Assert.AreEqual(car.Colour, TestData);
         }
@@ -53,8 +65,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void DescriptionPropertyOK()
         {
-            clsCar car = new clsCar();
-            String TestData = "a four wheeler that is blue and ..";
+            ClsCar car = new ClsCar();
+            String TestData = "TestDescription";
             car.Description = TestData;
             Assert.AreEqual(car.Description, TestData);
         }
@@ -62,8 +74,8 @@ namespace GTAutosTesting
         [TestMethod]
         public void PricePropertyOK()
         {
-            clsCar car = new clsCar();
-            Double TestData = 10.00;
+            ClsCar car = new ClsCar();
+            Double TestData = 100.00;
             car.Price = TestData;
             Assert.AreEqual(car.Price, TestData);
         }
@@ -71,7 +83,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void SoldPropertyOK()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean TestData = true;
             car.Sold = TestData;
             Assert.AreEqual(car.Sold, TestData);
@@ -80,16 +92,18 @@ namespace GTAutosTesting
         [TestMethod]
         public void OfficeCodePropertyOK()
         {
-            clsCar car = new clsCar();
-            int TestData = 0;
+            ClsCar car = new ClsCar();
+            int TestData = 1;
             car.OfficeCode = TestData;
             Assert.AreEqual(car.OfficeCode, TestData);
         }
 
+
+        //test find method
         [TestMethod]
         public void FindMethodOK()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             String NumberPlate = "TestNumberPlate";
             Found = car.Find(NumberPlate);
@@ -97,9 +111,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestNumberPlateNoFound()
+        public void TestNumberPlateFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -112,9 +126,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestMakeNoFound()
+        public void TestMakeFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -127,9 +141,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestModelNoFound()
+        public void TestModelFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -142,9 +156,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestColourNoFound()
+        public void TestColourFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -157,9 +171,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestDescriptionNoFound()
+        public void TestDescriptionFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -172,14 +186,14 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestPriceNoFound()
+        public void TestPriceFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
             Found = car.Find(NumberPlate);
-            if (car.Price != 100.50)
+            if (car.Price != 100.00)
             {
                 OK = false;
             }
@@ -187,9 +201,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestSoldNoFound()
+        public void TestSoldFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -202,9 +216,9 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestOfficeCodeNoFound()
+        public void TestOfficeCodeFound()
         {
-            clsCar car = new clsCar();
+            ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
             String NumberPlate = "TestNumberPlate";
@@ -214,6 +228,17 @@ namespace GTAutosTesting
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+
+        //valid
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            ClsCar car = new ClsCar();
+            String Error = "";
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            Assert.AreEqual(Error, "");
+
         }
 
 
