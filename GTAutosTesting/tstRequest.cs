@@ -27,7 +27,7 @@ namespace GTAutosTesting
         public void SellerEmailOk()
         {
             clsRequest req = new clsRequest();
-            String TestData = "JhoneB@hotmail.com";
+            String TestData = "JhonB@hotmail.com";
             req.SellerEmail = TestData;
             Assert.AreEqual(req.SellerEmail, TestData);
         }
@@ -195,7 +195,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 RequestID = 1;
             Found = req.Find(RequestID);
-            if (req.SellerPhoneNum != 1234567891011)
+            if (req.SellerPhoneNum != "1234567891011")
             {
                 OK = false;
             }

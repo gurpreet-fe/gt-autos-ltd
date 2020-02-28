@@ -12,6 +12,7 @@
         </div>
     <p style="margin-top: 0px">
         Number Plate<asp:TextBox ID="txtNumberPlate" runat="server" Height="16px" style="margin-left: 44px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>
+        <asp:Button ID="Button3" runat="server" style="margin-left: 38px" Text="Find" OnClick="Button3_Click" />
         </p>
     <p>
         Make<asp:TextBox ID="txtMake" runat="server" Height="16px" style="margin-left: 87px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>

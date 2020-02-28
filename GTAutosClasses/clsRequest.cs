@@ -6,10 +6,11 @@ namespace GTAutosClasses
     {
         private int mRequestId;
         public int RequestId
-        { get
+        {
+            get
             {
                 return mRequestId;
-                
+
             }
             set
             {
@@ -211,24 +212,34 @@ namespace GTAutosClasses
         }
 
 
-        public Boolean Find(int requestID)
+        public bool Find(Int32 RequestId)
         {
-            mRequestId = 1;
-            mSellerName = "TestName";
-            mSellerEmail = "TestEmail";
-            mSellerPhoneNum = ;
-            mSellerAddress = "TestAddress";
-            mNumberPlate = "TestNumberPlate";
-            mMake = "TestMake";
-            mModel = "TestModel";
-            mColour = "TestColour";
-            mDescription = "TestDescription";
-            mPrice = 100.50;
-            mDateOfRequest = Convert.ToDateTime("2/21/2020");
-            mDateOfPurchased = Convert.ToDateTime("2/21/2020");
-            mPurchased = true;
-            mRequest = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@RequestId", RequestId);
+            DB.Execute("sproc_tblRequest_FilterByRequestId");
+            if (DB.Count == 1)
+            {
+                mRequestId = Convert.ToInt32(DB.DataTable.Rows[0]["RequestId"]);
+                mSellerName = Convert.ToString(DB.DataTable.Rows[0]["SellerName"]);
+                mSellerEmail = Convert.ToString(DB.DataTable.Rows[0]["SellerEmail"]);
+                mSellerPhoneNum = Convert.ToString(DB.DataTable.Rows[0]["SellerPhoneNum"]); ;
+                mSellerAddress = Convert.ToString(DB.DataTable.Rows[0]["SellerAddress"]);
+                mNumberPlate = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
+                mMake = Convert.ToString(DB.DataTable.Rows[0]["Make"]);
+                mModel = Convert.ToString(DB.DataTable.Rows[0]["Model"]);
+                mColour = Convert.ToString(DB.DataTable.Rows[0]["Colour"]);
+                mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mDateOfRequest = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfRequest"]);
+                mDateOfPurchased = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfPurchased"]);
+                mPurchased = Convert.ToBoolean(DB.DataTable.Rows[0]["Purchased"]);
+                mRequest = Convert.ToBoolean(DB.DataTable.Rows[0]["Request"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
