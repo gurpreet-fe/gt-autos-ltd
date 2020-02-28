@@ -103,17 +103,29 @@ namespace GTAutosClasses
             }
         }
 
-        public bool Find(string numberPlate)
+        public bool Find(string NumberPlate)
         {
-            mNumberPlate = "TestNumberPlate";
-            mModel = "TestModel";
-            mMake = "TestMicra";
-            mColour = "TestColour";
-            mDescription = "TestDescription";
-            mPrice = 100.50;
-            mSold = true;
-            mOfficeCode = 1;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@NumberPlate", NumberPlate);
+            DB.Execute("sproc_tblCar_FilterByNumberPlate");
+            if (DB.Count == 1)
+            {
+                mNumberPlate = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
+                mMake = Convert.ToString(DB.DataTable.Rows[0]["Make"]);
+                mModel = Convert.ToString(DB.DataTable.Rows[0]["Model"]);
+                mColour = Convert.ToString(DB.DataTable.Rows[0]["Colour"]);
+                mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mSold = Convert.ToBoolean(DB.DataTable.Rows[0]["Sold"]);
+                mOfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
+
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

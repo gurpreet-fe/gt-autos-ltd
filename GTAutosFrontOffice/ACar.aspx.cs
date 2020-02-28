@@ -38,4 +38,26 @@ public partial class ACar : System.Web.UI.Page
     {
 
     }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        clsCar car = new clsCar();
+        String NumberPlate;
+        Boolean Found = false;
+        NumberPlate = (txtNumberPlate.Text);
+        Found = car.Find(NumberPlate);
+        if (Found == true)
+        {
+            
+            txtNumberPlate.Text = car.NumberPlate;
+            txtMake.Text = car.Make;
+            txtModel.Text = car.Model;
+            txtColour.Text = car.Colour;
+            txtDescription.Text = car.Description;
+            txtPrice.Text = car.Price.ToString();
+            txtSold.Text = car.Sold.ToString();
+            txtOfficeCode.Text = car.OfficeCode.ToString();
+
+        }
+    }
 }
