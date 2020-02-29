@@ -261,11 +261,51 @@ namespace GTAutosClasses
         {
             String Error = "";
             //------------------------------------SELLER NAME---------------------------------
+            if (sellerName.Length == 0)
+            {
+                Error = Error + "The Name of the seller may not be blank: ";
+            }
+            if (sellerName.Length > 30)
+            {
+                Error = Error + "The Name must be less than 30 characters: ";
+            }
             //------------------------------------SELLER EMAIL--------------------------------
+            if (sellerPhoneNum.Length == 0)
+            {
+                Error = Error + "The Email of the seller may not be blank: ";
+            }
+            if (sellerPhoneNum.Length > 320)
+            {
+                Error = Error + "The Email must be less than 320 characters: ";
+            }
             //------------------------------------SELLER PHONE NUMBER-------------------------
+            if (sellerPhoneNum.Length == 0)
+            {
+                Error = Error + "The Phone Number of the seller may not be blank: ";
+            }
+            if (sellerPhoneNum.Length != 11)
+            {
+                Error = Error + "The Phone Number must be 11 characters: ";
+            }
             //------------------------------------SELLER ADDRESS------------------------------
-            //------------------------------------NUMBER PLATE--------------------------------
-            //------------------------------------MAKE-----------------------------
+            if (sellerAddress.Length == 0)
+            {
+                Error = Error + "The Address of the seller may not be blank: ";
+            }
+            if (sellerAddress.Length > 20)
+            {
+                Error = Error + "The Address must be less than 20 characters: ";
+            }
+            //------------------------------------NUMBER PLATE-------------------------------- 
+            if (numberPlate.Length == 0)
+            {
+                Error = Error + "The Number Plate of the car may not be blank: ";
+            }
+            if (numberPlate.Length != 8)
+            {
+                Error = Error + "The Number Plate must be 8 characters: ";
+            }
+            //------------------------------------MAKE----------------------------------------
             if (make.Length == 0)
             {
                 Error = Error + "The Make of the car may not be blank: ";

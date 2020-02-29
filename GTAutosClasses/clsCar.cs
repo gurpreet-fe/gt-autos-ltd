@@ -182,8 +182,24 @@ namespace GTAutosClasses
                 Error = Error + "The Colour must be less than 20 characters: ";
             }
             //----------------------------------PRICE------------------------------
-            //----------------------------------SOLD------------------------------
-            //-------------------------------OFFICE CODE------------------------------
+            if (price.Length == 0)
+            {
+                Error = Error + "The Price of the car may not be blank: ";
+            }
+            if (price.Length > 10)
+            {
+                Error = Error + "The Price must be less than 10 characters: ";
+            }
+            //----------------------------------SOLD-------------------------------
+            if (sold.Length == 0)
+            {
+                Error = Error + "The Sold property may not be blank: ";
+            }
+            if (sold.Length == 4 || sold.Length == 5)
+            {
+                Error = Error + "The Sold property must be 5 or 4 characters: ";
+            }
+            //-------------------------------OFFICE CODE---------------------------
 
 
 
