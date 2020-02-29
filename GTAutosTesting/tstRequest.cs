@@ -156,9 +156,8 @@ namespace GTAutosTesting
         public void FindMethodOK()
         {
             ClsRequest req = new ClsRequest();
-            Boolean Found = false;
             Int32 RequestID = 1;
-            Found = req.Find(RequestID);
+            Boolean Found = req.Find(RequestID);
             Assert.IsTrue(Found);
         }
 

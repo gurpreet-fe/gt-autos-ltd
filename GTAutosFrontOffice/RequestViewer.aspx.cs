@@ -10,8 +10,8 @@ public partial class RequestViewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsRequest req = new clsRequest();
-        req = (clsRequest)Session["ARequest"];
+        ClsRequest req = new ClsRequest();
+        req = (ClsRequest)Session["ARequest"];
         Response.Write(req.SellerName);
         Response.Write(req.SellerPhoneNum);
         Response.Write(req.SellerEmail);
