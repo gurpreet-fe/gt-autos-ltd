@@ -11,7 +11,7 @@ public partial class AnOrder : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-     
+
     }
 
     protected void TxtOrderID_TextChanged(object sender, EventArgs e)
@@ -30,6 +30,11 @@ public partial class AnOrder : System.Web.UI.Page
     }
 
     protected void DropDownPayment_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TxtDateOfOrder_TextChanged(object sender, EventArgs e)
     {
 
     }
@@ -61,17 +66,47 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        // Old
+        //ClsOrder AnOrder = new ClsOrder();
+        //AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
+        //AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        //AnOrder.CarID = txtCar.Text;
+        //AnOrder.DateOfOrder = Convert.ToDateTime(TxtDateOfOrder.Text);
+        ////AnOrder.ServiceID = DropDownServices.SelectedValue;
+        //Session["AnOrder"] = AnOrder;
+        //Response.Redirect("OrderViewer.aspx");
+        // New
         ClsOrder AnOrder = new ClsOrder();
-        AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
-        AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        AnOrder.CarID = txtCar.Text;
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
+        string DateOfOrder = TxtDateOfOrder.Text;
+        //string ServiceID = DropDownServices.SelectedValue;
+        string OrderPrice = txtPrice.Text;
+        string OrderStatus = txtOrderStatus.Text;
+        string Error = "";
+
+        Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+        if (Error == "")
+        {
+            AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
+            AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            AnOrder.CarID = txtCar.Text;
+            AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
+            // AnOrder.ServiceID = ServiceID;
+            double price;
+            price = Convert.ToDouble(OrderPrice);
+            AnOrder.OrderPrice = price;
+            AnOrder.OrderStatus = OrderStatus;
+            Session["AnOrder"] = AnOrder;
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+           // lblError.Text = Error; // need to find out why this dosent work
+        }
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-       
+        Response.Redirect("AnOrder.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -91,7 +126,7 @@ public partial class AnOrder : System.Web.UI.Page
             txtCustomerID.Text = AnOrder.CustomerID.ToString();
             txtCar.Text = AnOrder.CarID.ToString();
             DropDownPayment.Text = AnOrder.PaymentID.ToString();
-            DropDownDates.Text = AnOrder.DateOfOrder.ToOADate().ToString();
+            TxtDateOfOrder.Text = AnOrder.DateOfOrder.Date.ToString("dd-MM-yy");
             DropDownServices.Text = AnOrder.ServiceID;
             txtPrice.Text = AnOrder.OrderPrice.ToString();
             txtOrderStatus.Text = AnOrder.OrderStatus;
@@ -103,4 +138,8 @@ public partial class AnOrder : System.Web.UI.Page
         }
 
     }
+
+
+
+
 }

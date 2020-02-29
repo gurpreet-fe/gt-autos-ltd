@@ -8,6 +8,14 @@ namespace GTAutosTesting
     [TestClass]
     public class TstOrders
     {
+        int CustomerID = 2;
+        string CarID = "MT04TTX";
+        string DateOfOrder = DateTime.Now.Date.ToString();
+        string ServiceID = "MOT";
+        string OrderPrice = "50";
+        string OrderStatus = "done";
+        int PaymentID = 1;
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -23,7 +31,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            int TestData = 1;
+            int TestData = 10;
             //assigns the data to the property.
             anOrder.OrderID = TestData;
             //test to see that the 2 values are the same.
@@ -36,11 +44,11 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            int TestData = 1;
-            //assigns the data to the property.
-            anOrder.CustomerID = TestData;
+            //int TestData = 1;
+            ////assigns the data to the property.
+            anOrder.CustomerID = CustomerID;
             //test to see that the 2 values are the same.
-            Assert.AreEqual(anOrder.CustomerID, TestData);
+            Assert.AreEqual(anOrder.CustomerID, CustomerID);
         }
 
         [TestMethod]
@@ -49,11 +57,11 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            String TestData = "MT04TTX";
+            //String TestData = "MT04TTX";
             //assigns the data to the property.
-            anOrder.CarID = TestData;
+            anOrder.CarID = CarID;
             //test to see that the 2 values are the same.
-            Assert.AreEqual(anOrder.CarID, TestData);
+            Assert.AreEqual(anOrder.CarID, CarID);
         }
 
 
@@ -336,6 +344,318 @@ namespace GTAutosTesting
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error;
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
 
+        // TESTING Valid properies 
+
+        // Testing ServiceID Property || may not be needed as is a foriegn key.
+        //[TestMethod]
+        //public void ServiceIDMinLessOne()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID ="";// this will trigger an error 
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void ServiceIDMinBoundary()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "M";// this will Pass.
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+        //[TestMethod]
+        //public void ServiceIDMinPlusOne()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "MO";// this will Pass.
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void ServiceIDMaxLessOne()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "1234567891234567891234567891234567891234567891234";// this will Pass.
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void ServiceIDMaxBoundary()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "12345678912345678912345678912345678912345678912345";// this will Pass.
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void ServiceIDMid()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "1234567891234567891234567";// this will Pass.
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void ServiceIDMaxPlusOne()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "123456789123456789123456789123456789123456789123456";// this will Fail.
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void ServiceIDExtremeMax()
+        //{
+        //    ClsOrder AnOrder = new ClsOrder();
+        //    String Error = "";
+        //    string ServiceID = "";
+        //    ServiceID = ServiceID.PadRight(700, 'a'); // This should fail
+        //    Error = AnOrder.Valid(DateOfOrder, ServiceID, OrderPrice, OrderStatus);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+
+        // Testing DateOfOrder property
+
+        [TestMethod]
+        public void DateOfOrderExtremeMin()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DateOfOrder = TestDate.ToString(); // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfOrderMinLessOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateOfOrder = TestDate.ToString(); // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfOrderMinBoundary()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateOfOrder = TestDate.ToString(); // This should pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfOrderMinPlusOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateOfOrder = TestDate.ToString(); // This should pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfOrderExtremeMax()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateOfOrder = TestDate.ToString(); // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfOrderInvalidData()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string DateOfOrder = "This is not a date";
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        // Testing OrderPrice property
+
+        [TestMethod]
+        public void OrderPriceExtremeMin()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderPrice = "-1000"; // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderPriceMinLessOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderPrice = "0";  // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderPriceMinBoundary()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderPrice = "1";  // This should pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderPriceMinPlusOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderPrice = "2";  // This should pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderPriceExtremeMax()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderPrice = "700000";  // This should pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderPriceInvalidData()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderPrice = "This is not a int";
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        // Testing OrderStatus property
+
+        [TestMethod]
+        public void OrderStatusMinLessOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = ""; // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.IsFalse(Error == "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMinBoundary()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = "1"; // This should Pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMinPlusOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = "12"; // This should Pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMaxLessOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = "1234567891234567891234567891234567891234567891234"; // This should Pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderStatusMaxBoundary()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = "12345678912345678912345678912345678912345678912345"; // This should Pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMaxPlusOne()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = "123456789123456789123456789123456789123456789123456"; // This should fail
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void OrderStatusMid()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = "1234567891234567891234567"; // This should pass
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusExtremeMax()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            String Error = "";
+            string OrderStatus = ""; // This should pass
+            OrderStatus = OrderStatus.PadRight(700, 'a');
+            Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
+            Assert.AreEqual(Error, "");
+        }
     }
 }
