@@ -4,6 +4,7 @@ namespace GTAutosClasses
 {
     public class ClsRequest
     {
+        //------------------------------------------------------PROPERTIES PLUS GET + SET METHODS------------------------------------------------------------------------
         private int mRequestId;
         public int RequestId
         {
@@ -211,7 +212,7 @@ namespace GTAutosClasses
             }
         }
 
-        //find method
+        //----------------------------------------------------------------FIND METHOD----------------------------------------------------------------------------
         public bool Find(Int32 RequestId)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -242,10 +243,75 @@ namespace GTAutosClasses
             }
         }
 
-        //validation
-        public string Valid(string sellerName, string sellerEmail, string sellerPhoneNum, string sellerAddress, string numberPlate, string make, string model, string colour, string description, string price, string dateOfPurchased, string dateOfRequest, string request)
+        //---------------------------------------------------------VALIDATION METHOD----------------------------------------------------------------------------------
+        public string Valid(string sellerName, 
+                            string sellerEmail, 
+                            string sellerPhoneNum, 
+                            string sellerAddress, 
+                            string numberPlate, 
+                            string make, 
+                            string model, 
+                            string colour, 
+                            string description, 
+                            string price, 
+                            string dateOfPurchased, 
+                            string dateOfRequest, 
+                            string request,
+                            string purchased)
         {
-            return "";
+            String Error = "";
+            //------------------------------------SELLER NAME---------------------------------
+            //------------------------------------SELLER EMAIL--------------------------------
+            //------------------------------------SELLER PHONE NUMBER-------------------------
+            //------------------------------------SELLER ADDRESS------------------------------
+            //------------------------------------NUMBER PLATE--------------------------------
+            //------------------------------------MAKE-----------------------------
+            if (make.Length == 0)
+            {
+                Error = Error + "The Make of the car may not be blank: ";
+            }
+            if (make.Length > 20)
+            {
+                Error = Error + "The Make must be less than 20 characters: ";
+            }
+
+            //----------------------------------MODEL------------------------------
+            if (model.Length == 0)
+            {
+                Error = Error + "The Model of the car may not be blank: ";
+            }
+            if (model.Length > 20)
+            {
+                Error = Error + "The Model must be less than 20 characters: ";
+            }
+
+            //----------------------------------DESCRIPTION------------------------------
+            if (description.Length == 0)
+            {
+                Error = Error + "The Description of the car may not be blank: ";
+            }
+            if (description.Length > 200)
+            {
+                Error = Error + "The Description must be less than 200 characters: ";
+            }
+
+            //----------------------------------COLOUR------------------------------
+            if (colour.Length == 0)
+            {
+                Error = Error + "The Colour of the car may not be blank: ";
+            }
+            if (colour.Length > 20)
+            {
+                Error = Error + "The Colour must be less than 20 characters: ";
+            }
+            //------------------------------------PRICE---------------------------------------
+            //------------------------------------DATE OF PURCHASE----------------------------
+            //------------------------------------DATE OF REQUEST-----------------------------
+            //------------------------------------REQUEST-------------------------------------
+            //------------------------------------PURCHASED ----------------------------------
+
+            //return any error messgaes
+            return Error;
         }
     }
 }

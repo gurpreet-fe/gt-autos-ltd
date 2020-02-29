@@ -7,8 +7,7 @@ namespace GTAutosTesting
     [TestClass]
     public class TstRequest
     {
-        //good test data
-        //create some test data to pass to the method
+        //-----------------------------------------------------TEST DATA TO PASS TO THE METHOD------------------------------------------------------------------
         string SellerName = "TestName";
         string SellerEmail = "TestEmail";
         string SellerPhoneNum = "TestPhoneNum";
@@ -24,7 +23,7 @@ namespace GTAutosTesting
         string Purchased = true.ToString();
         string Request = true.ToString();
 
-        //test instances
+        //---------------------------------------------------TESTING INSTANCE OF CLASS + PROPERTIES--------------------------------------------------------------
         [TestMethod]
         public void InstanceOK()
         {
@@ -151,7 +150,7 @@ namespace GTAutosTesting
             Assert.AreEqual(req.DateOfPurchased, TestData);
         }
 
-        //test find method
+        //----------------------------------------------TESTING FIND METHOD FOR EACH PROPERTY-------------------------------------------------------------------
         [TestMethod]
         public void FindMethodOK()
         {
@@ -387,14 +386,493 @@ namespace GTAutosTesting
         }
 
 
-        //test valid
+        // ------------------------------------------------------------VALIDATION TESTING-------------------------------------------------------------------------------
         [TestMethod]
         public void ValidMethodOK()
         {
             ClsRequest req = new ClsRequest();
             String Error = "";
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Colour, Description, Price, DateOfPurchased, DateOfRequest, Request);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Colour, Description, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
             Assert.AreEqual(Error, "");
         }
+
+        //-----------------------------------------------------------SELLER NAME PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------SELLER EMAIL PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------SELLER PHONE NUMBER PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------SELLER ADDRESS PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------NUMBER PLATE PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------MAKE PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void MakeMin()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "a"; // this should be ok
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should be ok
+            Make = Make.PadRight(19, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMid()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should be ok
+            Make = Make.PadRight(9, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMinLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; //should trigger an error
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMinPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "aa"; // this should be ok 
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMaxLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should be ok
+            Make = Make.PadRight(18, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMaxPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should fail
+            Make = Make.PadRight(20, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeExtremeMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "";
+            Make = Make.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        //-----------------------------------------------------------MODEL PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void ModelMin()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = "a"; // this should be ok
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should be ok
+            Model = Model.PadRight(19, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMid()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should be ok
+            Model = Model.PadRight(9, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMinLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; //should trigger an error
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMinPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = "aa"; // this should be ok 
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMaxLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should be ok
+            Model = Model.PadRight(18, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMaxPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should fail
+            Model = Model.PadRight(20, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelExtremeMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = "";
+            Model = Model.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        //-----------------------------------------------------------COLOUR PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void ColourMin()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = "a"; // this should be ok
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should be ok
+            Colour = Colour.PadRight(19, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMid()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should be ok
+            Colour = Colour.PadRight(9, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMinLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; //should trigger an error
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMinPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = "aa"; // this should be ok 
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMaxLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should be ok
+            Colour = Colour.PadRight(18, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMaxPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should fail
+            Colour = Colour.PadRight(20, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourExtremeMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = "";
+            Colour = Colour.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        //-----------------------------------------------------------DESCRIPTION PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void DescriptionMin()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = "a"; // this should be ok
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should be ok
+            Description = Description.PadRight(199, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMid()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should be ok
+            Description = Description.PadRight(99, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; //should trigger an error
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMinPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = "aa"; // this should be ok 
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMaxLessOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should be ok
+            Description = Description.PadRight(198, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMaxPlusOne()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should fail
+            Description = Description.PadRight(200, 'a');
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionExtremeMax()
+        {
+            ClsRequest req = new ClsRequest();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = "";
+            Description = Description.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        //-----------------------------------------------------------PRICE PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------DATE OF PURCHASE PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------DATE OF REQUEST PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------REQUEST PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        //-----------------------------------------------------------PURCHASED PARAMETER TEST METHODS (VALID)----------------------------------------------------------
     }
 }
