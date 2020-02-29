@@ -23,8 +23,7 @@
             </asp:DropDownList>
             <br />
             Date of order
-            <asp:DropDownList ID="DropDownDates" runat="server" OnSelectedIndexChanged="DropDownDates_SelectedIndexChanged">
-            </asp:DropDownList>
+            <asp:TextBox ID="TxtDateOfOrder" runat="server" OnTextChanged="TxtDateOfOrder_TextChanged"></asp:TextBox>
             <br />
             Services
             <asp:DropDownList ID="DropDownServices" runat="server" OnSelectedIndexChanged="DropDownServices_SelectedIndexChanged">

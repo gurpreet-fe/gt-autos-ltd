@@ -154,5 +154,63 @@ namespace GTAutosClasses
                 return false;
             }
         }
+
+        public string Valid(string dateOfOrder, string orderPrice, string orderStatus)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            double number;
+            //if (serviceID.Length == 0) 
+            //{
+            //    Error = Error + "The serviceID may not be kept empty : "; 
+            //}
+
+            //if (serviceID.Length > 50) 
+            //{
+            //    Error = Error + "The serviceID must be less then 50 characters : ";
+            //}
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateOfOrder);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in the past : ";
+                }
+
+                DateTemp = Convert.ToDateTime(dateOfOrder);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in the future : ";
+                }
+            }
+            catch 
+            {
+                Error = Error + "The Date was not a valid date : ";
+            }
+
+            try
+            {
+                number = Convert.ToDouble(orderPrice);
+                if (number <= 0)
+                {
+                    Error = Error + "The OrderPrice cannot be lower then or equal to 0 : ";
+                }
+            }
+            catch 
+            {
+                Error = Error + "The OrderPrice was not a valid number : ";
+            }
+
+            if (orderStatus.Length == 0) 
+            {
+                Error = Error + "The OrderStatus may not be kept empty : ";
+            }
+
+            if (orderStatus.Length > 50)
+            {
+                Error = Error + "The serviceID must be less then 50 characters : ";
+            }
+            return Error;
+        }
     }
 }
