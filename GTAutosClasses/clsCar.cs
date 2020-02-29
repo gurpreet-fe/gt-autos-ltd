@@ -4,6 +4,7 @@ namespace GTAutosClasses
 {
     public class ClsCar
     {
+        //------------------------------------------------------PROPERTIES PLUS GET + SET METHODS------------------------------------------------------------------------
         private String mNumberPlate;
         public string NumberPlate
         {
@@ -104,7 +105,7 @@ namespace GTAutosClasses
         }
 
 
-        //find method
+        //----------------------------------------------------------------FIND METHOD----------------------------------------------------------------------------
         public bool Find(string NumberPlate)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -129,18 +130,66 @@ namespace GTAutosClasses
                 return false;
             }
         }
-        
 
-        //validation
-        public string Valid(string Make,
-                            string Model,
-                            string Description,
-                            string Colour,
-                            string Price,
-                            string Sold,
-                            string OfficeCode)
+
+        //---------------------------------------------------------VALIDATION METHOD----------------------------------------------------------------------------------
+        public string Valid(string make,
+                            string model,
+                            string description,
+                            string colour,
+                            string price,
+                            string sold,
+                            string officeCode)
         {
-            return "";
+            String Error = "";
+            //------------------------------------MAKE-----------------------------
+            if (make.Length == 0)
+            {
+                Error = Error + "The Make of the car may not be blank: ";
+            }
+            if (make.Length > 20)
+            {
+                Error = Error + "The Make must be less than 20 characters: ";
+            }
+
+            //----------------------------------MODEL------------------------------
+            if (model.Length == 0)
+            {
+                Error = Error + "The Model of the car may not be blank: ";
+            }
+            if (model.Length > 20)
+            {
+                Error = Error + "The Model must be less than 20 characters: ";
+            }
+
+            //----------------------------------DESCRIPTION------------------------------
+            if (description.Length == 0)
+            {
+                Error = Error + "The Description of the car may not be blank: ";
+            }
+            if (description.Length > 200)
+            {
+                Error = Error + "The Description must be less than 200 characters: ";
+            }
+
+            //----------------------------------COLOUR------------------------------
+            if (colour.Length == 0)
+            {
+                Error = Error + "The Colour of the car may not be blank: ";
+            }
+            if (colour.Length > 20)
+            {
+                Error = Error + "The Colour must be less than 20 characters: ";
+            }
+            //----------------------------------PRICE------------------------------
+            //----------------------------------SOLD------------------------------
+            //-------------------------------OFFICE CODE------------------------------
+
+
+
+
+            //return any error messgaes
+            return Error;
         }
        
     }

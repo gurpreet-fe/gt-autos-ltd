@@ -8,8 +8,8 @@ namespace GTAutosTesting
     public class TstCar
     {
 
-        //good test data
-        //create some test data to pass to the method
+
+        //-----------------------------------------------------TEST DATA TO PASS TO THE METHOD------------------------------------------------------------------
         String Make = "TestMake";
         String Model = "TestModel";
         String Description = "TestDescription";
@@ -18,7 +18,7 @@ namespace GTAutosTesting
         String Sold = true.ToString();
         String OfficeCode = 1.ToString();
 
-        //test instances
+        //---------------------------------------------------TESTING INSTANCE OF CLASS + PROPERTIES--------------------------------------------------------------
         [TestMethod]
         public void InstanceOk()
         {
@@ -99,7 +99,7 @@ namespace GTAutosTesting
         }
 
 
-        //test find method
+        //----------------------------------------------TESTING FIND METHOD FOR EACH PROPERTY-------------------------------------------------------------------
         [TestMethod]
         public void FindMethodOK()
         {
@@ -230,7 +230,7 @@ namespace GTAutosTesting
             Assert.IsTrue(OK);
         }
 
-        //valid
+       // ------------------------------------------------------------VALIDATION TESTING-------------------------------------------------------------------------------
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -241,6 +241,51 @@ namespace GTAutosTesting
 
         }
 
+        //-----------------------------------------------------------MAKE PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void MakeMin()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "a"; // this should be ok
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should be ok
+            Make = Make.PadRight(19, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMid()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should be ok
+            Make = Make.PadRight(9, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
         [TestMethod]
         public void MakeMinLessOne()
         {
@@ -248,12 +293,431 @@ namespace GTAutosTesting
             //error variable stores any error messages
             String Error = "";
             //test data to pass to method
-            String Make = "";
+            String Make = ""; //should trigger an error
+            //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMinPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "aa"; // this should be ok 
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMaxLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should be ok
+            Make = Make.PadRight(18, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeMaxPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = ""; // this should fail
+            Make = Make.PadRight(20, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void MakeExtremeMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "";
+            Make = Make.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //-----------------------------------------------------------MODEL PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void ModelMin()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = "a"; // this should be ok
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should be ok
+            Model = Model.PadRight(19, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMid()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should be ok
+            Model = Model.PadRight(9, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMinLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; //should trigger an error
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMinPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = "aa"; // this should be ok 
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMaxLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should be ok
+            Model = Model.PadRight(18, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelMaxPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = ""; // this should fail
+            Model = Model.PadRight(20, 'a');           
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ModelExtremeMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Model = "";
+            Model = Model.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //--------------------------------------------------DESCRIPTION PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void DescriptionMin()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = "a"; // this should be ok
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should be ok
+            Description = Description.PadRight(199, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMid()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should be ok
+            Description = Description.PadRight(99, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMinLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; //should trigger an error
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMinPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = "aa"; // this should be ok 
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMaxLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should be ok
+            Description = Description.PadRight(198, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionMaxPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = ""; // this should fail
+            Description = Description.PadRight(200, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescriptionExtremeMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Description = "";
+            Description = Description.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //----------------------------------------------------COLOUR PARAMETER TEST METHODS (VALID)----------------------------------------------------------
+        [TestMethod]
+        public void ColourMin()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = "a"; // this should be ok
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should be ok
+            Colour = Colour.PadRight(19, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMid()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should be ok
+            Colour = Colour.PadRight(9, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMinLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; //should trigger an error
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMinPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = "aa"; // this should be ok 
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMaxLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should be ok
+            Colour = Colour.PadRight(18, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMaxPlusOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = ""; // this should fail
+            Colour = Colour.PadRight(20, 'a');
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourExtremeMax()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Colour = "";
+            Colour = Colour.PadRight(500, 'a'); // this should fail
+            //invoke the method
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
 
 
     }
+
+
+
+
 }
