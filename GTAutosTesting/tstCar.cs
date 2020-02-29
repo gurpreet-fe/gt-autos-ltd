@@ -241,6 +241,18 @@ namespace GTAutosTesting
 
         }
 
+        [TestMethod]
+        public void MakeMinLessOne()
+        {
+            ClsCar car = new ClsCar();
+            //error variable stores any error messages
+            String Error = "";
+            //test data to pass to method
+            String Make = "";
+            Error = car.Valid(Make, Model, Description, Colour, Price, Sold, OfficeCode);
+            Assert.AreNotEqual(Error, "");
+        }
+
 
 
     }

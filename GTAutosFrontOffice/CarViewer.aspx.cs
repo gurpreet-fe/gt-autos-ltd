@@ -10,8 +10,8 @@ public partial class CarViewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsCar car = new clsCar();
-        car = (clsCar)Session["ACar"];
+        ClsCar car = new ClsCar();
+        car = (ClsCar)Session["ACar"];
         Response.Write(car.NumberPlate);
         Response.Write(car.Make);
         Response.Write(car.Model);
