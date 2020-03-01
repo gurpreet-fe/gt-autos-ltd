@@ -12,7 +12,7 @@
         </div>
     <p style="margin-top: 0px">
         Number Plate<asp:TextBox ID="txtNumberPlate" runat="server" Height="16px" style="margin-left: 44px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>
-        <asp:Button ID="Button3" runat="server" style="margin-left: 38px" Text="Find" OnClick="Find_Click" />
+        <asp:Button ID="Button3" runat="server" style="margin-left: 38px" Text="Find" OnClick="btnFind_Click" />
         </p>
     <p>
         Make<asp:TextBox ID="txtMake" runat="server" Height="16px" style="margin-left: 87px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>
@@ -39,7 +39,7 @@
         <p>
             <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
     </p>
-        <asp:Button ID="Button1" runat="server" OnClick="OK_Click" Text="OK" Width="49px" />
+        <asp:Button ID="Button1" runat="server" OnClick="btnOK_Click" Text="OK" Width="49px" />
         <asp:Button ID="Button2" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="49px" />
     </form>
     </body>

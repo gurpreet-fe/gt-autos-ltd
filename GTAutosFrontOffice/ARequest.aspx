@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <p>
         Request ID<asp:TextBox ID="txtRequestID" runat="server" style="margin-left: 98px"></asp:TextBox>
-        <asp:Button ID="Button3" runat="server" Height="23px" OnClick="Button3_Click" style="margin-left: 28px; margin-top: 1px" Text="Find" />
+        <asp:Button ID="Button3" runat="server" Height="23px" OnClick="btnFind_Click" style="margin-left: 28px; margin-top: 1px" Text="Find" />
         </p>
         <p>
         Name<asp:TextBox ID="txtName" runat="server" style="margin-left: 129px"></asp:TextBox>
@@ -58,7 +58,7 @@
     </p>
         <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="Active_CheckedChanged" />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Ok" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" Text="Ok" OnClick="btnOK_Click" />
         <asp:Button ID="Button2" runat="server" Text="Cancel" />
     </form>
     </body>
