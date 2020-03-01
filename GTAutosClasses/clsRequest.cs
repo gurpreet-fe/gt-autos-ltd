@@ -345,10 +345,48 @@ namespace GTAutosClasses
                 Error = Error + "The Colour must be less than 20 characters: ";
             }
             //------------------------------------PRICE---------------------------------------
+            if (price.Length == 0)
+            {
+                Error = Error + "The Price of the car may not be blank: ";
+            }
+            if (price.Length > 10)
+            {
+                Error = Error + "The Price must be less than 10 characters: ";
+            }
             //------------------------------------DATE OF PURCHASE----------------------------
+            DateTemp = Convert.ToDateTime(DateOfPurchased);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the past: ";
+            }
+            if (DateTemp > DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the future: ";
+            }
             //------------------------------------DATE OF REQUEST-----------------------------
+            DateTemp2 = Convert.ToDateTime(DateOfRequest);
+            if (DateTemp2 < DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the past: ";
+            }
             //------------------------------------REQUEST-------------------------------------
+            if (request.Length == 0)
+            {
+                Error = Error + "The Request field may not be blank: ";
+            }
+            if (request.Length > 4||request.Length > 5)
+            {
+                Error = Error + "The Request field must be less than 5 or 4 characters: ";
+            }
             //------------------------------------PURCHASED ----------------------------------
+            if (purchased.Length == 0)
+            {
+                Error = Error + "The Purchased field may not be blank: ";
+            }
+            if (purchased.Length > 4 || purchased.Length > 5)
+            {
+                Error = Error + "The Purchased field must be less than 5 or 4 characters: ";
+            }
 
             //return any error messgaes
             return Error;

@@ -13,9 +13,9 @@ public partial class ARequest : System.Web.UI.Page
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnOK_Click(object sender, EventArgs e)
     {
-        clsRequest req = new clsRequest();
+        ClsRequest req = new ClsRequest();
         req.RequestId = Convert.ToInt32(txtRequestID.Text);
         req.SellerName = txtName.Text;
         req.SellerPhoneNum = txtPhoneNum.Text;
@@ -41,9 +41,11 @@ public partial class ARequest : System.Web.UI.Page
 
     }
 
-    protected void Button3_Click(object sender, EventArgs e)
+
+
+    protected void btnFind_Click(object sender, EventArgs e)
     {
-        clsRequest req = new clsRequest();
+        ClsRequest req = new ClsRequest();
         Int32 RequestId;
         Boolean Found = false;
         RequestId = Convert.ToInt32(txtRequestID.Text);

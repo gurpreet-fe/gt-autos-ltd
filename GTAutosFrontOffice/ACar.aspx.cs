@@ -13,9 +13,11 @@ public partial class ACar : System.Web.UI.Page
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    
+
+    protected void btnOK_Click(object sender, EventArgs e)
     {
-        clsCar car = new clsCar();
+        ClsCar car = new ClsCar();
         car.NumberPlate = txtNumberPlate.Text;
         car.Make = txtMake.Text;
         car.Model = txtMake.Text;
@@ -27,28 +29,20 @@ public partial class ACar : System.Web.UI.Page
 
         Session["car"] = car;
         Response.Redirect("CarViewer.aspx");
-      }
-
-    protected void Active_CheckedChanged(object sender, EventArgs e)
-    {
-
     }
 
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
 
-    }
 
-    protected void Button3_Click(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
-        clsCar car = new clsCar();
+        ClsCar car = new ClsCar();
         String NumberPlate;
         Boolean Found = false;
         NumberPlate = (txtNumberPlate.Text);
         Found = car.Find(NumberPlate);
         if (Found == true)
         {
-            
+
             txtNumberPlate.Text = car.NumberPlate;
             txtMake.Text = car.Make;
             txtModel.Text = car.Model;
