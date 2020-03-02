@@ -137,9 +137,7 @@ namespace GTAutosClasses
                             string model,
                             string description,
                             string colour,
-                            string price,
-                            string sold,
-                            string officeCode)
+                            string price)
         {
             String Error = "";
             //------------------------------------MAKE-----------------------------
@@ -190,17 +188,7 @@ namespace GTAutosClasses
             {
                 Error = Error + "The Price must be less than 10 characters: ";
             }
-            //----------------------------------SOLD-------------------------------
-            if (sold.Length == 0)
-            {
-                Error = Error + "The Sold property may not be blank: ";
-            }
-            if (sold.Length == 4 || sold.Length == 5)
-            {
-                Error = Error + "The Sold property must be 5 or 4 characters: ";
-            }
-            //-------------------------------OFFICE CODE---------------------------
-
+            
 
 
 

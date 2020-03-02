@@ -172,17 +172,17 @@ namespace GTAutosClasses
             }
         }
 
-        private DateTime mDateOfPurchased;
-        public DateTime DateOfPurchased
+        private DateTime mDateOfPurchase;
+        public DateTime DateOfPurchase
         {
             get
             {
-                return mDateOfPurchased;
+                return mDateOfPurchase;
 
             }
             set
             {
-                mDateOfPurchased = value;
+                mDateOfPurchase = value;
             }
         }
         private Boolean mPurchased;
@@ -232,7 +232,7 @@ namespace GTAutosClasses
                 mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
                 mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
                 mDateOfRequest = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfRequest"]);
-                mDateOfPurchased = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfPurchased"]);
+                mDateOfPurchase = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfPurchase"]);
                 mPurchased = Convert.ToBoolean(DB.DataTable.Rows[0]["Purchased"]);
                 mRequest = Convert.ToBoolean(DB.DataTable.Rows[0]["Request"]);
                 return true;
@@ -254,12 +254,11 @@ namespace GTAutosClasses
                             string colour, 
                             string description, 
                             string price, 
-                            string dateOfPurchased, 
-                            string dateOfRequest, 
-                            string request,
-                            string purchased)
+                            string dateOfPurchase, 
+                            string dateOfRequest)
         {
             String Error = "";
+            DateTime DateTemp;
             //------------------------------------SELLER NAME---------------------------------
             if (sellerName.Length == 0)
             {
@@ -354,38 +353,40 @@ namespace GTAutosClasses
                 Error = Error + "The Price must be less than 10 characters: ";
             }
             //------------------------------------DATE OF PURCHASE----------------------------
-            DateTemp = Convert.ToDateTime(DateOfPurchased);
-            if (DateTemp < DateTime.Now.Date)
+            try
             {
-                Error = Error + "The date cannot be in the past: ";
+
+                DateTemp = Convert.ToDateTime(dateOfPurchase);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
             }
-            if (DateTemp > DateTime.Now.Date)
+            catch
             {
-                Error = Error + "The date cannot be in the future: ";
+                Error = Error + "The date was not a valid date: ";
             }
             //------------------------------------DATE OF REQUEST-----------------------------
-            DateTemp2 = Convert.ToDateTime(DateOfRequest);
-            if (DateTemp2 < DateTime.Now.Date)
+            try
             {
-                Error = Error + "The date cannot be in the past: ";
+
+                DateTemp = Convert.ToDateTime(dateOfRequest);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
             }
-            //------------------------------------REQUEST-------------------------------------
-            if (request.Length == 0)
+            catch
             {
-                Error = Error + "The Request field may not be blank: ";
-            }
-            if (request.Length > 4||request.Length > 5)
-            {
-                Error = Error + "The Request field must be less than 5 or 4 characters: ";
-            }
-            //------------------------------------PURCHASED ----------------------------------
-            if (purchased.Length == 0)
-            {
-                Error = Error + "The Purchased field may not be blank: ";
-            }
-            if (purchased.Length > 4 || purchased.Length > 5)
-            {
-                Error = Error + "The Purchased field must be less than 5 or 4 characters: ";
+                Error = Error + "The date was not a valid date: ";
             }
 
             //return any error messgaes

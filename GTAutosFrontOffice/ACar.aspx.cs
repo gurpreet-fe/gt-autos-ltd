@@ -18,17 +18,35 @@ public partial class ACar : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         ClsCar car = new ClsCar();
-        car.NumberPlate = txtNumberPlate.Text;
-        car.Make = txtMake.Text;
-        car.Model = txtMake.Text;
-        car.Colour = txtMake.Text;
-        car.Description = txtMake.Text;
-        car.Price = Convert.ToDouble(txtPrice.Text);
-        car.Sold = Convert.ToBoolean(txtSold.Text);
-        car.OfficeCode = Convert.ToInt32(txtPrice.Text);
+        String Make = txtMake.Text;
+        String Model = txtMake.Text;
+        String Colour = txtMake.Text;
+        String Description = txtMake.Text;
+        String Price = txtPrice.Text;
+    
+        String Error = "";
 
-        Session["car"] = car;
-        Response.Redirect("CarViewer.aspx");
+        Error = car.Valid(Make, Model, Description, Colour, Price);
+        if (Error == "")
+        {
+            car.Make = Make;
+            car.Model = Model;
+            car.Colour = Colour;
+            car.Description = Description;
+            car.Price = Convert.ToInt32(Price);
+
+            //store the address in the session object
+            Session["car"] = car;
+            //redirect to the viewer page
+            Response.Redirect("CarViewer.aspx");
+
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+        
     }
 
 
@@ -43,15 +61,23 @@ public partial class ACar : System.Web.UI.Page
         if (Found == true)
         {
 
-            txtNumberPlate.Text = car.NumberPlate;
             txtMake.Text = car.Make;
             txtModel.Text = car.Model;
             txtColour.Text = car.Colour;
             txtDescription.Text = car.Description;
             txtPrice.Text = car.Price.ToString();
-            txtSold.Text = car.Sold.ToString();
             txtOfficeCode.Text = car.OfficeCode.ToString();
 
         }
+    }
+
+    protected void Sold_CheckedChanged(object sender, EventArgs e)
+    {
+    
+    }
+
+    protected void Cancel_Click(object sender, EventArgs e)
+    {
+
     }
 }

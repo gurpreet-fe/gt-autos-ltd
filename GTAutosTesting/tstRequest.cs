@@ -18,10 +18,8 @@ namespace GTAutosTesting
         string Colour = "TestColour";
         string Description = "TestDescription";
         string Price = 100.00.ToString();
-        string DateOfPurchased = DateTime.Now.Date.ToString();
+        string DateOfPurchase = DateTime.Now.Date.ToString();
         string DateOfRequest = DateTime.Now.Date.ToString();
-        string Purchased = true.ToString();
-        string Request = true.ToString();
 
         //---------------------------------------------------TESTING INSTANCE OF CLASS + PROPERTIES--------------------------------------------------------------
         [TestMethod]
@@ -146,8 +144,8 @@ namespace GTAutosTesting
         {
             ClsRequest req = new ClsRequest();
             DateTime TestData = DateTime.Now.Date;
-            req.DateOfPurchased = TestData;
-            Assert.AreEqual(req.DateOfPurchased, TestData);
+            req.DateOfPurchase = TestData;
+            Assert.AreEqual(req.DateOfPurchase, TestData);
         }
 
         //----------------------------------------------TESTING FIND METHOD FOR EACH PROPERTY-------------------------------------------------------------------
@@ -348,7 +346,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 RequestID = 1;
             Found = req.Find(RequestID);
-            if (req.DateOfPurchased != Convert.ToDateTime("2/21/2020"))
+            if (req.DateOfPurchase != Convert.ToDateTime("2/21/2020"))
             {
                 OK = false;
             }
@@ -392,7 +390,7 @@ namespace GTAutosTesting
         {
             ClsRequest req = new ClsRequest();
             String Error = "";
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Colour, Description, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Colour, Description, Price, DateOfPurchase, DateOfRequest);
             Assert.AreEqual(Error, "");
         }
 
@@ -406,7 +404,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerName = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -421,7 +419,7 @@ namespace GTAutosTesting
             String SellerName = ""; // this should be ok
             SellerName = SellerName.PadRight(29, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -436,7 +434,7 @@ namespace GTAutosTesting
             String SellerName = ""; // this should be ok
             SellerName = SellerName.PadRight(14, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -450,7 +448,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerName = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -464,7 +462,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerName = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -479,7 +477,7 @@ namespace GTAutosTesting
             String SellerName = ""; // this should be ok
             SellerName = SellerName.PadRight(28, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -494,7 +492,7 @@ namespace GTAutosTesting
             String SellerName = ""; // this should fail
             SellerName = SellerName.PadRight(30, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -509,7 +507,7 @@ namespace GTAutosTesting
             String SellerName = "";
             SellerName = SellerName.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -523,7 +521,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerEmail = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -538,7 +536,7 @@ namespace GTAutosTesting
             String SellerEmail = ""; // this should be ok
             SellerEmail = SellerEmail.PadRight(319, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -553,7 +551,7 @@ namespace GTAutosTesting
             String SellerEmail = ""; // this should be ok
             SellerEmail = SellerEmail.PadRight(159, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -567,7 +565,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerEmail = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -581,7 +579,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerEmail = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -596,7 +594,7 @@ namespace GTAutosTesting
             String SellerEmail = ""; // this should be ok
             SellerEmail = SellerEmail.PadRight(318, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -611,7 +609,7 @@ namespace GTAutosTesting
             String SellerEmail = ""; // this should fail
             SellerEmail = SellerEmail.PadRight(320, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -626,7 +624,7 @@ namespace GTAutosTesting
             String SellerEmail = "";
             SellerEmail = SellerEmail.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -640,7 +638,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerPhoneNum = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -655,7 +653,7 @@ namespace GTAutosTesting
             String SellerPhoneNum = ""; // this should be ok
             SellerPhoneNum = SellerPhoneNum.PadRight(10, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -670,7 +668,7 @@ namespace GTAutosTesting
             String SellerPhoneNum = ""; // this should be ok
             SellerPhoneNum = SellerPhoneNum.PadRight(5, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -684,7 +682,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerPhoneNum = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -698,7 +696,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerPhoneNum = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -713,7 +711,7 @@ namespace GTAutosTesting
             String SellerPhoneNum = ""; // this should be ok
             SellerPhoneNum = SellerPhoneNum.PadRight(9, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -728,7 +726,7 @@ namespace GTAutosTesting
             String SellerPhoneNum = ""; // this should fail
             SellerPhoneNum = SellerPhoneNum.PadRight(11, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -743,7 +741,7 @@ namespace GTAutosTesting
             String SellerPhoneNum = "";
             SellerPhoneNum = SellerPhoneNum.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -757,7 +755,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerAddress = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -772,7 +770,7 @@ namespace GTAutosTesting
             String SellerAddress = ""; // this should be ok
             SellerAddress = SellerAddress.PadRight(19, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -787,7 +785,7 @@ namespace GTAutosTesting
             String SellerAddress = ""; // this should be ok
             SellerAddress = SellerAddress.PadRight(9, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -801,7 +799,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerAddress = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -815,7 +813,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String SellerAddress = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -830,7 +828,7 @@ namespace GTAutosTesting
             String SellerAddress = ""; // this should be ok
             SellerAddress = SellerAddress.PadRight(18, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -845,7 +843,7 @@ namespace GTAutosTesting
             String SellerAddress = ""; // this should fail
             SellerAddress = SellerAddress.PadRight(20, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -860,7 +858,7 @@ namespace GTAutosTesting
             String SellerAddress = "";
             SellerAddress = SellerAddress.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -874,7 +872,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String NumberPlate = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -889,7 +887,7 @@ namespace GTAutosTesting
             String NumberPlate = ""; // this should be ok
             NumberPlate = NumberPlate.PadRight(7, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -904,7 +902,7 @@ namespace GTAutosTesting
             String NumberPlate = ""; // this should be ok
             NumberPlate = NumberPlate.PadRight(3, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -918,7 +916,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String NumberPlate = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -932,7 +930,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String NumberPlate = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -947,7 +945,7 @@ namespace GTAutosTesting
             String NumberPlate = ""; // this should be ok
             NumberPlate = NumberPlate.PadRight(6, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -962,7 +960,7 @@ namespace GTAutosTesting
             String NumberPlate = ""; // this should fail
             NumberPlate = NumberPlate.PadRight(8, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -977,7 +975,7 @@ namespace GTAutosTesting
             String NumberPlate = "";
             NumberPlate = NumberPlate.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -991,7 +989,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Make = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1006,7 +1004,7 @@ namespace GTAutosTesting
             String Make = ""; // this should be ok
             Make = Make.PadRight(19, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1021,7 +1019,7 @@ namespace GTAutosTesting
             String Make = ""; // this should be ok
             Make = Make.PadRight(9, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1035,7 +1033,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Make = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1049,7 +1047,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Make = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1064,7 +1062,7 @@ namespace GTAutosTesting
             String Make = ""; // this should be ok
             Make = Make.PadRight(18, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1079,7 +1077,7 @@ namespace GTAutosTesting
             String Make = ""; // this should fail
             Make = Make.PadRight(20, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1094,7 +1092,7 @@ namespace GTAutosTesting
             String Make = "";
             Make = Make.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1108,7 +1106,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Model = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1123,7 +1121,7 @@ namespace GTAutosTesting
             String Model = ""; // this should be ok
             Model = Model.PadRight(19, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1138,7 +1136,7 @@ namespace GTAutosTesting
             String Model = ""; // this should be ok
             Model = Model.PadRight(9, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1152,7 +1150,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Model = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1166,7 +1164,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Model = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1181,7 +1179,7 @@ namespace GTAutosTesting
             String Model = ""; // this should be ok
             Model = Model.PadRight(18, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1196,7 +1194,7 @@ namespace GTAutosTesting
             String Model = ""; // this should fail
             Model = Model.PadRight(20, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1211,7 +1209,7 @@ namespace GTAutosTesting
             String Model = "";
             Model = Model.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1225,7 +1223,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Colour = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1240,7 +1238,7 @@ namespace GTAutosTesting
             String Colour = ""; // this should be ok
             Colour = Colour.PadRight(19, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1255,7 +1253,7 @@ namespace GTAutosTesting
             String Colour = ""; // this should be ok
             Colour = Colour.PadRight(9, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1269,7 +1267,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Colour = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1283,7 +1281,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Colour = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1298,7 +1296,7 @@ namespace GTAutosTesting
             String Colour = ""; // this should be ok
             Colour = Colour.PadRight(18, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1313,7 +1311,7 @@ namespace GTAutosTesting
             String Colour = ""; // this should fail
             Colour = Colour.PadRight(20, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1328,7 +1326,7 @@ namespace GTAutosTesting
             String Colour = "";
             Colour = Colour.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1342,7 +1340,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Description = "a"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1357,7 +1355,7 @@ namespace GTAutosTesting
             String Description = ""; // this should be ok
             Description = Description.PadRight(199, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1372,7 +1370,7 @@ namespace GTAutosTesting
             String Description = ""; // this should be ok
             Description = Description.PadRight(99, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1386,7 +1384,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Description = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1400,7 +1398,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Description = "aa"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1415,7 +1413,7 @@ namespace GTAutosTesting
             String Description = ""; // this should be ok
             Description = Description.PadRight(198, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1430,7 +1428,7 @@ namespace GTAutosTesting
             String Description = ""; // this should fail
             Description = Description.PadRight(200, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1445,7 +1443,7 @@ namespace GTAutosTesting
             String Description = "";
             Description = Description.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1459,7 +1457,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Price = "0"; // this should be ok
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1474,7 +1472,7 @@ namespace GTAutosTesting
             String Price = ""; // this should be ok
             Price = Price.PadRight(9, '0');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1489,7 +1487,7 @@ namespace GTAutosTesting
             String Price = ""; // this should be ok
             Price = Price.PadRight(4, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1503,7 +1501,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Price = ""; //should trigger an error
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1517,7 +1515,7 @@ namespace GTAutosTesting
             //test data to pass to method
             String Price = "00"; // this should be ok 
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1532,7 +1530,7 @@ namespace GTAutosTesting
             String Price = ""; // this should be ok
             Price = Price.PadRight(8, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1547,7 +1545,7 @@ namespace GTAutosTesting
             String Price = ""; // this should fail
             Price = Price.PadRight(10, 'a');
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1562,7 +1560,7 @@ namespace GTAutosTesting
             String Price = "";
             Price = Price.PadRight(500, 'a'); // this should fail
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1582,7 +1580,7 @@ namespace GTAutosTesting
             //convert the date variable to a string variable
             string DateOfPurchase = TestDate.ToString();
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -1601,7 +1599,7 @@ namespace GTAutosTesting
             //convert the date variable to a string variable
             string DateOfPurchase = TestDate.ToString();
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -1618,7 +1616,7 @@ namespace GTAutosTesting
             //convert the date variable to a string variable
             string DateOfPurchase = TestDate.ToString();
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -1630,7 +1628,7 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string DateOfPurchase = TestDate.ToString();
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -1642,7 +1640,7 @@ namespace GTAutosTesting
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string DateOfPurchase = TestDate.ToString();
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -1651,247 +1649,100 @@ namespace GTAutosTesting
             ClsRequest req = new ClsRequest();
             String Error = "";
             string DateOfPurchase = "this is not a date!";
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
 
 
         //-----------------------------------------------------------DATE OF REQUEST PARAMETER TEST METHODS (VALID)------------------------------------------------------
-
-        //-----------------------------------------------------------REQUEST PARAMETER TEST METHODS (VALID)--------------------------------------------------------------
         [TestMethod]
-        public void RequestMin()
+        public void DateOfRequestExtremeMin()
         {
             ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = "a"; // this should be ok
+            //string variable to store any error message
+            string Error = "";
+            //create a variable to store the test data data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whateverteh date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string DateOfRequest = TestDate.ToString();
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void RequestMax()
+        public void DateOfRequestMinLessOne()
         {
             ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = ""; // this should be ok
-            Request = Request.PadRight(4, 'a');
+            //string variable to store any error message
+            string Error = "";
+            //create a variable to store the test data data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whateverteh date is less 100 years
+            TestDate = TestDate.AddYears(-1);
+            //convert the date variable to a string variable
+            string DateOfRequest = TestDate.ToString();
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void RequestMid()
+        public void DateOfRequestMin()
         {
             ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = ""; // this should be ok
-            Request = Request.PadRight(1, 'a');
+            //string variable to store any error message
+            string Error = "";
+            //create a variable to store the test data data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DateOfRequest = TestDate.ToString();
             //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void RequestMinLessOne()
+        public void DateOfRequestMinPlusOne()
         {
             ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = ""; //should trigger an error
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
+            string Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateOfRequest = TestDate.ToString();
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
-        [TestMethod]
-        public void RequestMinPlusOne()
+        public void DateOfRequestExtremeMax()
         {
             ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
+            string Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateOfRequest = TestDate.ToString();
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateOfRequestInvalidData()
+        {
+            ClsRequest req = new ClsRequest();
             String Error = "";
-            //test data to pass to method
-            String Request = "aa"; // this should be ok 
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
+            string DateOfPurchase = "this is not a date!";
+            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
             Assert.AreNotEqual(Error, "");
         }
 
-        [TestMethod]
-        public void RequestMaxLessOne()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = ""; // this should be ok
-            Request = Request.PadRight(3, 'a');
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void RequestMaxPlusOne()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = ""; // this should fail
-            Request = Request.PadRight(5, 'a');
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void RequestExtremeMax()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Request = "";
-            Request = Request.PadRight(500, 'a'); // this should fail
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-        //-----------------------------------------------------------PURCHASED PARAMETER TEST METHODS (VALID)----------------------------------------------------------
-        [TestMethod]
-        public void PurchasedMin()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = "a"; // this should be ok
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedMax()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = ""; // this should be ok
-            Purchased = Purchased.PadRight(4, 'a');
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedMid()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = ""; // this should be ok
-            Purchased = Purchased.PadRight(1, 'a');
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedMinLessOne()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = ""; //should trigger an error
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedMinPlusOne()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = "aa"; // this should be ok 
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedMaxLessOne()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = ""; // this should be ok
-            Purchased = Purchased.PadRight(3, 'a');
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedMaxPlusOne()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = ""; // this should fail
-            Purchased = Purchased.PadRight(5, 'a');
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PurchasedExtremeMax()
-        {
-            ClsRequest req = new ClsRequest();
-            //error variable stores any error messages
-            String Error = "";
-            //test data to pass to method
-            String Purchased = "";
-            Purchased = Purchased.PadRight(500, 'a'); // this should fail
-            //invoke the method
-            Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchased, DateOfRequest, Request, Purchased);
-            //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
     }
 }

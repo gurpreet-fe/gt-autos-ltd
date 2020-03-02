@@ -16,30 +16,49 @@ public partial class ARequest : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         ClsRequest req = new ClsRequest();
-        req.RequestId = Convert.ToInt32(txtRequestID.Text);
-        req.SellerName = txtName.Text;
-        req.SellerPhoneNum = txtPhoneNum.Text;
-        req.SellerEmail = txtEmail.Text;
-        req.SellerAddress = txtAddress.Text;
-        req.NumberPlate = txtNumberPlate.Text;
-        req.Make = txtMake.Text;
-        req.Model = txtModel.Text;
-        req.Colour = txtColour.Text;
-        req.Description = txtDescription.Text;
-        req.Price = Convert.ToDouble(txtPrice.Text);
-        req.DateOfPurchased = Convert.ToDateTime(txtDateOfPurchased.Text);
-        req.DateOfRequest = Convert.ToDateTime(txtDateOfRequest.Text);
-        req.Request = Convert.ToBoolean(txtRequest.Text);
-        req.Purchased = Convert.ToBoolean(txtPurchased);
 
-        Session["ARequest"] = req;
-        Response.Redirect("RequestViewer.aspx");
+        String SellerName = txtName.Text;
+        String SellerPhoneNum = txtPhoneNum.Text;
+        String SellerEmail = txtEmail.Text;
+        String SellerAddress = txtAddress.Text;
+        String NumberPlate = txtNumberPlate.Text;
+        String Make = txtMake.Text;
+        String Model = txtModel.Text;
+        String Colour = txtColour.Text;
+        String Description = txtDescription.Text;
+        String Price = txtPrice.Text;
+        String DateOfPurchase = txtDateOfPurchase.Text;
+        String DateOfRequest = txtDateOfRequest.Text;
+        String Error = "";
+
+        Error = req.Valid(SellerName, SellerEmail, SellerPhoneNum, SellerAddress, NumberPlate, Make, Model, Description, Colour, Price, DateOfPurchase, DateOfRequest);
+        if (Error == "")
+        {
+            req.SellerName = SellerName;
+            req.SellerPhoneNum = SellerPhoneNum;
+            req.SellerEmail = SellerEmail;
+            req.SellerAddress = SellerAddress;
+            req.NumberPlate = NumberPlate;
+            req.Make = Make;
+            req.Model = Model;
+            req.Colour = Colour;
+            req.Description = Description;
+            req.Price = Convert.ToDouble(Price);
+            req.DateOfPurchase = Convert.ToDateTime(DateOfPurchase);
+            req.DateOfRequest = Convert.ToDateTime(DateOfRequest);
+            Session["ARequest"] = req;
+            Response.Redirect("RequestViewer.aspx");
+
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+        
     }
 
-    protected void Active_CheckedChanged(object sender, EventArgs e)
-    {
 
-    }
 
 
 
@@ -62,11 +81,22 @@ public partial class ARequest : System.Web.UI.Page
             txtColour.Text = req.Colour;
             txtDescription.Text = req.Description;
             txtPrice.Text = req.Price.ToString();
-            txtDateOfPurchased.Text = req.DateOfPurchased.ToString();
+            txtDateOfPurchase.Text = req.DateOfPurchase.ToString();
             txtDateOfRequest.Text = req.DateOfRequest.ToString();
-            txtRequest.Text = req.Request.ToString();
-            txtPurchased.Text = req.Purchased.ToString();
+
+
 
         }
     }
+
+    protected void Request_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Purchased_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
 }
+
