@@ -69,4 +69,9 @@ public partial class ARequest : System.Web.UI.Page
 
         }
     }
+
+    protected void txtRequest_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

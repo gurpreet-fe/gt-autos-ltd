@@ -37,7 +37,7 @@
             Office Code<asp:TextBox ID="txtOfficeCode" runat="server" Height="16px" style="margin-left: 44px; margin-top: 0px; margin-bottom: 0px" Width="95px"></asp:TextBox>
     </p>
         <p>
-            <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
+            <asp:CheckBox ID="Sold" runat="server" OnCheckedChanged="Sold_CheckedChanged" />
     </p>
         <asp:Button ID="Button1" runat="server" OnClick="btnOK_Click" Text="OK" Width="49px" />
         <asp:Button ID="Button2" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="49px" />

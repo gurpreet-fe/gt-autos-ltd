@@ -54,7 +54,7 @@
             Purhcased<asp:TextBox ID="txtPurchased" runat="server" style="margin-left: 96px"></asp:TextBox>
     </p>
         <p>
-            Request<asp:TextBox ID="txtRequest" runat="server" style="margin-left: 109px"></asp:TextBox>
+            Request<asp:TextBox ID="txtRequest" runat="server" style="margin-left: 109px" OnTextChanged="txtRequest_TextChanged"></asp:TextBox>
     </p>
         <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="Active_CheckedChanged" />
         <br />

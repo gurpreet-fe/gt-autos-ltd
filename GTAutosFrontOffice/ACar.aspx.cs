@@ -43,7 +43,6 @@ public partial class ACar : System.Web.UI.Page
         if (Found == true)
         {
 
-            txtNumberPlate.Text = car.NumberPlate;
             txtMake.Text = car.Make;
             txtModel.Text = car.Model;
             txtColour.Text = car.Colour;
@@ -53,5 +52,10 @@ public partial class ACar : System.Web.UI.Page
             txtOfficeCode.Text = car.OfficeCode.ToString();
 
         }
+    }
+
+    protected void Sold_CheckedChanged(object sender, EventArgs e)
+    {
+
     }
 }

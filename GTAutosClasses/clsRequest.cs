@@ -354,18 +354,18 @@ namespace GTAutosClasses
                 Error = Error + "The Price must be less than 10 characters: ";
             }
             //------------------------------------DATE OF PURCHASE----------------------------
-            DateTemp = Convert.ToDateTime(DateOfPurchased);
-            if (DateTemp < DateTime.Now.Date)
+        //    DateTemp = Convert.ToDateTime(DateOfPurchased);
+        //    if (DateTemp < DateTime.Now.Date)
             {
                 Error = Error + "The date cannot be in the past: ";
             }
-            if (DateTemp > DateTime.Now.Date)
+      //      if (DateTemp > DateTime.Now.Date)
             {
                 Error = Error + "The date cannot be in the future: ";
             }
             //------------------------------------DATE OF REQUEST-----------------------------
-            DateTemp2 = Convert.ToDateTime(DateOfRequest);
-            if (DateTemp2 < DateTime.Now.Date)
+          //  DateTemp2 = Convert.ToDateTime(DateOfRequest);
+      //      if (DateTemp2 < DateTime.Now.Date)
             {
                 Error = Error + "The date cannot be in the past: ";
             }
