@@ -31,13 +31,13 @@
         <asp:TextBox ID="txtPrice" runat="server" Height="16px" style="margin-left: 88px; margin-top: 0px; margin-bottom: 0px" Width="95px"></asp:TextBox>
     </p>
         <p>
-            Sold<asp:TextBox ID="txtSold" runat="server" Height="16px" style="margin-left: 93px; margin-top: 0px; margin-bottom: 0px" Width="95px"></asp:TextBox>
-    </p>
-        <p>
             Office Code<asp:TextBox ID="txtOfficeCode" runat="server" Height="16px" style="margin-left: 44px; margin-top: 0px; margin-bottom: 0px" Width="95px"></asp:TextBox>
     </p>
         <p>
             <asp:CheckBox ID="Sold" runat="server" OnCheckedChanged="Sold_CheckedChanged" />
+    </p>
+        <p>
+            <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
     </p>
         <asp:Button ID="Button1" runat="server" OnClick="btnOK_Click" Text="OK" Width="49px" />
         <asp:Button ID="Button2" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="49px" />

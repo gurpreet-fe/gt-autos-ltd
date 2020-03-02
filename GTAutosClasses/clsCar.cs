@@ -137,9 +137,7 @@ namespace GTAutosClasses
                             string model,
                             string description,
                             string colour,
-                            string price,
-                            string sold,
-                            string officeCode)
+                            string price)
         {
             String Error = "";
             //------------------------------------MAKE-----------------------------
@@ -190,7 +188,6 @@ namespace GTAutosClasses
             {
                 Error = Error + "The Price must be less than 10 characters: ";
             }
-            //----------------------------------SOLD-------------------------------
             
 
 

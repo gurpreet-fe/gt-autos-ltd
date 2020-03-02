@@ -45,18 +45,23 @@
         <asp:TextBox ID="txtPrice" runat="server" style="margin-left: 129px"></asp:TextBox>
     </p>
         <p>
-            Date of Request<asp:TextBox ID="txtDateOfRequest" runat="server" style="margin-left: 65px"></asp:TextBox>
+            DateOfPurchase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtDateOfPurchase" runat="server"></asp:TextBox>
     </p>
         <p>
-            Date of Purchase<asp:TextBox ID="txtDateOfPurchased" runat="server" style="margin-left: 57px"></asp:TextBox>
+            DateOfRequest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtDateOfRequest" runat="server"></asp:TextBox>
     </p>
         <p>
-            Purhcased<asp:TextBox ID="txtPurchased" runat="server" style="margin-left: 96px"></asp:TextBox>
+            <asp:CheckBox ID="Purchased" runat="server" />
     </p>
         <p>
-            Request<asp:TextBox ID="txtRequest" runat="server" style="margin-left: 109px" OnTextChanged="txtRequest_TextChanged"></asp:TextBox>
+            <asp:CheckBox ID="Request" runat="server" />
     </p>
-        <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="Active_CheckedChanged" />
+        <p>
+            <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
+    </p>
+     
         <br />
         <asp:Button ID="Button1" runat="server" Text="Ok" OnClick="btnOK_Click" />
         <asp:Button ID="Button2" runat="server" Text="Cancel" />
