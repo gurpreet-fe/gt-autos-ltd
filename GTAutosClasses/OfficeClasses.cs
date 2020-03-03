@@ -138,6 +138,7 @@ namespace GTAutosClasses
                 mAddressLine2 = Convert.ToString(DB.DataTable.Rows[0]["AddressLine2"]);
                 mCity = Convert.ToString(DB.DataTable.Rows[0]["City"]);
                 mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
                 mIsActive = Convert.ToBoolean(DB.DataTable.Rows[0]["IsActive"]);
                 mInspectionDate = Convert.ToDateTime(DB.DataTable.Rows[0]["InspectionDate"]);
 
@@ -148,6 +149,15 @@ namespace GTAutosClasses
                 return false;
             }
         }
+
+        public string Valid(Action addressLine1, Action addressLine2, Action postCode, Action phoneNumber, Action inspectionDate)
+        {
+            return "";
+        }
+
+        
+
+
 
 
 

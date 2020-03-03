@@ -7,6 +7,7 @@ namespace GTAutosTesting
     [TestClass]
     public class OfficeTesting
     {
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -114,12 +115,14 @@ namespace GTAutosTesting
             //create an instance of the class we want to create
             OfficeClasses AnAddress = new OfficeClasses();
             //create some test data to assign to the property
-            string TestData = "07516231200";
+            string TestData = "12345678910";
             //assign the data to the property
             AnAddress.PhoneNumber = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnAddress.PhoneNumber, TestData);
         }
+
+        // ------------------------------------------------------------FIND METHOD TESTING-------------------------------------------------------------------------------
 
         [TestMethod]
         public void FindMethodOK()
@@ -137,9 +140,9 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
-            if (AnOffice.OfficeCode != 21)
+            if (AnOffice.OfficeCode != 1)
             {
                 OK = false;
             }
@@ -152,7 +155,7 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
             if (AnOffice.InspectionDate != Convert.ToDateTime("19/02/2020"))
             {
@@ -167,7 +170,7 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
             if (AnOffice.AddressLine1 != "Test Street")
             {
@@ -176,13 +179,14 @@ namespace GTAutosTesting
             Assert.IsTrue(OK);
         }
 
+
         [TestMethod]
         public void TestAddressLine2Found()
         {
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
             if (AnOffice.AddressLine2 != "Test Street 2")
             {
@@ -197,7 +201,7 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
             if (AnOffice.City != "Test City")
             {
@@ -212,7 +216,7 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
             if (AnOffice.PostCode != "XXX XXX")
             {
@@ -221,15 +225,16 @@ namespace GTAutosTesting
             Assert.IsTrue(OK);
         }
 
+
         [TestMethod]
         public void TestPhoneNumberFound()
         {
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
-            if (AnOffice.PhoneNumber != "XXXXXXXXXXX")
+            if (AnOffice.PhoneNumber != "12345678910")
             {
                 OK = false;
             }
@@ -242,7 +247,7 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OfficeCode = 21;
+            Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
             if (AnOffice.IsActive != true)
             {
@@ -251,11 +256,24 @@ namespace GTAutosTesting
             Assert.IsTrue(OK);
         }
 
+        // ------------------------------------------------------------VALIDATION TESTING-------------------------------------------------------------------------------
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        // ------------------------------------------------------------TESTING VALID TEST CASES-------------------------------------------------------------------------------
+
+        
+
+
+
 
 
     }
-
-
-
-
 }
