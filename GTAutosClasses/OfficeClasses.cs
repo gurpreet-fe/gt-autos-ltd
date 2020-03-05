@@ -110,20 +110,6 @@ namespace GTAutosClasses
             }
         }
 
-        //public bool Find(int OfficeCode)
-        //{
-        //    mOfficeCode = 21;
-        //    mInspectionDate = Convert.ToDateTime("19/02/2020");
-        //    mAddressLine1 = "Test Street";
-        //    mAddressLine2 = "Test Street 2";
-        //    mCity = "Test City";
-        //    mPostCode = "XXX XXX";
-        //    mPhoneNumber = "XXXXXXXXXXX";
-        //    mIsActive = true;
-
-        //    return true;
-
-        //}
 
 
         public bool Find(int OfficeCode)
@@ -150,12 +136,17 @@ namespace GTAutosClasses
             }
         }
 
-        public string Valid(Action addressLine1, Action addressLine2, Action postCode, Action phoneNumber, Action inspectionDate)
+        public string Valid(string addressLine1, string addressLine2, string postCode, string phoneNumber, string inspectionDate)
         {
-            return "";
+            String Error = "";
+            if (AddressLine1.Length == 0)
+            {
+                Error = Error + "AddressLine1 may not be blank  :  ";
+            }
+            return Error;
+
         }
 
-        
 
 
 

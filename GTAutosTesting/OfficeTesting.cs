@@ -8,6 +8,14 @@ namespace GTAutosTesting
     public class OfficeTesting
     {
 
+        string AddressLine1 = "Test Street";
+        string AddressLine2 = "Test Street 2";
+        string City = "Test City";
+        string PostCode = "T3S TPC";
+        string PhoneNumber = "12345678910";
+        string InspectionDate = DateTime.Now.ToString();
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -42,8 +50,8 @@ namespace GTAutosTesting
         }
 
 
-        [TestMethod]
-        public void InspectionDate()
+        //[TestMethod]
+        /*public void InspectionDate()
         {
             //create an instance of the class we want to create
             OfficeClasses AnOffice = new OfficeClasses();
@@ -53,10 +61,10 @@ namespace GTAutosTesting
             AnOffice.InspectionDate = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnOffice.InspectionDate, TestData);
-        }
+        }*/
 
-        [TestMethod]
-        public void AddressLine1()
+        //[TestMethod]
+        /*public void AddressLine1()
         {
             //create an instance of the class we want to create
             OfficeClasses AnOffice = new OfficeClasses();
@@ -66,10 +74,10 @@ namespace GTAutosTesting
             AnOffice.AddressLine1 = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnOffice.AddressLine1, TestData);
-        }
+        }*/
 
 
-        [TestMethod]
+        /*[TestMethod]
         public void AddressLine2()
         {
             //create an instance of the class we want to create
@@ -80,10 +88,10 @@ namespace GTAutosTesting
             AnAddress.AddressLine2 = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnAddress.AddressLine2, TestData);
-        }
+        }*/
 
 
-        [TestMethod]
+        /*[TestMethod]
         public void PostCode()
         {
             //create an instance of the class we want to create
@@ -94,10 +102,10 @@ namespace GTAutosTesting
             AnOffice.PostCode = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnOffice.PostCode, TestData);
-        }
+        }*/
 
-        [TestMethod]
-        public void City()
+        //[TestMethod]
+        /*public void City()
         {
             //create an instance of the class we want to create
             OfficeClasses AnOffice = new OfficeClasses();
@@ -107,9 +115,9 @@ namespace GTAutosTesting
             AnOffice.City = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnOffice.City, TestData);
-        }
+        }*/
 
-        [TestMethod]
+        /*[TestMethod]
         public void PhoneNumber()
         {
             //create an instance of the class we want to create
@@ -120,7 +128,7 @@ namespace GTAutosTesting
             AnAddress.PhoneNumber = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnAddress.PhoneNumber, TestData);
-        }
+        }*/
 
         // ------------------------------------------------------------FIND METHOD TESTING-------------------------------------------------------------------------------
 
@@ -269,7 +277,19 @@ namespace GTAutosTesting
 
         // ------------------------------------------------------------TESTING VALID TEST CASES-------------------------------------------------------------------------------
 
-        
+            //-----ADDRESSLINE1------
+
+        [TestMethod]
+        public void Address1ValidMinMinus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = ""; //this should trigger an error
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+
+        }
+
 
 
 
