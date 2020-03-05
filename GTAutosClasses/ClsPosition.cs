@@ -8,7 +8,6 @@ namespace GTAutosClasses
 {
     public class ClsPosition
     {
-
         // PositionId private member variable
         private int mPositionId;
         public int PositionId
@@ -24,64 +23,43 @@ namespace GTAutosClasses
                 mPositionId = value;
             }
         }
-        // PositionName private member variable
+
         private string mPositionName;
         public string PositionName
         {
-            get
-            {
-                // Send data out of the property
-                return mPositionName;
-            }
-            set
-            {
-                // Allow data into the property
-                mPositionName = value;
-            }
+            get { return mPositionName; }
+            set { mPositionName = value; }
         }
-        // Description private member variable
+
         private string mDescription;
         public string Description
         {
-            get
-            {
-                // Send data out of the property
-                return mDescription;
-            }
-            set
-            {
-                // Allow data into the property
-                mDescription = value;
-            }
+            get { return mDescription; }
+            set { mDescription = value; }
         }
-        // Salary private member variable
+
         private double mSalary;
         public double Salary
         {
-            get
-            {
-                // Send data out of the property
-                return mSalary;
-            }
-            set
-            {
-                // Allow data into the property
-                mSalary = value;
-            }
+            get { return mSalary; }
+            set { mSalary = value; }
         }
 
-        public bool Find(int positionId)
+        //public bool Find(int positionId)
+        //{
+
+        //    // Set the private data member to the test data value
+        //    mPositionId = 123;
+        //    mPositionName = "Software Engineer";
+        //    mDescription = "Develops software solutions";
+        //    mSalary = 50000;
+
+        //    // Always return true
+        //    return true;
+        //}
+
+        public bool Find(int positoinId)
         {
-
-            // Set the private data member to the test data value
-            mPositionId = 123;
-            mPositionName = "Software Engineer";
-            mDescription = "Develops software solutions";
-            mSalary = 50000;
-
-            // Always return true
-            return true;
-
             // Create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             // Add the parameter for the staff name to search for
@@ -97,7 +75,7 @@ namespace GTAutosClasses
                 mPositionName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
                 mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
                 mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);
-                
+
                 // return that everything worked OK
                 return true;
             }

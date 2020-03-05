@@ -7,6 +7,18 @@ namespace GTAutosTesting
     [TestClass]
     public class TstStaff
     {
+        // Good test data
+        // Create some test data to pass to the method
+        //string StaffId = "123";
+        //string StaffName = "Bill Gates";
+        //string OfficeCode = "03";
+        //string PositionId = "112";
+        //string StaffContactNumber = "07456330713";
+        //string StaffAddress = "1 Park Road, Leicester, LE2 1PK";
+        //string HireDate = DateTime.Now.Date.ToString();
+        //string IsHired = "true";
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -32,26 +44,18 @@ namespace GTAutosTesting
         [TestMethod]
         public void StaffNamePropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             string TestData = "Bill Gates";
-            // Assign the data to the property
             member.StaffName = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.StaffName, TestData);
         }
 
         [TestMethod]
         public void OfficeCodePropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             int TestData = 03;
-            // Assign the data to the property
             member.OfficeCode = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.OfficeCode, TestData);
         }
 
@@ -59,65 +63,45 @@ namespace GTAutosTesting
         [TestMethod]
         public void PositionIdPropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             int TestData = 112;
-            // Assign the data to the property
             member.PositionId = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.PositionId, TestData);
         }
 
         [TestMethod]
         public void StaffContactNumberPropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             long TestData = 07456330713;
-            // Assign the data to the property
             member.StaffContactNumber = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.StaffContactNumber, TestData);
         }
 
         [TestMethod]
         public void StaffAddressPropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             string TestData = "1 Park Road, Leicester, LE2 1PK";
-            // Assign the data to the property
             member.StaffAddress = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.StaffAddress, TestData);
         }
 
         [TestMethod]
         public void HireDatePropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
-            // Assign the data to the property
             member.HireDate = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.HireDate, TestData);
         }
 
         [TestMethod]
         public void IsEmployedPropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             bool TestData = true;
-            // Assign the data to the property
             member.IsEmployed = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(member.IsEmployed, TestData);
         }
 
@@ -130,9 +114,10 @@ namespace GTAutosTesting
             // Boolean variable to store the result of the validation
             bool Found = false;
             // Create some test data to use with the method
-            string Name = "Bill Gates";
+            //string Name = "Bill Gates";
+            int StaffId = 1;
             // Invoke the method
-            Found = member.Find(Name);
+            Found = member.Find(StaffId);
             // Test to see that the result is correct
             Assert.IsTrue(Found);
 
@@ -149,9 +134,9 @@ namespace GTAutosTesting
             // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
             // Create some test data to use with the method
-            int Id = 123;
+            int StaffId = 1;
             // Invoke the method
-            Found = member.Find(Id);
+            Found = member.Find(StaffId);
             // Check the staff name
             if (member.StaffId != 123)
             {
@@ -165,71 +150,49 @@ namespace GTAutosTesting
         [TestMethod]
         public void TestStaffNameNotFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            string Name = "Bill Gates";
-            // Invoke the method
-            Found = member.Find(Name);
-            // Check the staff name
+            //string Name = "Bill Gates";
+            int StaffId = 1;
+            Found = member.Find(StaffId);
             if (member.StaffName != "Bill Gates")
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
-
         }
 
         [TestMethod]
         public void TestOfficeCodeNotFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            int Code = 03;
-            // Invoke the method
-            Found = member.Find(Code);
-            // Check the staff name
+            //Int32 OfficeCode = 1;
+            int Id = 1;
+            Found = member.Find(Id);
             if (member.OfficeCode != 03)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
-
         }
 
         [TestMethod]
         public void TestPositionIdNotFound()
         {
 
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            int PositionId = 112;
-            // Invoke the method
-            Found = member.Find(PositionId);
-            // Check the staff name
+            //int PositionId = 112;
+            int Id = 1;
+            Found = member.Find(Id);
             if (member.PositionId != 112)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
 
         }
@@ -237,99 +200,145 @@ namespace GTAutosTesting
         [TestMethod]
         public void TestStaffContactNumberNotFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            long ContactNumber = 07456330713;
-            // Invoke the method
-            Found = member.Find(ContactNumber);
-            // Check the staff name
+            //long ContactNumber = 07456330713;
+            int Id = 1;
+            Found = member.Find(Id);
             if (member.StaffContactNumber != 07456330713)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
-
         }
 
         [TestMethod]
         public void TestStaffAddressNotFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            string Address = "1 Park Road, Leicester, LE2 1PK";
-            // Invoke the method
-            Found = member.Find(Address);
-            // Check the staff name
+            //string Address = "1 Park Road, Leicester, LE2 1PK";
+            int StaffId = 1;
+            Found = member.Find(StaffId);
             if (member.StaffName != "1 Park Road, Leicester, LE2 1PK")
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
-
         }
-        
+
         [TestMethod]
         public void TestHireDateNotFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            DateTime Today = DateTime.Now.Date;
-            // Invoke the method
-            Found = member.Find(Today);
-            // Check the staff name
+            //DateTime Today = DateTime.Now.Date;
+            int StaffId = 1;
+            Found = member.Find(StaffId);
             if (member.HireDate != DateTime.Now.Date)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
-
         }
 
         [TestMethod]
         public void TestIsEmployedNotFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
-            bool IsEmployed = true;
-            // Invoke the method
-            Found = member.Find(IsEmployed);
-            // Check the staff name
+            //bool IsEmployed = true;
+            int Id = 1;
+            Found = member.Find(Id);
             if (member.IsEmployed != true)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
             Assert.IsTrue(OK);
-
         }
 
+        [TestMethod]
+        //public void ValidMethodOK()
+        //{
+        //    // Create an instance of the class we want to create
+        //    ClsStaff member = new ClsStaff();
+        //    // String variable to store any error message
+        //    String Error = "";
+        //    // Invoke the method
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    // Test to see that the result is correct
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void StaffNameMin()
+        //{
+        //    // Create an instance of the class we want to create
+        //    ClsStaff member = new ClsStaff();
+        //    // String variable to store any error message
+        //    String Error = "";
+        //    // Create some test data to pass to the method
+        //    string StaffName = "a"; // This should be okay
+        //    // Invoke the method
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    // Test to see that the result is correct
+        //    Assert.AreEqual(Error, "");
+
+        //}
+
+        //[TestMethod]
+        //public void StaffNameMinPlusOne()
+        //{
+        //    ClsStaff member = new ClsStaff();
+        //    String Error = "";
+        //    string StaffName = "aa";
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void StaffNameMaxLessOne()
+        //{
+        //    ClsStaff member = new ClsStaff();
+        //    String Error = "";
+        //    string StaffName = "aaaaa";
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void StaffNameMax()
+        //{
+        //    ClsStaff member = new ClsStaff();
+        //    String Error = "";
+        //    string StaffName = "aaaaaa";
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void StaffNameMid()
+        //{
+        //    ClsStaff member = new ClsStaff();
+        //    String Error = "";
+        //    string StaffName = "aaa";
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    Assert.AreEqual(Error, "");
+        //}
+
+        //[TestMethod]
+        //public void StaffNameMaxPlusOne()
+        //{
+        //    ClsStaff member = new ClsStaff();
+        //    String Error = "";
+        //    string StaffName = "aaaaaaa";
+        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
+        //    Assert.AreEqual(Error, "");
+        //}
 
     }
 }

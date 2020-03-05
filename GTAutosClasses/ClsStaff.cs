@@ -25,133 +25,73 @@ namespace GTAutosClasses
             }
         }
 
-        // StaffName private member variable
         private string mStaffName;
         public string StaffName
         {
-            get
-            {
-                // Send data out of the property
-                return mStaffName;
-            }
-            set
-            {
-                // Allow data into the property
-                mStaffName = value;
-            }
+            get { return mStaffName; }
+            set { mStaffName = value; }
         }
 
-        // OfficeCode private member variable
         private int mOfficeCode;
         public int OfficeCode
         {
-            get
-            {
-                // Send data out of the property
-                return mOfficeCode;
-            }
-            set
-            {
-                // Allow data into the property
-                mOfficeCode = value;
-            }
+            get { return mOfficeCode; }
+            set { mOfficeCode = value; }
         }
 
-        // PositionId private member variable        
         private int mPositionId;
         public int PositionId
         {
-            get
-            {
-                // Send data out of the property
-                return mPositionId;
-            }
-            set
-            {
-                // Allow data into the property
-                mPositionId = value;
-            }
+            get { return mPositionId; }
+            set { mPositionId = value; }
         }
 
-        // StaffContactNumber private member variable        
         private long mStaffContactNumber;
         public long StaffContactNumber
         {
-            get
-            {
-                // Send data out of the property
-                return mStaffContactNumber;
-            }
-            set
-            {
-                // Allow data into the property
-                mStaffContactNumber = value;
-            }
+            get { return mStaffContactNumber; }
+            set { mStaffContactNumber = value; }
         }
 
-        // StaffAddress private member variable
         private string mStaffAddress;
         public string StaffAddress
         {
-            get
-            {
-                // Send data out of the property
-                return mStaffAddress;
-            }
-            set
-            {
-                // Allow data into the property
-                mStaffAddress = value;
-            }
+            get { return mStaffAddress; }
+            set { mStaffAddress = value; }
         }
 
-        // HireDate private member variable
         private DateTime mHireDate;
         public DateTime HireDate
         {
-            get
-            {
-                // Send data out of the property
-                return mHireDate;
-            }
-            set
-            {
-                // Allow data into the property
-                mHireDate = value;
-            }
+            get { return mHireDate; }
+            set { mHireDate = value; }
         }
 
-        // IsEmployed private member variable        
         private bool mIsEmployed;
         public bool IsEmployed
         {
-            get
-            {
-                // Send data out of the property
-                return mIsEmployed;
-            }
-            set
-            {
-                // Allow data into the property
-                mIsEmployed = value;
-            }
+            get { return mIsEmployed; }
+            set { mIsEmployed = value; }
         }
 
-        public bool Find(string staffName)
+        //public bool Find(string staffName)
+        //{
+        //    // Set the private data member to the test data value
+        //    mStaffId = 123;
+        //    mStaffName = "Bill Gates";
+        //    mOfficeCode = 03;
+        //    mPositionId = 112;
+        //    mStaffContactNumber = 07456330713;
+        //    mStaffAddress = "1 Park Road, Leicester, LE2 1PK";
+        //    mHireDate = DateTime.Now.Date;
+        //    mIsEmployed = true;
+
+        //    // Always return true
+        //    return true;
+        //}
+
+        public bool Find(int staffId)
         {
-            // Set the private data member to the test data value
-            mStaffId = 123;
-            mStaffName = "Bill Gates";
-            mOfficeCode = 03;
-            mPositionId = 112;
-            mStaffContactNumber = 07456330713;
-            mStaffAddress = "1 Park Road, Leicester, LE2 1PK";
-            mHireDate = DateTime.Now.Date;
-            mIsEmployed = true;
-
-            // Always return true
-            return true;
-
             // Create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             // Add the parameter for the staff name to search for
@@ -184,5 +124,34 @@ namespace GTAutosClasses
 
 
         }
+
+        // Function for the public validation method
+        public string Valid(string staffId,
+                            string staffName,
+                            string officeCode,
+                            string positionId,
+                            string staffContactNumber,
+                            string staffAddress,
+                            string hireDate,
+                            string isHired)
+        // This function accepts 5 parameters for validation
+        // The function returns a string containing any error message
+        // If no errors found then a blank string is returned
+        {
+            // Crate a string variable to store the error
+            String Error = "";
+
+            // If the StaffName is blank
+            if (StaffName.Length == 0)
+            {
+                // Record the error
+                Error = Error + "The staff name may not be blank: ";
+            }
+
+            // Return any error messages
+            return Error;
+        }
+
+
     }
 }
