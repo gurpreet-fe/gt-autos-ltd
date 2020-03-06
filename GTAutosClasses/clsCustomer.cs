@@ -17,6 +17,20 @@ namespace GTAutosClasses
         private DateTime mCustomerDOB;
         private Boolean mMarketing;
 
+        public String Valid(string customerFirstName, string customerLastName, string customerEmail, string aateAdded, string customerPassword, string address, string postCode)
+        {
+            String Error = "";
+            if (customerFirstName.Length == 0)
+            {
+                Error = Error + "The firat name may not be blank.";
+            }
+            if(customerFirstName.Length > 20)
+            {
+                Error = Error + "The first name cannot exceed 20 characters";
+            }
+            return Error;
+        }
+
         public bool Find(int customerID)
         {
 

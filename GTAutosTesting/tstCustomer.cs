@@ -7,6 +7,100 @@ namespace GTAutosTesting
     [TestClass]
     public class tstCustomer
     {
+        string customerPassword = "qwertyuiop";
+        string address = "21B Test Address, Test Town";
+        string postCode = "AA1 1AA";
+        string customerFirstName = "Testy";
+        string customerLastName = "McTester";
+        string customerEmail = "testymctester@testemail.com";
+        string dateAdded = "06/03/2020";
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+        }
+
+        [TestMethod]
+        public void CustomerLastNameLessThanOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMin()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "a";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerLastNameMinPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMaxMinusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMax()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        public void CustomerLastNameMid()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMaxPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameExtremeMad()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "";
+            customerFirstName = customerFirstName.PadRight(500, 'a');
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
 
         [TestMethod]
         public void InstanceOK()
