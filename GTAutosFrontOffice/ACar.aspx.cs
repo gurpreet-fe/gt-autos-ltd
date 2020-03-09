@@ -1,16 +1,34 @@
 ﻿using GTAutosClasses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+
+
 
 public partial class ACar : System.Web.UI.Page
 {
+    //this fucntion handles the load event for the page
     protected void Page_Load(object sender, EventArgs e)
     {
+        //if this is the first time the page is displayed
+        if (IsPostBack == false)
+        {
+            //update the list box
+            DisplayCars();
+        }
+    }
 
+    void DisplayCars()
+    {
+        //create an instance of the car collection
+        GTAutosClasses.ClsCarCollection AllCars = new GTAutosClasses.ClsCarCollection();
+        //set the data source top the list of counties in the collection 
+     //   lstAllCars.DataSource = AllCars.CarList;
+        //set the name of the primary key
+    //    lstAllCars.DataVlaueField = "NumberPlate";
+        //set the data field to display
+     //   lstAllCars.DataTextField = "Car";
+        //bind the data to the list
+     //   lstAllCars.DataBind();
+        
     }
 
     
