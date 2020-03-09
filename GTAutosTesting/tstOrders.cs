@@ -274,7 +274,7 @@ namespace GTAutosTesting
             int OrderID = 10;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.ServiceID != "MOT")
+            if (anOrder.ServiceID != ServiceID)
             {
                 OK = false;
             }
@@ -449,7 +449,7 @@ namespace GTAutosTesting
             TestDate = TestDate.AddYears(-100);
             string DateOfOrder = TestDate.ToString(); // This should fail
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -462,7 +462,7 @@ namespace GTAutosTesting
             TestDate = TestDate.AddDays(-1);
             string DateOfOrder = TestDate.ToString(); // This should fail
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -487,7 +487,7 @@ namespace GTAutosTesting
             TestDate = TestDate.AddDays(1);
             string DateOfOrder = TestDate.ToString(); // This should pass
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -500,7 +500,7 @@ namespace GTAutosTesting
             TestDate = TestDate.AddYears(100);
             string DateOfOrder = TestDate.ToString(); // This should fail
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -510,7 +510,7 @@ namespace GTAutosTesting
             String Error = "";
             string DateOfOrder = "This is not a date";
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         // Testing OrderPrice property
@@ -522,7 +522,7 @@ namespace GTAutosTesting
             String Error = "";
             string OrderPrice = "-1000"; // This should fail
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -532,7 +532,7 @@ namespace GTAutosTesting
             String Error = "";
             string OrderPrice = "0";  // This should fail
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -572,7 +572,7 @@ namespace GTAutosTesting
             String Error = "";
             string OrderPrice = "This is not a int";
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         // Testing OrderStatus property
@@ -633,7 +633,7 @@ namespace GTAutosTesting
             String Error = "";
             string OrderStatus = "123456789123456789123456789123456789123456789123456"; // This should fail
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -655,7 +655,7 @@ namespace GTAutosTesting
             string OrderStatus = ""; // This should pass
             OrderStatus = OrderStatus.PadRight(700, 'a');
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
     }
 }

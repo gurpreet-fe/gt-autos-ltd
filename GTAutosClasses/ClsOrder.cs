@@ -155,6 +155,35 @@ namespace GTAutosClasses
             }
         }
 
+        //public bool PopulateService() 
+        
+       /* public List<ClsOrder> AllServices
+        {
+
+            get
+            {
+                //create a instance of a list called mAllCounties
+                clsDataConnection DB = new clsDataConnection();
+                List<ClsOrder> mAllServices = new List<ClsOrder>();
+                //var to store the index for the loop
+                Int32 Index = 0;
+                //while the index is less that the number of records to process
+                while (Index < DB.Count)
+                {
+                    //set up the new entry to be added to the list
+                    ClsOrder NewOrder = new ClsOrder();
+                    //get the county number from the database
+                    NewOrder.ServiceID = Convert.ToString(DB.DataTable.Rows[Index]["ServiceID"]);
+                    //add the new entry to the list
+                    mAllServices.Add(NewOrder);
+                    //increment the index to the next record
+                    Index++;
+                }
+                //return the query results from the database
+                return mAllServices;
+            }
+       }*/
+
         public string Valid(string dateOfOrder, string orderPrice, string orderStatus)
         {
             String Error = "";
