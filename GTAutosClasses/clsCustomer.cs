@@ -17,17 +17,62 @@ namespace GTAutosClasses
         private DateTime mCustomerDOB;
         private Boolean mMarketing;
 
-        public String Valid(string customerFirstName, string customerLastName, string customerEmail, string aateAdded, string customerPassword, string address, string postCode)
+        public String Valid(string customerFirstName, string customerLastName, string customerEmail, string dateAdded, string customerPassword, string address, string postCode)
         {
             String Error = "";
+            DateTime DateTemp;
+
             if (customerFirstName.Length == 0)
             {
-                Error = Error + "The firat name may not be blank.";
+                Error = Error + "The first name may not be blank.";
             }
             if(customerFirstName.Length > 20)
             {
                 Error = Error + "The first name cannot exceed 20 characters";
             }
+
+            if (customerLastName.Length == 0)
+            {
+                Error = Error + "The last name may not be blank.";
+            }
+            if(customerLastName.Length > 20)
+            {
+                Error = Error + "The last name cannot exceed 20 characters";
+            }
+            if (customerEmail.Length == 0)
+            {
+                Error = Error + "The email may not be blank.";
+            }
+            if(customerEmail.Length > 50)
+            {
+                Error = Error + "The email cannot exceed 50 characters";
+            }
+            if(!customerEmail.Contains("@")) 
+            {
+                Error = Error + "This is not an email address - an email address looks like: 'example@exampledomain.com'";
+            }
+            if(!customerEmail.Contains(".co.uk" || !customerEmail.Contains(".com"))) 
+            {
+                Error = Error + "This is not an email address - an email address looks like: 'example@exampledomain.com'";
+            }
+            
+            try 
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if(DateTemp < DateTime.Now.Date) 
+                {
+                    Error = Error + "The date cannot be one in the past.";
+                }
+                if(DateTemp > DateTime.Now.Date) 
+                {
+                    Error = Error + "The date cannot be one in the future.";
+                }
+            }
+            catch 
+            {
+                Error = Error + "The date is not valid.";
+            }
+           
             return Error;
         }
 
@@ -204,5 +249,5 @@ namespace GTAutosClasses
             }
         }
     }
-                
+          //      
 }

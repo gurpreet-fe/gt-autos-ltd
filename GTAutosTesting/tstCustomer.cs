@@ -5,6 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
+
+    //
     public class tstCustomer
     {
         string customerPassword = "qwertyuiop";
@@ -24,85 +26,6 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void CustomerLastNameLessThanOne()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CustomerLastNameMin()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "a";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void CustomerLastNameMinPlusOne()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "aa";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CustomerLastNameMaxMinusOne()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "aaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CustomerLastNameMax()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "aaaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        public void CustomerLastNameMid()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "aaaaaaaaaa";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CustomerLastNameMaxPlusOne()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "aaaaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CustomerLastNameExtremeMad()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            String Error = "";
-            String customerFirstName = "";
-            customerFirstName = customerFirstName.PadRight(500, 'a');
-            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
         public void InstanceOK()
         {
             clsCustomer aCustomer = new clsCustomer();
@@ -117,30 +40,6 @@ namespace GTAutosTesting
             Int32 CustomerID = 1;
             Found = aCustomer.Find(CustomerID);
             Assert.IsTrue(Found);
-        }
-
-        [TestMethod]
-        public void TestFindCustomerIDFound()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            Int32 CustomerID = 1;
-            Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerID != 1)
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-
-        [TestMethod]
-        public void CustomerIDPropertyOK()
-        {
-            clsCustomer aCustomer = new clsCustomer();
-            Int32 TestData = 1;
-            aCustomer.CustomerID = TestData;
-            Assert.AreEqual(aCustomer.CustomerID, TestData);
         }
 
         [TestMethod]
@@ -168,6 +67,236 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
+        public void CustomerFirstNameOK()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            string TestData = "Jimbo";
+            aCustomer.CustomerFirstName = TestData;
+            Assert.AreEqual(aCustomer.CustomerFirstName, TestData);
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameFound()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerID = 1;
+            Found = aCustomer.Find(CustomerID);
+            if (aCustomer.CustomerFirstName != "Testy")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameLessThanOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameMin()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "a";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerFirstNameMinPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameMaxMinusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameMax()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        public void CustomerFirstNameMid()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameMaxPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerFirstNameExtremeMad()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "";
+            customerFirstName = customerFirstName.PadRight(500, 'a');
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameOK()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            string TestData = "Morrison";
+            aCustomer.CustomerLastName = TestData;
+            Assert.AreEqual(aCustomer.CustomerLastName, TestData);
+        }
+
+        [TestMethod]
+        public void CustomerLastNameFound()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerID = 1;
+            Found = aCustomer.Find(CustomerID);
+            if (aCustomer.CustomerLastName != "McTester")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void CustomerLastNameLessThanOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMin()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "a";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerLastNameMinPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "aa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMaxMinusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "aaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMax()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        public void CustomerLastNameMid()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "aaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMaxPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerLastName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameExtremeMad()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerFirstName = "";
+            customerFirstName = customerLastName.PadRight(500, 'a');
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TestFindCustomerIDFound()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerID = 1;
+            Found = aCustomer.Find(CustomerID);
+            if (aCustomer.CustomerID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void CustomerIDPropertyOK()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            Int32 TestData = 1;
+            aCustomer.CustomerID = TestData;
+            Assert.AreEqual(aCustomer.CustomerID, TestData);
+        }
+
+        [TestMethod]
         public void DateAddedPropertyOK()
         {
             clsCustomer aCustomer = new clsCustomer();
@@ -190,6 +319,82 @@ namespace GTAutosTesting
             }
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void DateAddedExtremeMin() 
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            String dateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne() 
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-1);
+            String dateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+         [TestMethod]
+        public void DateAddedMin() 
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            String dateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne() 
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(1);
+            String dateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax() 
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            String dateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData() 
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            DateTime TestDate;
+            String dateAdded = "This is not a date.";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
 
         [TestMethod]
         public void CustomerPasswordPropertyOK()
@@ -242,51 +447,81 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void CustomerFirstNameOK()
+        public void CustomerEmailLessThanOne()
         {
             clsCustomer aCustomer = new clsCustomer();
-            string TestData = "Jimbo";
-            aCustomer.CustomerFirstName = TestData;
-            Assert.AreEqual(aCustomer.CustomerFirstName, TestData);
+            String Error = "";
+            String customerEmail = "";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
-        public void CustomerFirstNameFound()
+        public void CustomerEmailMin()
         {
             clsCustomer aCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            Int32 CustomerID = 1;
-            Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerFirstName != "Testy")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
+            String Error = "";
+            String customerEmail = "a@a.com";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailMinPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerEmail = "aa@a.com";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
-        public void CustomerLastNameOK()
+        public void CustomerEmailMaxMinusOne()
         {
             clsCustomer aCustomer = new clsCustomer();
-            string TestData = "Morrison";
-            aCustomer.CustomerLastName = TestData;
-            Assert.AreEqual(aCustomer.CustomerLastName, TestData);
+            String Error = "";
+            String customerEmail = "thisisafortyninecharacteremail@testtestyemail.com";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
-        public void CustomerLastNameFound()
+        public void CustomerEmailMax()
         {
             clsCustomer aCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            Int32 CustomerID = 1;
-            Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerLastName != "McTester")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
+            String Error = "";
+            String customerEmail = "thisisafiftycharacteremailhahah@testtestyemail.com";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        public void CustomerEmailMid()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerEmail = "halfieemail@emailhalf.com";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerEmailMaxPlusOne()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerEmail = "thisisanexccessivelylongemail@testrlystupidemail.com";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerEmailExtremeMad()
+        {
+            clsCustomer aCustomer = new clsCustomer();
+            String Error = "";
+            String customerEmail = "stupidpointlessemailtestconditionmustlookforthemaximumlevelofcharacterspossiblethatsomeonewouldselfishlyenter@icantbebotheredtocomeupwithadecentemaildomain.co.uk";
+            Error = aCustomer.Valid(customerPassword, address, postCode, customerFirstName, customerLastName, customerEmail, dateAdded);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
