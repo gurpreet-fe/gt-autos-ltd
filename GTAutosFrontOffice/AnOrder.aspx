@@ -27,7 +27,9 @@
             <br />
             Services
             <asp:DropDownList ID="DropDownServices" runat="server" OnSelectedIndexChanged="DropDownServices_SelectedIndexChanged">
+                <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" OnSelecting="SqlDataSource1_Selecting"></asp:SqlDataSource>
             <br />
             Price
             <asp:TextBox ID="txtPrice" runat="server" OnTextChanged="txtPrice_TextChanged"></asp:TextBox>
@@ -37,6 +39,9 @@
             <br />
             <br />
             <asp:CheckBox ID="CheckBoxCompleted" runat="server" OnCheckedChanged="CheckBoxCompleted_CheckedChanged" Text="  Completed" />
+            <br />
+            <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
             <br />
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />

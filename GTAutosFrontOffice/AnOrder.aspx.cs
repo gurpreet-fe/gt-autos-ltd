@@ -11,7 +11,10 @@ public partial class AnOrder : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (IsPostBack == false)
+        {
+            DisplayOrder();
+        }
     }
 
     protected void TxtOrderID_TextChanged(object sender, EventArgs e)
@@ -100,7 +103,7 @@ public partial class AnOrder : System.Web.UI.Page
         }
         else
         {
-           // lblError.Text = Error; // need to find out why this dosent work
+            lblError.Text = Error;
         }
     }
 
@@ -139,7 +142,18 @@ public partial class AnOrder : System.Web.UI.Page
 
     }
 
+    void DisplayOrder()
+    {
+        GTAutosClasses.ClsServiceCollection Orders = new GTAutosClasses.ClsServiceCollection();
+        DropDownServices.DataSource = Orders.ServiceList;
+        DropDownServices.DataValueField = "ServiceID";
+        DropDownServices.DataBind();
+    }
 
 
 
+    protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
 }
