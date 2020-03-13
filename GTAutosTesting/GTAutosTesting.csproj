@@ -54,7 +54,6 @@
     <Compile Include="tstCar.cs" />
     <Compile Include="tstCarCollection.cs" />
     <Compile Include="tstCustomer.cs" />
-    <Compile Include="tstOffice.cs" />
     <Compile Include="tstOrders.cs" />
     <Compile Include="TstPosition.cs" />
     <Compile Include="tstRequest.cs" />
