@@ -5,31 +5,11 @@ using System;
 
 public partial class ACar : System.Web.UI.Page
 {
-    //this fucntion handles the load event for the page
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if this is the first time the page is displayed
-        if (IsPostBack == false)
-        {
-            //update the list box
-            DisplayCars();
-        }
-    }
-
-    void DisplayCars()
-    {
-        //create an instance of the car collection
-        GTAutosClasses.ClsCarCollection AllCars = new GTAutosClasses.ClsCarCollection();
-        //set the data source top the list of counties in the collection 
-     //   lstAllCars.DataSource = AllCars.CarList;
-        //set the name of the primary key
-    //    lstAllCars.DataVlaueField = "NumberPlate";
-        //set the data field to display
-     //   lstAllCars.DataTextField = "Car";
-        //bind the data to the list
-     //   lstAllCars.DataBind();
         
     }
+    
 
     
 
@@ -37,9 +17,9 @@ public partial class ACar : System.Web.UI.Page
     {
         ClsCar car = new ClsCar();
         String Make = txtMake.Text;
-        String Model = txtMake.Text;
-        String Colour = txtMake.Text;
-        String Description = txtMake.Text;
+        String Model = txtModel.Text;
+        String Colour = txtColour.Text;
+        String Description = txtDescription.Text;
         String Price = txtPrice.Text;
     
         String Error = "";
@@ -74,7 +54,7 @@ public partial class ACar : System.Web.UI.Page
         ClsCar car = new ClsCar();
         String NumberPlate;
         Boolean Found = false;
-        NumberPlate = (txtNumberPlate.Text);
+        NumberPlate = txtNumberPlate.Text;
         Found = car.Find(NumberPlate);
         if (Found == true)
         {
@@ -95,6 +75,11 @@ public partial class ACar : System.Web.UI.Page
     }
 
     protected void Cancel_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }

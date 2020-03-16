@@ -10,13 +10,13 @@ namespace GTAutosTesting
 
 
         //-----------------------------------------------------TEST DATA TO PASS TO THE METHOD------------------------------------------------------------------
-        String Make = "TestMake";
-        String Model = "TestModel";
+        String Make = "Nissan";
+        String Model = "Micra";
         String Description = "TestDescription";
-        String Colour = "TestColour";
-        String Price = 100.00.ToString();
+        String Colour = "Blue";
+        String Price = 200.ToString();
         String Sold = true.ToString();
-        String OfficeCode = 1.ToString();
+        String OfficeCode = 2.ToString();
 
         //---------------------------------------------------TESTING INSTANCE OF CLASS + PROPERTIES--------------------------------------------------------------
         [TestMethod]
@@ -105,7 +105,7 @@ namespace GTAutosTesting
         {
             ClsCar car = new ClsCar();
             Boolean Found = false;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
             Assert.IsTrue(Found);
         }
@@ -116,9 +116,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.NumberPlate != "TestNumberPlate")
+            if (car.NumberPlate != "MP04TTX")
             {
                 OK = false;
             }
@@ -131,9 +131,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.Make != "TestMake")
+            if (car.Make != "Test")
             {
                 OK = false;
             }
@@ -146,9 +146,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.Model != "TestModel")
+            if (car.Model != "A3")
             {
                 OK = false;
             }
@@ -161,9 +161,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.Colour != "TestColour")
+            if (car.Colour != "Silver")
             {
                 OK = false;
             }
@@ -176,9 +176,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.Description != "TestDescription")
+            if (car.Description != "Good Condition")
             {
                 OK = false;
             }
@@ -191,9 +191,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.Price != 100.00)
+            if (car.Price != 5000)
             {
                 OK = false;
             }
@@ -206,9 +206,9 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
-            if (car.Sold != true)
+            if (car.Sold != false)
             {
                 OK = false;
             }
@@ -221,7 +221,7 @@ namespace GTAutosTesting
             ClsCar car = new ClsCar();
             Boolean Found = false;
             Boolean OK = true;
-            String NumberPlate = "TestNumberPlate";
+            String NumberPlate = "MP04TTX";
             Found = car.Find(NumberPlate);
             if (car.OfficeCode != 1)
             {
@@ -253,7 +253,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -264,11 +264,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Make = ""; // this should be ok
-            Make = Make.PadRight(19, 'a');
+            Make = Make.PadRight(20, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -279,11 +279,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Make = ""; // this should be ok
-            Make = Make.PadRight(9, 'a');
+            Make = Make.PadRight(10, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -311,7 +311,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -322,11 +322,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Make = ""; // this should be ok
-            Make = Make.PadRight(18, 'a');
+            Make = Make.PadRight(19, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -337,7 +337,7 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Make = ""; // this should fail
-            Make = Make.PadRight(20, 'a');
+            Make = Make.PadRight(21, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
@@ -371,7 +371,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -382,11 +382,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Model = ""; // this should be ok
-            Model = Model.PadRight(19, 'a');
+            Model = Model.PadRight(20, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -397,11 +397,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Model = ""; // this should be ok
-            Model = Model.PadRight(9, 'a');
+            Model = Model.PadRight(10, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -429,7 +429,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -440,11 +440,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Model = ""; // this should be ok
-            Model = Model.PadRight(18, 'a');
+            Model = Model.PadRight(19, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -455,7 +455,7 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Model = ""; // this should fail
-            Model = Model.PadRight(20, 'a');           
+            Model = Model.PadRight(21, 'a');           
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
@@ -489,7 +489,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -500,11 +500,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Description = ""; // this should be ok
-            Description = Description.PadRight(199, 'a');
+            Description = Description.PadRight(200, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -515,11 +515,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Description = ""; // this should be ok
-            Description = Description.PadRight(99, 'a');
+            Description = Description.PadRight(100, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -547,7 +547,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -558,11 +558,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Description = ""; // this should be ok
-            Description = Description.PadRight(198, 'a');
+            Description = Description.PadRight(199, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -573,7 +573,7 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Description = ""; // this should fail
-            Description = Description.PadRight(200, 'a');
+            Description = Description.PadRight(201, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
@@ -607,7 +607,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -618,11 +618,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Colour = ""; // this should be ok
-            Colour = Colour.PadRight(19, 'a');
+            Colour = Colour.PadRight(20, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -633,11 +633,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Colour = ""; // this should be ok
-            Colour = Colour.PadRight(9, 'a');
+            Colour = Colour.PadRight(10, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -665,7 +665,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -676,11 +676,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Colour = ""; // this should be ok
-            Colour = Colour.PadRight(18, 'a');
+            Colour = Colour.PadRight(19, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -691,7 +691,7 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Colour = ""; // this should fail
-            Colour = Colour.PadRight(20, 'a');
+            Colour = Colour.PadRight(21, 'a');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
@@ -725,7 +725,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -736,11 +736,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Price = ""; // this should be ok
-            Price = Price.PadRight(9, 'a');
+            Price = Price.PadRight(10, '0');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -751,11 +751,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Price = ""; // this should be ok
-            Price = Price.PadRight(4, 'a');
+            Price = Price.PadRight(5, '0');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -783,7 +783,7 @@ namespace GTAutosTesting
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -794,11 +794,11 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Price = ""; // this should be ok
-            Price = Price.PadRight(8, 'a');
+            Price = Price.PadRight(9, '0');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -809,7 +809,7 @@ namespace GTAutosTesting
             String Error = "";
             //test data to pass to method
             String Price = ""; // this should fail
-            Price = Price.PadRight(10, 'a');
+            Price = Price.PadRight(11, '0');
             //invoke the method
             Error = car.Valid(Make, Model, Description, Colour, Price);
             //test to see if the result is correct

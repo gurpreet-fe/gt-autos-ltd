@@ -12,10 +12,11 @@
         </div>
     <p style="margin-top: 0px">
         Number Plate<asp:TextBox ID="txtNumberPlate" runat="server" Height="16px" style="margin-left: 44px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>
-        <asp:Button ID="Button3" runat="server" style="margin-left: 38px" Text="Find" OnClick="btnFind_Click" />
+        <asp:Button ID="BtnFind" runat="server" style="margin-left: 38px" Text="Find" OnClick="btnFind_Click" />
         </p>
     <p>
-        Make<asp:TextBox ID="txtMake" runat="server" Height="16px" style="margin-left: 87px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>
+        Make&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtMake" runat="server" Height="17px" Width="88px"></asp:TextBox>
         </p>
     <p>
         Model<asp:TextBox ID="txtModel" runat="server" Height="16px" style="margin-left: 82px; margin-top: 0px; margin-bottom: 0px" Width="95px"></asp:TextBox>
