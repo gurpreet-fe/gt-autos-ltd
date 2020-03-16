@@ -17,10 +17,11 @@ namespace GTAutosClasses
         private DateTime mCustomerDOB;
         private Boolean mMarketing;
 
-        public String Valid(string customerFirstName, string customerLastName, string customerEmail, string dateAdded, string customerPassword, string address, string postCode)
+        public String Valid(string customerFirstName, string customerLastName, string customerPhoneNumber, string customerEmail, string dateAdded, string dateOfBirth, string customerPassword, string address, string postCode)
         {
             String Error = "";
             DateTime DateTemp;
+            DateTime TempDOB;
 
             if (customerFirstName.Length == 0)
             {
@@ -51,9 +52,47 @@ namespace GTAutosClasses
             {
                 Error = Error + "This is not an email address - an email address looks like: 'example@exampledomain.com'";
             }
-            if(!customerEmail.Contains(".co.uk" || !customerEmail.Contains(".com"))) 
+            if(!customerEmail.Contains(".co.uk") || (!customerEmail.Contains(".com"))) 
             {
                 Error = Error + "This is not an email address - an email address looks like: 'example@exampledomain.com'";
+            }
+            if((customerPhoneNumber.Length != 11) ||(!customerPhoneNumber.StartsWith("0")))
+            {
+                Error = Error + "This is not a valid telephone number";
+            }
+            if(address.Length == 0)
+            {
+                Error = Error + "The address field cannot be left empty";
+            }
+            if(address.Length > 100)
+            {
+                Error = Error + "The address field cannot exceed 100 characters";
+            }
+            if(postCode.Length == 0)
+            {
+                Error = Error + "The postcode field cannot be left empty";
+            }
+            if ((postCode.Length != 6) || (postCode.Length != 7) || (postCode.Length != 8))
+            {
+                Error = Error + "Please enter a valid postcode";
+            }
+            if(postCode.Length < 8)
+            {
+                Error = Error + "The postcode cannot be longer than 8 characters (including one space)";
+            }
+
+            try
+            {
+                TempDOB = Convert.ToDateTime(dateOfBirth);
+                if(TempDOB < DateTime.Now.AddYears(-17))
+                {
+                    Error = Error + "You have to be at least 17 years old to use this service";
+                }
+
+            }
+            catch
+            {
+                Error = Error + "Please enter a valid date";
             }
             
             try 
@@ -70,7 +109,7 @@ namespace GTAutosClasses
             }
             catch 
             {
-                Error = Error + "The date is not valid.";
+                Error = Error + "Please enter a valid date";
             }
            
             return Error;
@@ -249,5 +288,5 @@ namespace GTAutosClasses
             }
         }
     }
-          //      
+                
 }
