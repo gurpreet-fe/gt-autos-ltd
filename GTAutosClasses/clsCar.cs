@@ -5,7 +5,7 @@ namespace GTAutosClasses
     public class ClsCar
     {
         //------------------------------------------------------PROPERTIES PLUS GET + SET METHODS------------------------------------------------------------------------
-        private String mNumberPlate;
+        private string mNumberPlate;
         public string NumberPlate
         {
             get
@@ -123,7 +123,6 @@ namespace GTAutosClasses
                 mOfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
 
                 return true;
-
             }
             else
             {
