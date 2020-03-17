@@ -7,7 +7,9 @@ namespace GTAutosClasses
     {
         //private data member for the list
         List<ClsCar> mCarList = new List<ClsCar>();
-        //public property for the address list
+        //private data memeber thisCar
+        ClsCar mThisCar = new ClsCar();
+        //public property for the car list
         public List<ClsCar> CarList
         {
             get
@@ -34,66 +36,121 @@ namespace GTAutosClasses
                 //we shall worry about this later
             }
         }
-        public ClsCar ThisCar { get; set; }
+        public ClsCar ThisCar
+        {
+            get
+            {
+                //return the private data
+                return mThisCar;
+            }
+            set
+            {
+                //set the private data
+                mThisCar = value;
+            }
+        }
 
         public ClsCarCollection()
         {
-            //var for the index
-            Int32 index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for data connection
+            //obkect for data connnection
             clsDataConnection DB = new clsDataConnection();
-            //execute stored procedure
+            //execute the stored procedure 
             DB.Execute("sproc_tblCar_SelectAll");
-            //get the count f records
+            //populate the array list with the data table 
+            PopulateArray(DB);
+
+        }
+
+        /**    public string Add()
+            {
+                //adds a new record to the database based  on the values of mThisAddress
+                //connect to the database 
+                clsDataConnection DB = new clsDataConnection();
+                //set the parameters for the stored procedure
+                DB.AddParameter("@Make", mThisCar.Make);
+                DB.AddParameter("@Model", mThisCar.Model);
+                DB.AddParameter("@Colour", mThisCar.Colour);
+                DB.AddParameter("@Description", mThisCar.Description);
+                DB.AddParameter("@Sold", mThisCar.Sold);
+                DB.AddParameter("@Price", mThisCar.Price);
+                DB.AddParameter("@OfficeCode", mThisCar.OfficeCode);
+                //execute the query returning the primary key value 
+                return DB.Execute("sproc_tblCar_Insert");
+            }
+
+        */
+           public void Delete()
+        {
+            //deletes the record pointed to by thisCar
+            //conncet to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameeters for the stored procedure
+            DB.AddParameter("@NumberPlate", mThisCar.NumberPlate);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCar_Delete");
+        }
+
+        public void Update()
+        {
+            //update an exsisting record based on the values of thisCar
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@NumberPlate", mThisCar.NumberPlate);
+            DB.AddParameter("@Make", mThisCar.Make);
+            DB.AddParameter("@Model", mThisCar.Model);
+            DB.AddParameter("@Colour", mThisCar.Colour);
+            DB.AddParameter("@Description", mThisCar.Description);
+            DB.AddParameter("@Sold", mThisCar.Sold);
+            DB.AddParameter("@Price", mThisCar.Price);
+            DB.AddParameter("@OfficeCode", mThisCar.OfficeCode);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCar_Update");
+        }
+
+        public void ReportByMake(string Make)
+        {
+            //filters the records based on a make
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the Make parameter to the database
+            DB.AddParameter("@Make", Make);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCar_FilterByMake");
+            //populat eth earray list woht the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB 
+            //var fo the index
+            Int32 Index = 0;
+            //var to store the record count 
+            Int32 RecordCount;
+            //get the count of the records
             RecordCount = DB.Count;
+            //clear the privcate array list 
+            mCarList = new List<ClsCar>();
             //while there are records to process
-            while (index < RecordCount)
+            while (Index < RecordCount)
             {
                 //create a blank car
                 ClsCar car = new ClsCar();
-                //read in the fields form the current records
-                car.NumberPlate = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
-                car.Model = Convert.ToString(DB.DataTable.Rows[0]["Make"]);
-                car.Model = Convert.ToString(DB.DataTable.Rows[0]["Model"]);
-                car.Colour = Convert.ToString(DB.DataTable.Rows[0]["Colour"]);
-                car.Description = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
-                car.Price= Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
-                car.Sold = Convert.ToBoolean(DB.DataTable.Rows[0]["Sold"]);
-                car.OfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
-                //add teh record ot the private data member
+                //read the fields form the current record
+                car.NumberPlate = Convert.ToString(DB.DataTable.Rows[Index]["NumberPlate"]);
+                car.Model = Convert.ToString(DB.DataTable.Rows[Index]["Make"]);
+                car.Model = Convert.ToString(DB.DataTable.Rows[Index]["Model"]);
+                car.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
+                car.Description = Convert.ToString(DB.DataTable.Rows[Index]["Description"]);
+                car.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
+                car.Sold = Convert.ToBoolean(DB.DataTable.Rows[Index]["Sold"]);
+                car.OfficeCode = Convert.ToInt32(DB.DataTable.Rows[Index]["OfficeCode"]);
+                //add the record to the private data member 
                 mCarList.Add(car);
-                //point to the next record
-                index++;
+                //point at the next record
+                Index++;
             }
-
-
-            ClsCar TestItem = new ClsCar();
-            TestItem.NumberPlate = "1234 ABCD";
-            TestItem.Make = "Nissan";
-            TestItem.Model = "Micra";
-            TestItem.Colour = "Blue";
-            TestItem.Description = "4 wheeler";
-            TestItem.Sold = true;
-            TestItem.Price = 100.00;
-            TestItem.OfficeCode = 1;
-            //add the item to the test list
-            mCarList.Add(TestItem);
-            // re initalise the object for some new data
-            TestItem = new ClsCar();
-            TestItem.NumberPlate = "5678 FGHI";
-            TestItem.Make = "BMW";
-            TestItem.Model = "A5";
-            TestItem.Colour = "Green";
-            TestItem.Description = "5 wheeler";
-            TestItem.Sold = false;
-            TestItem.Price = 1000.00;
-            TestItem.OfficeCode = 2;
-            //add the item to the list
-            mCarList.Add(TestItem);
-
         }
-        
     }
 }
