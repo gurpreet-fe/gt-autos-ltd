@@ -6,6 +6,7 @@ namespace GTAutosClasses
     public class ClsServiceCollection
     {
         List<ClsService> mServiceList =  new List<ClsService>();
+        ClsService mThisService = new ClsService();
         
 
         public ClsServiceCollection()
@@ -24,7 +25,8 @@ namespace GTAutosClasses
                 AnOrder.CarID = Convert.ToString(DB.DataTable.Rows[Index]["NumberPlate"]);
                 AnOrder.PaymentID = Convert.ToInt32(DB.DataTable.Rows[Index]["PaymentID"]);
                 AnOrder.DateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfOrder"]);*/
-                AnService.ServiceID = Convert.ToString(DB.DataTable.Rows[Index]["ServiceID"]);
+                AnService.ServiceID = Convert.ToInt32(DB.DataTable.Rows[Index]["ServiceID"]);
+                AnService.ServiceName = Convert.ToString(DB.DataTable.Rows[Index]["ServiceName"]);
                 AnService.ServicePrice = Convert.ToDouble(DB.DataTable.Rows[Index]["ServicePrice"]);
                 /*AnOrder.OrderPrice = Convert.ToDouble(DB.DataTable.Rows[Index]["OrderPrice"]);
                 AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
@@ -58,6 +60,28 @@ namespace GTAutosClasses
 
             }
         }
-        public ClsService ThisService { get; set; }
+        public ClsService ThisService
+        {
+            get
+            {
+                return mThisService;
+            }
+            set
+            {
+                mThisService = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            //mThisService = new ClsService();
+            DB.AddParameter("@ServiceName", mThisService.ServiceName);
+            DB.AddParameter("@ServiceDesc", mThisService.ServiceDescription);
+            DB.AddParameter("@ServicePrice", mThisService.ServicePrice);
+           /* mThisService.ServiceID = 1;
+            return mThisService.ServiceID;*/
+            return DB.Execute("sproc_tblService_InsertService");
+        }
     }
 }
