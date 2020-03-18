@@ -11,7 +11,7 @@ namespace GTAutosTesting
         int CustomerID = 2;
         string CarID = "MT04TTX";
         string DateOfOrder = DateTime.Now.Date.ToString();
-        string ServiceID = "MOT";
+        int ServiceID = 1;
         string OrderPrice = "50";
         string OrderStatus = "done";
         int PaymentID = 1;
@@ -59,9 +59,9 @@ namespace GTAutosTesting
             //creates some test data that is assigned to a variable.
             //String TestData = "MT04TTX";
             //assigns the data to the property.
-            anOrder.CarID = CarID;
+            anOrder.NumberPlate = CarID;
             //test to see that the 2 values are the same.
-            Assert.AreEqual(anOrder.CarID, CarID);
+            Assert.AreEqual(anOrder.NumberPlate, CarID);
         }
 
 
@@ -84,7 +84,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //creates some test data that is assigned to a variable.
-            String TestData = "MOT";
+            int TestData = 1;
             //assigns the data to the property.
             anOrder.ServiceID = TestData;
             //test to see that the 2 values are the same.
@@ -211,7 +211,7 @@ namespace GTAutosTesting
             int OrderID = 10;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.CarID != "MP04TTX")
+            if (anOrder.NumberPlate != "MP04TTX")
             {
                 OK = false;
             }
@@ -657,5 +657,23 @@ namespace GTAutosTesting
             Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
             Assert.AreNotEqual(Error, "");
         }
+
+       /* [TestMethod]
+        public void AddMethodOK()
+        {
+            ClsOrder AnOrder = new ClsOrder();
+            Int32 PrimaryKey = 0;
+           // AnOrder.OrderID = 1;
+            AnOrder.CustomerID = CustomerID;
+            AnOrder.NumberPlate = CarID;
+            AnOrder.DateOfOrder = DateTime.Now.Date;
+            AnOrder.OrderPrice = Convert.ToDouble(OrderPrice);
+            AnOrder.OrderStatus = OrderStatus;
+            AnOrder.PaymentID = PaymentID;
+            AnOrder.Completed = false;
+            PrimaryKey = AnOrder.Add();
+            AnOrder.Find(PrimaryKey);
+            Assert.AreEqual(AnOrder.OrderID, AnOrder.OrderID);
+        }*/
     }
 }

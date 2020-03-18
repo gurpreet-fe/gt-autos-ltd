@@ -10,10 +10,10 @@ namespace GTAutosClasses
     {
         private Int32 pOrderID;
         private Int32 pCustomerID;
-        private string pCarID;
+        private string pNumberPlate;
         private Int32 pPaymentID;
         private DateTime pDateOfOrder;
-        private string pServiceID;
+        private int pServiceID;
         private double pOrderPrice;
         private string pOrderStatus;
         private Boolean pCompleted;
@@ -39,15 +39,15 @@ namespace GTAutosClasses
                 pCustomerID = value;
             } 
         }
-        public string CarID 
+        public string NumberPlate 
         { 
             get 
             {
-                return pCarID;
+                return pNumberPlate;
             }
             set
             {
-                pCarID = value;
+                pNumberPlate = value;
             } 
         }
         public DateTime DateOfOrder 
@@ -61,7 +61,7 @@ namespace GTAutosClasses
                 pDateOfOrder = value;   
             } 
         }
-        public string ServiceID 
+        public int ServiceID 
         {
             get 
             {
@@ -140,10 +140,10 @@ namespace GTAutosClasses
             {
                 pOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
                 pCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
-                pCarID = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
+                pNumberPlate = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
                 pPaymentID = Convert.ToInt32(DB.DataTable.Rows[0]["PaymentID"]);
                 pDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
-                pServiceID = Convert.ToString(DB.DataTable.Rows[0]["ServiceID"]);
+                pServiceID = Convert.ToInt32(DB.DataTable.Rows[0]["ServiceID"]);
                 pOrderPrice = Convert.ToDouble(DB.DataTable.Rows[0]["OrderPrice"]);
                 pOrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
                 pCompleted = Convert.ToBoolean(DB.DataTable.Rows[0]["Completed"]);
@@ -212,5 +212,22 @@ namespace GTAutosClasses
             }
             return Error;
         }
+
+      /*  public void Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            ClsOrder AnOrder = new ClsOrder();
+            DB.AddParameter("@CustomerID", AnOrder.CustomerID);
+            DB.AddParameter("@NumberPlate", AnOrder.NumberPlate);
+            DB.AddParameter("@PaymentID", AnOrder.PaymentID);
+            DB.AddParameter("@DateOfOrder", AnOrder.DateOfOrder = DateTime.Now.Date);
+            DB.AddParameter("@ServiceID", AnOrder.ServiceID);
+            DB.AddParameter("@OrderPrice", AnOrder.OrderPrice);
+            DB.AddParameter("@OrderStatus", AnOrder.pOrderStatus);
+            DB.AddParameter("@Completed", AnOrder.Completed);
+
+            DB.Execute("sproc_tblOrder_InsertOrder");
+
+        }*/
     }
 }
