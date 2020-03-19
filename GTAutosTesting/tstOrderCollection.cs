@@ -94,16 +94,16 @@ namespace GTAutosTesting
             ClsOrder AnOrder = new ClsOrder();
             int PrimaryKey = 0;
             AnOrder.CustomerID = 2;
-            AnOrder.NumberPlate = "MT04TTX";
+            AnOrder.NumberPlate = "MP04TTX";
             AnOrder.DateOfOrder = DateTime.Now.Date;
             AnOrder.ServiceID = 1;
             AnOrder.OrderPrice = 5000;
             AnOrder.OrderStatus = "Done";
-            AnOrder.PaymentID = 1;
+            AnOrder.PaymentID = 3;
             AnOrder.Completed = true;
             AllOrders.ThisOrder = AnOrder;
             PrimaryKey = AllOrders.Add();
-            AnOrder.OrderID = PrimaryKey;
+            //AnOrder.OrderID = PrimaryKey;
             AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.AreEqual(AllOrders.ThisOrder, AnOrder);
         }
