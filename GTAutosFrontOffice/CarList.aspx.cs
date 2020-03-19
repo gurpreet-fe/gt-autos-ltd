@@ -76,4 +76,34 @@ public partial class CarList : System.Web.UI.Page
             lblError.Text = "Please select a record to edit from the list";
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instacne of the car collection
+        ClsCarCollection AllCars = new ClsCarCollection();
+        AllCars.ReportByMake(txtFilter.Text);
+        lstCarList.DataSource = AllCars.CarList;
+        //set the name of th epriamry key 
+        lstCarList.DataValueField = "NumberPlate";
+        //set the name of the field to display 
+        lstCarList.DataTextField = "Make";
+        //bind the data to the list 
+        lstCarList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instanc eof the car collection
+        ClsCarCollection AllCars = new ClsCarCollection();
+        AllCars.ReportByMake("");
+        //clear an y exsitin gfilter to tidy up the interface 
+        txtFilter.Text = "";
+        lstCarList.DataSource = AllCars.CarList;
+        //set the name of th epriamry key 
+        lstCarList.DataValueField = "NumberPlate";
+        //set the name of the field to display 
+        lstCarList.DataTextField = "Make";
+        //bind the data to the list 
+        lstCarList.DataBind();
+    }
 }

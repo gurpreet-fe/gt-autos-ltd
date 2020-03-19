@@ -66,7 +66,7 @@ public partial class ACar : System.Web.UI.Page
             ClsCarCollection CarList = new ClsCarCollection();
 
             //if this is a new record i.e. NumberPlate != -1 then add the data
-            if (NumberPlate != -1)
+            if (NumberPlate == -1)
             {
                 //set the ThisCar Property
                 CarList.ThisCar = NumberPlate;
