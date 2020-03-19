@@ -61,7 +61,7 @@ namespace GTAutosClasses
 
         }
 
-        /**    public string Add()
+            public String Add()
             {
                 //adds a new record to the database based  on the values of mThisAddress
                 //connect to the database 
@@ -78,7 +78,7 @@ namespace GTAutosClasses
                 return DB.Execute("sproc_tblCar_Insert");
             }
 
-        */
+        
            public void Delete()
         {
             //deletes the record pointed to by thisCar

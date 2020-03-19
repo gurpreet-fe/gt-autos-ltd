@@ -231,8 +231,23 @@ namespace GTAutosTesting
             //check that the correct number of records are found 1
             if (FilteredCars.Count == 1)
             {
-
+                //check if the firdt rrecord is numberPlate
+                if (FilteredCars.CarList[0].NumberPlate != "XXXXX")
+                {
+                    OK = false;
+                }
+                //check thet the fisrt record is ID 37
+                if (FilteredCars.CarList[1].NumberPlate != "jafh")
+                {
+                    OK = false;
+                }
             }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
         }
 
         
