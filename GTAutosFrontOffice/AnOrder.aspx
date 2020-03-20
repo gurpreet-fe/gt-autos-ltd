@@ -44,6 +44,7 @@
             <br />
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+            <asp:Button ID="btnViewList" runat="server" OnClick="btnViewList_Click" Text="View List" />
         </div>
     </form>
 </body>

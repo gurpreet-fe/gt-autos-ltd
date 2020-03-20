@@ -14,9 +14,11 @@ namespace GTAutosClasses
         private Int32 pPaymentID;
         private DateTime pDateOfOrder;
         private int pServiceID;
+        //private ClsService pServiceID;
         private double pOrderPrice;
         private string pOrderStatus;
         private Boolean pCompleted;
+        ClsService cs = new ClsService();
         public int OrderID 
         {
             get 
@@ -65,6 +67,7 @@ namespace GTAutosClasses
         {
             get 
             {
+
                 return pServiceID;
             } 
             set 
@@ -115,6 +118,14 @@ namespace GTAutosClasses
             {
                 pCompleted = value;   
             } 
+        }
+
+        public string allProperties 
+        {
+            get 
+            {
+                return OrderID + " " +  CustomerID + " " + NumberPlate + " " + DateOfOrder.ToString("dd-MM-yy") + " " + ServiceID + " " + OrderPrice +  " " + OrderStatus;
+            }
         }
 
         public bool Find(int OrderID)
