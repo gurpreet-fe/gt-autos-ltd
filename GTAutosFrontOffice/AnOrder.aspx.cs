@@ -191,8 +191,8 @@ public partial class AnOrder : System.Web.UI.Page
 
     void DisplayService()
     {
-        GTAutosClasses.ClsServiceCollection Orders = new GTAutosClasses.ClsServiceCollection();
-        DropDownServices.DataSource = Orders.ServiceList;
+        GTAutosClasses.ClsServiceCollection Services = new GTAutosClasses.ClsServiceCollection();
+        DropDownServices.DataSource = Services.ServiceList;
         DropDownServices.DataValueField = "ServiceID";
         DropDownServices.DataTextField = "DataField";
         DropDownServices.DataBind();
