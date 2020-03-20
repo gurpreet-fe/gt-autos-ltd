@@ -13,7 +13,7 @@ namespace GTAutosTesting
         string City = "Test City";
         string PostCode = "T3S TPC";
         string PhoneNumber = "12345678910";
-        string InspectionDate = DateTime.Now.ToString();
+        string InspectionDate = DateTime.Now.Date.ToString();
 
 
         [TestMethod]
@@ -264,20 +264,20 @@ namespace GTAutosTesting
             Assert.IsTrue(OK);
         }
 
-        // ------------------------------------------------------------VALIDATION TESTING-------------------------------------------------------------------------------
+        // ------------------------------------------------------------Validation Testing-------------------------------------------------------------------------------
 
         [TestMethod]
         public void ValidMethodOK()
         {
             OfficeClasses AnOffice = new OfficeClasses();
-            String Error = "";
-            Error = AnOffice.Valid(AddressLine1, AddressLine2, PostCode, PhoneNumber, InspectionDate);
+            string Error = "";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
             Assert.AreEqual(Error, "");
         }
 
-        // ------------------------------------------------------------TESTING VALID TEST CASES-------------------------------------------------------------------------------
+        // ------------------------------------------------------------Testing Valid Test Cases-------------------------------------------------------------------------------
 
-            //-----ADDRESSLINE1------
+        //--------------AddressLine1--------------
 
         [TestMethod]
         public void Address1ValidMinMinus1()
@@ -285,12 +285,390 @@ namespace GTAutosTesting
             OfficeClasses AnOffice = new OfficeClasses();
             String Error = "";
             string AddressLine1 = ""; //this should trigger an error
-            Error = AnOffice.Valid(AddressLine1, AddressLine2, PostCode, PhoneNumber, InspectionDate);
-            Assert.AreEqual(Error, "");
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
 
+        [TestMethod]
+        public void Address1ValidMinBoundary()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "T"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address1ValidMinPlus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "TT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address1ValidMaxMinus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address1ValidMax()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address1ValidMaxPlus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address1ValidMid()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address1ValidMaxExtreme()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine1 = "";
+            AddressLine1 = AddressLine1.PadRight(500, 'T'); // this should fail
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //--------------AddressLine2--------------
+
+        [TestMethod]
+        public void Address2ValidMinMinus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = ""; //this should trigger an error
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMinBoundary()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "T"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMinPlus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "TT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMaxMinus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMax()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMaxPlus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMid()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Address2ValidMaxExtreme()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string AddressLine2 = "";
+            AddressLine2 = AddressLine2.PadRight(500, 'T'); // this should fail
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //--------------InspectionDate--------------
+
+        [TestMethod]
+        public void InspectionDateExtremeMin()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string InspectionDate = TestDate.ToString();
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void InspectionDateMinMinus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-1);
+            string InspectionDate = TestDate.ToString();
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void InspectionDateMin()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string InspectionDate = TestDate.ToString();
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void InspectionDateMinPlus1()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(1);
+            string InspectionDate = TestDate.ToString();
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void InspectionDateExtremeMax()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string InspectionDate = TestDate.ToString();
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
         }
 
 
+        [TestMethod]
+        public void InspectionDateInvalidData()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string InspectionDate = "This is not a date!";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        //---------PostCode----
+
+        [TestMethod]
+        public void PostCodeMinLessOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMin()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "a";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMinPlusOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "aa";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxLessOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "aaaaaaaa";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMax()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "aaaaaaaaa";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxPlusOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "aaaaaaaaaa";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMid()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string PostCode = "aaaa";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        // City
+
+        [TestMethod]
+        public void CityMinLessOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMin()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "a";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMinPlusOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "aa";
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void CityMaxLessOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "";
+            City = City.PadRight(49, 'a');
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMax()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "";
+            City = City.PadRight(50, 'a');
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CitymaxplusOne()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"; //this should be ok
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void CityMid()
+        {
+            OfficeClasses AnOffice = new OfficeClasses();
+            String Error = "";
+            string City = "";
+            City = City.PadRight(25, 'a');
+            Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+            Assert.AreEqual(Error, "");
+        }
 
 
 

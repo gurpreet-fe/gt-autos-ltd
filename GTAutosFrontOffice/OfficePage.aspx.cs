@@ -16,25 +16,36 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        //OK Button
         OfficeClasses AnOffice = new OfficeClasses();
-        AnOffice.OfficeCode = Convert.ToInt32(txtOfficeCode.Text);
-        AnOffice.AddressLine1 = txtAddressLine1.Text;
-        AnOffice.AddressLine2 = txtAddressLine2.Text;
-        AnOffice.City = txtCity.Text;
-        //AnOffice.PhoneNumber = Convert.ToInt64(txtPhoneNumber);
-        AnOffice.PhoneNumber = txtPhoneNumber.Text;
-        AnOffice.PostCode = txtPostCode.Text;
-        //AnOffice.IsActive = IsActive;
-        AnOffice.InspectionDate = Convert.ToDateTime( txtInspectionDate.Text);
-        Session["AnOffice"] = AnOffice;
-        Response.Redirect("OfficeView.aspx");
+        string AddressLine1 = txtAddressLine1.Text;
+        string AddressLine2 = txtAddressLine2.Text;
+        string City = txtCity.Text;
+        string PostCode = txtPostCode.Text;
+        string PhoneNumber = txtPhoneNumber.Text;
+        string InspectionDate = txtInspectionDate.Text;
+        string Error = "";
+        Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
+        if (Error == "")
+        {
+            AnOffice.AddressLine1 = AddressLine1;
+            AnOffice.AddressLine2 = AddressLine2;
+            AnOffice.City = City;
+            AnOffice.PostCode = PostCode;
+            AnOffice.InspectionDate = Convert.ToDateTime(InspectionDate);
+            Session["AnOffice"] = AnOffice;
+            Response.Write("OfficeView.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
 
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
         //Cancel Button
+        Response.Redirect("OfficePage.aspx");
 
     }
 
@@ -85,6 +96,18 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
     {
+        //lblError
+    }
 
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        //viewer button
+        Response.Redirect("OfficeView.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        //List button
+        Response.Redirect("OfficeList.aspx");
     }
 }

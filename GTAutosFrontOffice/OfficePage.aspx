@@ -39,8 +39,13 @@
             <asp:CheckBox ID="IsActive" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
 &nbsp;IsActive</p>
         <p>
+            <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
+        </p>
+        <p>
             <asp:Button ID="Button1" runat="server" Height="28px" OnClick="Button1_Click" style="margin-bottom: 0px" Text="OK" Width="76px" />
 &nbsp;<asp:Button ID="Button2" runat="server" Height="28px" OnClick="Button2_Click" Text="Cancel" Width="76px" />
+        &nbsp;<asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Viewer" Width="76px" />
+&nbsp;<asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="List" Width="76px" />
         </p>
     </form>
 </body>
