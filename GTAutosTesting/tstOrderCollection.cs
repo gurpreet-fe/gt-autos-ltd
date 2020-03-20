@@ -106,6 +106,7 @@ namespace GTAutosTesting
             AnOrder.OrderID = PrimaryKey;
             AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.AreEqual(AllOrders.ThisOrder, AnOrder);
+            AllOrders.Delete(); // This to delete the new record we have just made for consistancey with the rest of the test.
         }
 
         [TestMethod]
@@ -189,7 +190,7 @@ namespace GTAutosTesting
             ClsOrderCollection FilteredOrders = new ClsOrderCollection();
             Boolean OK = true;
             FilteredOrders.ReportByOrderStatus("Done");
-            if (FilteredOrders.Count == 3)
+            if (FilteredOrders.Count == 6)
             {
                 if (FilteredOrders.OrderList[0].OrderID != 34)
                 {
@@ -204,6 +205,7 @@ namespace GTAutosTesting
             {
                 OK = false;
             }
+            Console.Write(FilteredOrders.Count);
             Assert.IsTrue(OK);
         }
     }

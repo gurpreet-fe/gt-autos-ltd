@@ -109,15 +109,6 @@ public partial class AnOrder : System.Web.UI.Page
                 AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
             }
                
-            /*if (TxtOrderID.Text == "" || Convert.ToInt32(TxtOrderID.Text) != OrderID) 
-                {
-                    AnOrder.OrderID = OrderID;
-                }
-                else 
-                {
-                    AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
-                }*/
-
             AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             AnOrder.NumberPlate = txtCar.Text;
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
@@ -153,8 +144,9 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        OrderID = 0;
-        Response.Redirect("AnOrder.aspx");
+        /*OrderID = 0;
+        Response.Redirect("AnOrder.aspx");*/
+        Response.Redirect("OrderList.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -226,8 +218,8 @@ public partial class AnOrder : System.Web.UI.Page
 
 
 
-    protected void btnViewList_Click(object sender, EventArgs e)
+   /* protected void btnViewList_Click(object sender, EventArgs e)
     {
         Response.Redirect("OrderList.aspx");
-    }
+    }*/
 }

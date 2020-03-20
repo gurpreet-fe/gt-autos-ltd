@@ -66,14 +66,17 @@ namespace GTAutosTesting
             Assert.AreEqual(anService.ServicePrice, ServicePrice);
         }
 
+        [TestMethod]
         public void DataFieldPropertyOK()
         {
             //Creates a new instance of the Service class.
             ClsService anService = new ClsService();
             //assigns the test data to the property.
-            anService.DataField = ServiceID + " " + "£" + ServicePrice; 
+            string TestData = ServiceName + " " + "£" + ServicePrice;
+            anService.ServiceName = ServiceName;
+            anService.ServicePrice = ServicePrice;
             //test to see if the 2 values are equal.
-            Assert.AreEqual(anService.DataField, ServiceID + " " + "£" + ServicePrice);
+            Assert.AreEqual(anService.DataField, TestData);
         }
     }
 }
