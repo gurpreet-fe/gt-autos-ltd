@@ -9,11 +9,17 @@ using GTAutosClasses;
 
 public partial class AnOrder : System.Web.UI.Page
 {
+    Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        OrderID = Convert.ToInt32(Session["OrderID"]);
         if (IsPostBack == false)
         {
-            DisplayOrder();
+            if (OrderID != -1) 
+            {
+                DisplayOrders();
+            }
+            DisplayService();
         }
 
         TxtDateOfOrder.Text = DateTime.Now.Date.ToString("dd-MM-yy");
@@ -82,6 +88,7 @@ public partial class AnOrder : System.Web.UI.Page
         //Response.Redirect("OrderViewer.aspx");
         // New
         ClsOrder AnOrder = new ClsOrder();
+        string orderID = TxtOrderID.Text;
         string DateOfOrder = TxtDateOfOrder.Text;
         //string ServiceID = DropDownServices.SelectedValue;
         string OrderPrice = txtPrice.Text;
@@ -91,7 +98,26 @@ public partial class AnOrder : System.Web.UI.Page
         Error = AnOrder.Valid(DateOfOrder, OrderPrice, OrderStatus);
         if (Error == "")
         {
-            //AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
+            int OID = 0;
+            bool canC = int.TryParse(orderID, out OID);
+            if (canC == false)
+            {
+                AnOrder.OrderID = OrderID;
+            }
+            else
+            {
+                AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
+            }
+               
+            /*if (TxtOrderID.Text == "" || Convert.ToInt32(TxtOrderID.Text) != OrderID) 
+                {
+                    AnOrder.OrderID = OrderID;
+                }
+                else 
+                {
+                    AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
+                }*/
+
             AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             AnOrder.NumberPlate = txtCar.Text;
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
@@ -102,10 +128,22 @@ public partial class AnOrder : System.Web.UI.Page
             AnOrder.OrderStatus = OrderStatus;
             AnOrder.PaymentID = Convert.ToInt32(TxtPaymentID.Text);
             ClsOrderCollection OrderList = new ClsOrderCollection();
-            OrderList.ThisOrder = AnOrder;
-            OrderList.Add();
-            Session["AnOrder"] = -1; // AnOrder;
-            Response.Redirect("AnOrder.aspx");
+            if (OrderID == -1)
+            {
+                OrderList.ThisOrder = AnOrder;
+                OrderList.Add();
+            }
+            else 
+            {
+                OrderList.ThisOrder.Find(OrderID);
+                OrderList.ThisOrder = AnOrder;
+                OrderList.Update();
+            }
+            /* OrderList.ThisOrder = AnOrder;
+             OrderList.Add();
+             Session["AnOrder"] = -1; // AnOrder;
+             Response.Redirect("AnOrder.aspx");*/
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
@@ -115,13 +153,14 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
+        OrderID = 0;
         Response.Redirect("AnOrder.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
         ClsOrder AnOrder = new ClsOrder();
-        ClsService aService = new ClsService();
+       // ClsService aService = new ClsService();
         // variable to store the primary key
         Int32 OrderID;
         // Variable to store result of the find operation.
@@ -158,7 +197,7 @@ public partial class AnOrder : System.Web.UI.Page
 
     }
 
-    void DisplayOrder()
+    void DisplayService()
     {
         GTAutosClasses.ClsServiceCollection Orders = new GTAutosClasses.ClsServiceCollection();
         DropDownServices.DataSource = Orders.ServiceList;
@@ -167,5 +206,28 @@ public partial class AnOrder : System.Web.UI.Page
         DropDownServices.DataBind();
     }
 
+    void DisplayOrders()
+    {
+        ClsOrderCollection Orders = new ClsOrderCollection();
+        Orders.ThisOrder.Find(OrderID);
 
+        TxtOrderID.Text = Orders.ThisOrder.OrderID.ToString();
+        txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
+        txtCar.Text = Orders.ThisOrder.NumberPlate;
+        TxtPaymentID.Text = Orders.ThisOrder.PaymentID.ToString();
+        DropDownServices.SelectedValue = Orders.ThisOrder.ServiceID.ToString();
+        TxtDateOfOrder.Text = Orders.ThisOrder.DateOfOrder.ToString();
+        txtPrice.Text = Orders.ThisOrder.OrderPrice.ToString();
+        txtOrderStatus.Text = Orders.ThisOrder.OrderStatus;
+        CheckBoxCompleted.Checked = Orders.ThisOrder.Completed;
+
+
+    }
+
+
+
+    protected void btnViewList_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderList.aspx");
+    }
 }

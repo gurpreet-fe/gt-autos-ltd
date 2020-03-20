@@ -103,9 +103,108 @@ namespace GTAutosTesting
             AnOrder.Completed = true;
             AllOrders.ThisOrder = AnOrder;
             PrimaryKey = AllOrders.Add();
-            //AnOrder.OrderID = PrimaryKey;
+            AnOrder.OrderID = PrimaryKey;
             AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.AreEqual(AllOrders.ThisOrder, AnOrder);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            ClsOrderCollection AllOrders = new ClsOrderCollection();
+            ClsOrder AnOrder = new ClsOrder();
+            int PrimaryKey = 0;
+            AnOrder.CustomerID = 2;
+            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.DateOfOrder = DateTime.Now.Date;
+            AnOrder.ServiceID = 1;
+            AnOrder.OrderPrice = 50000;
+            AnOrder.OrderStatus = "Done";
+            AnOrder.PaymentID = 3;
+            AnOrder.Completed = true;
+            AllOrders.ThisOrder = AnOrder;
+            PrimaryKey = AllOrders.Add();
+            AnOrder.OrderID = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.Delete();
+            bool Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            ClsOrderCollection AllOrders = new ClsOrderCollection();
+            ClsOrder AnOrder = new ClsOrder();
+            int PrimaryKey = 0;
+            AnOrder.CustomerID = 2;
+            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.DateOfOrder = DateTime.Now.Date;
+            AnOrder.ServiceID = 1;
+            AnOrder.OrderPrice = 50000;
+            AnOrder.OrderStatus = "pending";
+            AnOrder.PaymentID = 3;
+            AnOrder.Completed = false;
+
+            AllOrders.ThisOrder = AnOrder;
+            PrimaryKey = AllOrders.Add();
+            AnOrder.OrderID = PrimaryKey;
+
+            AnOrder.CustomerID = 2;
+            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.DateOfOrder = DateTime.Now.Date;
+            AnOrder.ServiceID = 2;
+            AnOrder.OrderPrice = 50000;
+            AnOrder.OrderStatus = "completed";
+            AnOrder.PaymentID = 3;
+            AnOrder.Completed = true;
+
+            AllOrders.ThisOrder = AnOrder;
+            AllOrders.Update();
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, AnOrder);
+        }
+
+        [TestMethod]
+        public void ReportByServiceNameMethodOK()
+        {
+            ClsOrderCollection AllOrders = new ClsOrderCollection();
+            //ClsOrder AnOrder = new ClsOrder();
+            ClsOrderCollection FilteredOrders = new ClsOrderCollection();
+            FilteredOrders.ReportByOrderStatus("");
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);  
+        }
+
+        [TestMethod]
+        public void ReportByServiceNameNoneFound()
+        {
+            ClsOrderCollection FilteredOrders = new ClsOrderCollection();
+            FilteredOrders.ReportByOrderStatus("XXX");
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByServiceNameTestDataFound()
+        {
+            ClsOrderCollection FilteredOrders = new ClsOrderCollection();
+            Boolean OK = true;
+            FilteredOrders.ReportByOrderStatus("Done");
+            if (FilteredOrders.Count == 3)
+            {
+                if (FilteredOrders.OrderList[0].OrderID != 34)
+                {
+                    OK = false;
+                }
+                if (FilteredOrders.OrderList[1].OrderID != 35)
+                {
+                    OK = false;
+                }
+            }
+            else 
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }
