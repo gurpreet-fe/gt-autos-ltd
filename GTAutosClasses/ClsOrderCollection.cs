@@ -116,7 +116,7 @@ namespace GTAutosClasses
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderStatus", OrderStatus);
-            DB.Execute("sproc_tblOrders_FilterByService");
+            DB.Execute("sproc_tblOrders_FilterByOrderStatus");
             PopulateArray(DB);
         }
     }
