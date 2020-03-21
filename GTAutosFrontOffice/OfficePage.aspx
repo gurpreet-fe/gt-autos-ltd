@@ -11,6 +11,7 @@
         <p>
             OfficeCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtOfficeCode" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+            <asp:Button ID="Button5" runat="server" Height="29px" Text="Find" Width="76px" />
         </p>
         <p>
             AddressLine1&nbsp;&nbsp;&nbsp;&nbsp;
@@ -36,16 +37,16 @@
             <asp:TextBox ID="txtInspectionDate" runat="server" OnTextChanged="TextBox7_TextChanged"></asp:TextBox>
         </p>
         <p>
-            <asp:CheckBox ID="IsActive" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
+            <asp:CheckBox ID="ChkBox" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
 &nbsp;IsActive</p>
         <p>
             <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
         </p>
         <p>
-            <asp:Button ID="Button1" runat="server" Height="28px" OnClick="Button1_Click" style="margin-bottom: 0px" Text="OK" Width="76px" />
-&nbsp;<asp:Button ID="Button2" runat="server" Height="28px" OnClick="Button2_Click" Text="Cancel" Width="76px" />
-        &nbsp;<asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Viewer" Width="76px" />
-&nbsp;<asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="List" Width="76px" />
+            <asp:Button ID="Button1" runat="server" Height="29px" OnClick="Button1_Click" style="margin-bottom: 0px" Text="OK" Width="76px" />
+&nbsp;<asp:Button ID="Button2" runat="server" Height="29px" OnClick="Button2_Click" Text="Cancel" Width="76px" />
+        &nbsp;<asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Viewer" Width="76px" Height="29px" />
+&nbsp;<asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="List" Width="76px" Height="29px" />
         </p>
     </form>
 </body>
