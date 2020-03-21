@@ -10,12 +10,23 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-            //create a new instance of clsOffice
-            OfficeClasses AnOffice = new OfficeClasses();
-            //get the data from the session object
-            AnOffice = (OfficeClasses)Session["AnOffice"];
-            //display the office code for this entry
-            Response.Write(AnOffice.OfficeCode);
-        
+        if (IsPostBack == false)
+        {
+            DisplayOffices();
+        }
+    }
+
+    void DisplayOffices()
+    {
+        GTAutosClasses.clsOfficeCollection Offices = new GTAutosClasses.clsOfficeCollection();
+        lstOffices.DataSource = Offices.OfficeList;
+        lstOffices.DataValueField = "OfficeCode";
+        lstOffices.DataTextField = "PostCode";
+        lstOffices.DataBind();
+    }
+
+    protected void lstOffices_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }

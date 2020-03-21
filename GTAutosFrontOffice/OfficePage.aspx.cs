@@ -8,11 +8,33 @@ using GTAutosClasses;
 
 public partial class Default2 : System.Web.UI.Page
 {
+    Int32 OfficeCode;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        OfficeCode = Convert.ToInt32(Session["OfficeCode"]);
+        if (IsPostBack == false)
+        {
+            if (OfficeCode != -1)
+            {
+                DisplayOffice();
+            }
+        }
     }
 
+    void DisplayOffice()
+    {
+        clsOfficeCollection OfficeBook = new clsOfficeCollection();
+        OfficeBook.ThisOffice.Find(OfficeCode);
+        txtOfficeCode.Text = OfficeBook.ThisOffice.OfficeCode.ToString();
+        txtAddressLine1.Text = OfficeBook.ThisOffice.AddressLine1;
+        txtAddressLine2.Text = OfficeBook.ThisOffice.AddressLine2;
+        txtCity.Text = OfficeBook.ThisOffice.City;
+        txtPostCode.Text = OfficeBook.ThisOffice.PostCode;
+        txtPhoneNumber.Text = OfficeBook.ThisOffice.PhoneNumber;
+        txtInspectionDate.Text = OfficeBook.ThisOffice.InspectionDate.ToString();
+        ChkBox.Checked = OfficeBook.ThisOffice.IsActive;
+    }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -27,13 +49,29 @@ public partial class Default2 : System.Web.UI.Page
         Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
         if (Error == "")
         {
+            AnOffice.OfficeCode = OfficeCode;
             AnOffice.AddressLine1 = AddressLine1;
             AnOffice.AddressLine2 = AddressLine2;
             AnOffice.City = City;
+            AnOffice.PhoneNumber = PhoneNumber;
             AnOffice.PostCode = PostCode;
             AnOffice.InspectionDate = Convert.ToDateTime(InspectionDate);
-            Session["AnOffice"] = AnOffice;
-            Response.Write("OfficeView.aspx");
+            AnOffice.IsActive = ChkBox.Checked;
+            clsOfficeCollection OfficeList = new clsOfficeCollection();
+            OfficeList.ThisOffice = AnOffice;
+
+            if (OfficeCode == -1)
+            {
+                OfficeList.ThisOffice = AnOffice;
+                OfficeList.Add();
+            }
+            else
+            {
+                OfficeList.ThisOffice.Find(OfficeCode);
+                OfficeList.ThisOffice = AnOffice;
+                OfficeList.Update();
+            }
+            Response.Redirect("OfficeList.aspx");
         }
         else
         {
@@ -84,7 +122,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void TextBox8_TextChanged(object sender, EventArgs e)
     {
-        //isActive
+        //isActive nope
     }
 
     protected void TextBox7_TextChanged(object sender, EventArgs e)
@@ -94,10 +132,7 @@ public partial class Default2 : System.Web.UI.Page
 
 
 
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
-        //lblError
-    }
+    
 
     protected void Button3_Click(object sender, EventArgs e)
     {
@@ -109,5 +144,10 @@ public partial class Default2 : System.Web.UI.Page
     {
         //List button
         Response.Redirect("OfficeList.aspx");
+    }
+
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        //check box isActive
     }
 }
