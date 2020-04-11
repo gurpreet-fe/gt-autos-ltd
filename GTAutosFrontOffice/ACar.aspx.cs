@@ -9,8 +9,8 @@ public partial class ACar : System.Web.UI.Page
     String NumberPlate;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //get the number of the address to be processed
-        NumberPlate = Convert.ToString(Session["NumberPlate"]);
+        //get the numberplate of the car to be processed
+        NumberPlate = Convert.ToInt32(Session["NumberPlate"]);
         if (IsPostBack == false)
         {
             //if this is not a neew record
@@ -44,7 +44,7 @@ public partial class ACar : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        ClsCar car = new ClsCar();
+        ClsCar ACar = new ClsCar();
         String Make = txtMake.Text;
         String Model = txtModel.Text;
         String Colour = txtColour.Text;
@@ -53,15 +53,15 @@ public partial class ACar : System.Web.UI.Page
     
         String Error = "";
 
-        Error = car.Valid(Make, Model, Description, Colour, Price);
+        Error = ACar.Valid(Make, Model, Description, Colour, Price);
         if (Error == "")
         {
-            car.NumberPlate = NumberPlate;
-            car.Make = Make;
-            car.Model = Model;
-            car.Colour = Colour;
-            car.Description = Description;
-            car.Price = Convert.ToInt32(Price);
+            ACar.NumberPlate = NumberPlate;
+            ACar.Make = Make;
+            ACar.Model = Model;
+            ACar.Colour = Colour;
+            ACar.Description = Description;
+            ACar.Price = Convert.ToInt32(Price);
 
             ClsCarCollection CarList = new ClsCarCollection();
 
@@ -79,7 +79,7 @@ public partial class ACar : System.Web.UI.Page
                 //find the record to update 
                 CarList.ThisCar.Find(NumberPlate);
                 //set the ThisCar property
-                CarList.ThisCar = car;
+                CarList.ThisCar = ACar;
                 //update the record
                 CarList.Update();
             }
