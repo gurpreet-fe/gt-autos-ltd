@@ -112,7 +112,7 @@ namespace GTAutosTesting
             //set ThisAddress to the test data
             AllCars.ThisCar = TestItem;
             //add the record
-     //       PrimaryKey = AllCars.Add();
+            PrimaryKey = AllCars.Add();
             //set the primary key of the test data
             TestItem.NumberPlate = PrimaryKey;
             //find the record
@@ -141,7 +141,7 @@ namespace GTAutosTesting
             //set ThisAddress to the test data
             AllCars.ThisCar = TestItem;
             //add the record
-            //       PrimaryKey = AllCars.Add();
+            PrimaryKey = AllCars.Add();
             //set the primary key of the test data
             TestItem.NumberPlate = PrimaryKey;
             //find the record
@@ -174,7 +174,7 @@ namespace GTAutosTesting
             //set ThisAddress to the test data
             AllCars.ThisCar = TestItem;
             //add the record
-            //       PrimaryKey = AllCars.Add();
+            PrimaryKey = AllCars.Add();
             //set the primary key of the test data
             TestItem.NumberPlate = PrimaryKey;
             //modify the test data
