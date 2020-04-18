@@ -75,7 +75,7 @@ namespace GTAutosClasses
                 DB.AddParameter("@Price", mThisCar.Price);
                 DB.AddParameter("@OfficeCode", mThisCar.OfficeCode);
                 //execute the query returning the primary key value 
-                return DB.Execute("sproc_tblCar_Insert");
+               return DB.Execute("sproc_tblCar_Insert");
             }
 
         

@@ -96,3 +96,12 @@ C:\Users\User\Documents\Agile\3 19 2020\GTAutosBackOffice\obj\Debug\GTAutosBackO
 C:\Users\User\Documents\Agile\3 19 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Agile\3 19 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
 C:\Users\User\Documents\Agile\3 19 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe.config
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.exe
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\bin\Debug\GTAutosBackOffice.pdb
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csprojAssemblyReference.cache
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.Properties.Resources.resources
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.GenerateResource.cache
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.exe
+C:\Users\User\Documents\Agile\4 18 2020\GTAutosBackOffice\obj\Debug\GTAutosBackOffice.pdb

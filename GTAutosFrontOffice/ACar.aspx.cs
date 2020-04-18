@@ -10,10 +10,10 @@ public partial class ACar : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the numberplate of the car to be processed
-        NumberPlate = Convert.ToInt32(Session["NumberPlate"]);
+        NumberPlate = Convert.ToString(Session["NumberPlate"]);
         if (IsPostBack == false)
         {
-            //if this is not a neew record
+            //if this is not a new record
             if (NumberPlate != -1)
             {
                 //display the current data for the record
@@ -50,18 +50,19 @@ public partial class ACar : System.Web.UI.Page
         String Colour = txtColour.Text;
         String Description = txtDescription.Text;
         String Price = txtPrice.Text;
+        String OfficeCode = txtOfficeCode.Text;
     
         String Error = "";
 
         Error = ACar.Valid(Make, Model, Description, Colour, Price);
         if (Error == "")
         {
-            ACar.NumberPlate = NumberPlate;
             ACar.Make = Make;
             ACar.Model = Model;
             ACar.Colour = Colour;
             ACar.Description = Description;
             ACar.Price = Convert.ToInt32(Price);
+            ACar.OfficeCode = Convert.ToInt32(OfficeCode);
 
             ClsCarCollection CarList = new ClsCarCollection();
 
@@ -69,7 +70,7 @@ public partial class ACar : System.Web.UI.Page
             if (NumberPlate == -1)
             {
                 //set the ThisCar Property
-                CarList.ThisCar = NumberPlate;
+                CarList.ThisCar = ACar;
                 //add the new record
                 CarList.Add();
             }
