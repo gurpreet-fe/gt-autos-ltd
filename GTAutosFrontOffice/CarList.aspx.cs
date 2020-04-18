@@ -39,7 +39,7 @@ public partial class CarList : System.Web.UI.Page
     {
         //var to store the priamry key value of the record to be deleated
         string NumberPlate;
-        //if the record has been selected form the list
+        //if the record has been selected from the list
         if (lstCarList.SelectedIndex != -1)
         {
             //get the primary key value of the record to delete

@@ -14,7 +14,7 @@ public partial class DeleteCar : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the number of the car to be deleated from the session object
-        NumberPlate = Convert.ToInt32(Session["NumberPlate"]);
+        NumberPlate = Convert.ToString(Session["NumberPlate"]);
     }
 
     protected void BtnYes_Click(object sender, EventArgs e)
