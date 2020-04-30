@@ -13,7 +13,7 @@ namespace GTAutosTesting
         string City = "Test City";
         string PostCode = "T3S TPC";
         string PhoneNumber = "12345678910";
-        string InspectionDate = DateTime.Now.Date.ToString();
+        string InspectionDate = DateTime.Now.Date.ToShortDateString();
 
 
         [TestMethod]
@@ -226,7 +226,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 OfficeCode = 1;
             Found = AnOffice.Find(OfficeCode);
-            if (AnOffice.PostCode != "XXX XXX")
+            if (AnOffice.PostCode != "ABC DEF")
             {
                 OK = false;
             }
@@ -452,7 +452,7 @@ namespace GTAutosTesting
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(-100);
+            TestDate = TestDate.AddYears(-99);
             string InspectionDate = TestDate.ToString();
             Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
             Assert.AreNotEqual(Error, "");
@@ -503,7 +503,7 @@ namespace GTAutosTesting
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(100);
+            TestDate = TestDate.AddYears(99);
             string InspectionDate = TestDate.ToString();
             Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
             Assert.AreNotEqual(Error, "");
