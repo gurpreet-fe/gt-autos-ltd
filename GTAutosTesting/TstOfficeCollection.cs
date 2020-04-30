@@ -178,7 +178,7 @@ namespace GTAutosTesting
         public void ReportByPostCodeNoneFound()
         {
             clsOfficeCollection FilteredOffices = new clsOfficeCollection();
-            FilteredOffices.ReportByPostCode("xxx xxx");
+            FilteredOffices.ReportByPostCode("xxy xxx");
             Assert.AreEqual(0, FilteredOffices.Count);
         }
 
@@ -187,14 +187,14 @@ namespace GTAutosTesting
         {
             clsOfficeCollection FilteredOffices = new clsOfficeCollection();
             Boolean OK = true;
-            FilteredOffices.ReportByPostCode("XXX XXX");
+            FilteredOffices.ReportByPostCode("xxx xxx");
             if (FilteredOffices.Count == 2)
             {
-                if(FilteredOffices.OfficeList[0].OfficeCode != 14)
+                if (FilteredOffices.OfficeList[0].OfficeCode != 11)
                 {
                     OK = false;
                 }
-                if (FilteredOffices.OfficeList[1].OfficeCode != 15)
+                if (FilteredOffices.OfficeList[1].OfficeCode != 13)
                 {
                     OK = false;
                 }
@@ -206,6 +206,8 @@ namespace GTAutosTesting
             Assert.IsTrue(OK);
 
         }
+
+
 
 
 

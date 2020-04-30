@@ -32,7 +32,7 @@ public partial class Default2 : System.Web.UI.Page
         txtCity.Text = OfficeBook.ThisOffice.City;
         txtPostCode.Text = OfficeBook.ThisOffice.PostCode;
         txtPhoneNumber.Text = OfficeBook.ThisOffice.PhoneNumber;
-        txtInspectionDate.Text = OfficeBook.ThisOffice.InspectionDate.ToString();
+        txtInspectionDate.Text = OfficeBook.ThisOffice.InspectionDate.ToShortDateString();
         ChkBox.Checked = OfficeBook.ThisOffice.IsActive;
     }
 
@@ -84,7 +84,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         //Cancel Button
         Response.Redirect("OfficePage.aspx");
-
     }
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -128,11 +127,9 @@ public partial class Default2 : System.Web.UI.Page
     protected void TextBox7_TextChanged(object sender, EventArgs e)
     {
         //inspection date
+
     }
 
-
-
-    
 
     protected void Button3_Click(object sender, EventArgs e)
     {
@@ -149,5 +146,25 @@ public partial class Default2 : System.Web.UI.Page
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
     {
         //check box isActive
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        //find button
+        OfficeClasses AnOffice = new OfficeClasses();
+        Int32 OfficeCode;
+        Boolean Found = false;
+        OfficeCode = Convert.ToInt32( txtOfficeCode.Text);
+        Found = AnOffice.Find(OfficeCode);
+        if (Found == true)
+        {
+            txtAddressLine1.Text = AnOffice.AddressLine1;
+            txtAddressLine2.Text = AnOffice.AddressLine2;
+            txtCity.Text = AnOffice.City;
+            txtPostCode.Text = AnOffice.PostCode;
+            txtPhoneNumber.Text = AnOffice.PhoneNumber;
+            txtInspectionDate.Text = AnOffice.InspectionDate.ToShortDateString();
+            ChkBox.Checked = AnOffice.IsActive;
+        }
     }
 }

@@ -9,31 +9,32 @@
 <body>
     <form id="form1" runat="server">
         <p>
-            OfficeCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            OfficeCode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtOfficeCode" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-            <asp:Button ID="Button5" runat="server" Height="29px" Text="Find" Width="76px" />
+            &nbsp;
+            <asp:Button ID="FindButton" runat="server" Height="29px" Text="Find" Width="76px" OnClick="Button5_Click" />
         </p>
         <p>
-            AddressLine1&nbsp;&nbsp;&nbsp;&nbsp;
+            AddressLine1:&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtAddressLine1" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
         </p>
         <p>
-            AddressLine2&nbsp;&nbsp;&nbsp;&nbsp;
+            AddressLine2:&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtAddressLine2" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
         </p>
         <p>
-            City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtCity" runat="server" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
         </p>
         <p>
-            PostCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            PostCode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtPostCode" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
         </p>
         <p>
-            PhoneNumber&nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="txtPhoneNumber" runat="server" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
+            PhoneNumber:&nbsp;&nbsp; &nbsp;<asp:TextBox ID="txtPhoneNumber" runat="server" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
         </p>
         <p>
-            InspectionDate&nbsp;&nbsp;
+            InspectionDate:&nbsp;&nbsp;
             <asp:TextBox ID="txtInspectionDate" runat="server" OnTextChanged="TextBox7_TextChanged"></asp:TextBox>
         </p>
         <p>
