@@ -64,7 +64,7 @@ public partial class OfficeList : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to edit from the list";
         }
     }
 
@@ -88,5 +88,11 @@ public partial class OfficeList : System.Web.UI.Page
         lstOfficeList.DataValueField = "OfficeCode";
         lstOfficeList.DataTextField = "PostCode";
         lstOfficeList.DataBind();
+    }
+
+
+    protected void lstOfficeList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }

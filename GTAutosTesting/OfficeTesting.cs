@@ -658,7 +658,6 @@ namespace GTAutosTesting
             Assert.AreNotEqual(Error, "");
         }
 
-
         [TestMethod]
         public void CityMid()
         {
@@ -669,9 +668,6 @@ namespace GTAutosTesting
             Error = AnOffice.Valid(AddressLine1, AddressLine2, City, PostCode, PhoneNumber, InspectionDate);
             Assert.AreEqual(Error, "");
         }
-
-
-
 
     }
 }

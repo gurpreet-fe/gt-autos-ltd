@@ -87,7 +87,6 @@ namespace GTAutosClasses
             DB.AddParameter("@PhoneNumber", mThisOffice.PhoneNumber);
             DB.AddParameter("@InspectionDate", mThisOffice.InspectionDate);
             DB.AddParameter("@IsActive", mThisOffice.IsActive);
-
             DB.Execute("sproc_tblOffice_Update");
         }
 

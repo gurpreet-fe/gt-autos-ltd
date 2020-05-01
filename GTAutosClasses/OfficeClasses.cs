@@ -177,13 +177,35 @@ namespace GTAutosClasses
                 Error = Error + "The city must be less than 50 characters : ";
             }
 
+            // PhoneNumber
+
+            if (phoneNumber.Length == 0)
+            {
+                Error = Error + "PhoneNumber may not be blank : ";
+            }
+
+            if (phoneNumber.Length < 10)
+            {
+                Error = Error + "PhoneNumber is too short : ";
+            }
+
+            if (phoneNumber.Length > 15)
+            {
+                Error = Error + "PhoneNumber must be less than 15 characters : ";
+            }
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, "^[a-zA-Z ]*$"))
+            {
+                Error = Error + "PhoneNumber contains invalid characters : ";
+            }
+
             //InspectionDate
 
             try
                 {
 
                 DateTemp = Convert.ToDateTime(inspectionDate);
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp < DateTime.Now.Date.AddYears(-1))
                 {
                     Error = Error + "The date cannot be in the past : ";
                 }
