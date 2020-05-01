@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ListBox ID="lstOfficeList" runat="server" Height="336px" Width="421px"></asp:ListBox>
+        <asp:ListBox ID="lstOfficeList" runat="server" Height="336px" Width="421px" OnSelectedIndexChanged="lstOfficeList_SelectedIndexChanged"></asp:ListBox>
         <p>
             <asp:Button ID="Button1" runat="server" Height="29px" OnClick="Button1_Click" Text="Add" Width="76px" />
 &nbsp;<asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" Width="76px" Height="29px" />

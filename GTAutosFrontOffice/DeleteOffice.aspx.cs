@@ -23,6 +23,7 @@ public partial class DeleteOffice : System.Web.UI.Page
         Response.Redirect("OfficeList.aspx");
     }
 
+
     protected void btnNo_Click(object sender, EventArgs e)
     {
 

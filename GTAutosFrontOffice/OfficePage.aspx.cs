@@ -58,7 +58,6 @@ public partial class Default2 : System.Web.UI.Page
             AnOffice.InspectionDate = Convert.ToDateTime(InspectionDate);
             AnOffice.IsActive = ChkBox.Checked;
             clsOfficeCollection OfficeList = new clsOfficeCollection();
-            OfficeList.ThisOffice = AnOffice;
 
             if (OfficeCode == -1)
             {
@@ -130,13 +129,6 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        //viewer button
-        Response.Redirect("OfficeView.aspx");
-    }
-
     protected void Button4_Click(object sender, EventArgs e)
     {
         //List button
@@ -154,6 +146,10 @@ public partial class Default2 : System.Web.UI.Page
         OfficeClasses AnOffice = new OfficeClasses();
         Int32 OfficeCode;
         Boolean Found = false;
+        if (System.Text.RegularExpressions.Regex.IsMatch(txtOfficeCode.Text, "^[a-zA-Z ]*$"))
+        {
+            Response.Redirect("OfficePage.aspx");
+        }
         OfficeCode = Convert.ToInt32( txtOfficeCode.Text);
         Found = AnOffice.Find(OfficeCode);
         if (Found == true)

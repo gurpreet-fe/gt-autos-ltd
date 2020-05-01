@@ -15,6 +15,8 @@
             <asp:Button ID="FindButton" runat="server" Height="29px" Text="Find" Width="76px" OnClick="Button5_Click" />
         </p>
         <p>
+            &nbsp;</p>
+        <p>
             AddressLine1:&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtAddressLine1" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
         </p>
@@ -46,7 +48,6 @@
         <p>
             <asp:Button ID="Button1" runat="server" Height="29px" OnClick="Button1_Click" style="margin-bottom: 0px" Text="OK" Width="76px" />
 &nbsp;<asp:Button ID="Button2" runat="server" Height="29px" OnClick="Button2_Click" Text="Cancel" Width="76px" />
-        &nbsp;<asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Viewer" Width="76px" Height="29px" />
 &nbsp;<asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="List" Width="76px" Height="29px" />
         </p>
     </form>
