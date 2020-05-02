@@ -20,7 +20,7 @@ public partial class CarList : System.Web.UI.Page
     {
         GTAutosClasses.ClsCarCollection AllCars = new GTAutosClasses.ClsCarCollection();
         lstCarList.DataSource = AllCars.CarList;
-        lstCarList.DataValueField = "NumberPlate";
+        lstCarList.DataValueField = "CarID";
         lstCarList.DataTextField = "Make";
         lstCarList.DataBind();
     }
@@ -30,7 +30,7 @@ public partial class CarList : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate that this is a new reocord
-        Session["NumberPlate"] = -1;
+        Session["CarID"] = -1;
         //redirect to the data entry page 
         Response.Redirect("ACar.aspx");
     }
@@ -38,14 +38,14 @@ public partial class CarList : System.Web.UI.Page
     protected void BtnDelete_Click(object sender, EventArgs e)
     {
         //var to store the priamry key value of the record to be deleated
-        string NumberPlate;
+        int CarID;
         //if the record has been selected from the list
         if (lstCarList.SelectedIndex != -1)
         {
             //get the primary key value of the record to delete
-            NumberPlate = lstCarList.SelectedValue;
+            CarID = Convert.ToInt32(lstCarList.SelectedValue);
             //store the data in the session object 
-            Session["NumberPlate"] = NumberPlate;
+            Session["CarID"] = CarID;
             //redirect to the delete page 
             Response.Redirect("DeleteCar.aspx");
         }
@@ -59,14 +59,14 @@ public partial class CarList : System.Web.UI.Page
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
         //var to store the priamry key value of the record to be deleated
-        string NumberPlate;
+        int CarID;
         //if the record has been selected form the list
         if (lstCarList.SelectedIndex != -1)
         {
             //get the primary key value of the record to delete
-            NumberPlate = lstCarList.SelectedValue;
+            CarID = Convert.ToInt32(lstCarList.SelectedValue);
             //store the data in the session object 
-            Session["NumberPlate"] = NumberPlate;
+            Session["CarID"] = CarID;
             //redirect to the delete page 
             Response.Redirect("ACar.aspx");
         }
@@ -84,7 +84,7 @@ public partial class CarList : System.Web.UI.Page
         AllCars.ReportByMake(txtFilter.Text);
         lstCarList.DataSource = AllCars.CarList;
         //set the name of th epriamry key 
-        lstCarList.DataValueField = "NumberPlate";
+        lstCarList.DataValueField = "CarID";
         //set the name of the field to display 
         lstCarList.DataTextField = "Make";
         //bind the data to the list 
@@ -100,7 +100,7 @@ public partial class CarList : System.Web.UI.Page
         txtFilter.Text = "";
         lstCarList.DataSource = AllCars.CarList;
         //set the name of th epriamry key 
-        lstCarList.DataValueField = "NumberPlate";
+        lstCarList.DataValueField = "CarID";
         //set the name of the field to display 
         lstCarList.DataTextField = "Make";
         //bind the data to the list 

@@ -12,6 +12,7 @@ public partial class CarViewer : System.Web.UI.Page
     {
         ClsCar car = new ClsCar();
         car = (ClsCar)Session["ACar"];
+        Response.Write(car.CarID);
         Response.Write(car.NumberPlate);
         Response.Write(car.Make);
         Response.Write(car.Model);

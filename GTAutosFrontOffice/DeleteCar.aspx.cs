@@ -9,12 +9,12 @@ using GTAutosClasses;
 public partial class DeleteCar : System.Web.UI.Page
 {
     //var to store the primary key value to be deleted 
-    String NumberPlate;
+    int CarID;
     //event handler for the load event
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the number of the car to be deleated from the session object
-        NumberPlate = Convert.ToString(Session["NumberPlate"]);
+        CarID = Convert.ToInt32(Session["CarID"]);
     }
 
     protected void BtnYes_Click(object sender, EventArgs e)
@@ -22,7 +22,7 @@ public partial class DeleteCar : System.Web.UI.Page
         //create an instance of the car collection
         ClsCarCollection AllCars = new ClsCarCollection();
         //find the record to delete
-        AllCars.ThisCar.Find(NumberPlate);
+        AllCars.ThisCar.Find(CarID);
         //delete the record
         AllCars.Delete();
         //redirect back to main page

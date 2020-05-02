@@ -11,8 +11,12 @@
         <div>
         </div>
     <p style="margin-top: 0px">
+        CarID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtCarID" runat="server" OnTextChanged="TextBox1_TextChanged" Width="95px"></asp:TextBox>
+        &nbsp;<asp:Button ID="BtnFind" runat="server" style="margin-left: 38px" Text="Find" OnClick="btnFind_Click" />
+        </p>
+        <p style="margin-top: 0px">
         Number Plate<asp:TextBox ID="txtNumberPlate" runat="server" Height="16px" style="margin-left: 44px; margin-top: 0px; margin-bottom: 0px" Width="91px"></asp:TextBox>
-        <asp:Button ID="BtnFind" runat="server" style="margin-left: 38px" Text="Find" OnClick="btnFind_Click" />
         </p>
     <p>
         Make&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
