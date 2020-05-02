@@ -6,15 +6,15 @@ using System;
 public partial class ACar : System.Web.UI.Page
 {
     //variable to store the priamry key with page level scope
-    String NumberPlate;
+    int CarID;
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the numberplate of the car to be processed
-        NumberPlate = Convert.ToString(Session["NumberPlate"]);
+        CarID = Convert.ToInt32(Session["CarID"]);
         if (IsPostBack == false)
         {
             //if this is not a new record
-            if (NumberPlate != -1)
+            if (CarID != -1)
             {
                 //display the current data for the record
                 DisplayCar();
@@ -27,8 +27,9 @@ public partial class ACar : System.Web.UI.Page
         //create an instanc of the collection
         ClsCarCollection AllCars = new ClsCarCollection();
         //find the record to update 
-        AllCars.ThisCar.Find(NumberPlate);
+        AllCars.ThisCar.Find(CarID);
         //display the data for this record
+        txtCarID.Text = AllCars.ThisCar.CarID.ToString();
         txtNumberPlate.Text = AllCars.ThisCar.NumberPlate;
         txtMake.Text = AllCars.ThisCar.Make;
         txtModel.Text = AllCars.ThisCar.Model;
@@ -45,6 +46,7 @@ public partial class ACar : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         ClsCar ACar = new ClsCar();
+        String NumberPlate = txtNumberPlate.Text;
         String Make = txtMake.Text;
         String Model = txtModel.Text;
         String Colour = txtColour.Text;
@@ -54,9 +56,10 @@ public partial class ACar : System.Web.UI.Page
     
         String Error = "";
 
-        Error = ACar.Valid(Make, Model, Description, Colour, Price);
+        Error = ACar.Valid(NumberPlate, Make, Model, Description, Colour, Price);
         if (Error == "")
         {
+            ACar.NumberPlate = NumberPlate;
             ACar.Make = Make;
             ACar.Model = Model;
             ACar.Colour = Colour;
@@ -67,7 +70,7 @@ public partial class ACar : System.Web.UI.Page
             ClsCarCollection CarList = new ClsCarCollection();
 
             //if this is a new record i.e. NumberPlate != -1 then add the data
-            if (NumberPlate == -1)
+            if (CarID == -1)
             {
                 //set the ThisCar Property
                 CarList.ThisCar = ACar;
@@ -78,7 +81,7 @@ public partial class ACar : System.Web.UI.Page
             else
             {
                 //find the record to update 
-                CarList.ThisCar.Find(NumberPlate);
+                CarList.ThisCar.Find(CarID);
                 //set the ThisCar property
                 CarList.ThisCar = ACar;
                 //update the record
@@ -101,13 +104,13 @@ public partial class ACar : System.Web.UI.Page
     protected void btnFind_Click(object sender, EventArgs e)
     {
         ClsCar car = new ClsCar();
-        String NumberPlate;
+        int CarID;
         Boolean Found = false;
-        NumberPlate = txtNumberPlate.Text;
-        Found = car.Find(NumberPlate);
+        CarID = Convert.ToInt32(txtCarID.Text);
+        Found = car.Find(CarID);
         if (Found == true)
         {
-
+            txtNumberPlate.Text = car.NumberPlate;
             txtMake.Text = car.Make;
             txtModel.Text = car.Model;
             txtColour.Text = car.Colour;
@@ -132,4 +135,6 @@ public partial class ACar : System.Web.UI.Page
     {
 
     }
+
+   
 }
