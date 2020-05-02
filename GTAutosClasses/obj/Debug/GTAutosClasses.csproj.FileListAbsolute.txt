@@ -136,3 +136,7 @@ C:\Users\User\Documents\Agile\4 18 2020\GTAutosClasses\obj\Debug\GTAutosClasses.
 C:\Users\User\Documents\Agile\4 18 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Agile\4 18 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 C:\Users\User\Documents\Agile\4 18 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+C:\Users\User\Documents\Agile\5 2 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache
+C:\Users\User\Documents\Agile\5 2 2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Agile\5 2 2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+C:\Users\User\Documents\Agile\5 2 2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb

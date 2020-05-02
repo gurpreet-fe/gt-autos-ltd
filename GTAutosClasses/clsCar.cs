@@ -5,6 +5,18 @@ namespace GTAutosClasses
     public class ClsCar
     {
         //------------------------------------------------------PROPERTIES PLUS GET + SET METHODS------------------------------------------------------------------------
+        private int mCarID;
+        public int CarID
+        {
+            get
+            {
+                return mCarID;
+            }
+            set
+            {
+                mCarID = value;
+            }
+        }
         private string mNumberPlate;
         public string NumberPlate
         {
@@ -106,13 +118,14 @@ namespace GTAutosClasses
 
 
         //----------------------------------------------------------------FIND METHOD----------------------------------------------------------------------------
-        public bool Find(string NumberPlate)
+        public bool Find(int CarID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@NumberPlate", NumberPlate);
-            DB.Execute("sproc_tblCar_FilterByNumberPlate");
+            DB.AddParameter("@CarID", CarID);
+            DB.Execute("sproc_tblCar_FilterByCarID");
             if (DB.Count == 1)
             {
+                mCarID = Convert.ToInt32(DB.DataTable.Rows[0]["CarID"]);
                 mNumberPlate = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
                 mMake = Convert.ToString(DB.DataTable.Rows[0]["Make"]);
                 mModel = Convert.ToString(DB.DataTable.Rows[0]["Model"]);
@@ -132,13 +145,23 @@ namespace GTAutosClasses
 
 
         //---------------------------------------------------------VALIDATION METHOD----------------------------------------------------------------------------------
-        public string Valid(string make,
+        public string Valid(string numberPlate,
+                            string make,
                             string model,
                             string description,
                             string colour,
                             string price)
         {
             String Error = "";
+            //------------------------------------NUMBER PLATE-----------------------------
+            if (numberPlate.Length == 0)
+            {
+                Error = Error + "The Number plate of the car may not be blank: ";
+            }
+            if (numberPlate.Length > 8)
+            {
+                Error = Error + "The Number plate must be less than 8 characters: ";
+            }
             //------------------------------------MAKE-----------------------------
             if (make.Length == 0)
             {
