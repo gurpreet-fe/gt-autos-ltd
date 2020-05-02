@@ -66,7 +66,8 @@ namespace GTAutosClasses
                 //adds a new record to the database based  on the values of mThisAddress
                 //connect to the database 
                 clsDataConnection DB = new clsDataConnection();
-                //set the parameters for the stored procedure
+               //set the parameters for the stored procedure
+                DB.AddParameter("@NumberPlate", mThisCar.NumberPlate);
                 DB.AddParameter("@Make", mThisCar.Make);
                 DB.AddParameter("@Model", mThisCar.Model);
                 DB.AddParameter("@Colour", mThisCar.Colour);
@@ -75,7 +76,7 @@ namespace GTAutosClasses
                 DB.AddParameter("@Price", mThisCar.Price);
                 DB.AddParameter("@OfficeCode", mThisCar.OfficeCode);
                 //execute the query returning the primary key value 
-               return DB.Execute("sproc_tblCar_Insert");
+                return DB.Execute("sproc_tblCar_Insert");
             }
 
         
@@ -85,7 +86,7 @@ namespace GTAutosClasses
             //conncet to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameeters for the stored procedure
-            DB.AddParameter("@NumberPlate", mThisCar.NumberPlate);
+            DB.AddParameter("@CarID", mThisCar.CarID);
             //execute the stored procedure
             DB.Execute("sproc_tblCar_Delete");
         }
@@ -96,6 +97,7 @@ namespace GTAutosClasses
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
+            DB.AddParameter("@CarID", mThisCar.CarID);
             DB.AddParameter("@NumberPlate", mThisCar.NumberPlate);
             DB.AddParameter("@Make", mThisCar.Make);
             DB.AddParameter("@Model", mThisCar.Model);
@@ -138,6 +140,7 @@ namespace GTAutosClasses
                 //create a blank car
                 ClsCar car = new ClsCar();
                 //read the fields form the current record
+                car.CarID = Convert.ToInt32(DB.DataTable.Rows[Index]["CarID"]);
                 car.NumberPlate = Convert.ToString(DB.DataTable.Rows[Index]["NumberPlate"]);
                 car.Model = Convert.ToString(DB.DataTable.Rows[Index]["Make"]);
                 car.Model = Convert.ToString(DB.DataTable.Rows[Index]["Model"]);
