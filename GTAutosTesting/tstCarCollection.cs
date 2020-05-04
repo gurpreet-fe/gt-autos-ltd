@@ -26,6 +26,8 @@ namespace GTAutosTesting
             //create the item of test data
             ClsCar TestItem = new ClsCar();
             //set its properties
+
+            TestItem.CarID = 0;
             TestItem.NumberPlate = "1234 ABCD";
             TestItem.Make = "Nissan";
             TestItem.Model = "Micra";
@@ -51,6 +53,7 @@ namespace GTAutosTesting
             //create some test data to assign to the property 
             ClsCar TestCar = new ClsCar();
             //set its properties
+            TestCar.CarID = 0;
             TestCar.NumberPlate = "1234 ABCD";
             TestCar.Make = "Nissan";
             TestCar.Model = "Micra";
@@ -76,6 +79,7 @@ namespace GTAutosTesting
             //create the item of test data
             ClsCar TestItem = new ClsCar();
             //set its properties
+            TestItem.CarID = 0;
             TestItem.NumberPlate = "1234 ABCD";
             TestItem.Make = "Nissan";
             TestItem.Model = "Micra";
@@ -100,8 +104,9 @@ namespace GTAutosTesting
             ClsCarCollection AllCars = new ClsCarCollection();
             //create the item of test data
             ClsCar TestItem = new ClsCar();
-            String PrimaryKey = "1234 ABCD";
+            int PrimaryKey = 0;
             //set its propertiers
+            TestItem.NumberPlate = "1234 ABCD";
             TestItem.Make = "Nissan";
             TestItem.Model = "Micra";
             TestItem.Colour = "Blue";
@@ -114,7 +119,7 @@ namespace GTAutosTesting
             //add the record
             PrimaryKey = AllCars.Add();
             //set the primary key of the test data
-            TestItem.NumberPlate = PrimaryKey;
+            TestItem.CarID = PrimaryKey;
             //find the record
             AllCars.ThisCar.Find(PrimaryKey);
             //test to see that the two values are the same 
@@ -129,8 +134,9 @@ namespace GTAutosTesting
             ClsCarCollection AllCars = new ClsCarCollection();
             //create the item of test data
             ClsCar TestItem = new ClsCar();
-            String PrimaryKey = "1234 ABCD";
+            int PrimaryKey = 0;
             //set its propertiers
+            TestItem.NumberPlate = "1234 ABCD";
             TestItem.Make = "Nissan";
             TestItem.Model = "Micra";
             TestItem.Colour = "Blue";
@@ -143,7 +149,7 @@ namespace GTAutosTesting
             //add the record
             PrimaryKey = AllCars.Add();
             //set the primary key of the test data
-            TestItem.NumberPlate = PrimaryKey;
+            TestItem.CarID = PrimaryKey;
             //find the record
             AllCars.ThisCar.Find(PrimaryKey);
             //delete the record
@@ -162,8 +168,9 @@ namespace GTAutosTesting
             ClsCarCollection AllCars = new ClsCarCollection();
             //create the item of test data
             ClsCar TestItem = new ClsCar();
-            String PrimaryKey = "1234 ABCD";
+            int PrimaryKey = 0;
             //set its propertiers
+            TestItem.NumberPlate = "1234 ABCD";
             TestItem.Make = "Nissan";
             TestItem.Model = "Micra";
             TestItem.Colour = "Blue";
@@ -176,8 +183,9 @@ namespace GTAutosTesting
             //add the record
             PrimaryKey = AllCars.Add();
             //set the primary key of the test data
-            TestItem.NumberPlate = PrimaryKey;
+            TestItem.CarID = PrimaryKey;
             //modify the test data
+            TestItem.NumberPlate = "4567 HGTY";
             TestItem.Make = "BMW";
             TestItem.Model = "A5";
             TestItem.Colour = "Green";
@@ -232,12 +240,12 @@ namespace GTAutosTesting
             if (FilteredCars.Count == 1)
             {
                 //check if the firdt rrecord is numberPlate
-                if (FilteredCars.CarList[0].NumberPlate != "XXXXX")
+                if (FilteredCars.CarList[0].CarID != 36)
                 {
                     OK = false;
                 }
                 //check thet the fisrt record is ID 37
-                if (FilteredCars.CarList[1].NumberPlate != "jafh")
+                if (FilteredCars.CarList[1].CarID != 37)
                 {
                     OK = false;
                 }

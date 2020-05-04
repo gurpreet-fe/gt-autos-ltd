@@ -61,7 +61,7 @@ namespace GTAutosClasses
 
         }
 
-            public String Add()
+            public int Add()
             {
                 //adds a new record to the database based  on the values of mThisAddress
                 //connect to the database 
