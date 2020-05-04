@@ -11,7 +11,7 @@ namespace GTAutosTesting
 
         //-----------------------------------------------------TEST DATA TO PASS TO THE METHOD------------------------------------------------------------------
         String CarID = 0.ToString();
-        String NumberPlate = "1234 ABCD";
+        String NumberPlate = "1234ABCD";
         String Make = "Nissan";
         String Model = "Micra";
         String Description = "TestDescription";
@@ -144,7 +144,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.NumberPlate != "MP04TTX")
+            if (car.NumberPlate != "1234ABCD")
             {
                 OK = false;
             }
@@ -159,7 +159,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.Make != "Test")
+            if (car.Make != "Nissan")
             {
                 OK = false;
             }
@@ -174,7 +174,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.Model != "A3")
+            if (car.Model != "Micra")
             {
                 OK = false;
             }
@@ -189,7 +189,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.Colour != "Silver")
+            if (car.Colour != "Blue")
             {
                 OK = false;
             }
@@ -204,7 +204,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.Description != "Good Condition")
+            if (car.Description != "TestDescription")
             {
                 OK = false;
             }
@@ -219,7 +219,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.Price != 5000)
+            if (car.Price != 200)
             {
                 OK = false;
             }
@@ -234,7 +234,7 @@ namespace GTAutosTesting
             Boolean OK = true;
             Int32 CarID = 0;
             Found = car.Find(CarID);
-            if (car.Sold != false)
+            if (car.Sold != true)
             {
                 OK = false;
             }

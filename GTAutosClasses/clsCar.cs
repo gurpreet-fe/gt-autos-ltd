@@ -161,7 +161,7 @@ namespace GTAutosClasses
             if (numberPlate.Length > 8)
             {
                 Error = Error + "The Number plate must be less than 8 characters: ";
-            }
+            } 
             //------------------------------------MAKE-----------------------------
             if (make.Length == 0)
             {
