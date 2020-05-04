@@ -235,17 +235,17 @@ namespace GTAutosTesting
             //var to store the outcome 
             Boolean OK = true;
             //apply a make that doesnt exsist 
-            FilteredCars.ReportByMake("XXXXXXX");
+            FilteredCars.ReportByMake("xxxx");
             //check that the correct number of records are found 1
             if (FilteredCars.Count == 1)
             {
-                //check if the firdt rrecord is numberPlate
-                if (FilteredCars.CarList[0].CarID != 36)
+                //check if the firdt rrecord is carid
+                if (FilteredCars.CarList[0].CarID != 0)
                 {
                     OK = false;
                 }
                 //check thet the fisrt record is ID 37
-                if (FilteredCars.CarList[1].CarID != 37)
+                if (FilteredCars.CarList[1].CarID != 1)
                 {
                     OK = false;
                 }
