@@ -124,7 +124,7 @@ namespace GTAutosClasses
         {
             get 
             {
-                return "OrderID: " + OrderID + ", CustomerID: " +  CustomerID + ", CardID: " + CarID + ", Date Of Order: " + DateOfOrder.ToString("dd-MM-yy") + ", ServiceID: " + ServiceID + ", Order Price: " + OrderPrice +  ", Order Status:" + OrderStatus + ", Completed: " + Completed;
+                return "OrderID: " + OrderID + ", CustomerID: " +  CustomerID + ", CarID: " + CarID + ", PaymentID: " + PaymentID +  ", Date Of Order: " + DateOfOrder.ToString("dd-MM-yy") + ", ServiceID: " + ServiceID + ", Order Price: " + OrderPrice +  ", Order Status:" + OrderStatus + ", Completed: " + Completed;
             }
         }
 

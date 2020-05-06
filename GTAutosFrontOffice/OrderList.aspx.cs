@@ -14,6 +14,10 @@ public partial class OrderList : System.Web.UI.Page
         {
             DisplayOrders();
         }
+        if (lstOrderList.Items.Count == 0) 
+        {
+            lblError.Text = "There are no records, please try adding one";
+        }
     }
 
     protected void lstOrderList_SelectedIndexChanged(object sender, EventArgs e)
