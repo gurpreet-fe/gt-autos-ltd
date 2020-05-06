@@ -24,7 +24,7 @@ namespace GTAutosTesting
             List<ClsOrder> TestList = new List<ClsOrder>();
             ClsOrder TestItem = new ClsOrder();
             TestItem.CustomerID = 2;
-            TestItem.NumberPlate = "MT04TTX";
+            TestItem.CarID = 2;
             TestItem.DateOfOrder = DateTime.Now.Date;
             TestItem.ServiceID = 1;
             TestItem.OrderPrice = 5000;
@@ -51,7 +51,7 @@ namespace GTAutosTesting
             ClsOrderCollection AllOrders = new ClsOrderCollection();
             ClsOrder TestItem = new ClsOrder();
             TestItem.CustomerID = 2;
-            TestItem.NumberPlate = "MT04TTX";
+            TestItem.CarID = 2;
             TestItem.DateOfOrder = DateTime.Now.Date;
             TestItem.ServiceID = 1;
             TestItem.OrderPrice = 5000;
@@ -69,7 +69,7 @@ namespace GTAutosTesting
             List<ClsOrder> TestList = new List<ClsOrder>();
             ClsOrder TestItem = new ClsOrder();
             TestItem.CustomerID = 2;
-            TestItem.NumberPlate = "MT04TTX";
+            TestItem.CarID = 2;
             TestItem.DateOfOrder = DateTime.Now.Date;
             TestItem.ServiceID = 1;
             TestItem.OrderPrice = 5000;
@@ -94,7 +94,7 @@ namespace GTAutosTesting
             ClsOrder AnOrder = new ClsOrder();
             int PrimaryKey = 0;
             AnOrder.CustomerID = 2;
-            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
             AnOrder.ServiceID = 1;
             AnOrder.OrderPrice = 5000;
@@ -116,7 +116,7 @@ namespace GTAutosTesting
             ClsOrder AnOrder = new ClsOrder();
             int PrimaryKey = 0;
             AnOrder.CustomerID = 2;
-            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
             AnOrder.ServiceID = 1;
             AnOrder.OrderPrice = 50000;
@@ -139,7 +139,7 @@ namespace GTAutosTesting
             ClsOrder AnOrder = new ClsOrder();
             int PrimaryKey = 0;
             AnOrder.CustomerID = 2;
-            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
             AnOrder.ServiceID = 1;
             AnOrder.OrderPrice = 50000;
@@ -152,7 +152,7 @@ namespace GTAutosTesting
             AnOrder.OrderID = PrimaryKey;
 
             AnOrder.CustomerID = 2;
-            AnOrder.NumberPlate = "MP04TTX";
+            AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
             AnOrder.ServiceID = 2;
             AnOrder.OrderPrice = 50000;
@@ -189,14 +189,14 @@ namespace GTAutosTesting
         {
             ClsOrderCollection FilteredOrders = new ClsOrderCollection();
             Boolean OK = true;
-            FilteredOrders.ReportByOrderStatus("Done");
+            FilteredOrders.ReportByOrderStatus("completed");
             if (FilteredOrders.Count == 6)
             {
-                if (FilteredOrders.OrderList[0].OrderID != 34)
+                if (FilteredOrders.OrderList[0].OrderID != 72)
                 {
                     OK = false;
                 }
-                if (FilteredOrders.OrderList[1].OrderID != 35)
+                if (FilteredOrders.OrderList[1].OrderID != 75)
                 {
                     OK = false;
                 }

@@ -29,7 +29,7 @@ namespace GTAutosClasses
                 //ClsService thisService = new ClsService();
                 AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
                 AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                AnOrder.NumberPlate = Convert.ToString(DB.DataTable.Rows[Index]["NumberPlate"]);
+                AnOrder.CarID = Convert.ToInt32(DB.DataTable.Rows[Index]["CarID"]);
                 AnOrder.ServiceID = Convert.ToInt32(DB.DataTable.Rows[Index]["ServiceID"]);
                 AnOrder.PaymentID = Convert.ToInt32(DB.DataTable.Rows[Index]["PaymentID"]);
                 AnOrder.DateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfOrder"]);
@@ -76,7 +76,7 @@ namespace GTAutosClasses
             clsDataConnection DB = new clsDataConnection();
            // ClsOrder AnOrder = new ClsOrder();
             DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
-            DB.AddParameter("@NumberPlate", mThisOrder.NumberPlate);
+            DB.AddParameter("@CarID", mThisOrder.CarID);
             DB.AddParameter("@PaymentID", mThisOrder.PaymentID);
             DB.AddParameter("@DateOfOrder", mThisOrder.DateOfOrder = DateTime.Now.Date);
             DB.AddParameter("@ServiceID", mThisOrder.ServiceID);
@@ -101,7 +101,7 @@ namespace GTAutosClasses
             // ClsOrder AnOrder = new ClsOrder();
             DB.AddParameter("@OrderID", mThisOrder.OrderID);
             DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
-            DB.AddParameter("@NumberPlate", mThisOrder.NumberPlate);
+            DB.AddParameter("@CarID", mThisOrder.CarID);
             DB.AddParameter("@PaymentID", mThisOrder.PaymentID);
             DB.AddParameter("@DateOfOrder", mThisOrder.DateOfOrder = DateTime.Now.Date);
             DB.AddParameter("@ServiceID", mThisOrder.ServiceID);
