@@ -22,6 +22,8 @@ public partial class AnOrder : System.Web.UI.Page
                 CustomerID = Convert.ToInt32(txtCustomerID.Text);
             }
             DisplayService();
+            DisplayCars();
+            
         }
 
         TxtDateOfOrder.Text = DateTime.Now.Date.ToString("dd-MM-yy");
@@ -59,7 +61,13 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void DropDownServices_SelectedIndexChanged(object sender, EventArgs e)
     {
-    
+        if (DropDownServices.SelectedIndex == DropDownServices.SelectedIndex) 
+        {
+            txtPrice.Text = DropDownServices.SelectedValue;
+        }
+        /*ClsService service = new ClsService();
+        service.ServicePrice = Convert.ToDouble(DropDownServices.SelectedValue);*/
+       
     }
 
     protected void txtPrice_TextChanged(object sender, EventArgs e)
@@ -124,8 +132,9 @@ public partial class AnOrder : System.Web.UI.Page
                 AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             }
 
-           // AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-            AnOrder.CarID = Convert.ToInt32(txtCar.Text);
+            // AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            // AnOrder.CarID = Convert.ToInt32(txtCar.Text);
+            AnOrder.CarID = Convert.ToInt32(DropDownCars.SelectedValue);
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
             AnOrder.ServiceID = Convert.ToInt32(DropDownServices.SelectedValue);
             double price;
@@ -133,6 +142,7 @@ public partial class AnOrder : System.Web.UI.Page
             AnOrder.OrderPrice = price;
             AnOrder.OrderStatus = OrderStatus;
             AnOrder.PaymentID = Convert.ToInt32(TxtPaymentID.Text);
+            AnOrder.Completed = CheckBoxCompleted.Checked;
             ClsOrderCollection OrderList = new ClsOrderCollection();
             if (OrderID == -1)
             {
@@ -188,7 +198,8 @@ public partial class AnOrder : System.Web.UI.Page
         if (Found == true)
         {
             txtCustomerID.Text = AnOrder.CustomerID.ToString();
-            txtCar.Text = AnOrder.CarID.ToString();
+            //txtCar.Text = AnOrder.CarID.ToString();
+            DropDownCars.SelectedValue = AnOrder.CarID.ToString();
             TxtPaymentID.Text = AnOrder.PaymentID.ToString();
             //DropDownPayment.Text = AnOrder.PaymentID.ToString();
             TxtDateOfOrder.Text = AnOrder.DateOfOrder.Date.ToString("dd-MM-yy");
@@ -213,6 +224,16 @@ public partial class AnOrder : System.Web.UI.Page
         DropDownServices.DataBind();
     }
 
+    void DisplayCars()
+    {
+        GTAutosClasses.ClsCarCollection cars = new GTAutosClasses.ClsCarCollection();
+       
+        DropDownCars.DataSource = cars.CarList;
+        DropDownCars.DataValueField = "CarID";
+        DropDownCars.DataTextField = "DataField";
+        DropDownCars.DataBind();
+    }
+
     void DisplayOrders()
     {
         ClsOrderCollection Orders = new ClsOrderCollection();
@@ -220,21 +241,25 @@ public partial class AnOrder : System.Web.UI.Page
 
         TxtOrderID.Text = Orders.ThisOrder.OrderID.ToString();
         txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
-        txtCar.Text = Orders.ThisOrder.CarID.ToString();
+        DropDownCars.SelectedValue = Orders.ThisOrder.CarID.ToString();
+        //txtCar.Text = Orders.ThisOrder.CarID.ToString();
         TxtPaymentID.Text = Orders.ThisOrder.PaymentID.ToString();
         DropDownServices.SelectedValue = Orders.ThisOrder.ServiceID.ToString();
         TxtDateOfOrder.Text = Orders.ThisOrder.DateOfOrder.ToString();
         txtPrice.Text = Orders.ThisOrder.OrderPrice.ToString();
         txtOrderStatus.Text = Orders.ThisOrder.OrderStatus;
         CheckBoxCompleted.Checked = Orders.ThisOrder.Completed;
-
-
     }
 
 
 
-   /* protected void btnViewList_Click(object sender, EventArgs e)
+    /* protected void btnViewList_Click(object sender, EventArgs e)
+     {
+         Response.Redirect("OrderList.aspx");
+     }*/
+
+    protected void DropDownCars_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Response.Redirect("OrderList.aspx");
-    }*/
+
+    }
 }

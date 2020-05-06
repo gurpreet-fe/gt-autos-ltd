@@ -60,6 +60,7 @@
     <Compile Include="clsCarCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="ClsOrder.cs" />
+    <Compile Include="ClsOrderCollection.cs" />
     <Compile Include="ClsPosition.cs" />
     <Compile Include="clsRequest.cs" />
     <Compile Include="ClsService.cs" />

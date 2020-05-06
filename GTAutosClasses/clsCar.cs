@@ -116,7 +116,15 @@ namespace GTAutosClasses
             }
         }
 
-
+        // this is the bit I have aded HM--------------------
+        public string DataField
+        {
+            get 
+            {
+                return /*"Make: " + mMake + ",*/ "Model: " + Model + ", Price: " + Price;
+            }
+        }
+        //-----------------------------------------------------
         //----------------------------------------------------------------FIND METHOD----------------------------------------------------------------------------
         public bool Find(int CarID)
         {

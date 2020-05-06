@@ -17,6 +17,8 @@
             <br />
             Car
             <asp:TextBox ID="txtCar" runat="server" OnTextChanged="txtCar_TextChanged"></asp:TextBox>
+            <asp:DropDownList ID="DropDownCars" runat="server" OnSelectedIndexChanged="DropDownCars_SelectedIndexChanged">
+            </asp:DropDownList>
             <br />
             Payment
             <asp:TextBox ID="TxtPaymentID" runat="server"></asp:TextBox>
@@ -25,7 +27,7 @@
             <asp:TextBox ID="TxtDateOfOrder" runat="server" OnTextChanged="TxtDateOfOrder_TextChanged"></asp:TextBox>
             <br />
             Services
-            <asp:DropDownList ID="DropDownServices" runat="server" OnSelectedIndexChanged="DropDownServices_SelectedIndexChanged">
+            <asp:DropDownList ID="DropDownServices" runat="server" OnSelectedIndexChanged ="DropDownServices_SelectedIndexChanged">
                 <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <br />

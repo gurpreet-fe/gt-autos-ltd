@@ -8,13 +8,13 @@ namespace GTAutosTesting
     [TestClass]
     public class TstOrders
     {
-        int OrderID = 33;
+        int OrderID = 7;
         int CustomerID = 2;
         int CarID = 2;
         string DateOfOrder = DateTime.Now.Date.ToString("dd-MM-yy");
         int ServiceID = 2;
-        string OrderPrice = "50";
-        string OrderStatus = "done";
+        string OrderPrice = "50000";
+        string OrderStatus = "completed";
         int PaymentID = 3;
 
         [TestMethod]
@@ -149,7 +149,7 @@ namespace GTAutosTesting
             //Creates a new instance of the Order class
             ClsOrder anOrder = new ClsOrder();
             //assigns the data to the property.
-            string TestData = "OrderID: " + OrderID + ", CustomerID: " + CustomerID + ", Number Plate: " + CarID + ", Date Of Order: " + DateOfOrder + ", ServiceID: " + ServiceID + ", Order Price: " + OrderPrice + ", Order Status:" + OrderStatus + ", Completed: " + false;
+            string TestData = "OrderID: " + OrderID + ", CustomerID: " + CustomerID + ", CarID: " + CarID + ", PaymentID: " + PaymentID + ", Date Of Order: " + DateOfOrder + ", ServiceID: " + ServiceID + ", Order Price: " + OrderPrice + ", Order Status:" + OrderStatus + ", Completed: " + false;
             anOrder.OrderID = OrderID;
             anOrder.CustomerID = CustomerID;
             anOrder.CarID = CarID;
@@ -171,7 +171,7 @@ namespace GTAutosTesting
             //boolean variable to store the result of the validation.
             Boolean Found = false;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             //test to see that the result is correct
@@ -188,10 +188,10 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.OrderID != 72) {
+            if (anOrder.OrderID != 7) {
                 OK = false;
             }
             //test to see that the result is correct
@@ -208,7 +208,7 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             if (anOrder.CustomerID != 2)
@@ -229,7 +229,7 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             if (anOrder.CarID != 2)
@@ -250,7 +250,7 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             if (anOrder.PaymentID != 3)
@@ -271,10 +271,10 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.DateOfOrder != Convert.ToDateTime("30/03/2020"))
+            if (anOrder.DateOfOrder != Convert.ToDateTime("06/05/2020"))
             {
                 OK = false;
             }
@@ -292,7 +292,7 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             if (Convert.ToInt32(anOrder.ServiceID) != ServiceID)
@@ -313,7 +313,7 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             if (anOrder.OrderPrice != 50000)
@@ -334,7 +334,7 @@ namespace GTAutosTesting
             //boolean variable to record if data is OK
             Boolean OK = true;
             //creates some test data that is assigned to a variable.
-            int OrderID = 72;
+            int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
             if (anOrder.OrderStatus != "completed")
@@ -358,7 +358,7 @@ namespace GTAutosTesting
             int OrderID = 7;
             //assigns the data to the property.
             Found = anOrder.Find(OrderID);
-            if (anOrder.Completed != false)
+            if (anOrder.Completed != true)
             {
                 OK = false;
             }

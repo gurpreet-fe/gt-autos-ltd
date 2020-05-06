@@ -167,7 +167,7 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void ReportByServiceNameMethodOK()
+        public void ReportByOrderStatusMethodOK()
         {
             ClsOrderCollection AllOrders = new ClsOrderCollection();
             //ClsOrder AnOrder = new ClsOrder();
@@ -177,7 +177,7 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void ReportByServiceNameNoneFound()
+        public void ReportByOrderStatusNoneFound()
         {
             ClsOrderCollection FilteredOrders = new ClsOrderCollection();
             FilteredOrders.ReportByOrderStatus("XXX");
@@ -185,18 +185,18 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void ReportByServiceNameTestDataFound()
+        public void ReportByOrderStatusTestDataFound()
         {
             ClsOrderCollection FilteredOrders = new ClsOrderCollection();
             Boolean OK = true;
             FilteredOrders.ReportByOrderStatus("completed");
-            if (FilteredOrders.Count == 6)
+            if (FilteredOrders.Count == 4)
             {
-                if (FilteredOrders.OrderList[0].OrderID != 72)
+                if (FilteredOrders.OrderList[0].OrderID != 7)
                 {
                     OK = false;
                 }
-                if (FilteredOrders.OrderList[1].OrderID != 75)
+                if (FilteredOrders.OrderList[1].OrderID != 9)
                 {
                     OK = false;
                 }
