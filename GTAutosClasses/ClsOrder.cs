@@ -10,7 +10,7 @@ namespace GTAutosClasses
     {
         private Int32 pOrderID;
         private Int32 pCustomerID;
-        private string pNumberPlate;
+        private Int32 pCarID;
         private Int32 pPaymentID;
         private DateTime pDateOfOrder;
         private int pServiceID;
@@ -41,15 +41,15 @@ namespace GTAutosClasses
                 pCustomerID = value;
             } 
         }
-        public string NumberPlate 
+        public int CarID 
         { 
             get 
             {
-                return pNumberPlate;
+                return pCarID;
             }
             set
             {
-                pNumberPlate = value;
+                pCarID = value;
             } 
         }
         public DateTime DateOfOrder 
@@ -124,7 +124,7 @@ namespace GTAutosClasses
         {
             get 
             {
-                return "OrderID: " + OrderID + ", CustomerID: " +  CustomerID + ", Number Plate: " + NumberPlate + ", Date Of Order: " + DateOfOrder.ToString("dd-MM-yy") + ", ServiceID: " + ServiceID + ", Order Price: " + OrderPrice +  ", Order Status:" + OrderStatus + ", Completed: " + Completed;
+                return "OrderID: " + OrderID + ", CustomerID: " +  CustomerID + ", CardID: " + CarID + ", Date Of Order: " + DateOfOrder.ToString("dd-MM-yy") + ", ServiceID: " + ServiceID + ", Order Price: " + OrderPrice +  ", Order Status:" + OrderStatus + ", Completed: " + Completed;
             }
         }
 
@@ -151,7 +151,7 @@ namespace GTAutosClasses
             {
                 pOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
                 pCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
-                pNumberPlate = Convert.ToString(DB.DataTable.Rows[0]["NumberPlate"]);
+                pCarID = Convert.ToInt32(DB.DataTable.Rows[0]["CarID"]);
                 pPaymentID = Convert.ToInt32(DB.DataTable.Rows[0]["PaymentID"]);
                 pDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
                 pServiceID = Convert.ToInt32(DB.DataTable.Rows[0]["ServiceID"]);

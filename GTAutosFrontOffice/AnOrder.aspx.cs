@@ -10,6 +10,7 @@ using GTAutosClasses;
 public partial class AnOrder : System.Web.UI.Page
 {
     Int32 OrderID;
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
         OrderID = Convert.ToInt32(Session["OrderID"]);
@@ -18,6 +19,7 @@ public partial class AnOrder : System.Web.UI.Page
             if (OrderID != -1) 
             {
                 DisplayOrders();
+                CustomerID = Convert.ToInt32(txtCustomerID.Text);
             }
             DisplayService();
         }
@@ -57,7 +59,7 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void DropDownServices_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+    
     }
 
     protected void txtPrice_TextChanged(object sender, EventArgs e)
@@ -90,6 +92,7 @@ public partial class AnOrder : System.Web.UI.Page
         ClsOrder AnOrder = new ClsOrder();
         string orderID = TxtOrderID.Text;
         string DateOfOrder = TxtDateOfOrder.Text;
+        string customerID = txtCustomerID.Text;
         //string ServiceID = DropDownServices.SelectedValue;
         string OrderPrice = txtPrice.Text;
         string OrderStatus = txtOrderStatus.Text;
@@ -108,9 +111,21 @@ public partial class AnOrder : System.Web.UI.Page
             {
                 AnOrder.OrderID = Convert.ToInt32(TxtOrderID.Text);
             }
-               
-            AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-            AnOrder.NumberPlate = txtCar.Text;
+
+            int OIDC = 0;
+            bool canCC = int.TryParse(customerID, out OIDC);
+            if (canCC == false)
+            {
+                AnOrder.CustomerID = CustomerID;
+                Console.WriteLine(CustomerID);
+            }
+            else
+            {
+                AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            }
+
+           // AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            AnOrder.CarID = Convert.ToInt32(txtCar.Text);
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
             AnOrder.ServiceID = Convert.ToInt32(DropDownServices.SelectedValue);
             double price;
@@ -173,7 +188,7 @@ public partial class AnOrder : System.Web.UI.Page
         if (Found == true)
         {
             txtCustomerID.Text = AnOrder.CustomerID.ToString();
-            txtCar.Text = AnOrder.NumberPlate.ToString();
+            txtCar.Text = AnOrder.CarID.ToString();
             TxtPaymentID.Text = AnOrder.PaymentID.ToString();
             //DropDownPayment.Text = AnOrder.PaymentID.ToString();
             TxtDateOfOrder.Text = AnOrder.DateOfOrder.Date.ToString("dd-MM-yy");
@@ -205,7 +220,7 @@ public partial class AnOrder : System.Web.UI.Page
 
         TxtOrderID.Text = Orders.ThisOrder.OrderID.ToString();
         txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
-        txtCar.Text = Orders.ThisOrder.NumberPlate;
+        txtCar.Text = Orders.ThisOrder.CarID.ToString();
         TxtPaymentID.Text = Orders.ThisOrder.PaymentID.ToString();
         DropDownServices.SelectedValue = Orders.ThisOrder.ServiceID.ToString();
         TxtDateOfOrder.Text = Orders.ThisOrder.DateOfOrder.ToString();
