@@ -15,12 +15,22 @@
         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         <br />
-        Enter order status<asp:TextBox ID="txtOrderStatus" runat="server"></asp:TextBox>
+        Enter order status&nbsp;&nbsp; <asp:TextBox ID="txtOrderStatus" runat="server" style="margin-bottom: 4px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <br />
         <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
-&nbsp;<p>
+&nbsp;<br />
+        <br />
+&nbsp;Enter OrderID&nbsp;
+        <asp:TextBox ID="txtOrderID" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnApply2" runat="server" OnClick="btnApply2_Click" Text="Apply" />
+        <asp:Button ID="btnClear2" runat="server" OnClick="btnClear2_Click" Text="Clear" />
+        <br />
+        <p>
             <asp:Label ID="lblError" runat="server"></asp:Label>
         </p>
     </form>

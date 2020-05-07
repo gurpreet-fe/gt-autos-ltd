@@ -19,7 +19,7 @@ public partial class AnOrder : System.Web.UI.Page
             if (OrderID != -1) 
             {
                 DisplayOrders();
-                CustomerID = Convert.ToInt32(txtCustomerID.Text);
+                //CustomerID = Convert.ToInt32(txtCustomerID.Text);
             }
             DisplayService();
             DisplayCars();
@@ -125,7 +125,6 @@ public partial class AnOrder : System.Web.UI.Page
             if (canCC == false)
             {
                 AnOrder.CustomerID = CustomerID;
-                Console.WriteLine(CustomerID);
             }
             else
             {
@@ -176,7 +175,7 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        ClsOrder AnOrder = new ClsOrder();
+      /*  ClsOrder AnOrder = new ClsOrder();
        // ClsService aService = new ClsService();
         // variable to store the primary key
         Int32 OrderID;
@@ -211,7 +210,7 @@ public partial class AnOrder : System.Web.UI.Page
         else
         {
             Response.Redirect("OrderError.aspx");
-        }
+        }*/
 
     }
 
@@ -250,13 +249,6 @@ public partial class AnOrder : System.Web.UI.Page
         txtOrderStatus.Text = Orders.ThisOrder.OrderStatus;
         CheckBoxCompleted.Checked = Orders.ThisOrder.Completed;
     }
-
-
-
-    /* protected void btnViewList_Click(object sender, EventArgs e)
-     {
-         Response.Redirect("OrderList.aspx");
-     }*/
 
     protected void DropDownCars_SelectedIndexChanged(object sender, EventArgs e)
     {

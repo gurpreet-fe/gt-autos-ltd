@@ -119,5 +119,13 @@ namespace GTAutosClasses
             DB.Execute("sproc_tblOrders_FilterByOrderStatus");
             PopulateArray(DB);
         }
+
+        public void ReportByOrderID(int OrderID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", OrderID);
+            DB.Execute("sproc_tblOrders_FilterByOrderID");
+            PopulateArray(DB);
+        }
     }
 }
