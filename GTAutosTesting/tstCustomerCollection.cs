@@ -11,7 +11,7 @@ namespace GTAutosTesting
         [TestMethod]
         public void CustomerListOK()
         {
-            //create an instance of a customer collection, a customer list and a customer
+            //create an instance of a customer collection, a test customer list and a customer
             clsCustomerCollection allCustomers = new clsCustomerCollection();
             List<clsCustomer> testCustomerList = new List<clsCustomer>();
             clsCustomer testCustomer = new clsCustomer();
@@ -66,15 +66,16 @@ namespace GTAutosTesting
             testCustomer.Marketing = true;
             testCustomer.DateAdded = DateTime.Now.Date;
 
-            allCustomers.thisCustomer = testCustomer;
+            allCustomers.ThisCustomer = testCustomer;
 
-            Assert.AreEqual(allCustomers.thisCustomer, testCustomer);
+            Assert.AreEqual(allCustomers.ThisCustomer, testCustomer);
         }
 
         public void ListAndCountCustomersOK()
         {
             clsCustomerCollection allCustomers = new clsCustomerCollection();
             List<clsCustomer> testCustomerList = new List<clsCustomer>();
+            clsCustomer testCustomer = new clsCustomer();
 
             //define the customer's properties
             testCustomer.Active = true;
