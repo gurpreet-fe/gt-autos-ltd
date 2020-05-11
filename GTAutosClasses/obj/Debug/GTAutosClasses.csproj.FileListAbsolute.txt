@@ -152,3 +152,9 @@ C:\Users\User\Documents\Agile\today\GTAutosClasses\obj\Debug\GTAutosClasses.cspr
 C:\Users\User\Documents\Agile\today\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Agile\today\GTAutosClasses\obj\Debug\GTAutosClasses.dll
 C:\Users\User\Documents\Agile\today\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+C:\Users\felic\OneDrive\Documents\Visual Studio 2019\Matthew-11-05-2020\GTAutosClasses\bin\Debug\GTAutosClasses.dll
+C:\Users\felic\OneDrive\Documents\Visual Studio 2019\Matthew-11-05-2020\GTAutosClasses\bin\Debug\GTAutosClasses.pdb
+C:\Users\felic\OneDrive\Documents\Visual Studio 2019\Matthew-11-05-2020\GTAutosClasses\obj\Debug\GTAutosClasses.csproj.CoreCompileInputs.cache
+C:\Users\felic\OneDrive\Documents\Visual Studio 2019\Matthew-11-05-2020\GTAutosClasses\obj\Debug\GTAutosClasses.dll
+C:\Users\felic\OneDrive\Documents\Visual Studio 2019\Matthew-11-05-2020\GTAutosClasses\obj\Debug\GTAutosClasses.pdb
+C:\Users\felic\OneDrive\Documents\Visual Studio 2019\Matthew-11-05-2020\GTAutosClasses\obj\Debug\GTAutosClasses.csprojAssemblyReference.cache

@@ -4,118 +4,122 @@ namespace GTAutosClasses
 {
     public class clsCustomer
     {
-        private Boolean mActive;
+
         private Int32 mCustomerID;
-        private DateTime mDateAdded;
-        private String mCustomerPassword;
-        private String mAddress;
-        private String mPostcode;
         private String mCustomerFirstName;
         private String mCustomerLastName;
         private String mCustomerPhoneNumber;
+        private String mAddress;
         private String mCustomerEmail;
+        private String mCustomerPassword;
+        private String mPostcode;
         private DateTime mCustomerDOB;
         private Boolean mMarketing;
+        private DateTime mDateAdded;
+        private Boolean mActive;
 
-        public String Valid(string customerFirstName, string customerLastName, string customerPhoneNumber, string customerEmail, string dateAdded, string dateOfBirth, string customerPassword, string address, string postCode)
+
+        public String Valid(string CustomerFirstName, string CustomerLastName, string CustomerPhoneNumber, string Address, 
+            string CustomerEmail, string CustomerPassword, string PostCode, string DateOfBirth)
+
         {
             String Error = "";
             DateTime DateTemp;
             DateTime TempDOB;
 
-            if (customerFirstName.Length == 0)
+            if (CustomerFirstName.Length == 0)
             {
-                Error = Error + "The first name may not be blank.";
+                Error += "The first name may not be blank.";
             }
-            if(customerFirstName.Length > 20)
+            if(CustomerFirstName.Length > 20)
             {
-                Error = Error + "The first name cannot exceed 20 characters";
+                Error += "The first name cannot exceed 20 characters";
             }
 
-            if (customerLastName.Length == 0)
+            if (CustomerLastName.Length == 0)
             {
-                Error = Error + "The last name may not be blank.";
+                Error += "The last name may not be blank.";
             }
-            if(customerLastName.Length > 20)
+            if(CustomerLastName.Length > 20)
             {
-                Error = Error + "The last name cannot exceed 20 characters";
+                Error += "The last name cannot exceed 20 characters";
             }
-            if (customerEmail.Length == 0)
+            if (CustomerEmail.Length == 0)
             {
-                Error = Error + "The email may not be blank.";
+                Error += "The email may not be blank.";
             }
-            if(customerEmail.Length > 50)
+            if(CustomerEmail.Length > 50)
             {
-                Error = Error + "The email cannot exceed 50 characters";
+                Error += "The email cannot exceed 50 characters";
             }
-            if(!customerEmail.Contains("@")) 
+            if(!CustomerEmail.Contains("@")) 
             {
-                Error = Error + "This is not an email address - an email address looks like: 'example@exampledomain.com'";
+                Error += "This is not an email address - an email address looks like: 'example@exampledomain.com'";
             }
-            if(!customerEmail.Contains(".co.uk") || (!customerEmail.Contains(".com"))) 
+            if(!CustomerEmail.Contains(".co.uk") || (!CustomerEmail.Contains(".com"))) 
             {
-                Error = Error + "This is not an email address - an email address looks like: 'example@exampledomain.com'";
+                Error += "This is not an email address - an email address looks like: 'example@exampledomain.com'";
             }
-            if((customerPhoneNumber.Length != 11) ||(!customerPhoneNumber.StartsWith("0")))
+            if((CustomerPhoneNumber.Length != 11) || (!CustomerPhoneNumber.StartsWith("0")) || (!CustomerPhoneNumber.StartsWith("+44")))
             {
-                Error = Error + "This is not a valid telephone number";
+                Error += "This is not a valid telephone number";
             }
-            if(address.Length == 0)
+            if(Address.Length == 0)
             {
-                Error = Error + "The address field cannot be left empty";
+                Error += "The address field cannot be left empty";
             }
-            if(address.Length > 100)
+            if(Address.Length > 100)
             {
-                Error = Error + "The address field cannot exceed 100 characters";
+                Error += "The address field cannot exceed 100 characters";
             }
-            if(postCode.Length == 0)
+            if(PostCode.Length == 0)
             {
-                Error = Error + "The postcode field cannot be left empty";
+                Error += "The postcode field cannot be left empty";
             }
-            if ((postCode.Length != 6) || (postCode.Length != 7) || (postCode.Length != 8))
+            if ((PostCode.Length != 6) || (PostCode.Length != 7) || (PostCode.Length != 8))
             {
-                Error = Error + "Please enter a valid postcode";
+                Error += "Please enter a valid postcode";
             }
-            if(postCode.Length < 8)
+            if(PostCode.Length < 8)
             {
-                Error = Error + "The postcode cannot be longer than 8 characters (including one space)";
+                Error += "Please enter a valid postcode";
             }
 
             try
             {
-                TempDOB = Convert.ToDateTime(dateOfBirth);
+                TempDOB = Convert.ToDateTime(DateOfBirth);
                 if(TempDOB < DateTime.Now.AddYears(-17))
                 {
-                    Error = Error + "You have to be at least 17 years old to use this service";
+                    Error += "You have to be at least 17 years old to use this service";
                 }
 
             }
             catch
             {
-                Error = Error + "Please enter a valid date";
+                Error += "Please enter a valid date";
             }
             
             try 
             {
-                DateTemp = Convert.ToDateTime(dateAdded);
+                DateTemp = Convert.ToDateTime(DateAdded);
                 if(DateTemp < DateTime.Now.Date) 
                 {
-                    Error = Error + "The date cannot be one in the past.";
+                    Error += "The date cannot be one in the past.";
                 }
                 if(DateTemp > DateTime.Now.Date) 
                 {
-                    Error = Error + "The date cannot be one in the future.";
+                    Error += "The date cannot be one in the future.";
                 }
             }
             catch 
             {
-                Error = Error + "Please enter a valid date";
+                Error += "Please enter a valid date";
             }
            
             return Error;
         }
 
-        public bool Find(int customerID)
+        public bool Find(int CustomerID)
         {
 
             clsDataConnection DB = new clsDataConnection();
