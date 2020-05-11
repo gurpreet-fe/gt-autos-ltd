@@ -12,7 +12,7 @@
         </div>
     <p style="margin-top: 0px">
         CarID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtCarID" runat="server" OnTextChanged="TextBox1_TextChanged" Width="95px"></asp:TextBox>
+        <asp:TextBox ID="txtCarID" runat="server" Height="17px" Width="88px"></asp:TextBox>
         &nbsp;<asp:Button ID="BtnFind" runat="server" style="margin-left: 38px" Text="Find" OnClick="btnFind_Click" />
         </p>
         <p style="margin-top: 0px">
