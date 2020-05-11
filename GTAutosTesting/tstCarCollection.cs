@@ -234,18 +234,18 @@ namespace GTAutosTesting
             ClsCarCollection FilteredCars = new ClsCarCollection();
             //var to store the outcome 
             Boolean OK = true;
-            //apply a make that doesnt exsist 
-            FilteredCars.ReportByMake("adfa");
+            //apply a make that doesn't exist 
+            FilteredCars.ReportByMake("XXXX");
             //check that the correct number of records are found
             if (FilteredCars.Count == 2)
             {
-                //check if the firdt rrecord is carid
-                if (FilteredCars.CarList[0].CarID != 9)
+                //check if the first record is carid 6
+                if (FilteredCars.CarList[0].CarID != 6)
                 {
                     OK = false;
                 }
-                //check thet the fisrt record is ID 37
-                if (FilteredCars.CarList[1].CarID != 11)
+                //check thet the first record is ID 8
+                if (FilteredCars.CarList[1].CarID != 8)
                 {
                     OK = false;
                 }
