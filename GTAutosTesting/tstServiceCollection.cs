@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstServiceCollection
+    public class TstServiceCollection
     {
 
         [TestMethod]
@@ -69,12 +69,6 @@ namespace GTAutosTesting
             Assert.AreEqual(AllServices.Count, TestList.Count);
         }
 
-        /*[TestMethod]
-        public void TwoRecordsPresent()
-        {
-            ClsOrderCollection AllOrders = new ClsOrderCollection();
-            Assert.AreEqual(AllOrders.Count, 2);
-        }*/
         [TestMethod]
         public void AddMethodOK()
         {
@@ -89,6 +83,25 @@ namespace GTAutosTesting
             AnService.ServiceID = PrimaryKey;
             AllServices.ThisService.Find(PrimaryKey);
             Assert.AreEqual(AllServices.ThisService, AnService);
+            AllServices.Delete();
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            ClsServiceCollection AllServices = new ClsServiceCollection();
+            ClsService AnService = new ClsService();
+            int PrimaryKey = 0;
+            AnService.ServiceName = "Vale";
+            AnService.ServiceDescription = "sadf";
+            AnService.ServicePrice = 40;
+            AllServices.ThisService = AnService;
+            PrimaryKey = AllServices.Add();
+            AnService.ServiceID = PrimaryKey;
+            AllServices.ThisService.Find(PrimaryKey);
+            AllServices.Delete();
+            bool Found = AllServices.ThisService.Find(PrimaryKey);
+            Assert.IsFalse(Found);
         }
     }
 }

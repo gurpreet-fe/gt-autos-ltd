@@ -58,13 +58,11 @@
   <ItemGroup>
     <Compile Include="clsCar.cs" />
     <Compile Include="clsCarCollection.cs" />
-    <Compile Include="clsCustomer.cs" />
-    <Compile Include="clsCustomerCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
-    <Compile Include="ClsPosition.cs" />
-    <Compile Include="clsRequest.cs" />
-    <Compile Include="ClsStaff.cs" />
-    <Compile Include="OfficeClasses.cs" />
+    <Compile Include="ClsOrder.cs" />
+    <Compile Include="ClsOrderCollection.cs" />
+    <Compile Include="ClsService.cs" />
+    <Compile Include="ClsServiceCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

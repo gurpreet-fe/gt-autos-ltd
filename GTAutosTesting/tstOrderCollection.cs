@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstOrderCollection
+    public class TstOrderCollection
     {
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace GTAutosTesting
             TestItem.DateOfOrder = DateTime.Now.Date;
             TestItem.ServiceID = 1;
             TestItem.OrderPrice = 5000;
-            TestItem.OrderStatus = "Done";
+            TestItem.OrderStatus = "test";
             TestItem.PaymentID = 1;
             TestItem.Completed = true;
             TestList.Add(TestItem);
@@ -71,9 +71,9 @@ namespace GTAutosTesting
             TestItem.CustomerID = 2;
             TestItem.CarID = 2;
             TestItem.DateOfOrder = DateTime.Now.Date;
-            TestItem.ServiceID = 1;
+            TestItem.ServiceID = 66;
             TestItem.OrderPrice = 5000;
-            TestItem.OrderStatus = "Done";
+            TestItem.OrderStatus = "test";
             TestItem.PaymentID = 1;
             TestItem.Completed = true;
             TestList.Add(TestItem);
@@ -96,9 +96,9 @@ namespace GTAutosTesting
             AnOrder.CustomerID = 2;
             AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
-            AnOrder.ServiceID = 1;
+            AnOrder.ServiceID = 66;
             AnOrder.OrderPrice = 5000;
-            AnOrder.OrderStatus = "Done";
+            AnOrder.OrderStatus = "test";
             AnOrder.PaymentID = 3;
             AnOrder.Completed = true;
             AllOrders.ThisOrder = AnOrder;
@@ -118,7 +118,7 @@ namespace GTAutosTesting
             AnOrder.CustomerID = 2;
             AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
-            AnOrder.ServiceID = 1;
+            AnOrder.ServiceID = 66;
             AnOrder.OrderPrice = 50000;
             AnOrder.OrderStatus = "Done";
             AnOrder.PaymentID = 3;
@@ -141,7 +141,7 @@ namespace GTAutosTesting
             AnOrder.CustomerID = 2;
             AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
-            AnOrder.ServiceID = 1;
+            AnOrder.ServiceID = 66;
             AnOrder.OrderPrice = 50000;
             AnOrder.OrderStatus = "pending";
             AnOrder.PaymentID = 3;
@@ -154,7 +154,7 @@ namespace GTAutosTesting
             AnOrder.CustomerID = 2;
             AnOrder.CarID = 2;
             AnOrder.DateOfOrder = DateTime.Now.Date;
-            AnOrder.ServiceID = 2;
+            AnOrder.ServiceID = 66;
             AnOrder.OrderPrice = 50000;
             AnOrder.OrderStatus = "completed";
             AnOrder.PaymentID = 3;
@@ -164,6 +164,7 @@ namespace GTAutosTesting
             AllOrders.Update();
             AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.AreEqual(AllOrders.ThisOrder, AnOrder);
+            AllOrders.Delete();
         }
 
         [TestMethod]
@@ -190,13 +191,13 @@ namespace GTAutosTesting
             ClsOrderCollection FilteredOrders = new ClsOrderCollection();
             Boolean OK = true;
             FilteredOrders.ReportByOrderStatus("completed");
-            if (FilteredOrders.Count == 4)
+            if (FilteredOrders.Count == 8)
             {
-                if (FilteredOrders.OrderList[0].OrderID != 7)
+                if (FilteredOrders.OrderList[0].OrderID != 51)
                 {
                     OK = false;
                 }
-                if (FilteredOrders.OrderList[1].OrderID != 9)
+                if (FilteredOrders.OrderList[1].OrderID != 52)
                 {
                     OK = false;
                 }

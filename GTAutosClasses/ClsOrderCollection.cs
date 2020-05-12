@@ -20,13 +20,11 @@ namespace GTAutosClasses
         {
             Int32 Index = 0;
             Int32 RecordCount = 0;
-            //clsDataConnection DB = new clsDataConnection();
             RecordCount = DB.Count;
             mOrderList = new List<ClsOrder>();
             while (Index < RecordCount)
             {
                 ClsOrder AnOrder = new ClsOrder();
-                //ClsService thisService = new ClsService();
                 AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
                 AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 AnOrder.CarID = Convert.ToInt32(DB.DataTable.Rows[Index]["CarID"]);
