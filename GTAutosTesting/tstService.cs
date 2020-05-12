@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstService
+    public class TstService
     {
         //Creating good test data.
         int ServiceID = 1;
