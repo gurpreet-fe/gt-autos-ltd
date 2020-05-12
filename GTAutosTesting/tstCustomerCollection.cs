@@ -17,18 +17,19 @@ namespace GTAutosTesting
             clsCustomer testCustomer = new clsCustomer();
 
             //define the customer's properties
-            testCustomer.Active = true;
-            testCustomer.Address = "21 Test Street, Test Town";
-            testCustomer.CustomerID = 2;
+            testCustomer.CustomerID = 6;
             testCustomer.CustomerFirstName = "Matt";
             testCustomer.CustomerLastName = "Smart";
-            testCustomer.CustomerPhoneNumber = "07696969696";
-            testCustomer.CustomerPassword = "asdfghjkl";
+            testCustomer.CustomerPhoneNumber = "07123456789";
+            testCustomer.Address = "1 Test Street, Leicester";
             testCustomer.CustomerEmail = "mattsmart@email.com";
+            testCustomer.CustomerPassword = "asdfghjkl";
+            testCustomer.PostCode = "LE2 7PT";
             testCustomer.CustomerDOB = Convert.ToDateTime("13/05/1996");
             testCustomer.Marketing = true;
             testCustomer.DateAdded = DateTime.Now.Date;
-
+            testCustomer.Active = true;
+            
             //add the test customer to the list
             testCustomerList.Add(testCustomer);
 
@@ -54,17 +55,18 @@ namespace GTAutosTesting
             clsCustomer testCustomer = new clsCustomer();
 
             //define the customer's properties
-            testCustomer.Active = true;
-            testCustomer.Address = "21 Test Street, Test Town";
-            testCustomer.CustomerID = 1;
+            testCustomer.CustomerID = 6;
             testCustomer.CustomerFirstName = "Matt";
             testCustomer.CustomerLastName = "Smart";
-            testCustomer.CustomerPhoneNumber = "07696969696";
-            testCustomer.CustomerPassword = "asdfghjkl";
+            testCustomer.CustomerPhoneNumber = "07123456789";
+            testCustomer.Address = "1 Test Street, Leicester";
             testCustomer.CustomerEmail = "mattsmart@email.com";
+            testCustomer.CustomerPassword = "asdfghjkl";
+            testCustomer.PostCode = "LE2 7PT";
             testCustomer.CustomerDOB = Convert.ToDateTime("13/05/1996");
             testCustomer.Marketing = true;
             testCustomer.DateAdded = DateTime.Now.Date;
+            testCustomer.Active = true;
 
             allCustomers.ThisCustomer = testCustomer;
 
@@ -78,17 +80,18 @@ namespace GTAutosTesting
             clsCustomer testCustomer = new clsCustomer();
 
             //define the customer's properties
-            testCustomer.Active = true;
-            testCustomer.Address = "21 Test Street, Test Town";
-            testCustomer.CustomerID = 1;
+            testCustomer.CustomerID = 6;
             testCustomer.CustomerFirstName = "Matt";
             testCustomer.CustomerLastName = "Smart";
-            testCustomer.CustomerPhoneNumber = "07696969696";
-            testCustomer.CustomerPassword = "asdfghjkl";
+            testCustomer.CustomerPhoneNumber = "07123456789";
+            testCustomer.Address = "1 Test Street, Leicester";
             testCustomer.CustomerEmail = "mattsmart@email.com";
+            testCustomer.CustomerPassword = "asdfghjkl";
+            testCustomer.PostCode = "LE2 7PT";
             testCustomer.CustomerDOB = Convert.ToDateTime("13/05/1996");
             testCustomer.Marketing = true;
             testCustomer.DateAdded = DateTime.Now.Date;
+            testCustomer.Active = true;
 
             testCustomerList.Add(testCustomer);
             allCustomers.CustomerList = testCustomerList;

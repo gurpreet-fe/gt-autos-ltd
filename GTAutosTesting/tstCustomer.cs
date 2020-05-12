@@ -7,22 +7,26 @@ namespace GTAutosTesting
     [TestClass]
     public class tstCustomer
     {
-        string customerPassword = "qwertyuiop";
-        string address = "21B Test Address, Test Town";
-        string postCode = "AA1 1AA";
-        string customerFirstName = "Testy";
-        string customerLastName = "McTester";
-        string customerPhoneNumber = "01234567890";
-        string customerEmail = "testymctester@testemail.com";
-        string dateAdded = "06/03/2020";
-        string dateOfBirth = "13/05/1996";
+
+        string CustomerFirstName = "Jimbo";
+        string CustomerLastName = "Testy";
+        string CustomerPhoneNumber = "0123456789";
+        string Address = "21 Distant Avenue, Northampton";
+        string CustomerEmail = "jimbotesty@testemail.com";
+        string CustomerPassword = "qwertyuiop";
+        string PostCode = "NN1 2AJ";
+        string DateOfBirth = "20/12/1989";
+        string DateAdded = "06/03/2020";
+        string OptInMarketing = "true";
+
 
         [TestMethod]
         public void ValidMethodOK()
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
         }
 
         [TestMethod]
@@ -37,7 +41,7 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
             Assert.IsTrue(Found);
         }
@@ -57,7 +61,7 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.Active != true)
             {
@@ -81,9 +85,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerFirstName != "Testy")
+            if (aCustomer.CustomerFirstName != "Jimbo")
             {
                 OK = false;
             }
@@ -95,8 +99,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -105,8 +110,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "a";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "a";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -114,8 +120,10 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "aa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "aa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -123,8 +131,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "aaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "aaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -133,8 +142,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "aaaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -142,8 +152,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "aaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "aaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -152,8 +163,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "aaaaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -162,9 +174,10 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "";
-            customerFirstName = customerFirstName.PadRight(500, 'a');
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "";
+            CustomerFirstName = customerFirstName.PadRight(500, 'a');
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -172,7 +185,7 @@ namespace GTAutosTesting
         public void CustomerLastNameOK()
         {
             clsCustomer aCustomer = new clsCustomer();
-            string TestData = "Morrison";
+            string TestData = "Testy";
             aCustomer.CustomerLastName = TestData;
             Assert.AreEqual(aCustomer.CustomerLastName, TestData);
         }
@@ -183,9 +196,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerLastName != "McTester")
+            if (aCustomer.CustomerLastName != "Testy")
             {
                 OK = false;
             }
@@ -197,8 +210,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -207,8 +221,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "a";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "a";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -216,8 +231,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "aa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "aa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -226,8 +242,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "aaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "aaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -236,8 +253,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "aaaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "aaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -245,8 +263,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "aaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "aaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -255,8 +274,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerLastName = "aaaaaaaaaaaaaaaaaaaaa";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerLastName = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -265,9 +285,10 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerFirstName = "";
-            customerFirstName = customerLastName.PadRight(500, 'a');
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerFirstName = "";
+            CustomerFirstName = CustomerLastName.PadRight(500, 'a');
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -277,9 +298,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerID != 1)
+            if (aCustomer.CustomerID != 2)
             {
                 OK = false;
             }
@@ -290,7 +311,7 @@ namespace GTAutosTesting
         public void CustomerIDPropertyOK()
         {
             clsCustomer aCustomer = new clsCustomer();
-            Int32 TestData = 1;
+            Int32 TestData = 2;
             aCustomer.CustomerID = TestData;
             Assert.AreEqual(aCustomer.CustomerID, TestData);
         }
@@ -310,9 +331,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.DateAdded != Convert.ToDateTime("12/02/2020"))
+            if (aCustomer.DateAdded != Convert.ToDateTime("17/02/2020"))
             {
                 OK = false;
             }
@@ -327,8 +348,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -340,8 +362,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-1);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -352,8 +375,9 @@ namespace GTAutosTesting
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -365,8 +389,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(1);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -378,8 +403,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateAdded = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -389,7 +415,8 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
             String dateAdded = "This is not a date.";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -399,7 +426,6 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             string TestData = "asdfghjkl";
-            char PasswordChar = '*';
             aCustomer.CustomerPassword = TestData;
             Assert.AreEqual(aCustomer.CustomerPassword, TestData);
         }
@@ -410,7 +436,7 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerPassword != "qwertyuiop")
             {
@@ -424,7 +450,7 @@ namespace GTAutosTesting
         public void CustomerEmailOK()
         {
             clsCustomer aCustomer = new clsCustomer();
-            string TestData = "jimbob.morrison@outlook.com";
+            string TestData = "jimbotesty@testemail.com";
             aCustomer.CustomerEmail = TestData;
             Assert.AreEqual(aCustomer.CustomerEmail, TestData);
         }
@@ -435,9 +461,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerEmail != "testymctester@testemail.com")
+            if (aCustomer.CustomerEmail != "jimbotesty@testemail.com")
             {
                 OK = false;
             }
@@ -449,8 +475,10 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -458,8 +486,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "a@a.com";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "a@a.com";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -467,8 +496,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "aa@a.com";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "aa@a.com";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -477,8 +507,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "thisisafortyninecharacteremail@testtestyemail.com";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "thisisafortyninecharacteremail@testtestyemail.com";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -487,8 +518,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "thisisafiftycharacteremailhahah@testtestyemail.com";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "thisisafiftycharacteremailhahah@testtestyemail.com";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -496,8 +528,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "halfieemail@emailhalf.com";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "halfieemail@emailhalf.com";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -506,8 +539,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "thisisanexccessivelylongemail@testrlystupidemail.com";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "thisisanexccessivelylongemail@testrlystupidemail.com";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -516,8 +550,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerEmail = "stupidpointlessemailtestconditionmustlookforthemaximumlevelofcharacterspossiblethatsomeonewouldselfishlyenter@icantbebotheredtocomeupwithadecentemaildomain.co.uk";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerEmail = "stupidpointlessemailtestconditionmustlookforthemaximumlevelofcharacterspossiblethatsomeonewouldselfishlyenter@icantbebotheredtocomeupwithadecentemaildomain.co.uk";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -536,7 +571,7 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.CustomerPhoneNumber != "01234567890")
             {
@@ -550,8 +585,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerPhoneNumber = "";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -560,8 +596,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "0";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerPhoneNumber = "0";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -569,8 +606,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "01";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerPhoneNumber = "01";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -579,8 +617,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "0123456789";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerPhoneNumber = "0123456789";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -589,8 +628,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "01234567890";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerPhoneNumber = "01234567890";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -599,7 +639,8 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
             String customerPhoneNumber = "012345";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -608,8 +649,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "012345678901";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String CustomerPhoneNumber = "012345678901";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -619,7 +661,8 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
             String customerPhoneNumber = "0123456789001234567890012345678900123456789001234567890012345678900123456789001234567890";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -627,7 +670,7 @@ namespace GTAutosTesting
         public void CustomerDOBOK()
         {
             clsCustomer aCustomer = new clsCustomer();
-            DateTime TestData = Convert.ToDateTime("31/01/1900");
+            DateTime TestData = Convert.ToDateTime("20/12/1989");
             aCustomer.CustomerDOB = TestData;
             Assert.AreEqual(aCustomer.CustomerDOB, TestData);
         }
@@ -638,16 +681,16 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.CustomerDOB != Convert.ToDateTime("12/02/2020"))
+            if (aCustomer.CustomerDOB != Convert.ToDateTime("20/12/1989"))
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
 
-                [TestMethod]
+        [TestMethod]
         public void CustomerDOBExtremeMin() 
         {
             clsCustomer aCustomer = new clsCustomer();
@@ -655,8 +698,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateOfBirth = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -668,8 +712,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-16);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateOfBirth = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -681,8 +726,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-17);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateOfBirth = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -694,8 +740,9 @@ namespace GTAutosTesting
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-18);
-            String dateAdded = TestDate.ToString();
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateOfBirth = TestDate.ToString();
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -705,8 +752,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String dateAdded = "This is not a date.";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String DateOfBirth = "This is not a date.";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -714,7 +762,7 @@ namespace GTAutosTesting
         public void AddressPropertyOK()
         {
             clsCustomer aCustomer = new clsCustomer();
-            String TestData = "21 Test Street, Test Town";
+            String TestData = "21 Distant Avenue, Northampton";
             aCustomer.Address = TestData;
             Assert.AreEqual(aCustomer.Address, TestData);
         }
@@ -725,9 +773,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.Address != "21 Test Street, Test Town")
+            if (aCustomer.Address != "21 Distant Avenue, Northampton")
             {
                 OK = false;
             }
@@ -739,8 +787,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -749,8 +798,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "2";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "2";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -758,8 +808,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "21";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "21";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -768,8 +819,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Testin";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Testin";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -778,8 +830,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Testing";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Testing";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -787,8 +840,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "Flat 21, Test House, Test Road, Test Town, Test County";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "Flat 21, Test House, Test Road, Test Town, Test County";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -797,8 +851,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Test Testing";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Test Testing";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -807,8 +862,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Test Testing, Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Test Testing";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String Address = "Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Test Testing, Flat 21 Flat 21, Test House Test House, Test Road Test Road, Test Town Test Town, Test County Test Testing";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -816,7 +872,7 @@ namespace GTAutosTesting
         public void PostCodePropertyOK()
         {
             clsCustomer aCustomer = new clsCustomer();
-            string TestData = "LE1 7PT";
+            string TestData = "NN1 2AJ";
             aCustomer.PostCode = TestData;
             Assert.AreEqual(aCustomer.PostCode, TestData);
         }
@@ -827,9 +883,9 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
-            if (aCustomer.PostCode != "AA1 1AA")
+            if (aCustomer.PostCode != "NN1 2AJ")
             {
                 OK = false;
             }
@@ -841,8 +897,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -851,8 +908,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "L";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "N";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -860,8 +918,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "LE";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "NN";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -870,8 +929,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "LE2 9PT";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "NN1 1AJ";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -880,8 +940,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "SE17 4TE";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "SE17 4TE";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -889,8 +950,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "LE27PT";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "LE27PT";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -899,8 +961,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "SE16 8TDE";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "SE16 8TDE";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -909,8 +972,9 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String postCode = "SEH34 8EDF";
-            Error = aCustomer.Valid(customerFirstName, customerLastName, customerPhoneNumber, customerEmail, dateAdded, dateOfBirth, customerPassword, address, postCode);
+            String PostCode = "SEH34 8EDF";
+            Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
+            CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
         }
 
@@ -928,7 +992,7 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             Found = aCustomer.Find(CustomerID);
             if (aCustomer.Marketing != false)
             {
@@ -938,3 +1002,4 @@ namespace GTAutosTesting
         }
     }
 }
+ 

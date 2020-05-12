@@ -12,7 +12,7 @@ namespace GTAutosClasses
         private String mAddress;
         private String mCustomerEmail;
         private String mCustomerPassword;
-        private String mPostcode;
+        private String mPostCode;
         private DateTime mCustomerDOB;
         private Boolean mMarketing;
         private DateTime mDateAdded;
@@ -20,7 +20,7 @@ namespace GTAutosClasses
 
 
         public String Valid(string CustomerFirstName, string CustomerLastName, string CustomerPhoneNumber, string Address, 
-            string CustomerEmail, string CustomerPassword, string PostCode, string DateOfBirth)
+            string CustomerEmail, string CustomerPassword, string PostCode, string DateOfBirth, string Marketing, string DateAdded, string Active)
 
         {
             String Error = "";
@@ -132,7 +132,7 @@ namespace GTAutosClasses
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                mPostcode = Convert.ToString(DB.DataTable.Rows[0]["Postcode"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["Postcode"]);
                 mCustomerFirstName = Convert.ToString(DB.DataTable.Rows[0]["CustomerFirstName"]);
                 mCustomerLastName = Convert.ToString(DB.DataTable.Rows[0]["CustomerLastName"]);
                 mCustomerPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
@@ -189,11 +189,11 @@ namespace GTAutosClasses
         {
             get
             {
-                return mPostcode;
+                return mPostCode;
             }
             set
             {
-                mPostcode = value;
+                mPostCode = value;
             }
         }
 

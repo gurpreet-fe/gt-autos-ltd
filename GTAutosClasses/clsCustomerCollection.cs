@@ -77,11 +77,6 @@ namespace GTAutosClasses
 			{
 				return mCustomerList.Count;
 			}
-			set
-			{
-				//to complete
-			}
-
 		}
 
 		public int Add()
@@ -114,7 +109,7 @@ namespace GTAutosClasses
 		public void Update()
 		{
 			clsDataConnection DB = new clsDataConnection();
-			// clsCustomer aCustomer = new clsCustomer();
+			
 			DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
 			DB.AddParameter("@CustomerFirstName", mThisCustomer.CustomerFirstName);
 			DB.AddParameter("@CustomerLastName", mThisCustomer.CustomerLastName);
@@ -129,6 +124,22 @@ namespace GTAutosClasses
 
 			DB.Execute("sproc_tblCustomer_Update");
 		}
+
+		 public void ReportByCustomerID(int CustomerID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerID", CustomerID);
+            DB.Execute("sproc_tblOrders_FilterByCustomerID");
+            PopulateArray(DB);
+        }
+
+        public void ReportByPostCode(string PostCode)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Postcode", PostCode);
+            DB.Execute("sproc_tblOrders_FilterPostCode");
+            PopulateArray(DB);
+        }
 
 	}
 }
