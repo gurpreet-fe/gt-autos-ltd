@@ -14,19 +14,17 @@ public partial class CustomerList : System.Web.UI.Page
         {
             DisplayCustomers();
         }
+        if (lstCustomerList.Items.Count == 0)
+        {
+            lblError.Text = "There are no existing customers. ";
+        }
     }
-
-    protected void lstCustomerList_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    void DisplayOrders()
+    void DisplayCustomers()
     {
         GTAutosClasses.clsCustomerCollection Customers = new GTAutosClasses.clsCustomerCollection();
-        lstCustomerList.DataSource = Customer.CustomerList;
+        lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
-        lstCustomerList.DataTextField = "allProperties";
+        lstCustomerList.DataTextField = "Postcode";
         lstCustomerList.DataBind();
     }
 
@@ -58,31 +56,50 @@ public partial class CustomerList : System.Web.UI.Page
 
         if (lstCustomerList.SelectedIndex != -1)
         {
-            CustomerID = Convert.ToInt32(lstOrderList.SelectedValue);
+            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerID"] = CustomerID;
             Response.Redirect("ACustomer.aspx");
         }
         else
         {
-            lblError.Text = "Please select a record to edit";
+            lblError.Text = "Please select a valid CustomerID to edit";
         }
 
     }
     protected void btnApply_Click(object sender, EventArgs e)
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
-        Customers.ReportByOrderStatus(txtOrderStatus.Text);
+
+        lblError.Text = "";
+        string CustomerID = txtCustomerID.Text;
+        int ID = 0;
+        bool test = int.TryParse(CustomerID, out ID);
+        if (test == false)
+        {
+            lblError.Text = "Please enter a valid Customer ID";
+        }
+        else
+        {
+            ID = Convert.ToInt32(CustomerID);
+            Customers.ReportByCustomerID(ID);
+        }
+
         lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "allProperties";
         lstCustomerList.DataBind();
+
+        if (lstCustomerList.Items.Count <= 0)
+        {
+            lblError.Text = "There are no customers with the ID " + CustomerID;
+        }
     }
+
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
-        Customers.ReportByOrderStatus("");
-        txtOrderStatus.Text = "";
+        txtCustomerID.Text = "";
         DisplayCustomers();
     }
 }
