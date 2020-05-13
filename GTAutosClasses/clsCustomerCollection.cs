@@ -137,7 +137,7 @@ namespace GTAutosClasses
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@Postcode", PostCode);
-            DB.Execute("sproc_tblOrders_FilterPostCode");
+            DB.Execute("sproc_tblOrders_FilterByPostCode");
             PopulateArray(DB);
         }
 
