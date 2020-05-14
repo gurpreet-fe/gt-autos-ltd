@@ -14,7 +14,6 @@ namespace GTAutosClasses
         private Int32 pPaymentID;
         private DateTime pDateOfOrder;
         private int pServiceID;
-        //private ClsService pServiceID;
         private double pOrderPrice;
         private string pOrderStatus;
         private Boolean pCompleted;
@@ -130,16 +129,6 @@ namespace GTAutosClasses
 
         public bool Find(int OrderID)
         {
-            //pOrderID = 1;
-            //pCustomerID = 1;
-            //pCardID = "MP04XTT";
-            //pPaymentID = 1;
-            //pDateOfOrder = DateTime.Now.Date;
-            //pServiceID = "MOT";
-            //pOrderPrice = 20.5;
-            //pOrderStatus = "Completed";
-            //pCompleted = true;
-            //return true;
             // Create a new database connection instance.
             clsDataConnection DB = new clsDataConnection();
             // Add the parameter for the Order ID to search for.
@@ -171,15 +160,6 @@ namespace GTAutosClasses
             String Error = "";
             DateTime DateTemp;
             double number;
-            //if (serviceID.Length == 0) 
-            //{
-            //    Error = Error + "The serviceID may not be kept empty : "; 
-            //}
-
-            //if (serviceID.Length > 50) 
-            //{
-            //    Error = Error + "The serviceID must be less then 50 characters : ";
-            //}
             try
             {
                 DateTemp = Convert.ToDateTime(dateOfOrder);
@@ -223,22 +203,5 @@ namespace GTAutosClasses
             }
             return Error;
         }
-
-      /*  public void Add()
-        {
-            clsDataConnection DB = new clsDataConnection();
-            ClsOrder AnOrder = new ClsOrder();
-            DB.AddParameter("@CustomerID", AnOrder.CustomerID);
-            DB.AddParameter("@NumberPlate", AnOrder.NumberPlate);
-            DB.AddParameter("@PaymentID", AnOrder.PaymentID);
-            DB.AddParameter("@DateOfOrder", AnOrder.DateOfOrder = DateTime.Now.Date);
-            DB.AddParameter("@ServiceID", AnOrder.ServiceID);
-            DB.AddParameter("@OrderPrice", AnOrder.OrderPrice);
-            DB.AddParameter("@OrderStatus", AnOrder.pOrderStatus);
-            DB.AddParameter("@Completed", AnOrder.Completed);
-
-            DB.Execute("sproc_tblOrder_InsertOrder");
-
-        }*/
     }
 }

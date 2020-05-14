@@ -19,7 +19,6 @@ public partial class AnOrder : System.Web.UI.Page
             if (OrderID != -1) 
             {
                 DisplayOrders();
-                //CustomerID = Convert.ToInt32(txtCustomerID.Text);
             }
             DisplayService();
             DisplayCars();
@@ -56,10 +55,10 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void DropDownServices_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (DropDownServices.SelectedIndex == DropDownServices.SelectedIndex) 
+       /* if (DropDownServices.SelectedIndex == DropDownServices.SelectedIndex) 
         {
-            txtPrice.Text = DropDownServices.SelectedValue;
-        }
+            txtPrice.Text = DropDownServices.SelectedValue.Equal;
+        }*/
         /*ClsService service = new ClsService();
         service.ServicePrice = Convert.ToDouble(DropDownServices.SelectedValue);*/
        
@@ -96,7 +95,6 @@ public partial class AnOrder : System.Web.UI.Page
         string orderID = TxtOrderID.Text;
         string DateOfOrder = TxtDateOfOrder.Text;
         string customerID = txtCustomerID.Text;
-        //string ServiceID = DropDownServices.SelectedValue;
         string OrderPrice = txtPrice.Text;
         string OrderStatus = txtOrderStatus.Text;
         string Error = "";
@@ -126,8 +124,6 @@ public partial class AnOrder : System.Web.UI.Page
                 AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             }
 
-            // AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-            // AnOrder.CarID = Convert.ToInt32(txtCar.Text);
             AnOrder.CarID = Convert.ToInt32(DropDownCars.SelectedValue);
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
             AnOrder.ServiceID = Convert.ToInt32(DropDownServices.SelectedValue);
@@ -149,10 +145,7 @@ public partial class AnOrder : System.Web.UI.Page
                 OrderList.ThisOrder = AnOrder;
                 OrderList.Update();
             }
-            /* OrderList.ThisOrder = AnOrder;
-             OrderList.Add();
-             Session["AnOrder"] = -1; // AnOrder;
-             Response.Redirect("AnOrder.aspx");*/
+
             Response.Redirect("OrderList.aspx");
         }
         else
@@ -163,8 +156,6 @@ public partial class AnOrder : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        /*OrderID = 0;
-        Response.Redirect("AnOrder.aspx");*/
         Response.Redirect("OrderList.aspx");
     }
 
@@ -195,7 +186,6 @@ public partial class AnOrder : System.Web.UI.Page
         TxtOrderID.Text = Orders.ThisOrder.OrderID.ToString();
         txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
         DropDownCars.SelectedValue = Orders.ThisOrder.CarID.ToString();
-        //txtCar.Text = Orders.ThisOrder.CarID.ToString();
         TxtPaymentID.Text = Orders.ThisOrder.PaymentID.ToString();
         DropDownServices.SelectedValue = Orders.ThisOrder.ServiceID.ToString();
         TxtDateOfOrder.Text = Orders.ThisOrder.DateOfOrder.ToString();

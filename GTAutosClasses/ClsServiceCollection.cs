@@ -14,8 +14,6 @@ namespace GTAutosClasses
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblService_SelectAll");
             PopulateArray(DB);
-
-
         }
         void PopulateArray(clsDataConnection DB)
         {

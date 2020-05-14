@@ -121,7 +121,7 @@ namespace GTAutosClasses
         {
             get 
             {
-                return /*"Make: " + mMake + ",*/ "Model: " + Model + ", Price: " + Price;
+                return /*"Make: " + mMake + ",*/ "Model: " + Model + ", Price: £" + Price;
             }
         }
         //-----------------------------------------------------

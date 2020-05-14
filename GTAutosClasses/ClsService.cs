@@ -62,7 +62,6 @@ namespace GTAutosClasses
             }
         }
 
-        // This works for now however should be moved to the controller instead of the model
         public string DataField{
             get
             {
