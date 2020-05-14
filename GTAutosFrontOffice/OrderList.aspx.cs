@@ -141,8 +141,6 @@ public partial class OrderList : System.Web.UI.Page
         }
     }
 
-
-
     protected void BtnClear2_Click(object sender, EventArgs e)
     {
         ClsOrderCollection Orders = new ClsOrderCollection();
