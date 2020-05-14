@@ -15,11 +15,11 @@ namespace GTAutosClasses
 
 			clsDataConnection DB = new clsDataConnection();
 			DB.Execute("sproc_tblCustomer_selectAll");
-			generateArray(DB);
+			GenerateArray(DB);
 	
 		}
 
-		void generateArray(clsDataConnection DB)
+		void GenerateArray(clsDataConnection DB)
 		{
 			Int32 index = 0;
 			Int32 recordCount = 0;
@@ -130,7 +130,7 @@ namespace GTAutosClasses
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CustomerID", CustomerID);
             DB.Execute("sproc_tblOrders_FilterByCustomerID");
-            PopulateArray(DB);
+            GenerateArray(DB);
         }
 
         public void ReportByPostCode(string PostCode)
@@ -138,7 +138,7 @@ namespace GTAutosClasses
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@Postcode", PostCode);
             DB.Execute("sproc_tblOrders_FilterByPostCode");
-            PopulateArray(DB);
+            GenerateArray(DB);
         }
 
 	}

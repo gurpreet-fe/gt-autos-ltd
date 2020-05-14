@@ -8,30 +8,33 @@
 <body style="height: 24px">
     <form id="form1" runat="server">
         <div>
+            CustomerID
+            <asp:TextBox ID="txtCustomerID" runat="server" OnTextChanged="TxtCustomerID_TextChanged"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <br />
             First Name
             <asp:TextBox ID="txtFirstName" runat="server" OnTextChanged="TxtFirstName_TextChanged"></asp:TextBox>
             <br />
             Last Name
             <asp:TextBox ID="txtLastName" runat="server" OnTextChanged="TxtLastName_TextChanged"></asp:TextBox>
             <br />
-            Date of Birth
-            <asp:TextBox ID="txtDateOfBirth" runat="server" OnTextChanged="TxtDateOfBirth_TextChanged"></asp:TextBox>
+            Phone Number 
+            <asp:TextBox ID="txtPhoneNumber" runat="server" OnTextChanged="TxtPhoneNumber_TextChanged"></asp:TextBox>
             <br />
             Address
             <asp:TextBox ID="txtAddress" runat="server" OnTextChanged="TxtAddress_TextChanged"></asp:TextBox>
             <br />
-            Postcode
-            <asp:TextBox ID="txtPostcode" runat="server" OnTextChanged="TxtPostcode_TextChanged"></asp:TextBox>
+            Email Address
+            <asp:TextBox ID="txtEmailAddress" runat="server" OnTextChanged="TxtEmailAddress_TextChanged"></asp:TextBox>
             <br />
-            Phone Number 
-            <asp:TextBox ID="txtPhoneNumber" runat="server" OnTextChanged="TxtPhoneNumber_TextChanged"></asp:TextBox>
-            <br />
-            CustomerID
-            <asp:TextBox ID="txtCustomerID" runat="server" OnTextChanged="TxtCustomerID_TextChanged"></asp:TextBox>
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            Date of Birth
+            <asp:TextBox ID="txtDateOfBirth" runat="server" OnTextChanged="TxtDateOfBirth_TextChanged"></asp:TextBox>
             <br />
             Password
             <asp:TextBox ID="txtPassword" runat="server" OnTextChanged="TxtPassword_TextChanged"></asp:TextBox>
+            <br />
+            Postcode
+            <asp:TextBox ID="txtPostcode" runat="server" OnTextChanged="TxtPostcode_TextChanged"></asp:TextBox>
             <br />
             <asp:CheckBox ID="OptInMarketingCompleted" runat="server" OnCheckedChanged="CheckBoxMarketing_CheckedChanged" />
             <br />
@@ -40,6 +43,7 @@
             <br />
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
          </div>
     </form>
 </body>
