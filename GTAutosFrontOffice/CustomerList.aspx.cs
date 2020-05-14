@@ -28,13 +28,13 @@ public partial class CustomerList : System.Web.UI.Page
         lstCustomerList.DataBind();
     }
 
-    protected void btnAdd_Click(object sender, EventArgs e)
+    protected void BtnAdd_Click(object sender, EventArgs e)
     {
         Session["CustomerID"] = -1;
         Response.Redirect("ACustomer.aspx");
     }
 
-    protected void btnDelete_Click(object sender, EventArgs e)
+    protected void BtnDelete_Click(object sender, EventArgs e)
     {
         int CustomerID;
 
@@ -50,7 +50,7 @@ public partial class CustomerList : System.Web.UI.Page
         }
     }
 
-    protected void btnEdit_Click(object sender, EventArgs e)
+    protected void BtnEdit_Click(object sender, EventArgs e)
     {
         int CustomerID;
 
@@ -66,7 +66,7 @@ public partial class CustomerList : System.Web.UI.Page
         }
 
     }
-    protected void btnApply_Click(object sender, EventArgs e)
+    protected void BtnApply_Click(object sender, EventArgs e)
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
 
@@ -96,10 +96,11 @@ public partial class CustomerList : System.Web.UI.Page
     }
 
 
-    protected void btnClear_Click(object sender, EventArgs e)
+    protected void BtnClear_Click(object sender, EventArgs e)
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
         txtCustomerID.Text = "";
         DisplayCustomers();
+        lblError.Text = "";
     }
 }

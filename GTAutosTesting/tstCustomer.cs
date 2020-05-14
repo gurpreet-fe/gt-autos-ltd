@@ -17,7 +17,8 @@ namespace GTAutosTesting
         string PostCode = "NN1 2AJ";
         string DateOfBirth = "20/12/1989";
         string DateAdded = "06/03/2020";
-        string OptInMarketing = "true";
+        string Marketing = "true";
+        string Active = "true";
 
 
         [TestMethod]
@@ -175,7 +176,7 @@ namespace GTAutosTesting
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
             String CustomerFirstName = "";
-            CustomerFirstName = customerFirstName.PadRight(500, 'a');
+            CustomerFirstName = CustomerFirstName.PadRight(500, 'a');
             Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
             CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
@@ -414,7 +415,7 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String dateAdded = "This is not a date.";
+            String DateAdded = "This is not a date.";
             Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
             CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
@@ -638,7 +639,7 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "012345";
+            String CustomerPhoneNumber = "012345";
             Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
             CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");
@@ -660,7 +661,7 @@ namespace GTAutosTesting
         {
             clsCustomer aCustomer = new clsCustomer();
             String Error = "";
-            String customerPhoneNumber = "0123456789001234567890012345678900123456789001234567890012345678900123456789001234567890";
+            String CustomerPhoneNumber = "0123456789001234567890012345678900123456789001234567890012345678900123456789001234567890";
             Error = aCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerPhoneNumber, Address,
             CustomerEmail, CustomerPassword, PostCode, DateOfBirth, Marketing, DateAdded, Active);
             Assert.AreEqual(Error, "");

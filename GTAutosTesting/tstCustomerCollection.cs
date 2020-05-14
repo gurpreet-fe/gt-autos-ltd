@@ -39,15 +39,6 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsCustomerCollection allCustomers = new clsCustomerCollection();
-            Int32 SomeCount = 2;
-            allCustomers.Count = SomeCount;
-            Assert.AreEqual(allCustomers.Count, SomeCount);
-        }
-
-        [TestMethod]
         public void ThisCustomerOK()
         {
             //create an instance of a customer collection and a customer
