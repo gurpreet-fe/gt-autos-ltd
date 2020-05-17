@@ -10,7 +10,7 @@
         <div>
             CustomerID
             <asp:TextBox ID="txtCustomerID" runat="server" OnTextChanged="TxtCustomerID_TextChanged"></asp:TextBox>
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <asp:Button ID="btnFind" runat="server" OnClick="BtnFind_Click" Text="Find" />
             <br />
             First Name
             <asp:TextBox ID="txtFirstName" runat="server" OnTextChanged="TxtFirstName_TextChanged"></asp:TextBox>
@@ -40,9 +40,9 @@
             <br />
             <asp:CheckBox ID="ActiveCompleted" runat="server" OnCheckedChanged="CheckBoxActive_CheckedChanged" />
             <br />
+            <asp:Button ID="btnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Submit" />
+            <asp:Button ID="btnCancel" runat="server" OnClick="BtnCancel_Click" Text="Cancel" />
             <br />
-            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
-            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
             <asp:Label ID="lblError" runat="server"></asp:Label>
          </div>
     </form>

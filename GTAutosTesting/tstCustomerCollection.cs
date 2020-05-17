@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstCustomerCollection
+    public class TstCustomerCollection
     {
         [TestMethod]
         public void CustomerListOK()
