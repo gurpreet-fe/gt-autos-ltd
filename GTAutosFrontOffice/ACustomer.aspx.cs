@@ -84,7 +84,7 @@ public partial class ACustomer : System.Web.UI.Page
 
     }
 
-    protected void btnFind_Click(object sender, EventArgs e)
+    protected void BtnFind_Click(object sender, EventArgs e)
     {
         clsCustomer ACustomer = new clsCustomer();
         // variable to store the primary key
@@ -116,7 +116,7 @@ public partial class ACustomer : System.Web.UI.Page
 
     }
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         clsCustomer ACustomer = new clsCustomer();
         string customerID = txtCustomerID.Text;
@@ -185,7 +185,7 @@ public partial class ACustomer : System.Web.UI.Page
         Response.Redirect("CustomerViewer.aspx");
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+    protected void BtnCancel_Click(object sender, EventArgs e)
     {
         Response.Redirect("CustomerList.aspx");
     }

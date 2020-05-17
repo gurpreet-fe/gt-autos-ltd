@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GTAutosTesting
 {
     [TestClass]
-    public class tstCustomer
+    public class TstCustomer
     {
 
         string CustomerFirstName = "Jimbo";

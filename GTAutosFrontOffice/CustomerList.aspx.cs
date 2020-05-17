@@ -16,7 +16,7 @@ public partial class CustomerList : System.Web.UI.Page
         }
         if (lstCustomerList.Items.Count == 0)
         {
-            lblError.Text = "There are no existing customers. ";
+            lblError.Text = "There are no existing customers.";
         }
     }
     void DisplayCustomers()
