@@ -7,25 +7,24 @@ namespace GTAutosTesting
     [TestClass]
     public class TstPosition
     {
+        string positionName = "";
+        string positionDescription = "";
+        string salary = "";
+
         [TestMethod]
         public void InstanceOK()
         {
-            // Create an instance of the class we want to create
             ClsPosition position = new ClsPosition();
-            // Test to see that it exists
+
             Assert.IsNotNull(position);
         }
 
         [TestMethod]
         public void PositionIdPropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsPosition position = new ClsPosition();
-            // Create some test data to assign to the property
             int TestData = 112;
-            // Assign the data to the property
             position.PositionId = TestData;
-            // Test to see that the two values are the same
             Assert.AreEqual(position.PositionId, TestData);
         }
 
@@ -59,37 +58,31 @@ namespace GTAutosTesting
 
 
         [TestMethod]
-        public void TestPositionIdNotFound()
+        public void TestPositionIdFound()
         {
-
-            // Create an instance of the class we want to create
             ClsPosition position = new ClsPosition();
-            // Boolean variable to store the result of the search
+
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
             int PositionId = 1;
-            // Invoke the method
+
             Found = position.Find(PositionId);
-            // Check the staff name
+
             if (position.PositionId != 13)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
-            Assert.IsTrue(OK);
 
+            Assert.IsTrue(OK);
         }
 
 
         [TestMethod]
-        public void TestPositionNameNotFound()
+        public void TestPositionNameFound()
         {
             ClsPosition position = new ClsPosition();
             bool Found = false;
             bool OK = true;
-            //string Name = "Software Engineer";
             int PositionId = 13;
             Found = position.Find(PositionId);
             if (position.PositionName != "Software Engineer")
@@ -100,13 +93,12 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestDescriptionNotFound()
+        public void TestDescriptionFound()
         {
 
             ClsPosition position = new ClsPosition();
             bool Found = false;
             bool OK = true;
-            //string Description = "Develops software solutions";
             int PositionId = 13;
             Found = position.Find(PositionId);
             if (position.Description != "Develops software solutions")
@@ -118,13 +110,12 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void TestSalaryNotFound()
+        public void TestSalaryFound()
         {
 
             ClsPosition position = new ClsPosition();
             bool Found = false;
             bool OK = true;
-            //int Salary = 50000;
             int PositionId = 13;
             Found = position.Find(PositionId);
             if (position.Salary!= 50000)
@@ -135,7 +126,335 @@ namespace GTAutosTesting
 
         }
 
+        // ---------------------------------- Valid Method ---------------------------------- //
 
+        public void ValidMethodOK()
+        {
+            ClsPosition position = new ClsPosition();
+            string error = "";
+            error = position.Valid(positionName, positionDescription, salary);
+            Assert.AreEqual(error, "");
+        }
+
+        // ---------------------------------- Position Name ---------------------------------- //
+        [TestMethod]
+        public void PositionNameMinLess1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void PositionNameMin()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "A";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+        public void PositionNameMinPlus1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "AA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void PositionNameMid()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "AAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void PositionNameMaxLess1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "AAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void PositionNameMax()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "AAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void PositionNameMaxPlus1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "AAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void PositionNameMaxExtreme()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionName = "AAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+
+
+        // ---------------------------------- Position Description ---------------------------------- //
+
+        [TestMethod]
+        public void DescriptionMinLess1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void DescriptionMin()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "A";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+        public void DescriptionMinPlus1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "AA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void DescriptionMid()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "AAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void DescriptionMaxLess1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "AAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void DescriptionMax()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "AAAAAAAAAAAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void DescriptionMaxPlus1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "AAAAAAAAAAAAAAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void DescriptionMaxExtreme()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string positionDescription = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+
+        // ---------------------------------- Salary ---------------------------------- //
+
+        [TestMethod]
+        public void SalaryMinLess1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void SalaryMin()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "A";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+        public void SalaryMinPlus1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "AA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void SalaryMid()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "AAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void SalaryMaxLess1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "AAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void SalaryMax()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "AAAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void SalaryMaxPlus1()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "AAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        public void SalaryMaxExtreme()
+        {
+            ClsPosition position = new ClsPosition();
+
+            string error = "";
+            string salary = "AAAAAAAAAAAA";
+
+            error = position.Valid(positionName, positionDescription, salary);
+
+            Assert.AreNotEqual(error, "");
+
+        }
 
     }
 }

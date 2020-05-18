@@ -9,35 +9,28 @@ namespace GTAutosTesting
     {
         // Good test data
         // Create some test data to pass to the method
-        //string StaffId = "123";
-        //string StaffName = "Bill Gates";
-        //string OfficeCode = "03";
-        //string PositionId = "112";
-        //string StaffContactNumber = "07456330713";
-        //string StaffAddress = "1 Park Road, Leicester, LE2 1PK";
-        //string HireDate = DateTime.Now.Date.ToString();
-        //string IsHired = "true";
+        string staffName = "Bill Gates";
+        string staffContactNumber = "07456330713";
+        string staffAddress = "1 Park Road, Leicester, LE2 1PK";
+        string hireDate = DateTime.Now.Date.ToShortDateString();
 
 
         [TestMethod]
         public void InstanceOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Test to see that it exists
+
             Assert.IsNotNull(member);
         }
 
         [TestMethod]
         public void StaffIdPropertyOK()
         {
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Create some test data to assign to the property
             int TestData = 123;
-            // Assign the data to the property
+
             member.StaffId = TestData;
-            // Test to see that the two values are the same
+
             Assert.AreEqual(member.StaffId, TestData);
         }
 
@@ -46,7 +39,9 @@ namespace GTAutosTesting
         {
             ClsStaff member = new ClsStaff();
             string TestData = "Bill Gates";
+
             member.StaffName = TestData;
+
             Assert.AreEqual(member.StaffName, TestData);
         }
 
@@ -55,7 +50,9 @@ namespace GTAutosTesting
         {
             ClsStaff member = new ClsStaff();
             int TestData = 03;
+
             member.OfficeCode = TestData;
+
             Assert.AreEqual(member.OfficeCode, TestData);
         }
 
@@ -65,7 +62,9 @@ namespace GTAutosTesting
         {
             ClsStaff member = new ClsStaff();
             int TestData = 112;
+
             member.PositionId = TestData;
+
             Assert.AreEqual(member.PositionId, TestData);
         }
 
@@ -73,8 +72,10 @@ namespace GTAutosTesting
         public void StaffContactNumberPropertyOK()
         {
             ClsStaff member = new ClsStaff();
-            long TestData = 07456330713;
+            string TestData = "07456330713";
+
             member.StaffContactNumber = TestData;
+
             Assert.AreEqual(member.StaffContactNumber, TestData);
         }
 
@@ -105,240 +106,541 @@ namespace GTAutosTesting
             Assert.AreEqual(member.IsEmployed, TestData);
         }
 
+        // -------------------------------- Find Method -------------------------------- //
+
         [TestMethod]
         public void FindMethodOK()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the validation
+
             bool Found = false;
-            // Create some test data to use with the method
-            //string Name = "Bill Gates";
             int StaffId = 1;
-            // Invoke the method
+
             Found = member.Find(StaffId);
-            // Test to see that the result is correct
+
             Assert.IsTrue(Found);
 
         }
 
         [TestMethod]
-        public void TestStaffIdNotFound()
+        public void TestStaffIdFound()
         {
-
-            // Create an instance of the class we want to create
             ClsStaff member = new ClsStaff();
-            // Boolean variable to store the result of the search
+
             bool Found = false;
-            // Boolean variable to record if data is OK (assume it is)
             bool OK = true;
-            // Create some test data to use with the method
             int StaffId = 1;
-            // Invoke the method
+
             Found = member.Find(StaffId);
-            // Check the staff name
+
             if (member.StaffId != 123)
             {
                 OK = false;
             }
-            // Test to see that the result is correct
-            Assert.IsTrue(OK);
 
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestStaffNameNotFound()
+        public void TestStaffNameFound()
         {
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //string Name = "Bill Gates";
             int StaffId = 1;
+
             Found = member.Find(StaffId);
+
             if (member.StaffName != "Bill Gates")
             {
                 OK = false;
             }
+
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestOfficeCodeNotFound()
+        public void TestOfficeCodeFound()
         {
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //Int32 OfficeCode = 1;
             int Id = 1;
+
             Found = member.Find(Id);
+
             if (member.OfficeCode != 03)
             {
                 OK = false;
             }
+
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestPositionIdNotFound()
+        public void TestPositionIdFound()
         {
-
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //int PositionId = 112;
             int Id = 1;
+
             Found = member.Find(Id);
+
             if (member.PositionId != 112)
             {
                 OK = false;
             }
-            Assert.IsTrue(OK);
 
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestStaffContactNumberNotFound()
+        public void TestStaffContactNumberFound()
         {
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //long ContactNumber = 07456330713;
             int Id = 1;
+
             Found = member.Find(Id);
-            if (member.StaffContactNumber != 07456330713)
+
+            if (member.StaffContactNumber != "07456330713")
             {
                 OK = false;
             }
+
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestStaffAddressNotFound()
+        public void TestStaffAddressFound()
         {
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //string Address = "1 Park Road, Leicester, LE2 1PK";
             int StaffId = 1;
+
             Found = member.Find(StaffId);
+
             if (member.StaffName != "1 Park Road, Leicester, LE2 1PK")
             {
                 OK = false;
             }
+
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestHireDateNotFound()
+        public void TestHireDateFound()
         {
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //DateTime Today = DateTime.Now.Date;
             int StaffId = 1;
+
             Found = member.Find(StaffId);
+
             if (member.HireDate != DateTime.Now.Date)
             {
                 OK = false;
             }
+
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestIsEmployedNotFound()
+        public void TestIsEmployedFound()
         {
             ClsStaff member = new ClsStaff();
+
             bool Found = false;
             bool OK = true;
-            //bool IsEmployed = true;
             int Id = 1;
+
             Found = member.Find(Id);
+
             if (member.IsEmployed != true)
             {
                 OK = false;
             }
+
             Assert.IsTrue(OK);
         }
 
+        // -------------------------------- Valid Method -------------------------------- //
+
         [TestMethod]
-        //public void ValidMethodOK()
-        //{
-        //    // Create an instance of the class we want to create
-        //    ClsStaff member = new ClsStaff();
-        //    // String variable to store any error message
-        //    String Error = "";
-        //    // Invoke the method
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    // Test to see that the result is correct
-        //    Assert.AreEqual(Error, "");
-        //}
+        public void ValidMethodOK()
+        {
+            ClsStaff member = new ClsStaff();
 
-        //[TestMethod]
-        //public void StaffNameMin()
-        //{
-        //    // Create an instance of the class we want to create
-        //    ClsStaff member = new ClsStaff();
-        //    // String variable to store any error message
-        //    String Error = "";
-        //    // Create some test data to pass to the method
-        //    string StaffName = "a"; // This should be okay
-        //    // Invoke the method
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    // Test to see that the result is correct
-        //    Assert.AreEqual(Error, "");
+            String Error = "";
 
-        //}
+            Error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
 
-        //[TestMethod]
-        //public void StaffNameMinPlusOne()
-        //{
-        //    ClsStaff member = new ClsStaff();
-        //    String Error = "";
-        //    string StaffName = "aa";
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    Assert.AreEqual(Error, "");
-        //}
+            Assert.AreEqual(Error, "");
+        }
 
-        //[TestMethod]
-        //public void StaffNameMaxLessOne()
-        //{
-        //    ClsStaff member = new ClsStaff();
-        //    String Error = "";
-        //    string StaffName = "aaaaa";
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    Assert.AreEqual(Error, "");
-        //}
+        // ---------------- Staff Name ---------------- //
 
-        //[TestMethod]
-        //public void StaffNameMax()
-        //{
-        //    ClsStaff member = new ClsStaff();
-        //    String Error = "";
-        //    string StaffName = "aaaaaa";
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    Assert.AreEqual(Error, "");
-        //}
+        [TestMethod]
+        public void StaffNameMinLess1()
+        {
+            ClsStaff member = new ClsStaff();
 
-        //[TestMethod]
-        //public void StaffNameMid()
-        //{
-        //    ClsStaff member = new ClsStaff();
-        //    String Error = "";
-        //    string StaffName = "aaa";
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    Assert.AreEqual(Error, "");
-        //}
+            string error = "";
+            string staffName = "";
 
-        //[TestMethod]
-        //public void StaffNameMaxPlusOne()
-        //{
-        //    ClsStaff member = new ClsStaff();
-        //    String Error = "";
-        //    string StaffName = "aaaaaaa";
-        //    Error = member.Valid(StaffId, StaffName, OfficeCode, PositionId, StaffContactNumber, StaffAddress, HireDate, IsHired);
-        //    Assert.AreEqual(Error, "");
-        //}
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
 
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        [TestMethod]
+        public void StaffNameMin()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "A";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreEqual(error, "");
+
+        }
+
+        [TestMethod]
+        public void StaffNameMinPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "AA";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffNameMid()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "AAA";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffNameMaxLess1()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "AAAAAAAAAAAAAAAAAAA";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffNameMax()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "AAAAAAAAAAAAAAAAAAAA";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffNameMaxPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "AAAAAAAAAAAAAAAAAAAAA";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffNameMaxExtreme()
+        {
+            ClsStaff member = new ClsStaff();
+
+            String error = "";
+            string staffName = "AAAAAAAAAAAAAAAAAAAAAAAAAA";
+
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+
+            Assert.AreNotEqual(error, "");
+        }
+
+        // ---------------- Staff Contact Number ---------------- //
+
+        [TestMethod]
+        public void StaffContactNumberMinLess1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMin()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "A";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMinPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMid()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMaxLess1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAAAAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMax()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAAAAAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMaxPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAAAAAAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffContactNumberMaxExtreme()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "";
+            staffContactNumber = staffContactNumber.PadRight(500, 'A');
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+
+
+        // ---------------- Staff Address ---------------- //
+
+
+        [TestMethod]
+        public void StaffAddressMinLess1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMin()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "A";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMinPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMid()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMaxLess1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAAAAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMax()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAAAAAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMaxPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "AAAAAAAAAA";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void StaffAddressMaxExtreme()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string staffContactNumber = "";
+            staffContactNumber = staffContactNumber.PadRight(500, 'A');
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+
+
+        // ---------------- Staff Hire Date ---------------- //
+
+        [TestMethod]
+        public void DateMinExtreme()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddYears(-100);
+            string hireDate = testDate.ToString();
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateMinLess1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddYears(-1);
+            string hireDate = testDate.ToString();
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateMin()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            string hireDate = testDate.ToString();
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateMinPlus1()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddYears(1);
+            string hireDate = testDate.ToString();
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateMaxExtreme()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddYears(100);
+            string hireDate = testDate.ToString();
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateInvalid()
+        {
+            ClsStaff member = new ClsStaff();
+            string error = "";
+            string hireDate = "This is a date!";
+            error = member.Valid(staffName, staffContactNumber, staffAddress, hireDate);
+            Assert.AreNotEqual(error, "");
+        }
     }
 }
