@@ -8,8 +8,12 @@ namespace GTAutosClasses
 {
     public class ClsPosition
     {
-        // PositionId private member variable
         private int mPositionId;
+        private string mPositionName;
+        private string mDescription;
+        private double mSalary;
+
+        // PositionId private member variable
         public int PositionId
         {
             get
@@ -24,69 +28,94 @@ namespace GTAutosClasses
             }
         }
 
-        private string mPositionName;
         public string PositionName
         {
             get { return mPositionName; }
             set { mPositionName = value; }
         }
 
-        private string mDescription;
         public string Description
         {
             get { return mDescription; }
             set { mDescription = value; }
         }
 
-        private double mSalary;
         public double Salary
         {
             get { return mSalary; }
             set { mSalary = value; }
         }
 
-        //public bool Find(int positionId)
-        //{
-
-        //    // Set the private data member to the test data value
-        //    mPositionId = 123;
-        //    mPositionName = "Software Engineer";
-        //    mDescription = "Develops software solutions";
-        //    mSalary = 50000;
-
-        //    // Always return true
-        //    return true;
-        //}
+        public String allProperties
+        {
+            get
+            {
+                return "Position Id: " + PositionId + ", Position Name: " + PositionName + ", Description: " + Description + ", Salary: " + Salary;
+                ;
+            }
+        }
 
         public bool Find(int positoinId)
         {
-            // Create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-            // Add the parameter for the staff name to search for
-            DB.AddParameter("@PositionName", PositionName);
-            // Execute the stored procedure
-            DB.Execute("sproc_tblPosition_FilterByPositionName");
+            DB.AddParameter("@PositionId", PositionId);
+            DB.Execute("sproc_tblPosition_FilterByPositionId");
 
-            // If one record is found (there should be either one or zero!)
             if (DB.Count == 1)
             {
-                // Copy the data from the daabase to the private data members
-                mPositionId = Convert.ToInt32(DB.DataTable.Rows[0]["Position Id"]);
-                mPositionName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mPositionId = Convert.ToInt32(DB.DataTable.Rows[0]["PositionId"]);
+                mPositionName = Convert.ToString(DB.DataTable.Rows[0]["PositionName"]);
                 mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
                 mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);
 
-                // return that everything worked OK
                 return true;
             }
-            // If no record was found
             else
             {
-                // Return false indicating a problem
                 return false;
             }
+        }
 
+        public string Valid(string positionName,
+                            string positionDescription,
+                            string salary)
+        {
+            string error = "";
 
+            // Position Name
+            if (positionName.Length == 0)
+            {
+                error += "The position name may not be blank: ";
+            }
+
+            if (positionName.Length > 60)
+            {
+                error += "The position name must be less than 60 characters: ";
+            }
+
+            // Description
+            if (positionDescription.Length == 0)
+            {
+                error += "The position description must not be blank: ";
+            }
+
+            if (positionDescription.Length > 100)
+            {
+                error += "The position description must not be less than 100: ";
+            }
+
+            // Salary
+            if (salary.Length == 0)
+            {
+                error += "The position salary must not be blank: ";
+            }
+
+            if (salary.Length > 7)
+            {
+                error += "The position salary must not be less than 7: ";
+            }
+
+            return error;
         }
     }
 }
