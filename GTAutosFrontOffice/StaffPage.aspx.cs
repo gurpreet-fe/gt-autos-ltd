@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Activities.Expressions;
+using System.Activities.Validation;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,87 +10,157 @@ using GTAutosClasses;
 
 public partial class StaffPage : System.Web.UI.Page
 {
+    int staffID;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        staffID = Convert.ToInt32(Session["StaffID"]);
 
-        //// Create a new instance of ClsStaff
-        //ClsStaff member = new ClsStaff();
-        //// Get the data from the session object
-        //member = (ClsStaff)Session["member"];
-        //// Display the house number for this entry
-        //Response.Write(member.StaffName);
-
+        if (IsPostBack == false)
+        {
+            if (staffID != -1)
+            {
+                DisplayStaff();
+            }
+        }
     }
 
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    void DisplayStaff()
+    {
+        ClsStaffCollection members = new ClsStaffCollection();
+
+        members.ThisStaff.Find(staffID);
+
+        TbStaffID.Text = members.ThisStaff.StaffID.ToString();
+        TbStaffName.Text = members.ThisStaff.StaffName;
+        TbOfficeCode.Text = members.ThisStaff.OfficeCode.ToString();
+        TbPositionID.Text = members.ThisStaff.PositionID.ToString();
+        TbContactNumber.Text = members.ThisStaff.ContactNumber;
+        TbAddress.Text = members.ThisStaff.Address;
+        TbHireDate.Text = members.ThisStaff.HireDate.ToShortDateString();
+        CbIsEmployed.Checked = members.ThisStaff.IsEmployed;
+    }
+
+    protected void TxtStaffID_Changed(object sender, EventArgs e)
     {
 
     }
 
-    //protected void BtnOK_Click(object sender, EventArgs e)
-    //{
-    //    // Create a new instance of ClsStaff
-    //    ClsStaff member = new ClsStaff();
-    //    // Capture the staff name
-    //    member.StaffName = TxtStaffName.Text;
-    //    // Capture the office code
-    //    member.OfficeCode = int.Parse(TxtOfficeCode.Text);
-    //    // Capture the position id
-    //    member.PositionId = int.Parse(TxtPositionId.Text);
-    //    // Capture the contact number
-    //    member.StaffContactNumber = int.Parse(TxtStaffContactNumber.Text);
-    //    // Capture the staff address
-    //    member.StaffAddress = TxtStaffAddress.Text;
-    //    // Capture the hire date
-    //    member.HireDate = Convert.ToDateTime(TxtHireDate);
-    //    // Capture the employement status
-    //    member.IsEmployed = CBIsEmployed.Checked;
-
-    //    // Store the name in the session object
-    //    Session["member"] = member;
-    //    // Redirect to the viewer page
-    //    Response.Redirect("StaffViewer.aspx");
-
-    //}
-
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void BtnFind_Click(object sender, EventArgs e)
     {
-
-        // Create a new instance of ClsStaff
         ClsStaff member = new ClsStaff();
-        // Capture the staff name
-        member.StaffName = TxtStaffName.Text;
-        // Capture the office code
-        member.OfficeCode = int.Parse(TxtOfficeCode.Text);
-        // Capture the position id
-        member.PositionId = int.Parse(TxtPositionId.Text);
-        // Capture the contact number
-        member.StaffContactNumber = int.Parse(TxtStaffContactNumber.Text);
-        // Capture the staff address
-        member.StaffAddress = TxtStaffAddress.Text;
-        // Capture the hire date
-        member.HireDate = Convert.ToDateTime(TxtHireDate.Text);
-        // Capture the employement status
-        member.IsEmployed = CBIsEmployed.Checked;
+        int staffID;
+        bool found = false;
 
-        // Store the name in the session object
-        Session["member"] = member;
-        // Redirect to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        if (System.Text.RegularExpressions.Regex.IsMatch(TbPositionID.Text, "^[a-zA-Z]*$"))
+        {
+            Response.Redirect("StaffPage.aspx");
+        }
 
-    }
+        staffID = Convert.ToInt32(TbPositionID.Text);
+        found = member.Find(this.staffID);
 
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-
+        if (found == true)
+        {
+            TbStaffName.Text = member.StaffName;
+            TbOfficeCode.Text = member.OfficeCode.ToString();
+            TbPositionID.Text = member.PositionID.ToString();
+            TbContactNumber.Text = member.ContactNumber;
+            TbAddress.Text = member.Address;
+            TbHireDate.Text = member.HireDate.ToShortDateString();
+            CbIsEmployed.Checked = member.IsEmployed;
+        }
 
 
     }
 
-
-
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    protected void TxtStaffName_Changed(object sender, EventArgs e)
     {
 
+    }
+
+    protected void TxtOfficeCode_Changed(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TxtPositionID_Changed(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TxtContactNumber_Changed(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TxtAddress_Changed(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TxtHireDate_Changed(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void CbIsEmployed_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void BtnSubmit_Click(object sender, EventArgs e)
+    {
+        ClsStaff member = new ClsStaff();
+
+        string staffName = TbStaffName.Text;
+        string officeCode = TbOfficeCode.Text;
+        string positionID = TbPositionID.Text;
+        string contactNumber = TbContactNumber.Text;
+        string address = TbAddress.Text;
+        string hireDate = TbHireDate.Text;
+        
+        string error = "";
+        error = member.Valid(staffName, contactNumber, address, hireDate);
+
+        if (error == "")
+        {
+            member.StaffID = staffID;
+            member.StaffName = staffName;
+            member.OfficeCode = Convert.ToInt32(officeCode);
+            member.PositionID = Convert.ToInt32(positionID);
+            member.ContactNumber = contactNumber;
+            member.Address = address;
+            member.HireDate = Convert.ToDateTime(hireDate);
+            member.IsEmployed = CbIsEmployed.Checked;
+
+            ClsStaffCollection members = new ClsStaffCollection();
+
+            if (staffID == -1)
+            {
+                members.ThisStaff = member;
+                members.Add();
+            } else
+            {
+                members.ThisStaff.Find(staffID);
+                members.ThisStaff = member;
+                members.Update();
+            }
+
+            Response.Redirect("StaffList.aspx");
+        } else
+        {
+            LblError.Text = error;
+        }
+    }
+
+    protected void BtnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffPage.aspx");
+    }
+
+    protected void BtnList_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffPage.aspx");
     }
 }

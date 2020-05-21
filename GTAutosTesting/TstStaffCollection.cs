@@ -23,12 +23,12 @@ namespace GTAutosTesting
             List<ClsStaff> testList = new List<ClsStaff>();
             ClsStaff testItem = new ClsStaff();
 
-            testItem.StaffId = 1;
+            testItem.StaffID = 1;
             testItem.StaffName = "Bill Gates";
             testItem.OfficeCode = 1;
-            testItem.PositionId = 1;
-            testItem.StaffContactNumber = "12345678910";
-            testItem.StaffAddress = "10 Park Road";
+            testItem.PositionID = 1;
+            testItem.ContactNumber = "12345678910";
+            testItem.Address = "10 Park Road";
             testItem.HireDate = DateTime.Now.Date;
             testItem.IsEmployed = true;
 
@@ -44,12 +44,12 @@ namespace GTAutosTesting
             ClsStaffCollection allStaff = new ClsStaffCollection();
             ClsStaff testStaff = new ClsStaff();
 
-            testStaff.StaffId = 1;
+            testStaff.StaffID = 1;
             testStaff.StaffName = "Bill Gates";
             testStaff.OfficeCode = 1;
-            testStaff.PositionId = 1;
-            testStaff.StaffContactNumber = "12345678910";
-            testStaff.StaffAddress = "10 Park Road, Leicester, LE1 2PR";
+            testStaff.PositionID = 1;
+            testStaff.ContactNumber = "12345678910";
+            testStaff.Address = "10 Park Road, Leicester, LE1 2PR";
             testStaff.HireDate = DateTime.Now.Date;
             testStaff.IsEmployed = true;
 
@@ -65,12 +65,12 @@ namespace GTAutosTesting
             List<ClsStaff> testList = new List<ClsStaff>();
             ClsStaff testItem = new ClsStaff();
 
-            testItem.StaffId = 1;
+            testItem.StaffID = 1;
             testItem.StaffName = "Bill Gates";
             testItem.OfficeCode = 1;
-            testItem.PositionId = 1;
-            testItem.StaffContactNumber = "12345678910";
-            testItem.StaffAddress = "10 Park Road, Leicester, LE1 2PR";
+            testItem.PositionID = 1;
+            testItem.ContactNumber = "12345678910";
+            testItem.Address = "10 Park Road, Leicester, LE1 2PR";
             testItem.HireDate = DateTime.Now.Date;
             testItem.IsEmployed = true;
 
@@ -104,18 +104,18 @@ namespace GTAutosTesting
 
             int primaryKey = 0;
 
-            testItem.StaffId = 1;
+            testItem.StaffID = 1;
             testItem.StaffName = "Bill Gates";
             testItem.OfficeCode = 1;
-            testItem.PositionId = 1;
-            testItem.StaffContactNumber = "12345678910";
-            testItem.StaffAddress = "10 Park Road, Leicester, LE1 2PR";
+            testItem.PositionID = 1;
+            testItem.ContactNumber = "12345678910";
+            testItem.Address = "10 Park Road, Leicester, LE1 2PR";
             testItem.HireDate = DateTime.Now.Date;
             testItem.IsEmployed = true;
 
             allStaff.ThisStaff = testItem;
             primaryKey = allStaff.Add();
-            testItem.StaffId = primaryKey;
+            testItem.StaffID = primaryKey;
             allStaff.ThisStaff.Find(primaryKey);
 
             Assert.AreEqual(allStaff.ThisStaff, testItem);
@@ -129,18 +129,18 @@ namespace GTAutosTesting
 
             int primaryKey = 0;
 
-            testItem.StaffId = 1;
+            testItem.StaffID = 1;
             testItem.StaffName = "Bill Gates";
             testItem.OfficeCode = 1;
-            testItem.PositionId = 1;
-            testItem.StaffContactNumber = "12345678910";
-            testItem.StaffAddress = "10 Park Road, Leicester, LE1 2PR";
+            testItem.PositionID = 1;
+            testItem.ContactNumber = "12345678910";
+            testItem.Address = "10 Park Road, Leicester, LE1 2PR";
             testItem.HireDate = DateTime.Now.Date;
             testItem.IsEmployed = true;
 
             allStaff.ThisStaff = testItem;
             primaryKey = allStaff.Add();
-            testItem.StaffId = primaryKey;
+            testItem.StaffID = primaryKey;
             allStaff.ThisStaff.Find(primaryKey);
 
             allStaff.Delete();
@@ -159,9 +159,9 @@ namespace GTAutosTesting
 
             testItem.StaffName = "Bill Gates";
             testItem.OfficeCode = 1;
-            testItem.PositionId = 1;
-            testItem.StaffContactNumber = "12345678910";
-            testItem.StaffAddress = "10 Park Road, Leicester, LE1 2PR";
+            testItem.PositionID = 1;
+            testItem.ContactNumber = "12345678910";
+            testItem.Address = "10 Park Road, Leicester, LE1 2PR";
             testItem.HireDate = DateTime.Now.Date;
             testItem.IsEmployed = true;
 
@@ -170,9 +170,9 @@ namespace GTAutosTesting
 
             testItem.StaffName = "Steve Ballmer";
             testItem.OfficeCode = 2;
-            testItem.PositionId = 3;
-            testItem.StaffContactNumber = "9876543210";
-            testItem.StaffAddress = "11 Ground Road, Liverpool, LP1 2RP";
+            testItem.PositionID = 3;
+            testItem.ContactNumber = "9876543210";
+            testItem.Address = "11 Ground Road, Liverpool, LP1 2RP";
             testItem.HireDate = DateTime.Now.Date;
             testItem.IsEmployed = true;
 
@@ -213,11 +213,11 @@ namespace GTAutosTesting
 
             if (filteredStaff.Count == 2)
             {
-                if (filteredStaff.StaffList[0].StaffId != 11)
+                if (filteredStaff.StaffList[0].StaffID != 11)
                 {
                     ok = false;
                 }
-                if (filteredStaff.StaffList[1].StaffId != 13)
+                if (filteredStaff.StaffList[1].StaffID != 13)
                 {
                     ok = false;
                 }

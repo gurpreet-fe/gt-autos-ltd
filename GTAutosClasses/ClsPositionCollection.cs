@@ -41,7 +41,7 @@ namespace GTAutosClasses
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@PositionId", mThisPosition.PositionId);
+            DB.AddParameter("@PositionID", mThisPosition.PositionID);
             DB.AddParameter("@PositionName", mThisPosition.PositionName);
             DB.AddParameter("@Description", mThisPosition.Description);
             DB.AddParameter("@Salary", mThisPosition.Salary);
@@ -52,7 +52,7 @@ namespace GTAutosClasses
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("PositionId", mThisPosition.PositionId);
+            DB.AddParameter("PositionID", mThisPosition.PositionID);
 
             DB.Execute("sproc_tblPosition_Delete");
         }
@@ -60,7 +60,7 @@ namespace GTAutosClasses
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@PositionId", mThisPosition.PositionId);
+            DB.AddParameter("@PositionID", mThisPosition.PositionID);
             DB.AddParameter("@PositionName", mThisPosition.PositionName);
             DB.AddParameter("@Description", mThisPosition.Description);
             DB.AddParameter("@Salary", mThisPosition.Salary);
@@ -73,7 +73,7 @@ namespace GTAutosClasses
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@PositionName", positionName);
 
-            DB.Execute("sproc_tblPosition_FilteredByPositionName");
+            DB.Execute("sproc_tblPosition_FilterByPositionName");
 
             PopulateArray(DB);
         }
@@ -90,7 +90,7 @@ namespace GTAutosClasses
             {
                 ClsPosition position = new ClsPosition();
 
-                position.PositionId = Convert.ToInt32(DB.DataTable.Rows[0]["PositionId"]);
+                position.PositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
                 position.PositionName = Convert.ToString(DB.DataTable.Rows[0]["PositionName"]);
                 position.Description = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
                 position.Salary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);

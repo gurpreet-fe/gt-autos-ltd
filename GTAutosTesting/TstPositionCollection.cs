@@ -5,7 +5,8 @@ using System;
 
 namespace GTAutosTesting
 {
-    class TstPositionCollection
+    [TestClass]
+    public class TstPositionCollection
     {
         [TestMethod]
         public void InstanceOK()
@@ -21,10 +22,10 @@ namespace GTAutosTesting
             List<ClsPosition> testList = new List<ClsPosition>();
             ClsPosition testItem = new ClsPosition();
 
-            testItem.PositionId = 1;
+            testItem.PositionID = 1;
             testItem.PositionName = "Software Engineer";
-            testItem.Description = "Develop and deploy software";
-            testItem.Salary = 35000.00;
+            testItem.Description = "Develop and deploy software.";
+            testItem.Salary = 35000.00M;
 
             testList.Add(testItem);
             allPosition.PositionList = testList;
@@ -37,10 +38,10 @@ namespace GTAutosTesting
             ClsPositionCollection allPosition = new ClsPositionCollection();
             ClsPosition testPosition = new ClsPosition();
 
-            testPosition.PositionId = 1;
+            testPosition.PositionID = 1;
             testPosition.PositionName = "Software Engineer";
-            testPosition.Description = "Develop and deploy software";
-            testPosition.Salary = 35000.00;
+            testPosition.Description = "Develop and deploy software.";
+            testPosition.Salary = 35000.00M;
 
             allPosition.ThisPosition = testPosition;
             Assert.AreEqual(allPosition.ThisPosition, testPosition);
@@ -53,10 +54,10 @@ namespace GTAutosTesting
             List<ClsPosition> testList = new List<ClsPosition>();
             ClsPosition testItem = new ClsPosition();
 
-            testItem.PositionId = 1;
+            testItem.PositionID = 1;
             testItem.PositionName = "Software Engineer";
-            testItem.Description = "Develop and deploy software";
-            testItem.Salary = 35000.00;
+            testItem.Description = "Develop and deploy software.";
+            testItem.Salary = 35000.00M;
 
             testList.Add(testItem);
             allPosition.PositionList = testList;
@@ -78,14 +79,14 @@ namespace GTAutosTesting
 
             int primaryKey = 0;
 
-            testItem.PositionId = 1;
-            testItem.PositionName = "Software Engineer";
-            testItem.Description = "Develop and deploy software";
-            testItem.Salary = 35000.00;
+            testItem.PositionID = 8;
+            testItem.PositionName = "Game Developer";
+            testItem.Description = "Design and develop video game.";
+            testItem.Salary = 45000.00M;
 
             allPosition.ThisPosition = testItem;
             primaryKey = allPosition.Add();
-            testItem.PositionId = primaryKey;
+            testItem.PositionID = primaryKey;
 
             Assert.AreEqual(allPosition.ThisPosition, testItem);
         }
@@ -98,14 +99,14 @@ namespace GTAutosTesting
 
             int primaryKey = 0;
 
-            testItem.PositionId = 1;
+            testItem.PositionID = 1;
             testItem.PositionName = "Software Engineer";
-            testItem.Description = "Develop and deploy software";
-            testItem.Salary = 35000.00;
+            testItem.Description = "Develop and deploy software.";
+            testItem.Salary = 35000.00M;
 
             allPosition.ThisPosition = testItem;
             primaryKey = allPosition.Add();
-            testItem.PositionId = primaryKey;
+            testItem.PositionID = primaryKey;
             allPosition.ThisPosition.Find(primaryKey);
 
             allPosition.Delete();
@@ -123,15 +124,15 @@ namespace GTAutosTesting
             int primaryKey = 0;
 
             testItem.PositionName = "Software Engineer";
-            testItem.Description = "Develop and deploy software";
-            testItem.Salary = 35000.00;
+            testItem.Description = "Develop and deploy software.";
+            testItem.Salary = 35000.00M;
 
             allPosition.ThisPosition = testItem;
             primaryKey = allPosition.Add();
 
-            testItem.PositionName = "Pen Tester";
-            testItem.Description = "Demonstrate and document flaw in security";
-            testItem.Salary = 55000.00;
+            testItem.PositionName = "Penetration Tester";
+            testItem.Description = "";
+            testItem.Salary = 50000.00M;
 
             allPosition.ThisPosition = testItem;
             allPosition.Update();
@@ -169,11 +170,11 @@ namespace GTAutosTesting
 
             if (filteredPosition.Count == 2)
             {
-                if (filteredPosition.PositionList[0].PositionId != 11)
+                if (filteredPosition.PositionList[0].PositionID != 11)
                 {
                     ok = false;
                 }
-                if (filteredPosition.PositionList[0].PositionId != 11)
+                if (filteredPosition.PositionList[0].PositionID != 11)
                 {
                     ok = false;
                 }
