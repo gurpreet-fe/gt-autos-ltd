@@ -38,12 +38,12 @@ namespace GTAutosClasses
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
             DB.AddParameter("@StaffName", mThisStaff.StaffName);
             DB.AddParameter("@OfficeCode", mThisStaff.OfficeCode);
-            DB.AddParameter("@PositionId", mThisStaff.PositionId);
-            DB.AddParameter("@StaffContactNumber", mThisStaff.StaffContactNumber);
-            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
+            DB.AddParameter("@PositionID", mThisStaff.PositionID);
+            DB.AddParameter("@ContactNumber", mThisStaff.ContactNumber);
+            DB.AddParameter("@Address", mThisStaff.Address);
             DB.AddParameter("@HireDate", mThisStaff.HireDate);
             DB.AddParameter("@IsEmployed", mThisStaff.IsEmployed);
 
@@ -53,7 +53,7 @@ namespace GTAutosClasses
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("StaffId", mThisStaff.StaffId);
+            DB.AddParameter("StaffID", mThisStaff.StaffID);
 
             DB.Execute("sproc_tblStaff_Delete");
         }
@@ -61,12 +61,12 @@ namespace GTAutosClasses
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            DB.AddParameter("@StaffID", mThisStaff.StaffID);
             DB.AddParameter("@StaffName", mThisStaff.StaffName);
             DB.AddParameter("@OfficeCode", mThisStaff.OfficeCode);
-            DB.AddParameter("@PositionId", mThisStaff.PositionId);
-            DB.AddParameter("@StaffContactNumber", mThisStaff.StaffContactNumber);
-            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
+            DB.AddParameter("@PositionID", mThisStaff.PositionID);
+            DB.AddParameter("@StaffContactNumber", mThisStaff.ContactNumber);
+            DB.AddParameter("@StaffAddress", mThisStaff.Address);
             DB.AddParameter("@HireDate", mThisStaff.HireDate);
             DB.AddParameter("@IsEmployed", mThisStaff.IsEmployed);
 
@@ -95,12 +95,12 @@ namespace GTAutosClasses
             {
                 ClsStaff member = new ClsStaff();
 
-                member.StaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                member.StaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
                 member.StaffName = Convert.ToString(DB.DataTable.Rows[0]["StaffName"]);
                 member.OfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
-                member.PositionId = Convert.ToInt32(DB.DataTable.Rows[0]["PositionId"]);
-                member.StaffContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
-                member.StaffAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
+                member.PositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
+                member.ContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
+                member.Address = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
                 member.HireDate = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffHireDate"]);
                 member.IsEmployed = Convert.ToBoolean(DB.DataTable.Rows[0]["IsEmployed"]);
 

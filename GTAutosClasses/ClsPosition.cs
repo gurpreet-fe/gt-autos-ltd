@@ -8,23 +8,23 @@ namespace GTAutosClasses
 {
     public class ClsPosition
     {
-        private int mPositionId;
+        private int mPositionID;
         private string mPositionName;
         private string mDescription;
-        private double mSalary;
+        private decimal mSalary;
 
-        // PositionId private member variable
-        public int PositionId
+        // PositionID private member variable
+        public int PositionID
         {
             get
             {
                 // Send data out of the property
-                return mPositionId;
+                return mPositionID;
             }
             set
             {
                 // Allow data into the property
-                mPositionId = value;
+                mPositionID = value;
             }
         }
 
@@ -40,7 +40,7 @@ namespace GTAutosClasses
             set { mDescription = value; }
         }
 
-        public double Salary
+        public decimal Salary
         {
             get { return mSalary; }
             set { mSalary = value; }
@@ -50,20 +50,20 @@ namespace GTAutosClasses
         {
             get
             {
-                return "Position Id: " + PositionId + ", Position Name: " + PositionName + ", Description: " + Description + ", Salary: " + Salary;
+                return "Position ID: " + PositionID + ", Position Name: " + PositionName + ", Description: " + Description + ", Salary: " + Salary;
                 ;
             }
         }
 
-        public bool Find(int positoinId)
+        public bool Find(int positionID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@PositionId", PositionId);
-            DB.Execute("sproc_tblPosition_FilterByPositionId");
+            DB.AddParameter("@PositionID", PositionID);
+            DB.Execute("sproc_tblPosition_FilterByPositionID");
 
             if (DB.Count == 1)
             {
-                mPositionId = Convert.ToInt32(DB.DataTable.Rows[0]["PositionId"]);
+                mPositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
                 mPositionName = Convert.ToString(DB.DataTable.Rows[0]["PositionName"]);
                 mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
                 mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);
@@ -77,42 +77,42 @@ namespace GTAutosClasses
         }
 
         public string Valid(string positionName,
-                            string positionDescription,
+                            string description,
                             string salary)
         {
             string error = "";
 
-            // Position Name
+            // Name
             if (positionName.Length == 0)
             {
                 error += "The position name may not be blank: ";
             }
 
-            if (positionName.Length > 60)
+            if (positionName.Length > 30)
             {
-                error += "The position name must be less than 60 characters: ";
+                error += "The position name must be less than 30 characters: ";
             }
 
             // Description
-            if (positionDescription.Length == 0)
+            if (description.Length == 0)
             {
-                error += "The position description must not be blank: ";
+                error += "The description may not be blank: ";
             }
 
-            if (positionDescription.Length > 100)
+            if (description.Length > 100)
             {
-                error += "The position description must not be less than 100: ";
+                error += "The description must not be less than 100: ";
             }
 
             // Salary
             if (salary.Length == 0)
             {
-                error += "The position salary must not be blank: ";
+                error += "The salary may not be blank: ";
             }
 
-            if (salary.Length > 7)
+            if (salary.Length > 18)
             {
-                error += "The position salary must not be less than 7: ";
+                error += "The salary must not be less than 18: ";
             }
 
             return error;

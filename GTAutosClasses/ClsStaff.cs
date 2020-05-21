@@ -9,29 +9,27 @@ namespace GTAutosClasses
     public class ClsStaff
     {
 
-        private int mStaffId;
+        private int mStaffID;
         private string mStaffName;
         private int mOfficeCode;
-        private int mPositionId;
-        private string mStaffContactNumber;
-        private string mStaffAddress;
+        private int mPositionID;
+        private string mContactNumber;
+        private string mAddress;
         private DateTime mHireDate;
         private bool mIsEmployed;
 
-
-
-        // StaffId private member variable
-        public int StaffId
+        // StaffID private member variable
+        public int StaffID
         {
             get
             {
                 // Send data out of the property
-                return mStaffId;
+                return mStaffID;
             }
             set
             {
                 // Allow data into the property
-                mStaffId = value;
+                mStaffID = value;
             }
         }
 
@@ -49,22 +47,22 @@ namespace GTAutosClasses
             set { mOfficeCode = value; }
         }
 
-        public int PositionId
+        public int PositionID
         {
-            get { return mPositionId; }
-            set { mPositionId = value; }
+            get { return mPositionID; }
+            set { mPositionID = value; }
         }
 
-        public string StaffContactNumber
+        public string ContactNumber
         {
-            get { return mStaffContactNumber; }
-            set { mStaffContactNumber = value; }
+            get { return mContactNumber; }
+            set { mContactNumber = value; }
         }
 
-        public string StaffAddress
+        public string Address
         {
-            get { return mStaffAddress; }
-            set { mStaffAddress = value; }
+            get { return mAddress; }
+            set { mAddress = value; }
         }
 
         public DateTime HireDate
@@ -83,26 +81,26 @@ namespace GTAutosClasses
         {
             get
             {
-                return "Staff Id: " + StaffId + ", Staff Name: " + StaffName + ", Office Code: " + OfficeCode + ", Postion Id:" + PositionId + ", Contact Number:" + StaffContactNumber + ", Address:" + StaffAddress + ", Hire Date:" + HireDate + ", Is Employed?:" + IsEmployed;
+                return "Staff ID: " + StaffID + ", Staff Name: " + StaffName + ", Office Code: " + OfficeCode + ", Postion ID:" + PositionID + ", Contact Number:" + ContactNumber + ", Home Address:" + Address + ", Hire Date:" + HireDate + ", Is employed?:" + IsEmployed;
                 ;
             }
         }
 
-        public bool Find(int staffId)
+        public bool Find(int staffID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@StaffId", StaffId);
-            DB.Execute("sproc_tblOrders_FilterByStaffID");
+            DB.AddParameter("@StaffID", StaffID);
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
 
             if (DB.Count == 1)
             {
-                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
                 mStaffName = Convert.ToString(DB.DataTable.Rows[0]["StaffName"]);
                 mOfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
-                mPositionId = Convert.ToInt32(DB.DataTable.Rows[0]["PositionId"]);
-                mStaffContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
-                mStaffAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
-                mHireDate = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffHireDate"]);
+                mPositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
+                mContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mHireDate = Convert.ToDateTime(DB.DataTable.Rows[0]["HireDate"]);
                 mIsEmployed = Convert.ToBoolean(DB.DataTable.Rows[0]["IsEmployed"]);
 
                 return true;
@@ -114,8 +112,8 @@ namespace GTAutosClasses
         }
 
         public string Valid(string staffName,
-                            string staffContactNumber,
-                            string staffAddress,
+                            string contactNumber,
+                            string address,
                             string hireDate)
         {
             string error = "";
@@ -124,51 +122,51 @@ namespace GTAutosClasses
             // Staff Name
             if (staffName.Length == 0)
             { 
-                error += "StaffName must not be blank: "; 
+                error += "Staff name may not be blank: "; 
             }
 
-            if (staffName.Length > 60)
+            if (staffName.Length > 30)
             { 
-                error += "StaffName must be less than 60 characters: ";
+                error += "Staff name must be less than 30 characters: ";
             }
 
             // Contact Number
-            if (staffContactNumber.Length == 0)
+            if (contactNumber.Length == 0)
             { 
-                error += "StaffContactNumber may not be blank: "; 
+                error += "Contact number may not be blank: "; 
             }
 
-            if (staffContactNumber.Length < 10)
+            if (contactNumber.Length < 10)
             { 
-                error += "StaffContactNumber may not be less than 10: ";
+                error += "Contact number is too short: ";
             }
 
-            if (staffContactNumber.Length > 15)
+            if (contactNumber.Length > 15)
             { 
-                error += "StaffContactNumber may not be less than 15: "; 
+                error += "Contact number may not be less than 15: "; 
             }
 
-            if (System.Text.RegularExpressions.Regex.IsMatch(staffContactNumber, "^[a-zA-Z ]*$"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(contactNumber, "^[a-zA-Z]*$"))
             { 
-                error += "StaffContactNumber contains invalid characters: ";
+                error += "Contact number must not contain invalid characters: ";
             }
 
             // Staff Address
-            if (staffAddress.Length == 0)
+            if (address.Length == 0)
             {
-                error += "";
+                error += "Address may not be blank: ";
             }
 
-            if (staffAddress.Length > 60)
+            if (address.Length > 50)
             { 
-                error += ""; 
+                error += "Address must be less than 50 characters: "; 
             }
 
             // Hire Date
             try
             {
                 tempDate = Convert.ToDateTime(hireDate);
-                if (tempDate < DateTime.Now.Date.AddYears(-1))
+                if (tempDate < DateTime.Now.Date)
                 {
                     error += "The date cannot be in the past: ";
                 }

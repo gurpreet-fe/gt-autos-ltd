@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="StaffList.aspx.vb" Inherits="StaffList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffList.aspx.cs" Inherits="StaffList" %>
 
 <!DOCTYPE html>
 
@@ -19,8 +19,8 @@
             <asp:Button ID="BtnDelete" runat="server" Text="Delete" Height="25px" Width="50px" OnClick="BtnDelete_Click" />
             <br />
             <br />
-            Filter by Staff Contact Number:
-            <asp:TextBox ID="TextBox1" runat="server" Width="203px"></asp:TextBox>
+            Filter by Contact Number:
+            <asp:TextBox ID="TbContactNumberFilter" runat="server" Width="203px" OnTextChanged="TbContactNumberFilter_Changed"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="BtnApply" runat="server" Text="Apply" Height="25px" Width="50px" OnClick="BtnApply_Click" />
@@ -28,7 +28,7 @@
             <asp:Button ID="BtnClear" runat="server" Text="Clear" Height="25px" Width="50px" OnClick="BtnClear_Click"/>
             <br />
             <br />
-            <asp:Label ID="LblError" runat="server" Text="LblError"></asp:Label>
+            <asp:Label ID="LblError" runat="server" Text="Error"></asp:Label>
         </div>
     </form>
 </body>
