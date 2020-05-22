@@ -91,10 +91,10 @@ namespace GTAutosClasses
             {
                 ClsPosition position = new ClsPosition();
 
-                position.PositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
-                position.PositionName = Convert.ToString(DB.DataTable.Rows[0]["PositionName"]);
-                position.Description = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
-                position.Salary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);
+                position.PositionID = Convert.ToInt32(DB.DataTable.Rows[index]["PositionID"]);
+                position.PositionName = Convert.ToString(DB.DataTable.Rows[index]["PositionName"]);
+                position.Description = Convert.ToString(DB.DataTable.Rows[index]["Description"]);
+                position.Salary = Convert.ToInt32(DB.DataTable.Rows[index]["Salary"]);
 
                 mPositionList.Add(position);
 

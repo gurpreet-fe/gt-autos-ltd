@@ -50,17 +50,17 @@ public partial class StaffPage : System.Web.UI.Page
     {
         ClsStaff member = new ClsStaff();
         int staffID;
-        bool found = false;
+        Boolean Found = false;
 
-        if (System.Text.RegularExpressions.Regex.IsMatch(TbPositionID.Text, "^[a-zA-Z]*$"))
+        if (System.Text.RegularExpressions.Regex.IsMatch(TbStaffID.Text, "^[a-zA-Z]*$"))
         {
             Response.Redirect("StaffPage.aspx");
         }
 
-        staffID = Convert.ToInt32(TbPositionID.Text);
-        found = member.Find(this.staffID);
+        staffID = Convert.ToInt32(TbStaffID.Text);
+        Found = member.Find(staffID);
 
-        if (found == true)
+        if (Found == true)
         {
             TbStaffName.Text = member.StaffName;
             TbOfficeCode.Text = member.OfficeCode.ToString();

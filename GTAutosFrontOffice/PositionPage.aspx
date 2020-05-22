@@ -19,7 +19,7 @@
             <asp:TextBox ID="TbPositionName" runat="server" OnTextChanged="TxtPositionName_Changed"></asp:TextBox>
             <br />
             Description&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TbDescription" runat="server" OnTextChanged="TxtDescription_Changed" Height="122px" Width="236px"></asp:TextBox>
+            <asp:TextBox ID="TbDescription" runat="server" OnTextChanged="TxtDescription_Changed" Height="55px" Width="236px" TextMode="MultiLine" Font-Names="Arial"></asp:TextBox>
             <br />
             Salary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <asp:TextBox ID="TbSalary" runat="server" OnTextChanged="TxtSalary_Changed"></asp:TextBox>
