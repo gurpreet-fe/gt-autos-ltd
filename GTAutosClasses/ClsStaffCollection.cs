@@ -65,8 +65,8 @@ namespace GTAutosClasses
             DB.AddParameter("@StaffName", mThisStaff.StaffName);
             DB.AddParameter("@OfficeCode", mThisStaff.OfficeCode);
             DB.AddParameter("@PositionID", mThisStaff.PositionID);
-            DB.AddParameter("@StaffContactNumber", mThisStaff.ContactNumber);
-            DB.AddParameter("@StaffAddress", mThisStaff.Address);
+            DB.AddParameter("@ContactNumber", mThisStaff.ContactNumber);
+            DB.AddParameter("@Address", mThisStaff.Address);
             DB.AddParameter("@HireDate", mThisStaff.HireDate);
             DB.AddParameter("@IsEmployed", mThisStaff.IsEmployed);
 
@@ -76,9 +76,9 @@ namespace GTAutosClasses
         public void ReportByContactNumber(string contactNumber)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@StaffContactNumber", contactNumber);
+            DB.AddParameter("@ContactNumber", contactNumber);
 
-            DB.Execute("sproc_tblStaff_FiltereByStaffContactNumber");
+            DB.Execute("sproc_tblStaff_FilterByContactNumber");
 
             PopulateArray(DB);
         }
@@ -100,8 +100,8 @@ namespace GTAutosClasses
                 member.OfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
                 member.PositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
                 member.ContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
-                member.Address = Convert.ToString(DB.DataTable.Rows[0]["StaffAddress"]);
-                member.HireDate = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffHireDate"]);
+                member.Address = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                member.HireDate = Convert.ToDateTime(DB.DataTable.Rows[0]["HireDate"]);
                 member.IsEmployed = Convert.ToBoolean(DB.DataTable.Rows[0]["IsEmployed"]);
 
                 mStaffList.Add(member);

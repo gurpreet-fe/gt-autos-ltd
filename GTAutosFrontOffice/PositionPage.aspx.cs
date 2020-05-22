@@ -119,7 +119,7 @@ public partial class PositionPage : System.Web.UI.Page
 
     protected void BtnList_Click(object sender, EventArgs e)
     {
-        Response.Redirect("PositionPage.aspx");
+        Response.Redirect("PositionList.aspx");
     }
 
 }

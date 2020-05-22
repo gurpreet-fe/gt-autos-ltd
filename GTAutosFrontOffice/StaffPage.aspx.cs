@@ -161,6 +161,6 @@ public partial class StaffPage : System.Web.UI.Page
 
     protected void BtnList_Click(object sender, EventArgs e)
     {
-        Response.Redirect("StaffPage.aspx");
+        Response.Redirect("StaffList.aspx");
     }
 }

@@ -19,8 +19,8 @@
             <asp:Button ID="BtnDelete" runat="server" Text="Delete" Height="25px" Width="50px" OnClick="BtnDelete_Click" />
             <br />
             <br />
-            Filter by Position Name:
-            <asp:TextBox ID="TbPositionNameFilter" runat="server" Width="203px" OnTextChanged="TxtPositionNameFilter_Changed"></asp:TextBox>
+            Filter by Description:
+            <asp:TextBox ID="TbDescriptionFilter" runat="server" Width="516px" OnClick="TbDescriptionFilter_Click"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="BtnApply" runat="server" Text="Apply" Height="25px" Width="50px" OnClick="BtnApply_Click" />
