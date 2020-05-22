@@ -89,8 +89,10 @@ namespace GTAutosClasses
         public bool Find(int staffID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@StaffID", StaffID);
+            DB.AddParameter("@StaffID", staffID);
             DB.Execute("sproc_tblStaff_FilterByStaffID");
+
+            Console.WriteLine(DB.Count);
 
             if (DB.Count == 1)
             {

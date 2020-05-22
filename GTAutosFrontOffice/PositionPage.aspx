@@ -15,7 +15,7 @@
             <asp:Button ID="BtnFind" runat="server" Text="Find" OnClick="BtnFind_Click" Height="25px" Width="80px"/>
             <br />
             <br />
-            Position Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Position Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="TbPositionName" runat="server" OnTextChanged="TxtPositionName_Changed"></asp:TextBox>
             <br />
             Description&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

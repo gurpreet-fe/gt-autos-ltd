@@ -22,7 +22,7 @@ public partial class PositionList : System.Web.UI.Page
 
         LbPositionList.DataSource = positions.PositionList;
         LbPositionList.DataValueField = "PositionID";
-        LbPositionList.DataTextField = "PositionName";
+        LbPositionList.DataTextField = "Description";
         LbPositionList.DataBind();
     }
 
@@ -69,7 +69,7 @@ public partial class PositionList : System.Web.UI.Page
         }
     }
 
-    protected void TxtPositionNameFilter_Changed(object sender, EventArgs e)
+    protected void TxtDescriptionFilter_Changed(object sender, EventArgs e)
     {
 
     }
@@ -78,10 +78,10 @@ public partial class PositionList : System.Web.UI.Page
     {
         ClsPositionCollection positions = new ClsPositionCollection();
 
-        positions.ReportByPositionName(TbPositionNameFilter.Text);
+        positions.ReportByDescription(TbDescriptionFilter.Text);
         LbPositionList.DataSource = positions.PositionList;
         LbPositionList.DataValueField = "PositionID";
-        LbPositionList.DataTextField = "PositionName";
+        LbPositionList.DataTextField = "Description";
         LbPositionList.DataBind();
     }
 
@@ -89,12 +89,12 @@ public partial class PositionList : System.Web.UI.Page
     {
         ClsPositionCollection positions = new ClsPositionCollection();
         
-        positions.ReportByPositionName("");
-        TbPositionNameFilter.Text = "";
+        positions.ReportByDescription(TbDescriptionFilter.Text);
+        TbDescriptionFilter.Text = "";
 
         LbPositionList.DataSource = positions.PositionList;
         LbPositionList.DataValueField = "PositionID";
-        LbPositionList.DataTextField = "PositionName";
+        LbPositionList.DataTextField = "Description";
         LbPositionList.DataBind();
     }
 }

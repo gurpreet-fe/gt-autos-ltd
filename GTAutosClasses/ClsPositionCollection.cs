@@ -19,7 +19,7 @@ namespace GTAutosClasses
 
         public int Count
         {
-            get { return PositionList.Count; }
+            get { return mPositionList.Count; }
             set { }
         }
 
@@ -41,6 +41,7 @@ namespace GTAutosClasses
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
+
             DB.AddParameter("@PositionID", mThisPosition.PositionID);
             DB.AddParameter("@PositionName", mThisPosition.PositionName);
             DB.AddParameter("@Description", mThisPosition.Description);
@@ -68,12 +69,12 @@ namespace GTAutosClasses
             DB.Execute("sproc_tblPosition_Update");
         }
 
-        public void ReportByPositionName(String positionName)
+        public void ReportByDescription(string description)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@PositionName", positionName);
+            DB.AddParameter("@Description", description);
 
-            DB.Execute("sproc_tblPosition_FilterByPositionName");
+            DB.Execute("sproc_tblPosition_FilterByDescription");
 
             PopulateArray(DB);
         }

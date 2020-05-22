@@ -66,7 +66,7 @@ namespace GTAutosTesting
 
             Found = position.Find(PositionID);
 
-            if (position.PositionID != 13)
+            if (position.PositionID != 1)
             {
                 OK = false;
             }
@@ -81,7 +81,7 @@ namespace GTAutosTesting
             ClsPosition position = new ClsPosition();
             bool Found = false;
             bool OK = true;
-            int PositionID = 13;
+            int PositionID = 1;
             Found = position.Find(PositionID);
             if (position.PositionName != "Software Engineer")
             {
@@ -97,13 +97,12 @@ namespace GTAutosTesting
             ClsPosition position = new ClsPosition();
             bool Found = false;
             bool OK = true;
-            int PositionID = 1;
-            Found = position.Find(PositionID);
+            int positionID = 1;
+            Found = position.Find(positionID);
             if (position.Description != "Develop and deploy software.")
             {
                 OK = false;
             }
-            //Console.WriteLine("Position Description: " + position.Description);
             Assert.IsTrue(OK);
 
         }
@@ -117,7 +116,7 @@ namespace GTAutosTesting
             bool OK = true;
             int PositionID = 1;
             Found = position.Find(PositionID);
-            if (position.Salary != 30000.00M)
+            if (position.Salary != 35000.00M)
             {
                 OK = false;
             }

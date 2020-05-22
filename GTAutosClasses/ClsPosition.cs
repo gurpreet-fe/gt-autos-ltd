@@ -58,7 +58,7 @@ namespace GTAutosClasses
         public bool Find(int positionID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@PositionID", PositionID);
+            DB.AddParameter("@PositionID", positionID);
             DB.Execute("sproc_tblPosition_FilterByPositionID");
 
             if (DB.Count == 1)

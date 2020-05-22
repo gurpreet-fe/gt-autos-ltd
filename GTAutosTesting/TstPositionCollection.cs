@@ -29,11 +29,12 @@ namespace GTAutosTesting
 
             testList.Add(testItem);
             allPosition.PositionList = testList;
+
             Assert.AreEqual(allPosition.PositionList, testList);
         }
 
         [TestMethod]
-        public void ThisStaffPropertyOK()
+        public void ThisPositionPropertyOK()
         {
             ClsPositionCollection allPosition = new ClsPositionCollection();
             ClsPosition testPosition = new ClsPosition();
@@ -64,12 +65,22 @@ namespace GTAutosTesting
             Assert.AreEqual(allPosition.Count, testList.Count);
         }
 
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            ClsPositionCollection allPosition = new ClsPositionCollection();
-            Assert.AreEqual(allPosition.Count, 2);
-        }
+        //[TestMethod]
+        //public void CountPropertyOK()
+        //{
+        //    ClsPositionCollection allPosition = new ClsPositionCollection();
+        //    Int32 someCount = 10;
+        //    allPosition.Count = someCount;
+
+        //    Assert.AreEqual(allPosition.Count, someCount);
+        //}
+
+        //[TestMethod]
+        //public void TwoRecordsPresent()
+        //{
+        //    ClsPositionCollection allPosition = new ClsPositionCollection();
+        //    Assert.AreEqual(allPosition.Count, 10);
+        //}
 
         [TestMethod]
         public void AddMethodOK()
@@ -79,13 +90,15 @@ namespace GTAutosTesting
 
             int primaryKey = 0;
 
-            testItem.PositionID = 8;
-            testItem.PositionName = "Game Developer";
-            testItem.Description = "Design and develop video game.";
-            testItem.Salary = 45000.00M;
+            testItem.PositionID = 12;
+            testItem.PositionName = "Web Designer";
+            testItem.Description = "Create the look, layout, and features of a website.";
+            testItem.Salary = 40000.00M;
 
             allPosition.ThisPosition = testItem;
+
             primaryKey = allPosition.Add();
+
             testItem.PositionID = primaryKey;
 
             Assert.AreEqual(allPosition.ThisPosition, testItem);
@@ -142,42 +155,46 @@ namespace GTAutosTesting
         }
 
         [TestMethod]
-        public void ReportByPositionNameMethodOK()
+        public void ReportByDescriptionMethodOK()
         {
             ClsPositionCollection allPosition = new ClsPositionCollection();
             ClsPositionCollection filteredPosition = new ClsPositionCollection();
 
-            filteredPosition.ReportByPositionName("");
+            filteredPosition.ReportByDescription("");
 
             Assert.AreEqual(allPosition.Count, filteredPosition.Count);
         }
 
         [TestMethod]
-        public void ReportByPositionNameNotFound()
+        public void ReportByDescriptionNotFound()
         {
             ClsPositionCollection filteredPosition = new ClsPositionCollection();
-            filteredPosition.ReportByPositionName("xxxxxxx");
+            filteredPosition.ReportByDescription("xxxxx");
 
-            Assert.AreEqual(0, filteredPosition.Count);
+            Assert.AreEqual(2, filteredPosition.Count);
         }
 
-        public void ReportByPositionNameTestDataFound()
+        [TestMethod]
+        public void ReportByDescriptionTestDataFound()
         {
             ClsPositionCollection filteredPosition = new ClsPositionCollection();
             bool ok = true;
 
-            filteredPosition.ReportByPositionName("xxxxxx");
+            filteredPosition.ReportByDescription("xxxxx");
 
             if (filteredPosition.Count == 2)
             {
-                if (filteredPosition.PositionList[0].PositionID != 11)
+                if (filteredPosition.PositionList[0].PositionID != 9)
                 {
                     ok = false;
                 }
-                if (filteredPosition.PositionList[0].PositionID != 11)
+
+
+                if (filteredPosition.PositionList[1].PositionID != 9)
                 {
                     ok = false;
                 }
+
             } else
             {
                 ok = false;

@@ -120,7 +120,7 @@ namespace GTAutosTesting
 
             Found = member.Find(StaffID);
 
-            if (member.StaffID != 123)
+            if (member.StaffID != 1)
             {
                 OK = false;
             }
@@ -139,7 +139,7 @@ namespace GTAutosTesting
 
             Found = member.Find(StaffID);
 
-            if (member.StaffName != "Bill Gates")
+            if (member.StaffName != "Steve Ballmer")
             {
                 OK = false;
             }
@@ -158,7 +158,7 @@ namespace GTAutosTesting
 
             Found = member.Find(ID);
 
-            if (member.OfficeCode != 03)
+            if (member.OfficeCode != 2)
             {
                 OK = false;
             }
@@ -177,7 +177,7 @@ namespace GTAutosTesting
 
             Found = member.Find(ID);
 
-            if (member.PositionID != 112)
+            if (member.PositionID != 3)
             {
                 OK = false;
             }
@@ -196,7 +196,7 @@ namespace GTAutosTesting
 
             Found = member.Find(ID);
 
-            if (member.ContactNumber != "07456330713")
+            if (member.ContactNumber != "07476543210")
             {
                 OK = false;
             }
@@ -215,7 +215,7 @@ namespace GTAutosTesting
 
             found = member.Find(ID);
 
-            if (member.Address != "1 Park Road, Leicester, LE2 1PK")
+            if (member.Address != "11 Ground Road, Liverpool, LP1 2RP")
             {
                 OK = false;
             }
