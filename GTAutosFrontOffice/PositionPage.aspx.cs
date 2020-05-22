@@ -30,6 +30,7 @@ public partial class PositionPage : System.Web.UI.Page
         positions.ThisPosition.Find(positionID);
 
         TbPositionID.Text = positions.ThisPosition.PositionID.ToString();
+        TbPositionName.Text = positions.ThisPosition.PositionName;
         TbDescription.Text = positions.ThisPosition.Description;
         TbSalary.Text = positions.ThisPosition.Salary.ToString();
     }
@@ -42,8 +43,8 @@ public partial class PositionPage : System.Web.UI.Page
     protected void BtnFind_Click(object sender, EventArgs e)
     {
         ClsPosition position = new ClsPosition();
-        int positionID;
-        bool found = false;
+        Int32 positionID;
+        Boolean Found = false;
 
         if (System.Text.RegularExpressions.Regex.IsMatch(TbPositionID.Text, "^[a-zA-Z]*$"))
         {
@@ -51,9 +52,9 @@ public partial class PositionPage : System.Web.UI.Page
         }
 
         positionID = Convert.ToInt32(TbPositionID.Text);
-        found = position.Find(this.positionID);
+        Found = position.Find(positionID);
 
-        if (found == true)
+        if (Found == true)
         {
             TbPositionName.Text = position.PositionName;
             TbDescription.Text = position.Description;

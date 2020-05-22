@@ -34,18 +34,22 @@ public partial class StaffList : System.Web.UI.Page
     protected void BtnAdd_Click(object sender, EventArgs e)
     {
         Session["StaffID"] = -1;
-        Response.Redirect("StaffID.aspx");
+        Response.Redirect("StaffPage.aspx");
     }
 
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
-        int staffID;
+        Int32 staffID;
 
-        if (LbStaffList.SelectedIndex != 1)
+        if (LbStaffList.SelectedIndex != -1)
         {
             staffID = Convert.ToInt32(LbStaffList.SelectedValue);
             Session["StaffID"] = staffID;
             Response.Redirect("StaffPage.aspx");
+        }
+        else
+        {
+            LblError.Text = "Please select a record to edit from the list";
         }
     }
 
@@ -53,7 +57,7 @@ public partial class StaffList : System.Web.UI.Page
     {
         int staffID;
 
-        if (LbStaffList.SelectedIndex != 1)
+        if (LbStaffList.SelectedIndex != -1)
         {
             staffID = Convert.ToInt32(LbStaffList.SelectedValue);
             Session["StaffID"] = staffID;

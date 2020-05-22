@@ -34,12 +34,12 @@ public partial class PositionList : System.Web.UI.Page
     protected void BtnAdd_Click(object sender, EventArgs e)
     {
         Session["PositionID"] = -1;
-        Response.Redirect("PositionID.aspx");
+        Response.Redirect("PositionPage.aspx");
     }
 
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
-        int positionID;
+        Int32 positionID;
 
         if (LbPositionList.SelectedIndex != -1)
         {
@@ -55,7 +55,7 @@ public partial class PositionList : System.Web.UI.Page
 
     protected void BtnDelete_Click(object sender, EventArgs e)
     {
-        int positionID;
+        Int32 positionID;
 
         if (LbPositionList.SelectedIndex != -1)
         {
@@ -88,8 +88,10 @@ public partial class PositionList : System.Web.UI.Page
     protected void BtnClear_Click(object sender, EventArgs e)
     {
         ClsPositionCollection positions = new ClsPositionCollection();
-        
-        positions.ReportByDescription(TbDescriptionFilter.Text);
+
+
+        //positions.ReportByDescription(TbDescriptionFilter.Text);
+        positions.ReportByDescription("");
         TbDescriptionFilter.Text = "";
 
         LbPositionList.DataSource = positions.PositionList;

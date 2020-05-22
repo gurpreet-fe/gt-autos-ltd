@@ -85,8 +85,8 @@ namespace GTAutosClasses
 
         void PopulateArray(clsDataConnection DB)
         {
-            int index = 0;
-            int recordCount;
+            Int32 index = 0;
+            Int32 recordCount;
 
             recordCount = DB.Count;
             mStaffList = new List<ClsStaff>();
@@ -95,14 +95,14 @@ namespace GTAutosClasses
             {
                 ClsStaff member = new ClsStaff();
 
-                member.StaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
-                member.StaffName = Convert.ToString(DB.DataTable.Rows[0]["StaffName"]);
-                member.OfficeCode = Convert.ToInt32(DB.DataTable.Rows[0]["OfficeCode"]);
-                member.PositionID = Convert.ToInt32(DB.DataTable.Rows[0]["PositionID"]);
-                member.ContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
-                member.Address = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                member.HireDate = Convert.ToDateTime(DB.DataTable.Rows[0]["HireDate"]);
-                member.IsEmployed = Convert.ToBoolean(DB.DataTable.Rows[0]["IsEmployed"]);
+                member.StaffID = Convert.ToInt32(DB.DataTable.Rows[index]["StaffID"]);
+                member.StaffName = Convert.ToString(DB.DataTable.Rows[index]["StaffName"]);
+                member.OfficeCode = Convert.ToInt32(DB.DataTable.Rows[index]["OfficeCode"]);
+                member.PositionID = Convert.ToInt32(DB.DataTable.Rows[index]["PositionID"]);
+                member.ContactNumber = Convert.ToString(DB.DataTable.Rows[index]["ContactNumber"]);
+                member.Address = Convert.ToString(DB.DataTable.Rows[index]["Address"]);
+                member.HireDate = Convert.ToDateTime(DB.DataTable.Rows[index]["HireDate"]);
+                member.IsEmployed = Convert.ToBoolean(DB.DataTable.Rows[index]["IsEmployed"]);
 
                 mStaffList.Add(member);
 
